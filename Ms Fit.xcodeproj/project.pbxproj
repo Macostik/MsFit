@@ -11,9 +11,9 @@
 		564A672823FC2F3400D4901A /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672723FC2F3400D4901A /* Dependency.swift */; };
 		564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672A23FC2FB000D4901A /* AppCoordinator.swift */; };
 		564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672C23FC2FD000D4901A /* BaseCoordinator.swift */; };
+		564A673823FC4F0700D4901A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0DE23FC09530052B796 /* Assets.xcassets */; };
 		569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0EF23FC106B0052B796 /* AppDelegate.swift */; };
 		569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F123FC106B0052B796 /* SceneDelegate.swift */; };
-		569FB0F923FC106B0052B796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0F823FC106B0052B796 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +69,15 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		564A673723FC48CE00D4901A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				569FB0E323FC09530052B796 /* Info.plist */,
+				569FB0DE23FC09530052B796 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		569FB0C923FC09500052B796 = {
 			isa = PBXGroup;
 			children = (
@@ -91,12 +100,11 @@
 		569FB0D423FC09500052B796 /* Ms Fit */ = {
 			isa = PBXGroup;
 			children = (
+				564A673723FC48CE00D4901A /* Resources */,
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
 				569FB0D723FC09500052B796 /* SceneDelegate.swift */,
 				564A672923FC2F9500D4901A /* Coordinators */,
 				564A672623FC2F1700D4901A /* CommonClasses */,
-				569FB0DE23FC09530052B796 /* Assets.xcassets */,
-				569FB0E323FC09530052B796 /* Info.plist */,
 			);
 			path = "Ms Fit";
 			sourceTree = "<group>";
@@ -196,7 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569FB0F923FC106B0052B796 /* Assets.xcassets in Resources */,
+				564A673823FC4F0700D4901A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +427,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;
-				INFOPLIST_FILE = "Ms Fit/Info.plist";
+				INFOPLIST_FILE = "Ms Fit/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,7 +449,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;
-				INFOPLIST_FILE = "Ms Fit/Info.plist";
+				INFOPLIST_FILE = "Ms Fit/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
