@@ -10,5 +10,17 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RealmSwift
+import Action
 
-final class SplashSceneViewModel: BaseViewModel<Object> {}
+final class SplashSceneViewModel: BaseViewModel<Int> {
+    
+    public let pushObservable = PublishSubject<Int>()
+    
+    override init(dependencies: Dependency) {
+        super.init(dependencies: dependencies)
+        Observable<Int>.timer(.milliseconds(Constants.splashTimeAnimation),
+                              scheduler: MainScheduler.instance)
+            .subscribe(pushObservable)
+            .disposed(by: disposeBag)
+    }
+}

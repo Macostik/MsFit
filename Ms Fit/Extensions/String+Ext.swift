@@ -122,10 +122,6 @@ extension String {
         return ceil(height)
     }
     
-    public var localized: String {
-        return localized(for: LanguageManager.shared.bundle)
-    }
-    
     public func localized(for bundle: Bundle) -> String {
         return NSLocalizedString(self, bundle: bundle, comment: "")
     }

@@ -12,13 +12,12 @@ import RxCocoa
 
 class SplashSceneViewController: BaseViewController<SplashSceneViewModel> {
     
-    override func setupUI() {
-        
+    private let splashIconImageView = specify(UIImageView()) {
+        $0.image = UIImage(named: "splash_icon")
     }
     
-    override func setupBindings() {
-//        viewModel?.indicatorViewAnimating.drive(<#drive#>),
-//        viewModel?.elements.drive(<#drive#>),
-//        viewModel?.loadError.drive(onNext: {<#drive#>}),
+    override func setupUI() {
+        view.backgroundColor = .systemBackground
+        view.add(splashIconImageView, layoutBlock: { $0.center() })
     }
 }

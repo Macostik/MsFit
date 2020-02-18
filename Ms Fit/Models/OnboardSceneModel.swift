@@ -1,5 +1,5 @@
 //  
-//  SplashSceneModel.swift
+//  OnboardSceneModel.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 18.02.2020.
@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-enum SplashImageList: String, CaseIterable {
+enum ImageList: String, CaseIterable {
     case splash_1
     case splash_2
     case splash_3

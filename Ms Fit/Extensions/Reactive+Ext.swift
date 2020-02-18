@@ -10,14 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-extension Reactive where Base: LanguageManager {
-    var toggle: Binder<Bool> {
-        return Binder(self.base) { langaugeManager, toggle in
-            langaugeManager.locale = toggle ? .ru : .en
-        }
-    }
-}
-
 extension Reactive where Base: UILabel {
     public var select: Binder<Bool> {
         return Binder(self.base) { label, selected in

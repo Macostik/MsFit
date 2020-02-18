@@ -15,11 +15,11 @@ import RxRealm
 
 class BaseViewModel<T> {
 
-    public let dependencies: Dependency
+    public var dependencies: Dependency
     public var elements: Driver<[T]>?
     public let loadError: Driver<Error>
-    public let indicatorViewAnimating: Driver<Bool>
-    public let loadAction: Action<T, T>
+    public var indicatorViewAnimating: Driver<Bool>
+    public var loadAction: Action<T, T>
     
     public let disposeBag = DisposeBag()
     

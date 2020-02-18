@@ -23,7 +23,6 @@
 		564A674E23FC6EE700D4901A /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674D23FC6EE700D4901A /* Environment.swift */; };
 		564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675123FC701600D4901A /* SplashSceneCoordinator.swift */; };
 		564A675623FC701600D4901A /* SplashSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675223FC701600D4901A /* SplashSceneViewController.swift */; };
-		564A675723FC701600D4901A /* SplashSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675323FC701600D4901A /* SplashSceneModel.swift */; };
 		564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675423FC701600D4901A /* SplashSceneViewModel.swift */; };
 		564A676023FC76B100D4901A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675A23FC76B100D4901A /* UIView+Ext.swift */; };
 		564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675B23FC76B100D4901A /* GenericCollection+Ext.swift */; };
@@ -31,6 +30,10 @@
 		564A676323FC76B100D4901A /* Path+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675D23FC76B100D4901A /* Path+Ext.swift */; };
 		564A676423FC76B100D4901A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675E23FC76B100D4901A /* String+Ext.swift */; };
 		564A676523FC76B100D4901A /* Reactive+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675F23FC76B100D4901A /* Reactive+Ext.swift */; };
+		564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676623FC821F00D4901A /* OnboardSceneCoordinator.swift */; };
+		564A676B23FC821F00D4901A /* OnboardSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676723FC821F00D4901A /* OnboardSceneViewController.swift */; };
+		564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676823FC821F00D4901A /* OnboardSceneModel.swift */; };
+		564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */; };
 		569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0EF23FC106B0052B796 /* AppDelegate.swift */; };
 		569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F123FC106B0052B796 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +55,6 @@
 		564A674D23FC6EE700D4901A /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		564A675123FC701600D4901A /* SplashSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneCoordinator.swift; sourceTree = "<group>"; };
 		564A675223FC701600D4901A /* SplashSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneViewController.swift; sourceTree = "<group>"; };
-		564A675323FC701600D4901A /* SplashSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneModel.swift; sourceTree = "<group>"; };
 		564A675423FC701600D4901A /* SplashSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneViewModel.swift; sourceTree = "<group>"; };
 		564A675A23FC76B100D4901A /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		564A675B23FC76B100D4901A /* GenericCollection+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericCollection+Ext.swift"; sourceTree = "<group>"; };
@@ -60,6 +62,10 @@
 		564A675D23FC76B100D4901A /* Path+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+Ext.swift"; sourceTree = "<group>"; };
 		564A675E23FC76B100D4901A /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		564A675F23FC76B100D4901A /* Reactive+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+Ext.swift"; sourceTree = "<group>"; };
+		564A676623FC821F00D4901A /* OnboardSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSceneCoordinator.swift; sourceTree = "<group>"; };
+		564A676723FC821F00D4901A /* OnboardSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSceneViewController.swift; sourceTree = "<group>"; };
+		564A676823FC821F00D4901A /* OnboardSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSceneModel.swift; sourceTree = "<group>"; };
+		564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSceneViewModel.swift; sourceTree = "<group>"; };
 		569FB0D523FC09500052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569FB0D723FC09500052B796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		569FB0DE23FC09530052B796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		564A672923FC2F9500D4901A /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				564A676623FC821F00D4901A /* OnboardSceneCoordinator.swift */,
 				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
 				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
 				564A675123FC701600D4901A /* SplashSceneCoordinator.swift */,
@@ -127,6 +134,7 @@
 			children = (
 				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
 				564A675223FC701600D4901A /* SplashSceneViewController.swift */,
+				564A676723FC821F00D4901A /* OnboardSceneViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
+				564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */,
 				564A675423FC701600D4901A /* SplashSceneViewModel.swift */,
 			);
 			path = ViewModels;
@@ -143,7 +152,7 @@
 		564A673B23FC6DD800D4901A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				564A675323FC701600D4901A /* SplashSceneModel.swift */,
+				564A676823FC821F00D4901A /* OnboardSceneModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,7 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				564A675723FC701600D4901A /* SplashSceneModel.swift in Sources */,
+				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
 				564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */,
@@ -394,9 +403,12 @@
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
+				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
+				564A676B23FC821F00D4901A /* OnboardSceneViewController.swift in Sources */,
 				569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */,
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
+				564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
