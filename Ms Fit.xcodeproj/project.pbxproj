@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -397,17 +397,20 @@
 			baseConfigurationReference = D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 224SJKKLQ3;
+				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = S777YSR9BW;
 				INFOPLIST_FILE = "Ms Fit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.selecto.Ms-Fit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.selecto.MsFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MsFit_Dev_Profile;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -416,17 +419,20 @@
 			baseConfigurationReference = 60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 224SJKKLQ3;
+				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = S777YSR9BW;
 				INFOPLIST_FILE = "Ms Fit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.selecto.Ms-Fit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.selecto.MsFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MsFit_Dev_Profile;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
