@@ -12,14 +12,42 @@
 		564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672A23FC2FB000D4901A /* AppCoordinator.swift */; };
 		564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672C23FC2FD000D4901A /* BaseCoordinator.swift */; };
 		564A673823FC4F0700D4901A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0DE23FC09530052B796 /* Assets.xcassets */; };
+		564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A673D23FC6E4600D4901A /* SlimLogglyDestination.swift */; };
+		564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A673E23FC6E4600D4901A /* SlimLogglyDestinationConfig.swift */; };
+		564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A673F23FC6E4700D4901A /* SlimLogger.swift */; };
+		564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674023FC6E4700D4901A /* SlimLoggerConfig.swift */; };
+		564A674623FC6E4700D4901A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674123FC6E4700D4901A /* Logger.swift */; };
+		564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674723FC6E6E00D4901A /* BaseViewController.swift */; };
+		564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674923FC6E9800D4901A /* BaseViewModel.swift */; };
+		564A674C23FC6ECE00D4901A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674B23FC6ECE00D4901A /* Constants.swift */; };
+		564A674E23FC6EE700D4901A /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A674D23FC6EE700D4901A /* Environment.swift */; };
+		564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675123FC701600D4901A /* SplashSceneCoordinator.swift */; };
+		564A675623FC701600D4901A /* SplashSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675223FC701600D4901A /* SplashSceneViewController.swift */; };
+		564A675723FC701600D4901A /* SplashSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675323FC701600D4901A /* SplashSceneModel.swift */; };
+		564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A675423FC701600D4901A /* SplashSceneViewModel.swift */; };
 		569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0EF23FC106B0052B796 /* AppDelegate.swift */; };
 		569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F123FC106B0052B796 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0246DC5AC07BDDF4EDE91CC9 /* Pods-Ms Fit.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.dev.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.dev.xcconfig"; sourceTree = "<group>"; };
+		446EC7B18DD8760A775FF0E1 /* Pods-Ms Fit.stg.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.stg.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.stg.xcconfig"; sourceTree = "<group>"; };
 		564A672723FC2F3400D4901A /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		564A672A23FC2FB000D4901A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		564A672C23FC2FD000D4901A /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		564A673D23FC6E4600D4901A /* SlimLogglyDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogglyDestination.swift; sourceTree = "<group>"; };
+		564A673E23FC6E4600D4901A /* SlimLogglyDestinationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogglyDestinationConfig.swift; sourceTree = "<group>"; };
+		564A673F23FC6E4700D4901A /* SlimLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLogger.swift; sourceTree = "<group>"; };
+		564A674023FC6E4700D4901A /* SlimLoggerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimLoggerConfig.swift; sourceTree = "<group>"; };
+		564A674123FC6E4700D4901A /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		564A674723FC6E6E00D4901A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		564A674923FC6E9800D4901A /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		564A674B23FC6ECE00D4901A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		564A674D23FC6EE700D4901A /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		564A675123FC701600D4901A /* SplashSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneCoordinator.swift; sourceTree = "<group>"; };
+		564A675223FC701600D4901A /* SplashSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneViewController.swift; sourceTree = "<group>"; };
+		564A675323FC701600D4901A /* SplashSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneModel.swift; sourceTree = "<group>"; };
+		564A675423FC701600D4901A /* SplashSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashSceneViewModel.swift; sourceTree = "<group>"; };
 		569FB0D523FC09500052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569FB0D723FC09500052B796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		569FB0DE23FC09530052B796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +66,7 @@
 		BFEB41F12DD59CA113815205 /* Pods_MsFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MsFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB4914EF072C0E6AB6D6E38 /* Pods-MsFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsFit.release.xcconfig"; path = "Target Support Files/Pods-MsFit/Pods-MsFit.release.xcconfig"; sourceTree = "<group>"; };
 		D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.debug.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.debug.xcconfig"; sourceTree = "<group>"; };
+		FC96423BC9095C9F1B61E56C /* Pods-Ms Fit.prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.prod.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.prod.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				564A672723FC2F3400D4901A /* Dependency.swift */,
+				564A674B23FC6ECE00D4901A /* Constants.swift */,
+				564A674D23FC6EE700D4901A /* Environment.swift */,
 			);
 			path = CommonClasses;
 			sourceTree = "<group>";
@@ -65,6 +96,7 @@
 			children = (
 				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
 				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
+				564A675123FC701600D4901A /* SplashSceneCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -76,6 +108,44 @@
 				569FB0DE23FC09530052B796 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		564A673923FC6DAD00D4901A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
+				564A675223FC701600D4901A /* SplashSceneViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		564A673A23FC6DD000D4901A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
+				564A675423FC701600D4901A /* SplashSceneViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		564A673B23FC6DD800D4901A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				564A675323FC701600D4901A /* SplashSceneModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		564A673C23FC6E1300D4901A /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				564A674123FC6E4700D4901A /* Logger.swift */,
+				564A673F23FC6E4700D4901A /* SlimLogger.swift */,
+				564A674023FC6E4700D4901A /* SlimLoggerConfig.swift */,
+				564A673D23FC6E4600D4901A /* SlimLogglyDestination.swift */,
+				564A673E23FC6E4600D4901A /* SlimLogglyDestinationConfig.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		569FB0C923FC09500052B796 = {
@@ -100,11 +170,15 @@
 		569FB0D423FC09500052B796 /* Ms Fit */ = {
 			isa = PBXGroup;
 			children = (
-				564A673723FC48CE00D4901A /* Resources */,
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
 				569FB0D723FC09500052B796 /* SceneDelegate.swift */,
 				564A672923FC2F9500D4901A /* Coordinators */,
 				564A672623FC2F1700D4901A /* CommonClasses */,
+				564A673723FC48CE00D4901A /* Resources */,
+				564A673B23FC6DD800D4901A /* Models */,
+				564A673C23FC6E1300D4901A /* Logger */,
+				564A673923FC6DAD00D4901A /* Views */,
+				564A673A23FC6DD000D4901A /* ViewModels */,
 			);
 			path = "Ms Fit";
 			sourceTree = "<group>";
@@ -130,6 +204,9 @@
 				CAB4914EF072C0E6AB6D6E38 /* Pods-MsFit.release.xcconfig */,
 				D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */,
 				60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */,
+				0246DC5AC07BDDF4EDE91CC9 /* Pods-Ms Fit.dev.xcconfig */,
+				446EC7B18DD8760A775FF0E1 /* Pods-Ms Fit.stg.xcconfig */,
+				FC96423BC9095C9F1B61E56C /* Pods-Ms Fit.prod.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -275,8 +352,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564A675723FC701600D4901A /* SplashSceneModel.swift in Sources */,
+				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
+				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
+				564A675623FC701600D4901A /* SplashSceneViewController.swift in Sources */,
+				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
+				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
+				564A674E23FC6EE700D4901A /* Environment.swift in Sources */,
 				564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */,
+				564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */,
+				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
+				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */,
+				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
+				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
+				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */,
@@ -305,7 +395,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		569FB0E423FC09530052B796 /* Debug */ = {
+		564A674F23FC6FD300D4901A /* PROD */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = PROD;
+		};
+		564A675023FC6FD300D4901A /* PROD */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC96423BC9095C9F1B61E56C /* Pods-Ms Fit.prod.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = S777YSR9BW;
+				ENV = PROD;
+				INFOPLIST_FILE = "Ms Fit/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.selecto.MsFit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MsFit_Dev_Profile;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = PROD;
+		};
+		569FB0E423FC09530052B796 /* DEV */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -363,9 +530,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = DEV;
 		};
-		569FB0E523FC09530052B796 /* Release */ = {
+		569FB0E523FC09530052B796 /* STG */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -417,16 +584,17 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = STG;
 		};
-		569FB0FF23FC106B0052B796 /* Debug */ = {
+		569FB0FF23FC106B0052B796 /* DEV */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */;
+			baseConfigurationReference = 0246DC5AC07BDDF4EDE91CC9 /* Pods-Ms Fit.dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;
+				ENV = DEV;
 				INFOPLIST_FILE = "Ms Fit/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -439,16 +607,17 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = DEV;
 		};
-		569FB10023FC106B0052B796 /* Release */ = {
+		569FB10023FC106B0052B796 /* STG */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */;
+			baseConfigurationReference = 446EC7B18DD8760A775FF0E1 /* Pods-Ms Fit.stg.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;
+				ENV = STG;
 				INFOPLIST_FILE = "Ms Fit/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,7 +630,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = STG;
 		};
 /* End XCBuildConfiguration section */
 
@@ -469,20 +638,22 @@
 		569FB0CD23FC09500052B796 /* Build configuration list for PBXProject "Ms Fit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				569FB0E423FC09530052B796 /* Debug */,
-				569FB0E523FC09530052B796 /* Release */,
+				569FB0E423FC09530052B796 /* DEV */,
+				569FB0E523FC09530052B796 /* STG */,
+				564A674F23FC6FD300D4901A /* PROD */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = STG;
 		};
 		569FB0FE23FC106B0052B796 /* Build configuration list for PBXNativeTarget "Ms Fit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				569FB0FF23FC106B0052B796 /* Debug */,
-				569FB10023FC106B0052B796 /* Release */,
+				569FB0FF23FC106B0052B796 /* DEV */,
+				569FB10023FC106B0052B796 /* STG */,
+				564A675023FC6FD300D4901A /* PROD */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = STG;
 		};
 /* End XCConfigurationList section */
 	};

@@ -33,8 +33,6 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
@@ -71,5 +69,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>Environment</key>
+	<string>${ENV}</string>
 </dict>
 </plist>

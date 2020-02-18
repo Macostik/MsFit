@@ -11,8 +11,8 @@ import Foundation
 
 class AppCoordinator: BaseSceneCoordinator<Void> {
     
-//    override func start() -> Observable<Void> {
-//        let splashCoordinator = SplashSceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: splashCoordinator)
-//    }
+    override func start() -> Observable<Void> {
+        let splashCoordinator = SplashSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: splashCoordinator)
+    }
 }
