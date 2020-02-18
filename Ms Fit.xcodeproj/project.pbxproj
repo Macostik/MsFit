@@ -8,21 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		447F9F9A4B1B46F88172EBF4 /* Pods_Ms_Fit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */; };
+		564A672823FC2F3400D4901A /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672723FC2F3400D4901A /* Dependency.swift */; };
+		564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672A23FC2FB000D4901A /* AppCoordinator.swift */; };
+		564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672C23FC2FD000D4901A /* BaseCoordinator.swift */; };
 		569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0EF23FC106B0052B796 /* AppDelegate.swift */; };
 		569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F123FC106B0052B796 /* SceneDelegate.swift */; };
-		569FB0F423FC106B0052B796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F323FC106B0052B796 /* ViewController.swift */; };
-		569FB0F723FC106B0052B796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0F523FC106B0052B796 /* Main.storyboard */; };
 		569FB0F923FC106B0052B796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0F823FC106B0052B796 /* Assets.xcassets */; };
-		569FB0FC23FC106B0052B796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0FA23FC106B0052B796 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		564A672723FC2F3400D4901A /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		564A672A23FC2FB000D4901A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		564A672C23FC2FD000D4901A /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		569FB0D523FC09500052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569FB0D723FC09500052B796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		569FB0D923FC09500052B796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		569FB0DC23FC09500052B796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		569FB0DE23FC09530052B796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		569FB0E123FC09530052B796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		569FB0E323FC09530052B796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		569FB0ED23FC106B0052B796 /* Ms Fit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ms Fit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569FB0EF23FC106B0052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +52,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		564A672623FC2F1700D4901A /* CommonClasses */ = {
+			isa = PBXGroup;
+			children = (
+				564A672723FC2F3400D4901A /* Dependency.swift */,
+			);
+			path = CommonClasses;
+			sourceTree = "<group>";
+		};
+		564A672923FC2F9500D4901A /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
+				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		569FB0C923FC09500052B796 = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +93,9 @@
 			children = (
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
 				569FB0D723FC09500052B796 /* SceneDelegate.swift */,
-				569FB0D923FC09500052B796 /* ViewController.swift */,
-				569FB0DB23FC09500052B796 /* Main.storyboard */,
+				564A672923FC2F9500D4901A /* Coordinators */,
+				564A672623FC2F1700D4901A /* CommonClasses */,
 				569FB0DE23FC09530052B796 /* Assets.xcassets */,
-				569FB0E023FC09530052B796 /* LaunchScreen.storyboard */,
 				569FB0E323FC09530052B796 /* Info.plist */,
 			);
 			path = "Ms Fit";
@@ -131,6 +147,7 @@
 				569FB0EA23FC106B0052B796 /* Frameworks */,
 				569FB0EB23FC106B0052B796 /* Resources */,
 				B6D1F37FADB63ADE53F9C209 /* [CP] Embed Pods Frameworks */,
+				564A672523FC2DE000D4901A /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -179,9 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569FB0FC23FC106B0052B796 /* LaunchScreen.storyboard in Resources */,
 				569FB0F923FC106B0052B796 /* Assets.xcassets in Resources */,
-				569FB0F723FC106B0052B796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +225,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		564A672523FC2DE000D4901A /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		B6D1F37FADB63ADE53F9C209 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569FB0F423FC106B0052B796 /* ViewController.swift in Sources */,
+				564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */,
 				569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */,
+				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
+				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,22 +278,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		569FB0DB23FC09500052B796 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				569FB0DC23FC09500052B796 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		569FB0E023FC09530052B796 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				569FB0E123FC09530052B796 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		569FB0F523FC106B0052B796 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
