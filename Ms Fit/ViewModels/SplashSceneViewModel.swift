@@ -9,5 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
-final class SplashSceneViewModel: BaseViewModel<SplashSceneModel> {}
+final class SplashSceneViewModel: BaseViewModel<Object> {}

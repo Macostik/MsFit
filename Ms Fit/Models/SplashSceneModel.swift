@@ -9,11 +9,9 @@
 import UIKit
 import RealmSwift
 
-final class SplashSceneModel: Object {
-    
-    @objc dynamic public var id = 0
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
+enum SplashImageList: String, CaseIterable {
+    case splash_1
+    case splash_2
+    case splash_3
+    case splash_4
 }

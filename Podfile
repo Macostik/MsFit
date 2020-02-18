@@ -13,6 +13,7 @@ target 'Ms Fit' do
   pod 'SwiftLint'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
+  pod 'FSPagerView'
 
   # Pods for Ms Fit
 
