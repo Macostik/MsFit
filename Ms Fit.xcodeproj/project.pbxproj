@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		022CC12725D7CBFE0ED69641 /* Pods_MsFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEB41F12DD59CA113815205 /* Pods_MsFit.framework */; };
-		569FB0D623FC09500052B796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D523FC09500052B796 /* AppDelegate.swift */; };
-		569FB0D823FC09500052B796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
-		569FB0DA23FC09500052B796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D923FC09500052B796 /* ViewController.swift */; };
-		569FB0DD23FC09500052B796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0DB23FC09500052B796 /* Main.storyboard */; };
-		569FB0DF23FC09530052B796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0DE23FC09530052B796 /* Assets.xcassets */; };
-		569FB0E223FC09530052B796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0E023FC09530052B796 /* LaunchScreen.storyboard */; };
+		447F9F9A4B1B46F88172EBF4 /* Pods_Ms_Fit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */; };
+		569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0EF23FC106B0052B796 /* AppDelegate.swift */; };
+		569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F123FC106B0052B796 /* SceneDelegate.swift */; };
+		569FB0F423FC106B0052B796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0F323FC106B0052B796 /* ViewController.swift */; };
+		569FB0F723FC106B0052B796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0F523FC106B0052B796 /* Main.storyboard */; };
+		569FB0F923FC106B0052B796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0F823FC106B0052B796 /* Assets.xcassets */; };
+		569FB0FC23FC106B0052B796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569FB0FA23FC106B0052B796 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		569FB0D223FC09500052B796 /* Ms Fit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ms Fit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569FB0D523FC09500052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569FB0D723FC09500052B796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		569FB0D923FC09500052B796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,17 +24,28 @@
 		569FB0DE23FC09530052B796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		569FB0E123FC09530052B796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		569FB0E323FC09530052B796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		569FB0ED23FC106B0052B796 /* Ms Fit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ms Fit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		569FB0EF23FC106B0052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		569FB0F123FC106B0052B796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		569FB0F323FC106B0052B796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		569FB0F623FC106B0052B796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		569FB0F823FC106B0052B796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		569FB0FB23FC106B0052B796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		569FB0FD23FC106B0052B796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.release.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.release.xcconfig"; sourceTree = "<group>"; };
+		B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ms_Fit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFF97769BFC20927A0D0BA5 /* Pods-MsFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsFit.debug.xcconfig"; path = "Target Support Files/Pods-MsFit/Pods-MsFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFEB41F12DD59CA113815205 /* Pods_MsFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MsFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB4914EF072C0E6AB6D6E38 /* Pods-MsFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsFit.release.xcconfig"; path = "Target Support Files/Pods-MsFit/Pods-MsFit.release.xcconfig"; sourceTree = "<group>"; };
+		D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.debug.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		569FB0CF23FC09500052B796 /* Frameworks */ = {
+		569FB0EA23FC106B0052B796 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				022CC12725D7CBFE0ED69641 /* Pods_MsFit.framework in Frameworks */,
+				447F9F9A4B1B46F88172EBF4 /* Pods_Ms_Fit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +55,8 @@
 		569FB0C923FC09500052B796 = {
 			isa = PBXGroup;
 			children = (
-				569FB0D423FC09500052B796 /* MsFit */,
+				569FB0D423FC09500052B796 /* Ms Fit */,
+				569FB0EE23FC106B0052B796 /* Ms Fit */,
 				569FB0D323FC09500052B796 /* Products */,
 				6802EBD8A54E9A8820EAE12B /* Pods */,
 				CE58255C615D5C473C95407B /* Frameworks */,
@@ -55,12 +66,12 @@
 		569FB0D323FC09500052B796 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				569FB0D223FC09500052B796 /* Ms Fit.app */,
+				569FB0ED23FC106B0052B796 /* Ms Fit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		569FB0D423FC09500052B796 /* MsFit */ = {
+		569FB0D423FC09500052B796 /* Ms Fit */ = {
 			isa = PBXGroup;
 			children = (
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
@@ -71,7 +82,21 @@
 				569FB0E023FC09530052B796 /* LaunchScreen.storyboard */,
 				569FB0E323FC09530052B796 /* Info.plist */,
 			);
-			path = MsFit;
+			path = "Ms Fit";
+			sourceTree = "<group>";
+		};
+		569FB0EE23FC106B0052B796 /* Ms Fit */ = {
+			isa = PBXGroup;
+			children = (
+				569FB0EF23FC106B0052B796 /* AppDelegate.swift */,
+				569FB0F123FC106B0052B796 /* SceneDelegate.swift */,
+				569FB0F323FC106B0052B796 /* ViewController.swift */,
+				569FB0F523FC106B0052B796 /* Main.storyboard */,
+				569FB0F823FC106B0052B796 /* Assets.xcassets */,
+				569FB0FA23FC106B0052B796 /* LaunchScreen.storyboard */,
+				569FB0FD23FC106B0052B796 /* Info.plist */,
+			);
+			path = "Ms Fit";
 			sourceTree = "<group>";
 		};
 		6802EBD8A54E9A8820EAE12B /* Pods */ = {
@@ -79,8 +104,9 @@
 			children = (
 				BBFF97769BFC20927A0D0BA5 /* Pods-MsFit.debug.xcconfig */,
 				CAB4914EF072C0E6AB6D6E38 /* Pods-MsFit.release.xcconfig */,
+				D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */,
+				60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				BFEB41F12DD59CA113815205 /* Pods_MsFit.framework */,
+				B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,23 +122,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		569FB0D123FC09500052B796 /* MsFit */ = {
+		569FB0EC23FC106B0052B796 /* Ms Fit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 569FB0E623FC09530052B796 /* Build configuration list for PBXNativeTarget "MsFit" */;
+			buildConfigurationList = 569FB0FE23FC106B0052B796 /* Build configuration list for PBXNativeTarget "Ms Fit" */;
 			buildPhases = (
-				66BFF3A5FCB58BE23C767723 /* [CP] Check Pods Manifest.lock */,
-				569FB0CE23FC09500052B796 /* Sources */,
-				569FB0CF23FC09500052B796 /* Frameworks */,
-				569FB0D023FC09500052B796 /* Resources */,
-				964EAE87FD015685B93A1F64 /* [CP] Embed Pods Frameworks */,
+				3FB25315D46CAB7DBF7F0858 /* [CP] Check Pods Manifest.lock */,
+				569FB0E923FC106B0052B796 /* Sources */,
+				569FB0EA23FC106B0052B796 /* Frameworks */,
+				569FB0EB23FC106B0052B796 /* Resources */,
+				B6D1F37FADB63ADE53F9C209 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MsFit;
-			productName = MsFit;
-			productReference = 569FB0D223FC09500052B796 /* Ms Fit.app */;
+			name = "Ms Fit";
+			productName = "Ms Fit";
+			productReference = 569FB0ED23FC106B0052B796 /* Ms Fit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -124,12 +151,12 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Selecto;
 				TargetAttributes = {
-					569FB0D123FC09500052B796 = {
+					569FB0EC23FC106B0052B796 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 569FB0CD23FC09500052B796 /* Build configuration list for PBXProject "MsFit" */;
+			buildConfigurationList = 569FB0CD23FC09500052B796 /* Build configuration list for PBXProject "Ms Fit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -142,26 +169,26 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				569FB0D123FC09500052B796 /* MsFit */,
+				569FB0EC23FC106B0052B796 /* Ms Fit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		569FB0D023FC09500052B796 /* Resources */ = {
+		569FB0EB23FC106B0052B796 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569FB0E223FC09530052B796 /* LaunchScreen.storyboard in Resources */,
-				569FB0DF23FC09530052B796 /* Assets.xcassets in Resources */,
-				569FB0DD23FC09500052B796 /* Main.storyboard in Resources */,
+				569FB0FC23FC106B0052B796 /* LaunchScreen.storyboard in Resources */,
+				569FB0F923FC106B0052B796 /* Assets.xcassets in Resources */,
+				569FB0F723FC106B0052B796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		66BFF3A5FCB58BE23C767723 /* [CP] Check Pods Manifest.lock */ = {
+		3FB25315D46CAB7DBF7F0858 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -176,40 +203,40 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MsFit-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Ms Fit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		964EAE87FD015685B93A1F64 /* [CP] Embed Pods Frameworks */ = {
+		B6D1F37FADB63ADE53F9C209 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MsFit/Pods-MsFit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Ms Fit/Pods-Ms Fit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MsFit/Pods-MsFit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Ms Fit/Pods-Ms Fit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MsFit/Pods-MsFit-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ms Fit/Pods-Ms Fit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		569FB0CE23FC09500052B796 /* Sources */ = {
+		569FB0E923FC106B0052B796 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569FB0DA23FC09500052B796 /* ViewController.swift in Sources */,
-				569FB0D623FC09500052B796 /* AppDelegate.swift in Sources */,
-				569FB0D823FC09500052B796 /* SceneDelegate.swift in Sources */,
+				569FB0F423FC106B0052B796 /* ViewController.swift in Sources */,
+				569FB0F023FC106B0052B796 /* AppDelegate.swift in Sources */,
+				569FB0F223FC106B0052B796 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +255,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				569FB0E123FC09530052B796 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		569FB0F523FC106B0052B796 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				569FB0F623FC106B0052B796 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		569FB0FA23FC106B0052B796 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				569FB0FB23FC106B0052B796 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -349,41 +392,39 @@
 			};
 			name = Release;
 		};
-		569FB0E723FC09530052B796 /* Debug */ = {
+		569FB0FF23FC106B0052B796 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBFF97769BFC20927A0D0BA5 /* Pods-MsFit.debug.xcconfig */;
+			baseConfigurationReference = D68177979EA115C25289B381 /* Pods-Ms Fit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = MsFit/Info.plist;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 224SJKKLQ3;
+				INFOPLIST_FILE = "Ms Fit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.selecto.MsFit;
-				PRODUCT_NAME = "Ms Fit";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.selecto.Ms-Fit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		569FB0E823FC09530052B796 /* Release */ = {
+		569FB10023FC106B0052B796 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CAB4914EF072C0E6AB6D6E38 /* Pods-MsFit.release.xcconfig */;
+			baseConfigurationReference = 60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = MsFit/Info.plist;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 224SJKKLQ3;
+				INFOPLIST_FILE = "Ms Fit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.selecto.MsFit;
-				PRODUCT_NAME = "Ms Fit";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.selecto.Ms-Fit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -392,7 +433,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		569FB0CD23FC09500052B796 /* Build configuration list for PBXProject "MsFit" */ = {
+		569FB0CD23FC09500052B796 /* Build configuration list for PBXProject "Ms Fit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				569FB0E423FC09530052B796 /* Debug */,
@@ -401,11 +442,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		569FB0E623FC09530052B796 /* Build configuration list for PBXNativeTarget "MsFit" */ = {
+		569FB0FE23FC106B0052B796 /* Build configuration list for PBXNativeTarget "Ms Fit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				569FB0E723FC09530052B796 /* Debug */,
-				569FB0E823FC09530052B796 /* Release */,
+				569FB0FF23FC106B0052B796 /* Debug */,
+				569FB10023FC106B0052B796 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

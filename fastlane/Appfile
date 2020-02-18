@@ -1,0 +1,11 @@
+
+app_identifier("com.selecto.MsFit") # The bundle identifier of your app
+apple_id("y.granchenko@gmail.com") # Your Apple email address
+
+itc_team_id("1236788855") # iTunes Connect Team ID
+team_id("S777YSR9BW") # Developer Portal Team ID
+
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

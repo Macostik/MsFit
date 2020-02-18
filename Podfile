@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
-target 'MsFit' do
+target 'Ms Fit' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
@@ -14,6 +14,6 @@ target 'MsFit' do
   pod 'SwiftyJSON'
   pod 'SDWebImage'
 
-  # Pods for MsFit
+  # Pods for Ms Fit
 
 end
