@@ -37,6 +37,11 @@
 		AC61F5F523FD571B00AFCA9A /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F5F423FD571B00AFCA9A /* UIButton+Ext.swift */; };
 		AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
 		AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D523FC09500052B796 /* AppDelegate.swift */; };
+		AC92B4A323FD8D3400A7E99B /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92B4A223FD8D3400A7E99B /* UILabel+Ext.swift */; };
+		ACEFE8D023FD798C0049960B /* SignInSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */; };
+		ACEFE8D123FD798C0049960B /* SignInSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */; };
+		ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */; };
+		ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +79,11 @@
 		569FB0ED23FC106B0052B796 /* Ms Fit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ms Fit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.release.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.release.xcconfig"; sourceTree = "<group>"; };
 		AC61F5F423FD571B00AFCA9A /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		AC92B4A223FD8D3400A7E99B /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneCoordinator.swift; path = "Ms Fit/SignInSceneCoordinator.swift"; sourceTree = SOURCE_ROOT; };
+		ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewController.swift; path = "Ms Fit/Views/SignInSceneViewController.swift"; sourceTree = SOURCE_ROOT; };
+		ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneModel.swift; path = "Ms Fit/Models/SignInSceneModel.swift"; sourceTree = SOURCE_ROOT; };
+		ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewModel.swift; path = "Ms Fit/ViewModels/SignInSceneViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ms_Fit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFF97769BFC20927A0D0BA5 /* Pods-MsFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsFit.debug.xcconfig"; path = "Target Support Files/Pods-MsFit/Pods-MsFit.debug.xcconfig"; sourceTree = "<group>"; };
 		BFEB41F12DD59CA113815205 /* Pods_MsFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MsFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +121,7 @@
 				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
 				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
 				564A675123FC701600D4901A /* SplashSceneCoordinator.swift */,
+				ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -130,6 +141,7 @@
 				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
 				564A675223FC701600D4901A /* SplashSceneViewController.swift */,
 				564A676723FC821F00D4901A /* OnboardSceneViewController.swift */,
+				ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +152,7 @@
 				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
 				564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */,
 				564A675423FC701600D4901A /* SplashSceneViewModel.swift */,
+				ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				564A676823FC821F00D4901A /* OnboardSceneModel.swift */,
+				ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +188,7 @@
 				564A675E23FC76B100D4901A /* String+Ext.swift */,
 				564A675A23FC76B100D4901A /* UIView+Ext.swift */,
 				AC61F5F423FD571B00AFCA9A /* UIButton+Ext.swift */,
+				AC92B4A223FD8D3400A7E99B /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
+				AC92B4A323FD8D3400A7E99B /* UILabel+Ext.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
 				564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */,
@@ -382,6 +398,7 @@
 				564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */,
 				AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */,
 				564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */,
+				ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */,
 				564A676523FC76B100D4901A /* Reactive+Ext.swift in Sources */,
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
@@ -390,12 +407,15 @@
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
 				564A676B23FC821F00D4901A /* OnboardSceneViewController.swift in Sources */,
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
+				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
 				564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
+				ACEFE8D123FD798C0049960B /* SignInSceneViewController.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
+				ACEFE8D023FD798C0049960B /* SignInSceneCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

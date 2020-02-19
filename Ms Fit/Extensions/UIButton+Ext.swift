@@ -17,7 +17,7 @@ extension UIButton {
         layer.cornerRadius = cornerR
         layer.shadowColor = shadowColor?.cgColor
         layer.shadowRadius = 4
-        layer.shadowOpacity = 0.4
+        layer.shadowOpacity = 0.6
         layer.shadowOffset = CGSize(width: 0, height: 3)
         backgroundColor = bgColor
     }

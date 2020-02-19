@@ -11,4 +11,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-final class OnboardSceneViewModel: BaseViewModel<Object> {}
+final class OnboardSceneViewModel: BaseViewModel<Object> {
+    
+    public var signInObserver = PublishSubject<Void>()
+}

@@ -19,7 +19,7 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
         $0.contentHorizontalAlignment = .center
     })
     
-    private let loginButton = specify(UIButton(type: .roundedRect), {
+    private let signInButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         $0.setTitle("Login", for: .normal)
         $0.setTitleColor(.black, for: .normal)
@@ -31,6 +31,7 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     
     override func setupUI() {
         addPagerVeiw()
+        addConstraints()
     }
     
     override func setupBindings() {
@@ -42,15 +43,21 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
                     self.startButton.transform = .identity
                 }
             }).disposed(by: disposeBag)
+        
+        signInButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel?.signInObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
 }
 
 extension OnboardSceneViewController {
     
     fileprivate func addPagerVeiw() {
-        startButton.customButton(text: "Start", cornerR: 56/2, font: 20,
-                                 weight: .bold, shadowColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), bgColor: #colorLiteral(red: 0.5019607843, green: 0.3333333333, blue: 0.8705882353, alpha: 1))
         view.backgroundColor = .systemBackground
+        pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        startButton.customButton(text: "Start", cornerR: 64/2, font: 20, weight: .bold,
+                                 shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
@@ -61,13 +68,16 @@ extension OnboardSceneViewController {
         pageControl.setFillColor(UIColor.systemBackground, for: .selected)
         pageControl.setPath(.init(ovalIn: .init(x: -1, y: -2, width: 12, height: 12)), for: .selected)
         pageControl.setPath(.init(ovalIn: .init(x: 0, y: 0, width: 8, height: 8)), for: .normal)
+    }
+    
+    fileprivate func addConstraints() {
         verticalStackView.addArrangedSubview(startButton)
-        verticalStackView.addArrangedSubview(loginButton)
-        startButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        verticalStackView.addArrangedSubview(signInButton)
+        startButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
-        pagerView.add(verticalStackView, layoutBlock: { $0.bottom(20).leading(16).trailing(16) })
-        view.add(pageControl, layoutBlock: { $0.centerX(-9).bottomTop(-50, to: verticalStackView) })
+        pagerView.add(verticalStackView, layoutBlock: { $0.bottom(14).leading(16).trailing(16) })
+        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottomTop(-45, to: verticalStackView) })
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -108,11 +118,11 @@ class ImageCell: FSPagerViewCell {
     private let topLabel = specify(UILabel(), {
         $0.text = "Activity Program"
         $0.textColor = UIColor.systemBackground
-        $0.font = UIFont.boldSystemFont(ofSize: 30)
+        $0.font = UIFont.boldSystemFont(ofSize: 34)
     })
     
     private let bottomLabel = specify(UILabel(), {
-        $0.text = "Be the girl who decided decided \ndecided to go for it!"
+        $0.setLineHeight("Be the girl who decided decided \ndecided to go for it!", lineHeight: 5.0)
         $0.textColor = UIColor.systemBackground
         $0.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         $0.textAlignment = .center
@@ -129,7 +139,7 @@ class ImageCell: FSPagerViewCell {
         add(splashImageView, layoutBlock: { $0.top().leading().trailing().bottom(140) })
         verticalStackView.addArrangedSubview(topLabel)
         verticalStackView.addArrangedSubview(bottomLabel)
-        splashImageView.add(verticalStackView, layoutBlock: { $0.leading(50).trailing(50).bottom(60) })
+        splashImageView.add(verticalStackView, layoutBlock: { $0.leading(50).trailing(50).bottom(80) })
         splashImageView.image = UIImage(named: entry.rawValue)
         topLabel.text = entry.description()
     }
@@ -139,3 +149,4 @@ class ImageCell: FSPagerViewCell {
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
+

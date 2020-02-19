@@ -23,6 +23,4 @@ struct Constants {
     static let groupId = ""
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
-    static let leadingGrad = UIColor(red: 0.561, green: 0.361, blue: 0.91, alpha: 1)
-    static let trailingGrad = UIColor(red: 0.502, green: 0.333, blue: 0.871, alpha: 1)
 }
