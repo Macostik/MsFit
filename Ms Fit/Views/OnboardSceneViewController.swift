@@ -56,7 +56,7 @@ extension OnboardSceneViewController {
     fileprivate func addPagerVeiw() {
         view.backgroundColor = .systemBackground
         pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        startButton.customButton(text: "Start", cornerR: 64/2, font: 20, weight: .bold,
+        startButton.customButton(text: "Start", cornerR: 66/2, font: 20, weight: .bold,
                                  shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
         pagerView.dataSource = self
         pagerView.delegate = self
@@ -73,11 +73,11 @@ extension OnboardSceneViewController {
     fileprivate func addConstraints() {
         verticalStackView.addArrangedSubview(startButton)
         verticalStackView.addArrangedSubview(signInButton)
-        startButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        startButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
         pagerView.add(verticalStackView, layoutBlock: { $0.bottom(14).leading(16).trailing(16) })
-        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottomTop(-45, to: verticalStackView) })
+        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottomTop(-60, to: verticalStackView) })
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -136,7 +136,7 @@ class ImageCell: FSPagerViewCell {
     })
     
     public func setup(entry: ImageList) {
-        add(splashImageView, layoutBlock: { $0.top().leading().trailing().bottom(140) })
+        add(splashImageView, layoutBlock: { $0.top().leading().trailing().bottom(150) })
         verticalStackView.addArrangedSubview(topLabel)
         verticalStackView.addArrangedSubview(bottomLabel)
         splashImageView.add(verticalStackView, layoutBlock: { $0.leading(50).trailing(50).bottom(80) })

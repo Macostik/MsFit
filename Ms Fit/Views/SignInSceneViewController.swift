@@ -43,7 +43,7 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.setImage(UIImage(named: "instagram"), for: .normal)
         $0.tintColor = .systemBackground
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Sign in with Instagram", cornerR: 64/2, font: 20, weight: .regular,
+        $0.customButton(text: "Sign in with Instagram", cornerR: 66/2, font: 20, weight: .regular,
                         shadowColor: UIColor(named: "instagramColor")!, bgColor: UIColor(named: "instagramColor")!)
     })
     
@@ -53,7 +53,7 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.setImage(UIImage(named: "twitter"), for: .normal)
         $0.tintColor = .systemBackground
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Sign in with Twitter", cornerR: 64/2, font: 20, weight: .regular,
+        $0.customButton(text: "Sign in with Twitter", cornerR: 66/2, font: 20, weight: .regular,
                         shadowColor: UIColor(named: "twitterColor")!, bgColor: UIColor(named: "twitterColor")!)
     })
     
@@ -63,7 +63,7 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.setImage(UIImage(named: "email"), for: .normal)
         $0.tintColor = .systemBackground
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Sign in with Email", cornerR: 64/2, font: 20, weight: .regular,
+        $0.customButton(text: "Sign in with Email", cornerR: 66/2, font: 20, weight: .regular,
                         shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
     })
     
@@ -90,11 +90,11 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     
     fileprivate func addConstraints() {
         view.add(closeButton, layoutBlock: { $0.top(33).leading(16).size(44) })
-        view.add(verStackView, layoutBlock: { $0.center().leading(20).trailing(20) })
+        view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(20).trailing(20) })
         view.add(horStackView, layoutBlock: { $0.centerX().bottomTop(-20, to: verStackView) })
-        instagramButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        twitterButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        emailButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        instagramButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
+        twitterButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
+        emailButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
     }
     
     
