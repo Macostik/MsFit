@@ -14,4 +14,17 @@ enum ImageList: String, CaseIterable {
     case splash_2
     case splash_3
     case splash_4
+    
+    func description() -> String {
+        switch self {
+        case .splash_1:
+            return ("Coach for You")
+        case .splash_2:
+            return ("Activity Program")
+        case .splash_3:
+            return ("Personal Diet")
+        case .splash_4:
+            return ("Progress monitoring")
+        }
+    }
 }

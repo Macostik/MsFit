@@ -14,34 +14,69 @@ import FSPagerView
 class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     
     private let pagerView = FSPagerView()
-    public let pageControl: FSPageControl = {
-        let page = FSPageControl()
-        page.contentHorizontalAlignment = .center
-        return page
-    }()
+    private var startButton = UIButton(type: .roundedRect)
+    public let pageControl = specify(FSPageControl(), {
+        $0.contentHorizontalAlignment = .center
+    })
+    
+    private let loginButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        $0.setTitle("Login", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+    })
+    
+    private let verticalStackView = specify(UIStackView(), {
+        $0.axis = .vertical
+    })
     
     override func setupUI() {
-        view.backgroundColor = .systemBackground
-        
-        pagerView.dataSource = self
-        //        pagerView.itemSize = UIScreen.main.bounds
-        pagerView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
-        pageControl.numberOfPages = ImageList.allCases.count
-        pageControl.setStrokeColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        pageControl.setFillColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .selected)
-        pageControl.setAlpha(alpha: 0.5, animated: true)
-        view.add(pagerView, layoutBlock: { $0.edges() })
-        view.add(pageControl, layoutBlock: { $0.width(100).height(30).centerX().bottom(130)})
+        addPagerVeiw()
     }
     
     override func setupBindings() {
-        //        viewModel?.indicatorViewAnimating.drive(<#drive#>),
-        //        viewModel?.elements.drive(<#drive#>),
-        //        viewModel?.loadError.drive(onNext: {<#drive#>}),
+        startButton.rx.tap
+            .subscribe(onNext: { _ in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.startButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                }) { complition in
+                    self.startButton.transform = .identity
+                }
+            }).disposed(by: disposeBag)
+    }
+}
+
+extension OnboardSceneViewController {
+    
+    fileprivate func addPagerVeiw() {
+        startButton.customButton(text: "Start", cornerR: 56/2, font: 20,
+                                 weight: .bold, shadowColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), bgColor: #colorLiteral(red: 0.5019607843, green: 0.3333333333, blue: 0.8705882353, alpha: 1))
+        view.backgroundColor = .systemBackground
+        pagerView.dataSource = self
+        pagerView.delegate = self
+        pagerView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
+        pageControl.interitemSpacing = 15
+        pagerView.bounces = false
+        pageControl.numberOfPages = ImageList.allCases.count
+        pageControl.setFillColor(UIColor.systemBackground.withAlphaComponent(0.3), for: .normal)
+        pageControl.setFillColor(UIColor.systemBackground, for: .selected)
+        pageControl.setPath(.init(ovalIn: .init(x: -1, y: -2, width: 12, height: 12)), for: .selected)
+        pageControl.setPath(.init(ovalIn: .init(x: 0, y: 0, width: 8, height: 8)), for: .normal)
+        verticalStackView.addArrangedSubview(startButton)
+        verticalStackView.addArrangedSubview(loginButton)
+        startButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        view.add(pagerView, layoutBlock: { $0.edges() })
+        pagerView.add(verticalStackView, layoutBlock: { $0.bottom(20).leading(16).trailing(16) })
+        view.add(pageControl, layoutBlock: { $0.centerX(-9).bottomTop(-50, to: verticalStackView) })
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        true
     }
 }
 
 extension OnboardSceneViewController: FSPagerViewDataSource {
+    
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return ImageList.allCases.count
     }
@@ -49,9 +84,16 @@ extension OnboardSceneViewController: FSPagerViewDataSource {
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: ImageCell.identifier,
                                                  at: index) as! ImageCell
-        let entry = ImageList.allCases[index].rawValue
+        let entry = ImageList.allCases[index]
         cell.setup(entry: entry)
         return cell
+    }
+}
+
+extension OnboardSceneViewController: FSPagerViewDelegate {
+    
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+        pageControl.currentPage = targetIndex
     }
 }
 
@@ -59,13 +101,37 @@ class ImageCell: FSPagerViewCell {
     
     static let identifier = "ImageCell"
     
-    let splashImageView = specify(UIImageView(), {
+    private let splashImageView = specify(UIImageView(), {
         $0.contentMode = .scaleToFill
     })
     
-    public func setup(entry: String) {
-        add(splashImageView, layoutBlock: { $0.edges() })
-        splashImageView.image = UIImage(named: entry)
+    private let topLabel = specify(UILabel(), {
+        $0.text = "Activity Program"
+        $0.textColor = UIColor.systemBackground
+        $0.font = UIFont.boldSystemFont(ofSize: 30)
+    })
+    
+    private let bottomLabel = specify(UILabel(), {
+        $0.text = "Be the girl who decided decided \ndecided to go for it!"
+        $0.textColor = UIColor.systemBackground
+        $0.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        $0.textAlignment = .center
+        $0.numberOfLines = 0
+    })
+    
+    private let verticalStackView = specify(UIStackView(), {
+        $0.spacing = 10
+        $0.alignment = .center
+        $0.axis = .vertical
+    })
+    
+    public func setup(entry: ImageList) {
+        add(splashImageView, layoutBlock: { $0.top().leading().trailing().bottom(140) })
+        verticalStackView.addArrangedSubview(topLabel)
+        verticalStackView.addArrangedSubview(bottomLabel)
+        splashImageView.add(verticalStackView, layoutBlock: { $0.leading(50).trailing(50).bottom(60) })
+        splashImageView.image = UIImage(named: entry.rawValue)
+        topLabel.text = entry.description()
     }
     
     override init(frame: CGRect) {

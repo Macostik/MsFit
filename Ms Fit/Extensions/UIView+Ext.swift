@@ -175,8 +175,21 @@ extension UIView {
         gradientView.colors = [topColor.cgColor, bottomColor.cgColor]
         gradientView.locations = [0.0, 1.0]
         gradientView.frame = self.frame
+        gradientView.startPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientView.endPoint = CGPoint(x: 0.0, y: 0.0)
         self.layer.insertSublayer(gradientView, at: 0)
     }
+    
+    @discardableResult
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
+
     
     var imageRendered: UIImage? {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
