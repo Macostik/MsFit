@@ -12,14 +12,11 @@ import RxCocoa
 
 class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     
+    private let emailImageView = UIImageView(image: #imageLiteral(resourceName: "login_email"))
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .semibold)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "xmark", withConfiguration: mediumConfiguration)?
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
-    })
-    
-    private let emailImageView = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "login_email")
     })
     
     private let verTFStackView = specify(UIStackView(), {
@@ -88,6 +85,13 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             .map({ _ in })
             .bind(to: viewModel!.dismiss)
             .disposed(by: disposeBag)
+        
+        startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
+        startWorkoutButton.rx.tap
+            .subscribe(onNext: {
+                //do something
+            }).disposed(by: disposeBag)
+        
         forgotPasswordButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.viewModel!.presentForgotPassScreen.onNext(())

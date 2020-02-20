@@ -40,13 +40,10 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     }
     
     override func setupBindings() {
+        startButton.animateWhenPressed(disposeBag: disposeBag)
         startButton.rx.tap
             .subscribe(onNext: { _ in
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.startButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                }) { complition in
-                    self.startButton.transform = .identity
-                }
+                // do something
             }).disposed(by: disposeBag)
         
         signInButton.rx.tap

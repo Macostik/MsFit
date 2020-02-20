@@ -68,16 +68,23 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
             .map({ _ in })
             .bind(to: viewModel!.dismiss)
             .disposed(by: disposeBag)
+        
+        emailButton.animateWhenPressed(disposeBag: disposeBag)
         emailButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                UIView.animate(withDuration: 0.1, animations: {
-                    self?.emailButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                    self?.viewModel!.presentLoginScreen.onNext(())
-                }) { complition in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                        self?.emailButton.transform = .identity
-                    })
-                }
+                self?.viewModel!.presentLoginScreen.onNext(())
+            }).disposed(by: disposeBag)
+        
+        instagramButton.animateWhenPressed(disposeBag: disposeBag)
+        instagramButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                //do something
+            }).disposed(by: disposeBag)
+        
+        twitterButton.animateWhenPressed(disposeBag: disposeBag)
+        twitterButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                //do something
             }).disposed(by: disposeBag)
     }
     
