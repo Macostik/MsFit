@@ -12,5 +12,6 @@ import RxCocoa
 
 final class SignInSceneViewModel: BaseViewModel<SignInSceneModel> {
     
+    public var presentLoginScreen = PublishSubject<Void>()
     public var dismiss = PublishSubject<Void>()
 }

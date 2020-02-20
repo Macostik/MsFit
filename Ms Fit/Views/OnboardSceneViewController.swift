@@ -14,9 +14,14 @@ import FSPagerView
 class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     
     private let pagerView = FSPagerView()
-    private var startButton = UIButton(type: .roundedRect)
+    
     public let pageControl = specify(FSPageControl(), {
         $0.contentHorizontalAlignment = .center
+    })
+    
+    private var startButton = specify(UIButton(type: .roundedRect), {
+        $0.customButton(text: "Start", cornerR: 66/2, font: 20, weight: .bold,
+                        shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
     })
     
     private let signInButton = specify(UIButton(type: .roundedRect), {
@@ -56,8 +61,6 @@ extension OnboardSceneViewController {
     fileprivate func addPagerVeiw() {
         view.backgroundColor = .systemBackground
         pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        startButton.customButton(text: "Start", cornerR: 66/2, font: 20, weight: .bold,
-                                 shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
@@ -76,7 +79,7 @@ extension OnboardSceneViewController {
         startButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
-        pagerView.add(verticalStackView, layoutBlock: { $0.bottom(14).leading(16).trailing(16) })
+        pagerView.add(verticalStackView, layoutBlock: { $0.bottom(14).leading(20).trailing(20) })
         pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottomTop(-60, to: verticalStackView) })
     }
     

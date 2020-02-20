@@ -23,4 +23,5 @@ struct Constants {
     static let groupId = ""
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
+    static let screenHeight812 = UIScreen.main.bounds.height >= 812
 }

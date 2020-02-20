@@ -10,4 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class LoginSceneViewModel: BaseViewModel<LoginSceneModel> {}
+final class LoginSceneViewModel: BaseViewModel<LoginSceneModel> {
+    
+    public var dismiss = PublishSubject<Void>()
+    
+}
