@@ -176,6 +176,7 @@
 				564A676723FC821F00D4901A /* OnboardSceneViewController.swift */,
 				564A675223FC701600D4901A /* SplashSceneViewController.swift */,
 				ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */,
+				ACCED1C323FE8D2E000EB2DB /* Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,7 +263,6 @@
 				564A673B23FC6DD800D4901A /* Models */,
 				564A673C23FC6E1300D4901A /* Logger */,
 				564A673923FC6DAD00D4901A /* Views */,
-				ACCED1C323FE8D2E000EB2DB /* Views */,
 				564A673A23FC6DD000D4901A /* ViewModels */,
 			);
 			path = "Ms Fit";
@@ -321,8 +321,7 @@
 				ACCED1C523FE8DA3000EB2DB /* Button.swift */,
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
 			);
-			name = Views;
-			path = Views/Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE58255C615D5C473C95407B /* Frameworks */ = {

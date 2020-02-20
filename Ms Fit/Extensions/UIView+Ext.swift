@@ -190,7 +190,6 @@ extension UIView {
         return gradient
     }
 
-    
     var imageRendered: UIImage? {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in layer.render(in: rendererContext.cgContext) }

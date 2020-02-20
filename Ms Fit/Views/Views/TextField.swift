@@ -32,7 +32,7 @@ final class TextField: UITextField {
         willSet {
             if let text = placeholder, let font = font, let color = newValue , !text.isEmpty {
                 attributedPlaceholder = NSMutableAttributedString(string: text, attributes:
-                    [NSAttributedString.Key.foregroundColor : color, NSAttributedString.Key.font : font])
+                    [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
             }
         }
     }

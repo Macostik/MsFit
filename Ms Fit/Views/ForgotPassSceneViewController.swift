@@ -22,8 +22,8 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     private let sendRecoverInfoButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Send Recover Info", cornerR: 66/2, font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
+        $0.customButton(text: "Send Recover Info", font: 20, weight: .regular,
+                        shadowColor: UIColor(named: "purpleColor1"), bgColor: UIColor(named: "purpleColor1"))
     })
     
     private let emailTextField = specify(TextField(), {
@@ -41,7 +41,7 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     private let verStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.distribution = .fillEqually
-        $0.spacing = 40
+        $0.spacing = Constants.screenHeight667 ? 80 : 60
     })
     
     override func setupUI() {
@@ -56,17 +56,27 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
             .disposed(by: disposeBag)
         
         sendRecoverInfoButton.animateWhenPressed(disposeBag: disposeBag)
+        sendRecoverInfoButton.rx.tap
+            .subscribe(onNext: { _ in
+                //do something
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: { $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44) })
+        view.add(closeButton, layoutBlock: {
+            $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44)
+        })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 140 : 100).centerX().width(100).height(85)
+            $0.top(Constants.screenHeight812 ? 100 : 40).centerX()
+                .width(Constants.screenHeight / 7).height(Constants.screenHeight / 9)
         })
         verStackView.addArrangedSubview(emailTextField)
         verStackView.addArrangedSubview(sendRecoverInfoButton)
-        sendRecoverInfoButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
-        view.add(verStackView, layoutBlock: { $0.leading(20).trailing(20).topBottom(45, to: emailImageView) })
+        sendRecoverInfoButton.heightAnchor.constraint(equalToConstant:
+            Constants.screenWidth / 5.5).isActive = true
+        view.add(verStackView, layoutBlock: {
+            $0.leading(20).trailing(20).bottom(Constants.screenHeight812 ? 350 : 250)
+        })
     }
     
     fileprivate func handleUI() {

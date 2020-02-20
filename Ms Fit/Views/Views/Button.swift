@@ -92,7 +92,7 @@ class Button: UIButton {
         willSet {
             if loading != newValue {
                 if newValue == true {
-                    let spinner = UIActivityIndicatorView(style: .white)
+                    let spinner = UIActivityIndicatorView(style: .large)
                     spinner.color = spinnerColor ?? titleColor(for: UIControl.State())
                     var spinnerSuperView: UIView = self
                     let contentWidth = sizeThatFits(size).width
@@ -238,11 +238,11 @@ extension UIButton {
         isUserInteractionEnabled = active
     }
     
-    public func customButton(text: String, cornerR: CGFloat, font: CGFloat, weight: UIFont.Weight, shadowColor: UIColor? = nil, bgColor: UIColor) {
+    public func customButton(text: String, font: CGFloat, weight: UIFont.Weight,
+                             shadowColor: UIColor? = nil, bgColor: UIColor? = nil) {
         setTitle(text, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: font, weight: weight)
         tintColor = .systemBackground
-        layer.cornerRadius = cornerR
         layer.shadowColor = shadowColor?.cgColor
         layer.shadowRadius = 4
         layer.shadowOpacity = 0.6
@@ -254,7 +254,8 @@ extension UIButton {
         let pressDownTransform = rx.controlEvent([.touchDown, .touchDragEnter])
             .map({ CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95) })
         
-        let pressUpTransform = rx.controlEvent([.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
+        let pressUpTransform = rx.controlEvent([.touchDragExit, .touchCancel,
+                                                .touchUpInside, .touchUpOutside])
             .map({ CGAffineTransform.identity })
         
         Observable.merge(pressDownTransform, pressUpTransform)

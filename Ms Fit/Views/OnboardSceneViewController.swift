@@ -20,8 +20,9 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     })
     
     private var startButton = specify(UIButton(type: .roundedRect), {
-        $0.customButton(text: "Start", cornerR: 66/2, font: 20, weight: .bold,
-                        shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
+        $0.customButton(text: "Start", font: 20, weight: .bold,
+                        shadowColor: UIColor(named: "purpleColor1"),
+                        bgColor: UIColor(named: "purpleColor1"))
     })
     
     private let signInButton = specify(UIButton(type: .roundedRect), {
@@ -73,11 +74,13 @@ extension OnboardSceneViewController {
     fileprivate func addConstraints() {
         verticalStackView.addArrangedSubview(startButton)
         verticalStackView.addArrangedSubview(signInButton)
-        startButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
+        startButton.heightAnchor.constraint(equalToConstant: Constants.screenWidth / 5.5).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
-        pagerView.add(verticalStackView, layoutBlock: { $0.bottom(14).leading(20).trailing(20) })
-        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottomTop(-60, to: verticalStackView) })
+        pagerView.add(verticalStackView, layoutBlock: {
+            $0.bottom(Constants.screenHeight812 ? 20 : 0).leading(20).trailing(20)
+        })
+        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottom(Constants.screenHeight / 3.9) })
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -136,10 +139,14 @@ class ImageCell: FSPagerViewCell {
     })
     
     public func setup(entry: ImageList) {
-        add(splashImageView, layoutBlock: { $0.top().leading().trailing().bottom(150) })
+        add(splashImageView, layoutBlock: {
+            $0.top().leading().trailing().bottom(Constants.screenHeight / 4.7)
+        })
         verticalStackView.addArrangedSubview(topLabel)
         verticalStackView.addArrangedSubview(bottomLabel)
-        splashImageView.add(verticalStackView, layoutBlock: { $0.leading(50).trailing(50).bottom(80) })
+        splashImageView.add(verticalStackView, layoutBlock: {
+            $0.leading(50).trailing(50).bottom(Constants.screenHeight812 ? 80 : 50)
+        })
         splashImageView.image = UIImage(named: entry.rawValue)
         topLabel.text = entry.description()
     }
@@ -149,4 +156,3 @@ class ImageCell: FSPagerViewCell {
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
-

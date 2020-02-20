@@ -27,6 +27,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     
     private let verForButtonStackView = specify(UIStackView(), {
         $0.axis = .vertical
+        $0.spacing = 10
         $0.distribution = .fillEqually
     })
     
@@ -65,8 +66,9 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private let startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Start Workout", cornerR: 66/2, font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "purpleColor1")!, bgColor: UIColor(named: "purpleColor1")!)
+        $0.customButton(text: "Start Workout", font: 20, weight: .regular,
+                        shadowColor: UIColor(named: "purpleColor1"),
+                        bgColor: UIColor(named: "purpleColor1")!)
     })
     
     private let forgotPasswordButton = specify(UIButton(type: .roundedRect), {
@@ -105,20 +107,25 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     fileprivate func addConstraints() {
         view.add(closeButton, layoutBlock: {$0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44) })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 120 : 60).centerX().width(100).height(85)
+            $0.top(Constants.screenHeight812 ? 100 : 40).centerX()
+                .width(Constants.screenHeight / 7).height(Constants.screenHeight / 9)
         })
         containerLoginView.add(loginTextField, layoutBlock: { $0.edges() })
         containerPasswordView.add(passwordTextField, layoutBlock: { $0.edges() })
         verTFStackView.addArrangedSubview(containerLoginView)
         verTFStackView.addArrangedSubview(passwordTextField)
-        containerLoginView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        containerPasswordView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        view.add(verTFStackView, layoutBlock: { $0.leading(20).trailing(20).topBottom(30, to: emailImageView) })
+        containerLoginView.heightAnchor.constraint(equalToConstant: Constants.screenWidth / 6).isActive = true
+        view.add(verTFStackView, layoutBlock: {
+            $0.leading(20).trailing(20)
+                .topBottom(Constants.screenHeight812 ? 25 : Constants.screenHeight667 ? 20 : 0,
+                           to: emailImageView)
+        })
         verForButtonStackView.addArrangedSubview(startWorkoutButton)
         verForButtonStackView.addArrangedSubview(forgotPasswordButton)
-        startWorkoutButton.heightAnchor.constraint(equalToConstant: 66).isActive = true
+        startWorkoutButton.heightAnchor.constraint(equalToConstant:
+            Constants.screenWidth / 5.5).isActive = true
         view.add(verForButtonStackView, layoutBlock: {
-            $0.centerX().leading(20).trailing(20).topBottom(30, to: verTFStackView)
+            $0.leading(20).trailing(20).bottom(Constants.screenHeight812 ? 280 : 200)
         })
     }
     
