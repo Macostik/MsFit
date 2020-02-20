@@ -2,7 +2,7 @@
 //  LoginSceneViewController.swift
 //  Ms Fit
 //
-//  Created by Maxim Granchenko on 20.02.2020.
+//  Created by Yura Granchenko on 20.02.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -83,7 +83,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     override func setupBindings() {
         closeButton.rx.tap
             .map({ _ in })
-            .bind(to: viewModel!.dismiss)
+            .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
         startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
@@ -94,7 +94,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         
         forgotPasswordButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                self?.viewModel!.presentForgotPassScreen.onNext(())
+                self?.viewModel!.presentForgotPassObserver.onNext(())
             }).disposed(by: disposeBag)
     }
     
@@ -103,7 +103,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: {$0.top(Constants.screenHeight812 ? 33 : 20).leading(20).size(44) })
+        view.add(closeButton, layoutBlock: {$0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44) })
         view.add(emailImageView, layoutBlock: {
             $0.top(Constants.screenHeight812 ? 120 : 60).centerX().width(100).height(85)
         })

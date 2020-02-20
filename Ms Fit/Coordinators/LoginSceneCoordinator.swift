@@ -2,7 +2,7 @@
 //  LoginSceneCoordinator.swift
 //  Ms Fit
 //
-//  Created by Maxim Granchenko on 20.02.2020.
+//  Created by Yura Granchenko on 20.02.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -18,11 +18,11 @@ class LoginSceneCoordinator: BaseSceneCoordinator<Void> {
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
-        viewModel.presentForgotPassScreen.subscribe(onNext: { [weak self] _ in
+        viewModel.presentForgotPassObserver.subscribe(onNext: { [weak self] _ in
             self?.presentForgotPassScene()
         }).disposed(by: disposeBag)
         
-        viewModel.dismiss.subscribe(onNext: {_ in
+        viewModel.dismissObserver.subscribe(onNext: {_ in
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         

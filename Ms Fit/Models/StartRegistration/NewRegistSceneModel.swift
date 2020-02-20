@@ -1,5 +1,5 @@
 //  
-//  ForgotPassSceneModel.swift
+//  NewRegistSceneModel.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 20.02.2020.
@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-final class ForgotPassSceneModel: Object {
+final class NewRegistSceneModel: Object {
     
     @objc dynamic public var id = 0
     

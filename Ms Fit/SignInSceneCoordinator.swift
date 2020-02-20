@@ -18,11 +18,11 @@ class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
-        viewModel.dismiss.subscribe(onNext: { _ in
+        viewModel.dismissObserver.subscribe(onNext: { _ in
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
-        viewModel.presentLoginScreen.subscribe(onNext: { [weak self] _ in
+        viewModel.presentLoginScreenObserver.subscribe(onNext: { [weak self] _ in
             self?.presentLoginScene()
         }).disposed(by: disposeBag)
         

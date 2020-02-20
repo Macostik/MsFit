@@ -1,8 +1,8 @@
 //
 //  BezierPath+Ext.swift
-//  OneSpace
+//  Ms Fit
 //
-//  Created by Гранченко Максим on 1/23/19.
+//  Created by Yura Granchenko on 1/23/19.
 //  Copyright © 2019 Simcord. All rights reserved.
 //
 

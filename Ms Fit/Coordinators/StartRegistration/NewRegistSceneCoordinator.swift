@@ -1,5 +1,5 @@
 //  
-//  ForgotPassSceneCoordinator.swift
+//  NewRegistSceneCoordinator.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 20.02.2020.
@@ -10,15 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ForgotPassSceneCoordinator: BaseSceneCoordinator<Void> {
+class NewRegistSceneCoordinator: BaseSceneCoordinator<Void> {
     
     override func start() -> Observable<Void> {
-        let viewModel = ForgotPassSceneViewModel(dependencies: dependencies)
-        let viewController = ForgotPassSceneViewController.instantiate(with: viewModel)
+        let viewModel = NewRegistSceneViewModel(dependencies: dependencies)
+        let viewController = NewRegistSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
-        viewModel.dismissObserver.subscribe(onNext: { _ in
+        viewModel.dismissObservable.subscribe(onNext: { _ in
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         

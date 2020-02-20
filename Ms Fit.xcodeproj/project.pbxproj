@@ -34,6 +34,10 @@
 		564A676B23FC821F00D4901A /* OnboardSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676723FC821F00D4901A /* OnboardSceneViewController.swift */; };
 		564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676823FC821F00D4901A /* OnboardSceneModel.swift */; };
 		564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */; };
+		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
+		AC12E32123FEBDFE007343A5 /* NewRegistSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */; };
+		AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */; };
+		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
 		AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */; };
 		AC4A783923FE7412003DD917 /* LoginSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */; };
 		AC4A783A23FE7412003DD917 /* LoginSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783623FE7412003DD917 /* LoginSceneModel.swift */; };
@@ -88,6 +92,10 @@
 		569FB0E323FC09530052B796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		569FB0ED23FC106B0052B796 /* Ms Fit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ms Fit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.release.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.release.xcconfig"; sourceTree = "<group>"; };
+		AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewController.swift; sourceTree = "<group>"; };
+		AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneModel.swift; sourceTree = "<group>"; };
+		AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewModel.swift; sourceTree = "<group>"; };
 		AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewController.swift; sourceTree = "<group>"; };
 		AC4A783623FE7412003DD917 /* LoginSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneModel.swift; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 		564A672923FC2F9500D4901A /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				AC12E31A23FEBD95007343A5 /* StartRegistration */,
 				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
 				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
 				ACCED1C823FEA713000EB2DB /* ForgotPassSceneCoordinator.swift */,
@@ -160,7 +169,7 @@
 		564A673923FC6DAD00D4901A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACCED1C323FE8D2E000EB2DB /* Views */,
+				AC12E31823FEBD81007343A5 /* StartRegistration */,
 				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
 				AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */,
 				ACCED1C923FEA713000EB2DB /* ForgotPassSceneViewController.swift */,
@@ -174,6 +183,7 @@
 		564A673A23FC6DD000D4901A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AC12E31B23FEBD9A007343A5 /* StartRegistration */,
 				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
 				AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */,
 				ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */,
@@ -187,6 +197,7 @@
 		564A673B23FC6DD800D4901A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC12E31923FEBD91007343A5 /* StartRegistration */,
 				564A676823FC821F00D4901A /* OnboardSceneModel.swift */,
 				AC4A783623FE7412003DD917 /* LoginSceneModel.swift */,
 				ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */,
@@ -251,6 +262,7 @@
 				564A673B23FC6DD800D4901A /* Models */,
 				564A673C23FC6E1300D4901A /* Logger */,
 				564A673923FC6DAD00D4901A /* Views */,
+				ACCED1C323FE8D2E000EB2DB /* Views */,
 				564A673A23FC6DD000D4901A /* ViewModels */,
 			);
 			path = "Ms Fit";
@@ -270,6 +282,38 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AC12E31823FEBD81007343A5 /* StartRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */,
+			);
+			path = StartRegistration;
+			sourceTree = "<group>";
+		};
+		AC12E31923FEBD91007343A5 /* StartRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */,
+			);
+			path = StartRegistration;
+			sourceTree = "<group>";
+		};
+		AC12E31A23FEBD95007343A5 /* StartRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */,
+			);
+			path = StartRegistration;
+			sourceTree = "<group>";
+		};
+		AC12E31B23FEBD9A007343A5 /* StartRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */,
+			);
+			path = StartRegistration;
+			sourceTree = "<group>";
+		};
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +321,8 @@
 				ACCED1C523FE8DA3000EB2DB /* Button.swift */,
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
 			);
-			path = Views;
+			name = Views;
+			path = Views/Views;
 			sourceTree = "<group>";
 		};
 		CE58255C615D5C473C95407B /* Frameworks */ = {
@@ -421,8 +466,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC12E32123FEBDFE007343A5 /* NewRegistSceneViewController.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
+				AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */,
+				AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
 				AC4A783A23FE7412003DD917 /* LoginSceneModel.swift in Sources */,
@@ -445,6 +493,7 @@
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */,
+				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
 				564A676B23FC821F00D4901A /* OnboardSceneViewController.swift in Sources */,

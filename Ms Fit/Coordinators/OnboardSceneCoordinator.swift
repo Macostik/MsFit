@@ -22,6 +22,10 @@ class OnboardSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentSignInScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentNewRegistObservable.subscribe(onNext: { [weak self] _ in
+            self?.presentNewRegistScene()
+            }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -29,4 +33,10 @@ class OnboardSceneCoordinator: BaseSceneCoordinator<Void> {
         let signInCoordinator = SignInSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: signInCoordinator)
     }
+    
+    @discardableResult private func presentNewRegistScene() -> Observable<Void> {
+        let newRegistCoordinator = NewRegistSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: newRegistCoordinator)
+    }
+    
 }

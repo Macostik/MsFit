@@ -2,7 +2,7 @@
 //  LoginSceneViewModel.swift
 //  Ms Fit
 //
-//  Created by Maxim Granchenko on 20.02.2020.
+//  Created by Yura Granchenko on 20.02.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import RxCocoa
 
 final class LoginSceneViewModel: BaseViewModel<LoginSceneModel> {
     
-    public let presentForgotPassScreen = PublishSubject<Void>()
-    public var dismiss = PublishSubject<Void>()
+    public let presentForgotPassObserver = PublishSubject<Void>()
+    public var dismissObserver = PublishSubject<Void>()
     
 }

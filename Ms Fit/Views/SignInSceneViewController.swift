@@ -66,13 +66,13 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     override func setupBindings() {
         closeButton.rx.tap
             .map({ _ in })
-            .bind(to: viewModel!.dismiss)
+            .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
         emailButton.animateWhenPressed(disposeBag: disposeBag)
         emailButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                self?.viewModel!.presentLoginScreen.onNext(())
+                self?.viewModel!.presentLoginScreenObserver.onNext(())
             }).disposed(by: disposeBag)
         
         instagramButton.animateWhenPressed(disposeBag: disposeBag)
@@ -98,7 +98,7 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: { $0.top(Constants.screenHeight812 ? 33 : 20).leading(20).size(44)})
+        view.add(closeButton, layoutBlock: { $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44)})
         view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(20).trailing(20) })
         view.add(horStackView, layoutBlock: { $0.centerX().bottomTop(-20, to: verStackView) })
         instagramButton.heightAnchor.constraint(equalToConstant: 66).isActive = true

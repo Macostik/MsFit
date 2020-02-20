@@ -1,6 +1,6 @@
 //
 //  NSLayoutConstraint+Ext.swift
-//  FisherMan
+//  Ms Fit
 //
 //  Created by Yura Granchenko on 17.11.2019.
 //  Copyright © 2019 GYS. All rights reserved.

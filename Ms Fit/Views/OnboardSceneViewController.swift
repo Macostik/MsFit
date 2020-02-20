@@ -42,8 +42,8 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     override func setupBindings() {
         startButton.animateWhenPressed(disposeBag: disposeBag)
         startButton.rx.tap
-            .subscribe(onNext: { _ in
-                // do something
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel?.presentNewRegistObservable.onNext(())
             }).disposed(by: disposeBag)
         
         signInButton.rx.tap

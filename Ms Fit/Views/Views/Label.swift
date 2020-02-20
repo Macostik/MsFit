@@ -1,9 +1,9 @@
 //
 //  Label.swift
-//  OneSpace
+//  Ms Fit
 //
-//  Created by Гранченко Максим on 1/24/19.
-//  Copyright © 2019 Simcord. All rights reserved.
+//  Created by Yura Granchenko on 18.02.2020.
+//  Copyright © 2020 Selecto. All rights reserved.
 //
 
 import UIKit

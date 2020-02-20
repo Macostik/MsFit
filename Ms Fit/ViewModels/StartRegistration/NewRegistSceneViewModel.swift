@@ -1,5 +1,5 @@
 //  
-//  ForgotPassSceneViewModel.swift
+//  NewRegistSceneViewModel.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 20.02.2020.
@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class ForgotPassSceneViewModel: BaseViewModel<ForgotPassSceneModel> {
+final class NewRegistSceneViewModel: BaseViewModel<NewRegistSceneModel> {
     
-    public var dismissObserver = PublishSubject<Void>()
+    public let dismissObservable = PublishSubject<Void>()
 }

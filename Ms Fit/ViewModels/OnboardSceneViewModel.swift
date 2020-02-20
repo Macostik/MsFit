@@ -13,5 +13,6 @@ import RealmSwift
 
 final class OnboardSceneViewModel: BaseViewModel<Object> {
     
-    public var signInObserver = PublishSubject<Void>()
+    public let presentNewRegistObservable = PublishSubject<Void>()
+    public let signInObserver = PublishSubject<Void>()
 }
