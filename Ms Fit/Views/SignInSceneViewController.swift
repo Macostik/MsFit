@@ -38,7 +38,6 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     })
     
     private let instagramButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setImage(UIImage(named: "instagram"), for: .normal)
         $0.tintColor = .systemBackground
@@ -48,7 +47,6 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     })
     
     private let twitterButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setImage(UIImage(named: "twitter"), for: .normal)
         $0.tintColor = .systemBackground
@@ -58,7 +56,6 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     })
     
     private let emailButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setImage(UIImage(named: "email"), for: .normal)
         $0.tintColor = .systemBackground
