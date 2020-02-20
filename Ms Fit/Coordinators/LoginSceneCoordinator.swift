@@ -18,6 +18,10 @@ class LoginSceneCoordinator: BaseSceneCoordinator<Void> {
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
+        viewModel.presentForgotPassScreen.subscribe(onNext: { [weak self] _ in
+            self?.presentForgotPassScene()
+        }).disposed(by: disposeBag)
+        
         viewModel.dismiss.subscribe(onNext: {_ in
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
@@ -25,8 +29,8 @@ class LoginSceneCoordinator: BaseSceneCoordinator<Void> {
         return Observable.just(())
     }
     
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
-//    }
+    @discardableResult private func presentForgotPassScene() -> Observable<Void> {
+        let forgotCoordinator = ForgotPassSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: forgotCoordinator)
+    }
 }
