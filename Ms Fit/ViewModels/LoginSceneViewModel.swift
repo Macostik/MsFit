@@ -12,6 +12,7 @@ import RxCocoa
 
 final class LoginSceneViewModel: BaseViewModel<LoginSceneModel> {
     
+    public let presentForgotPassScreen = PublishSubject<Void>()
     public var dismiss = PublishSubject<Void>()
     
 }

@@ -44,6 +44,10 @@
 		ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */; };
 		ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C423FE8DA2000EB2DB /* Label.swift */; };
 		ACCED1C723FE8DA3000EB2DB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C523FE8DA3000EB2DB /* Button.swift */; };
+		ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C823FEA713000EB2DB /* ForgotPassSceneCoordinator.swift */; };
+		ACCED1CD23FEA713000EB2DB /* ForgotPassSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C923FEA713000EB2DB /* ForgotPassSceneViewController.swift */; };
+		ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */; };
+		ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */; };
 		ACEFE8D023FD798C0049960B /* SignInSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */; };
 		ACEFE8D123FD798C0049960B /* SignInSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */; };
 		ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */; };
@@ -92,6 +96,10 @@
 		ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierPath+Ext.swift"; sourceTree = "<group>"; };
 		ACCED1C423FE8DA2000EB2DB /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		ACCED1C523FE8DA3000EB2DB /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		ACCED1C823FEA713000EB2DB /* ForgotPassSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACCED1C923FEA713000EB2DB /* ForgotPassSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneViewController.swift; sourceTree = "<group>"; };
+		ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneModel.swift; sourceTree = "<group>"; };
+		ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneViewModel.swift; sourceTree = "<group>"; };
 		ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneCoordinator.swift; path = "Ms Fit/SignInSceneCoordinator.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewController.swift; path = "Ms Fit/Views/SignInSceneViewController.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneModel.swift; path = "Ms Fit/Models/SignInSceneModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -129,10 +137,11 @@
 		564A672923FC2F9500D4901A /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				564A676623FC821F00D4901A /* OnboardSceneCoordinator.swift */,
 				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
 				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
+				ACCED1C823FEA713000EB2DB /* ForgotPassSceneCoordinator.swift */,
 				AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */,
+				564A676623FC821F00D4901A /* OnboardSceneCoordinator.swift */,
 				564A675123FC701600D4901A /* SplashSceneCoordinator.swift */,
 				ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */,
 			);
@@ -154,6 +163,7 @@
 				ACCED1C323FE8D2E000EB2DB /* Views */,
 				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
 				AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */,
+				ACCED1C923FEA713000EB2DB /* ForgotPassSceneViewController.swift */,
 				564A676723FC821F00D4901A /* OnboardSceneViewController.swift */,
 				564A675223FC701600D4901A /* SplashSceneViewController.swift */,
 				ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */,
@@ -166,6 +176,7 @@
 			children = (
 				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
 				AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */,
+				ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */,
 				564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */,
 				564A675423FC701600D4901A /* SplashSceneViewModel.swift */,
 				ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */,
@@ -178,6 +189,7 @@
 			children = (
 				564A676823FC821F00D4901A /* OnboardSceneModel.swift */,
 				AC4A783623FE7412003DD917 /* LoginSceneModel.swift */,
+				ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */,
 				ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */,
 			);
 			path = Models;
@@ -409,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
@@ -438,11 +451,14 @@
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
 				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
+				ACCED1CD23FEA713000EB2DB /* ForgotPassSceneViewController.swift in Sources */,
 				564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				AC4A783923FE7412003DD917 /* LoginSceneViewController.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
+				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
+				ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */,
 				ACEFE8D123FD798C0049960B /* SignInSceneViewController.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */,
