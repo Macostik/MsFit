@@ -209,16 +209,6 @@ class Button: UIButton {
     }
 }
 
-final class SegmentButton: Button {
-    
-    override var isHighlighted: Bool {
-        set { }
-        get {
-            return super.isHighlighted
-        }
-    }
-}
-
 final class PressButton: Button {
     
     override func defaultHighlightedColor() -> UIColor {
@@ -248,6 +238,7 @@ extension UIButton {
         layer.shadowOpacity = 0.6
         layer.shadowOffset = CGSize(width: 0, height: 3)
         backgroundColor = bgColor
+        layer.cornerRadius = self.intrinsicContentSize.height
     }
     
     public func animateWhenPressed(disposeBag: DisposeBag) {

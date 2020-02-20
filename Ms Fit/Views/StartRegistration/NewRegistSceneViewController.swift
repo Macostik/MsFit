@@ -18,6 +18,16 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
+    private let datePicker = specify(UIDatePicker(), {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let components = calendar.dateComponents([.year], from: date as Date)
+        let startOfMonth = calendar.date(from: components)
+        $0.setDate(startOfMonth!, animated: true)
+        $0.transform = CGAffineTransform(scaleX: -1, y: 1)
+        $0.isHidden = true
+    })
+    
     private let goalImageView = specify(UIImageView(), {
         $0.image = #imageLiteral(resourceName: "start_goal_icon")
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -97,9 +107,10 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             }).disposed(by: disposeBag)
         
         gainWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        gainWeightButton.rx.tap
-            .subscribe(onNext: { _ in
-                //do something
+        gainWeightButton.rx.tap.map({ _ in false })
+            .subscribe(onNext: { [weak self] flag in
+                self?.verForButtonStackView.isHidden = !flag
+                self?.datePicker.isHidden = flag
             }).disposed(by: disposeBag)
     }
     
@@ -133,9 +144,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         view.add(verForButtonStackView, layoutBlock: {
             $0.leading(20).trailing(20).topBottom(Constants.screenWidth / 8, to: verStackView)
         })
-        view.add(bottomLabel, layoutBlock: {
-            $0.centerX().topBottom(Constants.screenWidth / 10, to: verForButtonStackView)
-        })
+        view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(10)})
+        view.sendSubviewToBack(datePicker, layoutBlock: {
+            $0.leading().trailing().bottom(30, to: bottomLabel).height(250) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
