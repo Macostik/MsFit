@@ -18,12 +18,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let datePicker = specify(UIDatePicker(), {
-        let date = NSDate()
-        let calendar = NSCalendar.current
-        let components = calendar.dateComponents([.year], from: date as Date)
-        let startOfMonth = calendar.date(from: components)
-        $0.setDate(startOfMonth!, animated: true)
+    private let pickerView = specify(UIPickerView(), {
         $0.transform = CGAffineTransform(scaleX: -1, y: 1)
         $0.isHidden = true
     })
@@ -86,6 +81,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     override func setupUI() {
         handleUI()
         addConstraints()
+        setupPicker()
     }
     
     override func setupBindings() {
@@ -110,8 +106,13 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         gainWeightButton.rx.tap.map({ _ in false })
             .subscribe(onNext: { [weak self] flag in
                 self?.verForButtonStackView.isHidden = !flag
-                self?.datePicker.isHidden = flag
+                self?.pickerView.isHidden = flag
             }).disposed(by: disposeBag)
+    }
+    
+    private func setupPicker() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
     fileprivate func handleUI() {
@@ -145,11 +146,47 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             $0.leading(20).trailing(20).topBottom(Constants.screenWidth / 8, to: verStackView)
         })
         view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(10)})
-        view.sendSubviewToBack(datePicker, layoutBlock: {
+        view.sendSubviewToBack(pickerView, layoutBlock: {
             $0.leading().trailing().bottom(30, to: bottomLabel).height(250) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .default
+    }
+}
+
+typealias PickerListEntry = (String, String)
+enum PickerData {
+    case weight
+    case age
+    case height
+    
+    func dataList() -> [PickerListEntry] {
+        switch self {
+        case .weight:
+            return [("1,2,3", "1,2,3")]
+        default:
+            return [("", "")]
+            break
+        }
+    }
+}
+
+extension NewRegistSceneViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return PickerData.weight.dataList().count
+        
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return ". \(PickerData.weight.dataList()[row].1)kg"
+        } else {
+            return "\(PickerData.weight.dataList()[row])"
+        }
     }
 }
