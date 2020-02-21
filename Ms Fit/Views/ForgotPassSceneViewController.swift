@@ -41,7 +41,7 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     private let verStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.distribution = .fillEqually
-        $0.spacing = Constants.screenHeight667 ? 80 : 60
+        $0.spacing = Constants.sH_667 ? 80 : 60
     })
     
     override func setupUI() {
@@ -63,19 +63,16 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44)
-        })
+        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 100 : 40).centerX()
-                .width(Constants.screenHeight / 7).height(Constants.screenHeight / 9)
+            $0.top(Constants.sH_812 ? 100 : 40).centerX()
+                .width(Constants.sH / 7).height(Constants.sH / 9)
         })
         verStackView.addArrangedSubview(emailTextField)
         verStackView.addArrangedSubview(sendRecoverInfoButton)
-        sendRecoverInfoButton.heightAnchor.constraint(equalToConstant:
-            Constants.screenWidth / 5.5).isActive = true
+        sendRecoverInfoButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verStackView, layoutBlock: {
-            $0.leading(20).trailing(20).bottom(Constants.screenHeight812 ? 350 : 250)
+            $0.leading(20).trailing(20).bottom(Constants.sH_812 ? 350 : 250)
         })
     }
     

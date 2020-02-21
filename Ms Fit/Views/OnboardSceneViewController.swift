@@ -74,13 +74,13 @@ extension OnboardSceneViewController {
     fileprivate func addConstraints() {
         verticalStackView.addArrangedSubview(startButton)
         verticalStackView.addArrangedSubview(signInButton)
-        startButton.heightAnchor.constraint(equalToConstant: Constants.screenWidth / 5.5).isActive = true
+        startButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
         pagerView.add(verticalStackView, layoutBlock: {
-            $0.bottom(Constants.screenHeight812 ? 20 : 0).leading(20).trailing(20)
+            $0.bottom(Constants.sH_812 ? 20 : 0).leading(20).trailing(20)
         })
-        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottom(Constants.screenHeight / 3.9) })
+        pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottom(Constants.sH / 3.9) })
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -140,12 +140,12 @@ class ImageCell: FSPagerViewCell {
     
     public func setup(entry: ImageList) {
         add(splashImageView, layoutBlock: {
-            $0.top().leading().trailing().bottom(Constants.screenHeight / 4.7)
+            $0.top().leading().trailing().bottom(Constants.sH / 4.7)
         })
         verticalStackView.addArrangedSubview(topLabel)
         verticalStackView.addArrangedSubview(bottomLabel)
         splashImageView.add(verticalStackView, layoutBlock: {
-            $0.leading(50).trailing(50).bottom(Constants.screenHeight812 ? 80 : 50)
+            $0.leading(50).trailing(50).bottom(Constants.sH_812 ? 80 : 50)
         })
         splashImageView.image = UIImage(named: entry.rawValue)
         topLabel.text = entry.description()

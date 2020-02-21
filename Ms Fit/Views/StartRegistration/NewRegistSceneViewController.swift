@@ -35,7 +35,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private let verStackView = specify(UIStackView(), {
         $0.axis = .vertical
-        $0.spacing = 20
+        $0.spacing = 30
     })
     
     private let verForButtonStackView = specify(UIStackView(), {
@@ -107,9 +107,11 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             }).disposed(by: disposeBag)
         
         gainWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        gainWeightButton.rx.tap.map({ _ in false })
+        gainWeightButton.rx.tap
+            .map({ _ in false })
             .subscribe(onNext: { [weak self] flag in
                 self?.verForButtonStackView.isHidden = !flag
+                self?.bottomLabel.isHidden = !flag
                 self?.datePicker.isHidden = flag
             }).disposed(by: disposeBag)
     }
@@ -125,28 +127,27 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44)
-        })
+        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
         view.add(goalImageView, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 100 : 30).centerX()
-                .width(Constants.screenWidth / 4.7).height(Constants.screenWidth / 4)
+            $0.top(Constants.sH_812 ? 100 : 30).centerX()
+                .width(Constants.sW / 4.7).height(Constants.sW / 4)
         })
         progressView.heightAnchor.constraint(equalToConstant: 8).isActive = true
         progressView.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        loseWeightButton.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 8).isActive = true
+        loseWeightButton.heightAnchor.constraint(equalToConstant: Constants.sH / 9).isActive = true
         verForButtonStackView.addArrangedSubview(loseWeightButton)
         verForButtonStackView.addArrangedSubview(maintainWeightButton)
         verForButtonStackView.addArrangedSubview(gainWeightButton)
         verStackView.addArrangedSubview(quetionLabel)
         verStackView.addArrangedSubview(progressView)
         view.add(verStackView, layoutBlock: { $0.centerX().topBottom(30, to: goalImageView) })
+        view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_812 ? 70 : 30) })
         view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(20).trailing(20).topBottom(Constants.screenWidth / 8, to: verStackView)
+            $0.leading(20).trailing(20).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
         })
-        view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(10)})
         view.sendSubviewToBack(datePicker, layoutBlock: {
-            $0.leading().trailing().bottom(30, to: bottomLabel).height(250) })
+            $0.leading().trailing().bottom(Constants.sH_812 ? Constants.sH * 0.2 : Constants.sH * 0.15)
+        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

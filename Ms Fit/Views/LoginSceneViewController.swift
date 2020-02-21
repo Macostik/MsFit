@@ -105,27 +105,25 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: {$0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44) })
+        view.add(closeButton, layoutBlock: {$0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 100 : 40).centerX()
-                .width(Constants.screenHeight / 7).height(Constants.screenHeight / 9)
+            $0.top(Constants.sH_812 ? 100 : 40).centerX()
+                .width(Constants.sH / 7).height(Constants.sH / 9)
         })
         containerLoginView.add(loginTextField, layoutBlock: { $0.edges() })
         containerPasswordView.add(passwordTextField, layoutBlock: { $0.edges() })
         verTFStackView.addArrangedSubview(containerLoginView)
         verTFStackView.addArrangedSubview(passwordTextField)
-        containerLoginView.heightAnchor.constraint(equalToConstant: Constants.screenWidth / 6).isActive = true
+        containerLoginView.heightAnchor.constraint(equalToConstant: Constants.sW / 6).isActive = true
         view.add(verTFStackView, layoutBlock: {
-            $0.leading(20).trailing(20)
-                .topBottom(Constants.screenHeight812 ? 25 : Constants.screenHeight667 ? 20 : 0,
-                           to: emailImageView)
+            $0.topBottom(Constants.sH_812 ? 25 : Constants.sH_667 ? 20 : 0, to: emailImageView)
+                .leading(20).trailing(20)
         })
         verForButtonStackView.addArrangedSubview(startWorkoutButton)
         verForButtonStackView.addArrangedSubview(forgotPasswordButton)
-        startWorkoutButton.heightAnchor.constraint(equalToConstant:
-            Constants.screenWidth / 5.5).isActive = true
+        startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(20).trailing(20).bottom(Constants.screenHeight812 ? 280 : 200)
+            $0.leading(20).trailing(20).bottom(Constants.sH_812 ? 280 : 200)
         })
     }
     

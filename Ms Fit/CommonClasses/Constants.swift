@@ -21,8 +21,8 @@ struct Constants {
     "http://nps-api-proxy.onespace.stg/api/v1/mobile/news"
     static let splashTimeAnimation = 3000
     static let groupId = ""
-    static let screenWidth = UIScreen.main.bounds.width
-    static let screenHeight = UIScreen.main.bounds.height
-    static let screenHeight812 = UIScreen.main.bounds.height >= 812
-    static let screenHeight667 = UIScreen.main.bounds.height >= 667
+    static let sW = UIScreen.main.bounds.width
+    static let sH = UIScreen.main.bounds.height
+    static let sH_812 = UIScreen.main.bounds.height >= 812
+    static let sH_667 = UIScreen.main.bounds.height >= 667
 }
