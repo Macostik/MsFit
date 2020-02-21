@@ -113,6 +113,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 self?.verForButtonStackView.isHidden = !flag
                 self?.bottomLabel.isHidden = !flag
                 self?.datePicker.isHidden = flag
+                UIView.animate(withDuration: 0.3, animations: {
+                    self?.progressView.setProgress(0.4, animated: true)
+                })
             }).disposed(by: disposeBag)
     }
     
