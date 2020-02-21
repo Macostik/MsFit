@@ -53,12 +53,12 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.text = "طالبة"
         $0.textAlignment = .center
-        $0.textColor = UIColor(named: "placeholderTextFieldColor")
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1) 
     })
     
     private let progressView = specify(UIProgressView(), {
         $0.progress = 0.0
-        $0.progressTintColor = UIColor(named: "magentaColor")
+        $0.progressTintColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.layer.cornerRadius = 8/2
         $0.clipsToBounds = true
         $0.layer.sublayers![1].cornerRadius = 8/2
@@ -66,19 +66,19 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     })
     
     private let loseWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(UIColor(named: "textButtonColor"), for: .normal)
+        $0.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
         $0.customButton(text: "Lose Weight", font: 20, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
     })
     
     private let maintainWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(UIColor(named: "textButtonColor"), for: .normal)
+        $0.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
         $0.customButton(text: "Maintain Weight", font: 20, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
     })
     
     private let gainWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(UIColor(named: "textButtonColor"), for: .normal)
+        $0.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
         $0.customButton(text: "Gain Weight", font: 20, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
     })
@@ -130,7 +130,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
+        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44) })
         view.add(goalImageView, layoutBlock: {
             $0.top(Constants.sH_812 ? 100 : 30).centerX()
                 .width(Constants.sW / 4.7).height(Constants.sW / 4)
@@ -146,7 +146,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         view.add(verStackView, layoutBlock: { $0.centerX().topBottom(30, to: goalImageView) })
         view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_812 ? 70 : 30) })
         view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(20).trailing(20).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
+            $0.leading(16).trailing(16).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
         })
         view.sendSubviewToBack(datePicker, layoutBlock: {
             $0.leading().trailing().bottom(Constants.sH_812 ? Constants.sH * 0.2 : Constants.sH * 0.15)

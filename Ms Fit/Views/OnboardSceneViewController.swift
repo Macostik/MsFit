@@ -20,9 +20,7 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     })
     
     private var startButton = specify(UIButton(type: .roundedRect), {
-        $0.customButton(text: "Start", font: 20, weight: .bold,
-                        shadowColor: UIColor(named: "purpleColor1"),
-                        bgColor: UIColor(named: "purpleColor1"))
+        $0.customButton(text: "Start", font: 20, weight: .bold, shadowColor:  #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor:  #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let signInButton = specify(UIButton(type: .roundedRect), {
@@ -78,7 +76,7 @@ extension OnboardSceneViewController {
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
         pagerView.add(verticalStackView, layoutBlock: {
-            $0.bottom(Constants.sH_812 ? 20 : 0).leading(20).trailing(20)
+            $0.bottom(Constants.sH_812 ? 20 : 0).leading(16).trailing(16)
         })
         pagerView.add(pageControl, layoutBlock: { $0.centerX(-5).bottom(Constants.sH / 3.9) })
     }

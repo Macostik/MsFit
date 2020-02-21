@@ -41,7 +41,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     
     private let loginTextField = specify(TextField(), {
         $0.placeholder = "Login"
-        $0.placeholderTextColor = UIColor(named: "placeholderTextFieldColor")
+        $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.keyboardType = .emailAddress
         $0.autocorrectionType = .no
@@ -53,7 +53,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     
     private let passwordTextField = specify(TextField(), {
         $0.placeholder = "Password"
-        $0.placeholderTextColor = UIColor(named: "placeholderTextFieldColor")
+        $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.autocorrectionType = .no
         $0.returnKeyType = .done
@@ -66,9 +66,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private let startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "purpleColor1"),
-                        bgColor: UIColor(named: "purpleColor1")!)
+        $0.customButton(text: "Start Workout", font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let forgotPasswordButton = specify(UIButton(type: .roundedRect), {
@@ -107,8 +105,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     fileprivate func addConstraints() {
         view.add(closeButton, layoutBlock: {$0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.sH_812 ? 100 : 40).centerX()
-                .width(Constants.sH / 7).height(Constants.sH / 9)
+            $0.top(Constants.sH_812 ? 100 : 40).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })
         containerLoginView.add(loginTextField, layoutBlock: { $0.edges() })
         containerPasswordView.add(passwordTextField, layoutBlock: { $0.edges() })
@@ -117,13 +114,13 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         containerLoginView.heightAnchor.constraint(equalToConstant: Constants.sW / 6).isActive = true
         view.add(verTFStackView, layoutBlock: {
             $0.topBottom(Constants.sH_812 ? 25 : Constants.sH_667 ? 20 : 0, to: emailImageView)
-                .leading(20).trailing(20)
+                .leading(16).trailing(20)
         })
         verForButtonStackView.addArrangedSubview(startWorkoutButton)
         verForButtonStackView.addArrangedSubview(forgotPasswordButton)
         startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(20).trailing(20).bottom(Constants.sH_812 ? 280 : 200)
+            $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 280 : 200)
         })
     }
     
