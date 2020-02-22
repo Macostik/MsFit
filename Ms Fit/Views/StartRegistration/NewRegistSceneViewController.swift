@@ -23,6 +23,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.isHidden = true
     })
     internal var pickerElement = PickerData.weight
+    internal var pickerHeight = PickerData.height
     
     private let goalImageView = specify(UIImageView(), {
         $0.image = #imageLiteral(resourceName: "start_goal_icon")
@@ -45,9 +46,15 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.text = "What is your goal?"
     })
     
+    private let nextButton = specify(UIButton(type: .roundedRect), {
+        $0.setTitleColor(.systemBackground, for: .normal)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "Next Step", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+    })
+    
     private let bottomLabel = specify(UILabel(), {
-        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        $0.text = "طالبة"
+        $0.font = UIFont.systemFont(ofSize: Constants.sH_812 ? 18 : 16, weight: .regular)
+        $0.text = "بل بيل ب يل يبي بل"
         $0.textAlignment = .center
         $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1) 
     })
@@ -110,8 +117,29 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 self?.verForButtonStackView.isHidden = !flag
                 self?.pickerView.isHidden = flag
                 self?.bottomLabel.isHidden = !flag
-                UIView.animate(withDuration: 0.3, animations: {
+                self?.nextButton.isHidden = flag
+                self?.goalImageView.isHidden = !flag
+                self?.goalImageView.transform = CGAffineTransform(translationX: 100, y: 0)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self?.goalImageView.image = #imageLiteral(resourceName: "start_weight_icon")
+                    self?.goalImageView.transform = .identity
+                    self?.quetionLabel.text = "What`s you weight?"
+                    self?.goalImageView.isHidden = flag
                     self?.progressView.setProgress(0.4, animated: true)
+                })
+            }).disposed(by: disposeBag)
+        
+        nextButton.animateWhenPressed(disposeBag: disposeBag)
+        nextButton.rx.tap
+            .map({ _ in false })
+            .subscribe(onNext: { [weak self] flag in
+                self?.goalImageView.transform = CGAffineTransform(translationX: 100, y: 0)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self?.goalImageView.image = #imageLiteral(resourceName: "start_height_icon")
+                    self?.goalImageView.transform = .identity
+                    self?.quetionLabel.text = "What is your height?"
+                    self?.goalImageView.isHidden = flag
+                    self?.progressView.setProgress(0.6, animated: true)
                 })
             }).disposed(by: disposeBag)
     }
@@ -123,7 +151,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     fileprivate func handleUI() {
         view.backgroundColor = .systemBackground
-        bottomLabel.frame(forAlignmentRect: CGRect.init(x: 0, y: -30, width: 0, height: 0))
+        nextButton.isHidden = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.3, animations: {
                 self.progressView.setProgress(0.2, animated: true)
@@ -150,9 +178,11 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         view.add(verForButtonStackView, layoutBlock: {
             $0.leading(16).trailing(16).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
         })
-        view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(10)})
+        view.add(nextButton, layoutBlock: {
+            $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 5.5)
+        })
         view.sendSubviewToBack(pickerView, layoutBlock: {
-            $0.leading().trailing().bottom(30, to: bottomLabel).height(250) })
+            $0.leading().trailing().bottom(140, to: nextButton) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

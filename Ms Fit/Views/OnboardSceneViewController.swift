@@ -20,7 +20,7 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     })
     
     private var startButton = specify(UIButton(type: .roundedRect), {
-        $0.customButton(text: "Start", font: 20, weight: .bold, shadowColor:  #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor:  #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+        $0.customButton(text: "Start", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor:  #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let signInButton = specify(UIButton(type: .roundedRect), {
