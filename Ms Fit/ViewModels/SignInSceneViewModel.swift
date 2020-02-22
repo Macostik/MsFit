@@ -12,7 +12,7 @@ import RxCocoa
 
 final class SignInSceneViewModel: BaseViewModel<SignInSceneModel> {
     
-    public var presentValidationObserver = PublishSubject<Void>()
+    public var presentInstagramObserver = PublishSubject<Void>()
     public var presentLoginScreenObserver = PublishSubject<Void>()
     public var dismissObserver = PublishSubject<Void>()
 }

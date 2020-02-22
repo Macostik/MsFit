@@ -13,4 +13,5 @@ import RxCocoa
 final class NewRegistSceneViewModel: BaseViewModel<NewRegistSceneModel> {
     
     public let dismissObservable = PublishSubject<Void>()
+    public let presentSignUpObserver = PublishSubject<Void>()
 }

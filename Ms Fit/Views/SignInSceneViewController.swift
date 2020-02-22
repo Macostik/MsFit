@@ -75,7 +75,7 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         instagramButton.animateWhenPressed(disposeBag: disposeBag)
         instagramButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                self?.viewModel!.presentValidationObserver.onNext(())
+                self?.viewModel!.presentInstagramObserver.onNext(())
             }).disposed(by: disposeBag)
         
         twitterButton.animateWhenPressed(disposeBag: disposeBag)

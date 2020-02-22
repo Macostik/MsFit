@@ -42,10 +42,10 @@
 		AC4A783923FE7412003DD917 /* LoginSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */; };
 		AC4A783A23FE7412003DD917 /* LoginSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783623FE7412003DD917 /* LoginSceneModel.swift */; };
 		AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */; };
-		AC53618424003F7300E5204A /* ValidationSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618024003F7300E5204A /* ValidationSceneCoordinator.swift */; };
-		AC53618524003F7300E5204A /* ValidationSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618124003F7300E5204A /* ValidationSceneViewController.swift */; };
+		AC53618424003F7300E5204A /* SignUpSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618024003F7300E5204A /* SignUpSceneCoordinator.swift */; };
+		AC53618524003F7300E5204A /* SignUpSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618124003F7300E5204A /* SignUpSceneViewController.swift */; };
 		AC53618624003F7300E5204A /* ValidationSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618224003F7300E5204A /* ValidationSceneModel.swift */; };
-		AC53618724003F7300E5204A /* ValidationSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* ValidationSceneViewModel.swift */; };
+		AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */; };
 		AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
 		AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D523FC09500052B796 /* AppDelegate.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
@@ -104,10 +104,10 @@
 		AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewController.swift; sourceTree = "<group>"; };
 		AC4A783623FE7412003DD917 /* LoginSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneModel.swift; sourceTree = "<group>"; };
 		AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewModel.swift; sourceTree = "<group>"; };
-		AC53618024003F7300E5204A /* ValidationSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSceneCoordinator.swift; sourceTree = "<group>"; };
-		AC53618124003F7300E5204A /* ValidationSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSceneViewController.swift; sourceTree = "<group>"; };
+		AC53618024003F7300E5204A /* SignUpSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC53618124003F7300E5204A /* SignUpSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewController.swift; sourceTree = "<group>"; };
 		AC53618224003F7300E5204A /* ValidationSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSceneModel.swift; sourceTree = "<group>"; };
-		AC53618324003F7300E5204A /* ValidationSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSceneViewModel.swift; sourceTree = "<group>"; };
+		AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewModel.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierPath+Ext.swift"; sourceTree = "<group>"; };
 		ACCED1C423FE8DA2000EB2DB /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */,
-				AC53618124003F7300E5204A /* ValidationSceneViewController.swift */,
+				AC53618124003F7300E5204A /* SignUpSceneViewController.swift */,
 			);
 			path = StartRegistration;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */,
-				AC53618024003F7300E5204A /* ValidationSceneCoordinator.swift */,
+				AC53618024003F7300E5204A /* SignUpSceneCoordinator.swift */,
 			);
 			path = StartRegistration;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */,
-				AC53618324003F7300E5204A /* ValidationSceneViewModel.swift */,
+				AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */,
 			);
 			path = StartRegistration;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC53618424003F7300E5204A /* ValidationSceneCoordinator.swift in Sources */,
+				AC53618424003F7300E5204A /* SignUpSceneCoordinator.swift in Sources */,
 				AC12E32123FEBDFE007343A5 /* NewRegistSceneViewController.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
@@ -488,7 +488,7 @@
 				AC4A783A23FE7412003DD917 /* LoginSceneModel.swift in Sources */,
 				564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */,
 				AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */,
-				AC53618524003F7300E5204A /* ValidationSceneViewController.swift in Sources */,
+				AC53618524003F7300E5204A /* SignUpSceneViewController.swift in Sources */,
 				564A675623FC701600D4901A /* SplashSceneViewController.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
@@ -516,7 +516,7 @@
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
 				ACCED1CD23FEA713000EB2DB /* ForgotPassSceneViewController.swift in Sources */,
 				564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */,
-				AC53618724003F7300E5204A /* ValidationSceneViewModel.swift in Sources */,
+				AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				AC4A783923FE7412003DD917 /* LoginSceneViewController.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,

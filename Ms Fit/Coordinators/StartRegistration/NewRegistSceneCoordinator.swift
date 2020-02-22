@@ -18,6 +18,10 @@ class NewRegistSceneCoordinator: BaseSceneCoordinator<Void> {
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
+        viewModel.presentSignUpObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentSignUpScene()
+        }).disposed(by: disposeBag)
+        
         viewModel.dismissObservable.subscribe(onNext: { _ in
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
@@ -25,8 +29,8 @@ class NewRegistSceneCoordinator: BaseSceneCoordinator<Void> {
         return Observable.just(())
     }
     
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
-//    }
+@discardableResult private func presentSignUpScene() -> Observable<Void> {
+       let validationCoordinator = SignUpSceneCoordinator(window: window, dependencies: dependencies)
+       return coordinate(to: validationCoordinator)
+   }
 }

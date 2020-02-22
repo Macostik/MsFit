@@ -1,5 +1,5 @@
 //  
-//  ValidationSceneCoordinator.swift
+//  SignUpSceneCoordinator.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 21.02.2020.
@@ -10,11 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ValidationSceneCoordinator: BaseSceneCoordinator<Void> {
+class SignUpSceneCoordinator: BaseSceneCoordinator<Void> {
     
     override func start() -> Observable<Void> {
-        let viewModel = ValidationSceneViewModel(dependencies: dependencies)
-        let viewController = ValidationSceneViewController.instantiate(with: viewModel)
+        let viewModel = SignUpSceneViewModel(dependencies: dependencies)
+        let viewController = SignUpSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ValidationSceneViewController: BaseViewController<ValidationSceneViewModel> {
+class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {

@@ -111,6 +111,10 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         Observable.merge(buttonList.map({ $0.rx.tap.asObservable() }))
             .map({ _ in false })
             .subscribe(onNext: { [weak self] flag in
+                if self?.pickerElement == .completed {
+                    self?.viewModel?.presentSignUpObserver.onNext(())
+                    return
+                }
                 self?.verForButtonStackView.isHidden = !flag
                 self?.pickerView.isHidden = flag
                 self?.bottomLabel.isHidden = !flag

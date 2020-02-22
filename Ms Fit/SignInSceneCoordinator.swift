@@ -26,8 +26,8 @@ class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentLoginScene()
         }).disposed(by: disposeBag)
         
-        viewModel.presentValidationObserver.subscribe(onNext: { [weak self] _ in
-            self?.presentValidationScene()
+        viewModel.presentInstagramObserver.subscribe(onNext: { _ in
+            
         }).disposed(by: disposeBag)
         
         return Observable.just(())
@@ -36,10 +36,5 @@ class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
     @discardableResult private func presentLoginScene() -> Observable<Void> {
         let loginCoordinator = LoginSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: loginCoordinator)
-    }
-    
-    @discardableResult private func presentValidationScene() -> Observable<Void> {
-        let validationCoordinator = ValidationSceneCoordinator(window: window, dependencies: dependencies)
-        return coordinate(to: validationCoordinator)
     }
 }

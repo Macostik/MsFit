@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class ValidationSceneViewModel: BaseViewModel<ValidationSceneModel> {
+final class SignUpSceneViewModel: BaseViewModel<ValidationSceneModel> {
     
     public let dismissObservable = PublishSubject<Void>()
     
