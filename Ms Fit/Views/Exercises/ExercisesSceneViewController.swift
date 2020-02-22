@@ -13,9 +13,22 @@ import RxCocoa
 class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
     
     override func setupUI() {
-       
+        handleUI()
+        addConstraints()
     }
     
     override func setupBindings() {
+    }
+    
+    fileprivate func handleUI() {
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+    }
+    
+    fileprivate func addConstraints() {
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .default
     }
 }
