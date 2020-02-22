@@ -201,20 +201,20 @@
 		564A672923FC2F9500D4901A /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				AC12E31A23FEBD95007343A5 /* StartRegistration */,
+				ACEFD7FE2401CBD900C2EED8 /* Daily */,
+				ACEFD8002401CBD900C2EED8 /* Exercise */,
+				ACEFD7FF2401CBD900C2EED8 /* Profile */,
+				ACEFD8012401CBD900C2EED8 /* Tips */,
+				AC12E31A23FEBD95007343A5 /* Registration */,
 				564A672A23FC2FB000D4901A /* AppCoordinator.swift */,
 				564A672C23FC2FD000D4901A /* BaseCoordinator.swift */,
-				56993C082401BD6D00C16CFF /* DailySceneCoordinator.swift */,
 				ACCED1C823FEA713000EB2DB /* ForgotPassSceneCoordinator.swift */,
-				56993C102401BDAA00C16CFF /* ExercisesSceneCoordinator.swift */,
 				AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */,
 				56993BF82401A84900C16CFF /* MainSceneCoordinator.swift */,
-				56993C222401BE3900C16CFF /* ProfileSceneCoordinator.swift */,
 				564A676623FC821F00D4901A /* OnboardSceneCoordinator.swift */,
 				564A675123FC701600D4901A /* SplashSceneCoordinator.swift */,
 				ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */,
 				56993C002401B78400C16CFF /* TabBarSceneCoordinator.swift */,
-				56993C182401BDF500C16CFF /* TipsSceneCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -231,19 +231,19 @@
 		564A673923FC6DAD00D4901A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AC12E31823FEBD81007343A5 /* StartRegistration */,
+				ACEFD7F82401CB6D00C2EED8 /* Daily */,
+				ACEFD7F72401CB3700C2EED8 /* Profile */,
+				ACEFD7F62401CB2500C2EED8 /* Tips */,
+				ACEFD7F52401CB1A00C2EED8 /* Exercises */,
+				AC12E31823FEBD81007343A5 /* Registration */,
 				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
-				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
-				56993C112401BDAA00C16CFF /* ExercisesSceneViewController.swift */,
 				AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */,
-				56993C242401BE4300C16CFF /* ProfileSceneViewController.swift */,
 				ACCED1C923FEA713000EB2DB /* ForgotPassSceneViewController.swift */,
 				564A676723FC821F00D4901A /* OnboardSceneViewController.swift */,
 				56993BF92401A84900C16CFF /* MainSceneViewController.swift */,
 				564A675223FC701600D4901A /* SplashSceneViewController.swift */,
 				ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */,
 				56993C012401B78400C16CFF /* TabBarSceneViewController.swift */,
-				56993C192401BDF500C16CFF /* TipsSceneViewController.swift */,
 				ACCED1C323FE8D2E000EB2DB /* Views */,
 			);
 			path = Views;
@@ -252,19 +252,19 @@
 		564A673A23FC6DD000D4901A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AC12E31B23FEBD9A007343A5 /* StartRegistration */,
+				ACEFD7F92401CB8100C2EED8 /* Daily */,
+				ACEFD7F42401CAD500C2EED8 /* Exercises */,
+				ACEFD7F32401CAD100C2EED8 /* Tips */,
+				ACEFD7F22401CABF00C2EED8 /* Profile */,
+				AC12E31B23FEBD9A007343A5 /* Registration */,
 				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
-				56993C0B2401BD6D00C16CFF /* DailySceneViewModel.swift */,
 				ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */,
-				56993C132401BDAA00C16CFF /* ExercisesSceneViewModel.swift */,
 				564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */,
 				56993BFB2401A84900C16CFF /* MainSceneViewModel.swift */,
 				AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */,
-				56993C2A2401BEBD00C16CFF /* ProfileSceneViewModel.swift */,
 				564A675423FC701600D4901A /* SplashSceneViewModel.swift */,
 				ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */,
 				56993C032401B78400C16CFF /* TabBarSceneViewModel.swift */,
-				56993C1B2401BDF500C16CFF /* TipsSceneViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -272,17 +272,17 @@
 		564A673B23FC6DD800D4901A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AC12E31923FEBD91007343A5 /* StartRegistration */,
+				ACEFD7FA2401CBAE00C2EED8 /* Daily */,
+				ACEFD7FB2401CBB500C2EED8 /* Exercise */,
+				ACEFD7FD2401CBCA00C2EED8 /* Profile */,
+				ACEFD7FC2401CBC000C2EED8 /* Tips */,
+				AC12E31923FEBD91007343A5 /* Registration */,
 				564A676823FC821F00D4901A /* OnboardSceneModel.swift */,
-				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
 				ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */,
-				56993C122401BDAA00C16CFF /* ExercisesSceneModel.swift */,
 				56993BFA2401A84900C16CFF /* MainSceneModel.swift */,
 				ACEFD7F02401CA3A00C2EED8 /* LoginSceneModel.swift */,
-				AC4A783623FE7412003DD917 /* ProfileSceneModel.swift */,
 				ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */,
 				56993C022401B78400C16CFF /* TabBarSceneModel.swift */,
-				56993C1A2401BDF500C16CFF /* TipsSceneModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,40 +362,40 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		AC12E31823FEBD81007343A5 /* StartRegistration */ = {
+		AC12E31823FEBD81007343A5 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
 				AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */,
 				AC53618124003F7300E5204A /* SignUpSceneViewController.swift */,
 			);
-			path = StartRegistration;
+			path = Registration;
 			sourceTree = "<group>";
 		};
-		AC12E31923FEBD91007343A5 /* StartRegistration */ = {
+		AC12E31923FEBD91007343A5 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
 				AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */,
 				AC53618224003F7300E5204A /* ValidationSceneModel.swift */,
 			);
-			path = StartRegistration;
+			path = Registration;
 			sourceTree = "<group>";
 		};
-		AC12E31A23FEBD95007343A5 /* StartRegistration */ = {
+		AC12E31A23FEBD95007343A5 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
 				AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */,
 				AC53618024003F7300E5204A /* SignUpSceneCoordinator.swift */,
 			);
-			path = StartRegistration;
+			path = Registration;
 			sourceTree = "<group>";
 		};
-		AC12E31B23FEBD9A007343A5 /* StartRegistration */ = {
+		AC12E31B23FEBD9A007343A5 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
 				AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */,
 				AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */,
 			);
-			path = StartRegistration;
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
@@ -406,6 +406,134 @@
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ACEFD7F22401CABF00C2EED8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				56993C2A2401BEBD00C16CFF /* ProfileSceneViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		ACEFD7F32401CAD100C2EED8 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				56993C1B2401BDF500C16CFF /* TipsSceneViewModel.swift */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		ACEFD7F42401CAD500C2EED8 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				56993C132401BDAA00C16CFF /* ExercisesSceneViewModel.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
+		ACEFD7F52401CB1A00C2EED8 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				56993C112401BDAA00C16CFF /* ExercisesSceneViewController.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
+		ACEFD7F62401CB2500C2EED8 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				56993C192401BDF500C16CFF /* TipsSceneViewController.swift */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		ACEFD7F72401CB3700C2EED8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				56993C242401BE4300C16CFF /* ProfileSceneViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		ACEFD7F82401CB6D00C2EED8 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		ACEFD7F92401CB8100C2EED8 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				56993C0B2401BD6D00C16CFF /* DailySceneViewModel.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		ACEFD7FA2401CBAE00C2EED8 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		ACEFD7FB2401CBB500C2EED8 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				56993C122401BDAA00C16CFF /* ExercisesSceneModel.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		ACEFD7FC2401CBC000C2EED8 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				56993C1A2401BDF500C16CFF /* TipsSceneModel.swift */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		ACEFD7FD2401CBCA00C2EED8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AC4A783623FE7412003DD917 /* ProfileSceneModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		ACEFD7FE2401CBD900C2EED8 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				56993C082401BD6D00C16CFF /* DailySceneCoordinator.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		ACEFD7FF2401CBD900C2EED8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				56993C222401BE3900C16CFF /* ProfileSceneCoordinator.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		ACEFD8002401CBD900C2EED8 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				56993C102401BDAA00C16CFF /* ExercisesSceneCoordinator.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		ACEFD8012401CBD900C2EED8 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				56993C182401BDF500C16CFF /* TipsSceneCoordinator.swift */,
+			);
+			path = Tips;
 			sourceTree = "<group>";
 		};
 		CE58255C615D5C473C95407B /* Frameworks */ = {
