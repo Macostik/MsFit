@@ -13,7 +13,7 @@ import RxCocoa
 class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> {
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
-    private lazy var closeButton = specify(UIButton(type: .roundedRect), {
+    private lazy var backButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
@@ -45,9 +45,15 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.text = "What is your goal?"
     })
     
+    private let nextButton = specify(UIButton(type: .roundedRect), {
+        $0.setTitleColor(.systemBackground, for: .normal)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "Next Step", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+    })
+    
     private let bottomLabel = specify(UILabel(), {
-        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        $0.text = "طالبة"
+        $0.font = UIFont.systemFont(ofSize: Constants.sH_812 ? 18 : 16, weight: .regular)
+        $0.text = "بل بيل ب يل يبي بل"
         $0.textAlignment = .center
         $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1) 
     })
@@ -92,10 +98,24 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     override func setupBindings() {
-        closeButton.rx.tap
+        backButton.rx.tap
             .map({ _ in })
-            .bind(to: viewModel!.dismissObservable)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: { [unowned self] in
+                if self.pickerElement == .weight {
+                    self.viewModel?.dismissObservable.onNext(())
+                } else {
+                    let item = self.pickerElement.previousElement()
+                    self.pickerElement = item.0
+                    self.goalImageView.image = item.1
+                    self.quetionLabel.text = item.2
+                    self.pickerView.reloadAllComponents()
+                    UIView.animate(withDuration: 0.5) {
+                        self.progressView
+                            .setProgress(self.progressView.progress - 0.2,
+                                                            animated: true)
+                    }
+                }
+            }).disposed(by: disposeBag)
         
         loseWeightButton.animateWhenPressed(disposeBag: disposeBag)
         loseWeightButton.rx.tap
@@ -116,14 +136,35 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 self?.verForButtonStackView.isHidden = !flag
                 self?.pickerView.isHidden = flag
                 self?.bottomLabel.isHidden = !flag
-                UIView.animate(withDuration: 0.3, animations: {
+                self?.nextButton.isHidden = flag
+                self?.goalImageView.isHidden = !flag
+                self?.goalImageView.transform = CGAffineTransform(translationX: 100, y: 0)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self?.goalImageView.image = #imageLiteral(resourceName: "start_weight_icon")
+                    self?.goalImageView.transform = .identity
+                    self?.quetionLabel.text = "What`s you weight?"
+                    self?.goalImageView.isHidden = flag
                     self?.progressView.setProgress(0.4, animated: true)
                 })
             }).disposed(by: disposeBag)
-        nextStepButton.rx.tap.subscribe(onNext: { [unowned self] in
-            self.index += 1
-            self.pickerElement = PickerData.allCases[min(2, self.index)]
-            self.pickerView.reloadAllComponents()
+        
+        nextButton.animateWhenPressed(disposeBag: disposeBag)
+        nextButton.rx.tap
+            .map({ _ in false })
+            .subscribe(onNext: { [unowned self] flag in
+                let item = self.pickerElement.nextElement()
+                self.pickerElement = item.0
+                self.pickerView.reloadAllComponents()
+                self.goalImageView.transform = CGAffineTransform(translationX: 100, y: 0)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.goalImageView.image = item.1
+                    self.goalImageView.transform = .identity
+                    self.quetionLabel.text = item.2
+                    self.goalImageView.isHidden = flag
+                    self.progressView
+                        .setProgress(self.progressView.progress + 0.2,
+                                     animated: true)
+                })
             }).disposed(by: disposeBag)
     }
     
@@ -136,7 +177,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     fileprivate func handleUI() {
         view.backgroundColor = .systemBackground
-        bottomLabel.frame(forAlignmentRect: CGRect.init(x: 0, y: -30, width: 0, height: 0))
+        nextButton.isHidden = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.3, animations: {
                 self.progressView.setProgress(0.2, animated: true)
@@ -145,7 +186,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44) })
+        view.add(backButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44) })
         view.add(goalImageView, layoutBlock: {
             $0.top(Constants.sH_812 ? 100 : 30).centerX()
                 .width(Constants.sW / 4.7).height(Constants.sW / 4)
@@ -163,11 +204,11 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         view.add(verForButtonStackView, layoutBlock: {
             $0.leading(16).trailing(16).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
         })
-        view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(10)})
+        view.add(nextButton, layoutBlock: {
+            $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 5.5)
+        })
         view.sendSubviewToBack(pickerView, layoutBlock: {
-            $0.leading().trailing().bottom(60, to: bottomLabel).height(250) })
-        view.sendSubviewToBack(nextStepButton, layoutBlock: {
-            $0.centerX().bottom(30).width(140) })
+            $0.trailing(-20).leading().bottom(Constants.sH_812 ? 140 : 100, to: nextButton) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -175,13 +216,14 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
 }
 
-typealias PickerListEntry = [[String]]
+typealias PickerListEntryType = [[String]]
+typealias PickerCollectionType = (PickerData, UIImage, String)
 enum PickerData: CaseIterable {
     case weight
     case height
     case age
     
-    func dataList() -> PickerListEntry {
+    func dataList() -> PickerListEntryType {
         switch self {
         case .weight:
             return [Array(35...140).map({"\($0)"}), Array(0...9).map({"\($0)"})]
@@ -191,6 +233,23 @@ enum PickerData: CaseIterable {
             return [Array(1900...2200).map({"\($0)"}),
                     Calendar.current.monthSymbols,
                     Array(1...31).map({"\($0)"})]
+        }
+    }
+    
+    func nextElement() -> PickerCollectionType {
+        switch self {
+        case .weight:
+            return (.height, #imageLiteral(resourceName: "start_height_icon"), "What is your height?")
+        case .height, .age:
+            return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "Your birthday date?")
+        }
+    }
+    func previousElement() -> PickerCollectionType {
+        switch self {
+        case .weight, .height:
+            return (.weight, #imageLiteral(resourceName: "start_weight_icon"), "What`s you weight?")
+        case .age:
+            return (.height, #imageLiteral(resourceName: "start_height_icon"), "What is your height?")
         }
     }
 }
@@ -206,8 +265,8 @@ extension NewRegistSceneViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         let weight = pickerElement.dataList()[component].max(by: {$1.count > $0.count})?.toString()
-        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 32.0)]).width ?? 70
-        return weight + (pickerElement != .age ? 100 : 0)
+        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 28.0)]).width ?? 70
+        return weight < 60 ? weight + 45 : weight
     }
     
     func pickerView(_ pickerView: UIPickerView,
