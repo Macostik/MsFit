@@ -40,24 +40,19 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setImage(UIImage(named: "instagram"), for: .normal)
         $0.customButton(text: "Sign in with Instagram", font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "magentaColor"),
-                        bgColor: UIColor(named: "magentaColor"))
+                        shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1))
     })
     
     private let twitterButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setImage(UIImage(named: "twitter"), for: .normal)
-        $0.customButton(text: "Sign in with Twitter",font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "twitterColor"),
-                        bgColor: UIColor(named: "twitterColor"))
+        $0.customButton(text: "Sign in with Twitter",font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.1568627451, green: 0.6823529412, blue: 0.9568627451, alpha: 1), bgColor: #colorLiteral(red: 0.1568627451, green: 0.6823529412, blue: 0.9568627451, alpha: 1))
     })
     
     private let emailButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setImage(UIImage(named: "email"), for: .normal)
-        $0.customButton(text: "Sign in with Email", font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "purpleColor1"),
-                        bgColor: UIColor(named: "purpleColor1"))
+        $0.customButton(text: "Sign in with Email", font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1),  bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     override func setupUI() {
@@ -79,8 +74,8 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         
         instagramButton.animateWhenPressed(disposeBag: disposeBag)
         instagramButton.rx.tap
-            .subscribe(onNext: { _ in
-                //do something
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel!.presentValidationObserver.onNext(())
             }).disposed(by: disposeBag)
         
         twitterButton.animateWhenPressed(disposeBag: disposeBag)
@@ -100,10 +95,10 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: { $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44)})
-        view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(20).trailing(20) })
+        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
+        view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(16).trailing(16) })
         view.add(horStackView, layoutBlock: { $0.centerX().bottomTop(-35, to: verStackView) })
-        instagramButton.heightAnchor.constraint(equalToConstant: Constants.screenWidth / 5.5).isActive = true
+        instagramButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

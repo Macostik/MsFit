@@ -228,7 +228,7 @@ extension UIButton {
         isUserInteractionEnabled = active
     }
     
-    public func customButton(text: String, font: CGFloat, weight: UIFont.Weight,
+    public func customButton(text: String? = "", font: CGFloat, weight: UIFont.Weight,
                              shadowColor: UIColor? = nil, bgColor: UIColor? = nil) {
         setTitle(text, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: font, weight: weight)

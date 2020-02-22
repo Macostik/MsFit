@@ -22,13 +22,12 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     private let sendRecoverInfoButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Send Recover Info", font: 20, weight: .regular,
-                        shadowColor: UIColor(named: "purpleColor1"), bgColor: UIColor(named: "purpleColor1"))
+        $0.customButton(text: "Send Recover Info", font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let emailTextField = specify(TextField(), {
         $0.placeholder = "Email "
-        $0.placeholderTextColor = UIColor(named: "placeholderTextFieldColor")
+        $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.keyboardType = .emailAddress
         $0.autocorrectionType = .no
@@ -41,7 +40,7 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     private let verStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.distribution = .fillEqually
-        $0.spacing = Constants.screenHeight667 ? 80 : 60
+        $0.spacing = Constants.sH_812 ? 80 : Constants.sH_667 ? 50 : 40
     })
     
     override func setupUI() {
@@ -63,19 +62,15 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 40 : 20).leading(6).size(44)
-        })
+        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.screenHeight812 ? 100 : 40).centerX()
-                .width(Constants.screenHeight / 7).height(Constants.screenHeight / 9)
+            $0.top(Constants.sH * 0.13).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })
         verStackView.addArrangedSubview(emailTextField)
         verStackView.addArrangedSubview(sendRecoverInfoButton)
-        sendRecoverInfoButton.heightAnchor.constraint(equalToConstant:
-            Constants.screenWidth / 5.5).isActive = true
+        sendRecoverInfoButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verStackView, layoutBlock: {
-            $0.leading(20).trailing(20).bottom(Constants.screenHeight812 ? 350 : 250)
+            $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 350 : 250)
         })
     }
     

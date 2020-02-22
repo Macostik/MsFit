@@ -26,11 +26,20 @@ class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentLoginScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentValidationObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentValidationScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
     @discardableResult private func presentLoginScene() -> Observable<Void> {
         let loginCoordinator = LoginSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: loginCoordinator)
+    }
+    
+    @discardableResult private func presentValidationScene() -> Observable<Void> {
+        let validationCoordinator = ValidationSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: validationCoordinator)
     }
 }
