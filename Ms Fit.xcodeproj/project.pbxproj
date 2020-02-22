@@ -54,8 +54,6 @@
 		56993C1D2401BDF500C16CFF /* TipsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C192401BDF500C16CFF /* TipsSceneViewController.swift */; };
 		56993C1E2401BDF500C16CFF /* TipsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C1A2401BDF500C16CFF /* TipsSceneModel.swift */; };
 		56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C1B2401BDF500C16CFF /* TipsSceneViewModel.swift */; };
-		56993C232401BE3900C16CFF /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C222401BE3900C16CFF /* ProfileSceneCoordinator.swift */; };
-		56993C252401BE4300C16CFF /* ProfileSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C242401BE4300C16CFF /* ProfileSceneViewController.swift */; };
 		56993C2B2401BEBD00C16CFF /* ProfileSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C2A2401BEBD00C16CFF /* ProfileSceneViewModel.swift */; };
 		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
 		AC12E32123FEBDFE007343A5 /* NewRegistSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */; };
@@ -80,6 +78,8 @@
 		ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */; };
 		ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */; };
 		ACEFD7F12401CA3A00C2EED8 /* LoginSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFD7F02401CA3A00C2EED8 /* LoginSceneModel.swift */; };
+		ACEFD8072401CD0E00C2EED8 /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFD8062401CD0E00C2EED8 /* ProfileSceneCoordinator.swift */; };
+		ACEFD8092401CD1C00C2EED8 /* ProfileSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFD8082401CD1C00C2EED8 /* ProfileSceneViewController.swift */; };
 		ACEFE8D023FD798C0049960B /* SignInSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */; };
 		ACEFE8D123FD798C0049960B /* SignInSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */; };
 		ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */; };
@@ -134,8 +134,6 @@
 		56993C192401BDF500C16CFF /* TipsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSceneViewController.swift; sourceTree = "<group>"; };
 		56993C1A2401BDF500C16CFF /* TipsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSceneModel.swift; sourceTree = "<group>"; };
 		56993C1B2401BDF500C16CFF /* TipsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSceneViewModel.swift; sourceTree = "<group>"; };
-		56993C222401BE3900C16CFF /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileSceneCoordinator.swift; path = "/Users/Macostik/Project/Ms Fit/Ms Fit/Coordinators/ProfileSceneCoordinator.swift"; sourceTree = "<absolute>"; };
-		56993C242401BE4300C16CFF /* ProfileSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileSceneViewController.swift; path = "/Users/Macostik/Project/Ms Fit/Ms Fit/Views/ProfileSceneViewController.swift"; sourceTree = "<absolute>"; };
 		56993C2A2401BEBD00C16CFF /* ProfileSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSceneViewModel.swift; sourceTree = "<group>"; };
 		569FB0D523FC09500052B796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569FB0D723FC09500052B796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +162,8 @@
 		ACCED1CA23FEA713000EB2DB /* ForgotPassSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneModel.swift; sourceTree = "<group>"; };
 		ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneViewModel.swift; sourceTree = "<group>"; };
 		ACEFD7F02401CA3A00C2EED8 /* LoginSceneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSceneModel.swift; sourceTree = "<group>"; };
+		ACEFD8062401CD0E00C2EED8 /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACEFD8082401CD1C00C2EED8 /* ProfileSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneViewController.swift; sourceTree = "<group>"; };
 		ACEFE8CC23FD798C0049960B /* SignInSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneCoordinator.swift; path = "Ms Fit/SignInSceneCoordinator.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CD23FD798C0049960B /* SignInSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewController.swift; path = "Ms Fit/Views/SignInSceneViewController.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneModel.swift; path = "Ms Fit/Models/SignInSceneModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -451,7 +451,7 @@
 		ACEFD7F72401CB3700C2EED8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				56993C242401BE4300C16CFF /* ProfileSceneViewController.swift */,
+				ACEFD8082401CD1C00C2EED8 /* ProfileSceneViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -515,7 +515,7 @@
 		ACEFD7FF2401CBD900C2EED8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				56993C222401BE3900C16CFF /* ProfileSceneCoordinator.swift */,
+				ACEFD8062401CD0E00C2EED8 /* ProfileSceneCoordinator.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -680,7 +680,6 @@
 				AC53618424003F7300E5204A /* SignUpSceneCoordinator.swift in Sources */,
 				AC12E32123FEBDFE007343A5 /* NewRegistSceneViewController.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
-				56993C232401BE3900C16CFF /* ProfileSceneCoordinator.swift in Sources */,
 				56993C1C2401BDF500C16CFF /* TipsSceneCoordinator.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
 				AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */,
@@ -698,6 +697,7 @@
 				56993C042401B78400C16CFF /* TabBarSceneCoordinator.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
+				ACEFD8092401CD1C00C2EED8 /* ProfileSceneViewController.swift in Sources */,
 				564A676423FC76B100D4901A /* String+Ext.swift in Sources */,
 				ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */,
 				AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */,
@@ -725,8 +725,8 @@
 				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
+				ACEFD8072401CD0E00C2EED8 /* ProfileSceneCoordinator.swift in Sources */,
 				564A676B23FC821F00D4901A /* OnboardSceneViewController.swift in Sources */,
-				56993C252401BE4300C16CFF /* ProfileSceneViewController.swift in Sources */,
 				56993C0D2401BD6D00C16CFF /* DailySceneViewController.swift in Sources */,
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
 				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
