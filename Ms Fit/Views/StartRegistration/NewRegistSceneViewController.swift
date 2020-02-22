@@ -182,7 +182,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 5.5)
         })
         view.sendSubviewToBack(pickerView, layoutBlock: {
-            $0.leading().trailing().bottom(140, to: nextButton) })
+            $0.trailing(-20).leading().bottom(Constants.sH_812 ? 140 : 100, to: nextButton) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -222,7 +222,7 @@ extension NewRegistSceneViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         let weight = pickerElement.dataList()[component].max(by: {$1.count > $0.count})?.toString()
         .size(withAttributes: [.font: UIFont.systemFont(ofSize: 28.0)]).width ?? 70
-        return weight < 60 ? weight + 100 : weight
+        return weight < 60 ? weight + 45 : weight
     }
 
     func pickerView(_ pickerView: UIPickerView,
