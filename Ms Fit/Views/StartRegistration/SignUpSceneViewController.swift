@@ -38,39 +38,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         $0.numberOfLines = 0
     })
     
-    private let vUserStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 4
-    })
-    
-    private let vEmailStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 4
-    })
-    
-    private let vPassStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 4
-    })
-
-    private let userNameLabel = specify(UILabel(), {
-        $0.text = "Username"
-        $0.font = .systemFont(ofSize: 13, weight: .regular)
-        $0.textColor = .systemBackground
-    })
-    
-    private let emailLabel = specify(UILabel(), {
-        $0.text = "Email"
-        $0.font = .systemFont(ofSize: 13, weight: .regular)
-        $0.textColor = .systemBackground
-    })
-    
-    private let passwordLabel = specify(UILabel(), {
-        $0.text = "Password"
-        $0.font = .systemFont(ofSize: 13, weight: .regular)
-        $0.textColor = .systemBackground
-    })
-    
     private let vTopStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.spacing = Constants.sH_812 ? 10 : 7
@@ -92,7 +59,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         $0.layer.shadowOffset = .init(width: 0, height: 4)
         $0.tintColor = .systemBackground
         $0.layer.shadowOpacity = 0.4
-        $0.layer.cornerRadius = 15
+        $0.layer.cornerRadius = 17
         $0.layer.shadowRadius = 4
         $0.layer.shadowColor = #colorLiteral(red: 0.1570000052, green: 0.6819999814, blue: 0.9570000172, alpha: 1)
         $0.backgroundColor = #colorLiteral(red: 0.1570000052, green: 0.6819999814, blue: 0.9570000172, alpha: 1)
@@ -103,7 +70,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         $0.layer.shadowOffset = .init(width: 0, height: 4)
         $0.tintColor = .systemBackground
         $0.layer.shadowOpacity = 0.4
-        $0.layer.cornerRadius = 15
+        $0.layer.cornerRadius = 17
         $0.layer.shadowRadius = 4
         $0.layer.shadowColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
@@ -145,18 +112,15 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     }
     
     fileprivate func handleUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         baseContainerView.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.3215686275, blue: 0.8509803922, alpha: 1)
         twitterButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         instagramButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {
-        let textField = (0...2).compactMap({ [weak self] _ in self?.createTFView() })
-        textField.forEach({ [weak self] tf in self?.vTFStackView.addArrangedSubview(tf) })
-        let userView = textField[0]
-        let emailView = textField[1]
-        let passView = textField[2]
+        let textFieldList = titleList.map({ [unowned self] title in self.createTFView(title: title) })
+        textFieldList.forEach({ [unowned self] tf in self.vTFStackView.addArrangedSubview(tf) })
 
         vStackView.addArrangedSubview(textLabel)
         vStackView.addArrangedSubview(hForButtonStackView)
@@ -164,20 +128,8 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         hForButtonStackView.addArrangedSubview(twitterButton)
         vTopStackView.addArrangedSubview(congratulationsLabel)
         vTopStackView.addArrangedSubview(memberShipLabel)
-        vUserStackView.addArrangedSubview(userNameLabel)
-        vUserStackView.addArrangedSubview(userView)
-        vEmailStackView.addArrangedSubview(emailLabel)
-        vEmailStackView.addArrangedSubview(emailView)
-        vPassStackView.addArrangedSubview(passwordLabel)
-        vPassStackView.addArrangedSubview(passView)
-        vTFStackView.addArrangedSubview(vUserStackView)
-        vTFStackView.addArrangedSubview(vEmailStackView)
-        vTFStackView.addArrangedSubview(vPassStackView)
-        userView.heightAnchor.constraint(equalToConstant: Constants.sH * 0.07).isActive = true
-        emailView.heightAnchor.constraint(equalToConstant: Constants.sH * 0.07).isActive = true
-        passView.heightAnchor.constraint(equalToConstant: Constants.sH * 0.07).isActive = true
         instagramButton.heightAnchor.constraint(equalToConstant:
-            Constants.sH_812 ? Constants.sW / 6 : Constants.sW / 8 ).isActive = true
+            Constants.sH_812 ? Constants.sW / 6.5 : Constants.sW / 8 ).isActive = true
         view.add(vStackView, layoutBlock: { $0.bottom(Constants.sH_812 ? 18 : 8).leading(16).trailing(16) })
         view.add(baseContainerView, layoutBlock: {
             $0.top().trailing().leading().bottomTop(-10, to: vStackView)
@@ -206,7 +158,9 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         TFContainerView.add(vTFStackView, layoutBlock: { $0.leading(24).trailing(24).bottom(16).top(30) })
     }
     
-    fileprivate func createTFView() -> UIView {
+    private let titleList = ["User", "Email", "Password"]
+    
+    fileprivate func createTFView(title: String) -> UIView {
         let view = UIView()
         let textView = UITextField()
         textView.textColor = .systemBackground
@@ -216,12 +170,18 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         textView.returnKeyType = .done
         textView.autocapitalizationType = .none
         textView.borderStyle = .roundedRect
-        textView.layer.cornerRadius = 8
+        textView.layer.cornerRadius = 7
         textView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7446222175)
         textView.backgroundColor = .clear
         textView.layer.borderWidth = 0.7
+        let label = UILabel()
+        label.text = title
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.textColor = .systemBackground
         view.backgroundColor = .clear
-        view.add(textView, layoutBlock: { $0.edges() })
+        view.add(label, layoutBlock: { $0.leading().top() })
+        view.add(textView, layoutBlock: { $0.leading().bottom().trailing().topBottom(4, to: label) })
+        view.heightAnchor.constraint(equalToConstant: Constants.sH * 0.09).isActive = true
         return view
     }
 }

@@ -99,7 +99,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     }
     
     fileprivate func handleUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
     }
     
     fileprivate func addConstraints() {

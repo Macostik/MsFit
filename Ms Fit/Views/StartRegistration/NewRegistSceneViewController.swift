@@ -36,7 +36,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private let verForButtonStackView = specify(UIStackView(), {
         $0.axis = .vertical
-        $0.spacing = 30
+        $0.spacing = Constants.sH_667 ? 30 : 20
         $0.distribution = .fill
     })
     
@@ -159,7 +159,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         let button = UIButton(type: .roundedRect)
         button.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
         button.customButton(text: title , font: 20, weight: .regular,
-                            shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
+                            shadowColor: #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1), bgColor: .systemBackground)
         return button
     }
     
@@ -169,7 +169,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     fileprivate func handleUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         nextButton.isHidden = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             UIView.animate(withDuration: 0.3, animations: {
@@ -197,15 +197,16 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         verStackView.addArrangedSubview(progressView)
         buttonList.forEach({[weak self] in self?.verForButtonStackView.addArrangedSubview($0) })
         verForButtonStackView.addArrangedSubview(bottomLabel)
-        view.add(verStackView, layoutBlock: { $0.centerX().topBottom(30, to: goalImageView) })
-        view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(16).trailing(16).bottom(30)
+        view.add(verStackView, layoutBlock: {
+            $0.centerX().topBottom(Constants.sH_667 ? 30 : 10, to: goalImageView)
         })
+        view.add(verForButtonStackView, layoutBlock: { $0.leading(16).trailing(16).bottom(30) })
         view.add(nextButton, layoutBlock: {
-            $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 10)
+            $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 6.5)
         })
         view.sendSubviewToBack(pickerView, layoutBlock: {
-            $0.trailing(-20).leading().bottom(Constants.sH_812 ? 140 : 100, to: nextButton) })
+            $0.trailing(-20).leading().height(250)
+                .bottom(Constants.sH_812 ? 140 : Constants.sH_667 ? 100 : 60, to: nextButton) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
