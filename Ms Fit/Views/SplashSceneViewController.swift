@@ -17,7 +17,7 @@ class SplashSceneViewController: BaseViewController<SplashSceneViewModel> {
     }
     
     override func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         view.add(splashIconImageView, layoutBlock: { $0.center() })
     }
 }

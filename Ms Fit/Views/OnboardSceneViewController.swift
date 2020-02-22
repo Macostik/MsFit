@@ -55,7 +55,7 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
 extension OnboardSceneViewController {
     
     fileprivate func addPagerVeiw() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.dataSource = self
         pagerView.delegate = self
