@@ -37,7 +37,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     private let verForButtonStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.spacing = 30
-        $0.distribution = .fillEqually
+        $0.distribution = .fill
     })
     
     private let quetionLabel = specify(UILabel(), {
@@ -66,30 +66,15 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.subviews[1].clipsToBounds = true
     })
     
-    private let loseWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
-        $0.customButton(text: "Lose Weight", font: 20, weight: .regular,
-                        shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
-    })
-    
-    private let maintainWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
-        $0.customButton(text: "Maintain Weight", font: 20, weight: .regular,
-                        shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
-    })
-    
-    private let gainWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
-        $0.customButton(text: "Gain Weight", font: 20, weight: .regular,
-                        shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
-    })
+    private let buttonsTitle = ["Lose Weight", "Maintain Weight", "Gain Weight", "I am a student"]
+    private var buttonList = [UIButton]()
     
     private let nextStepButton = specify(UIButton(type: .roundedRect), {
            $0.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
            $0.customButton(text: "next step", font: 17, weight: .regular,
                            shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: #colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1))
        })
-    
+
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -100,9 +85,16 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         backButton.rx.tap
             .map({ _ in })
             .subscribe(onNext: { [unowned self] in
-                if self.pickerElement == .weight {
+                if !self.verForButtonStackView.isHidden &&
+                    (self.buttonList.last?.isHidden ?? false) {
                     self.viewModel?.dismissObservable.onNext(())
                 } else {
+                    let flag = self.pickerElement == .weight
+                    self.buttonList.last?.isHidden = true
+                    self.verForButtonStackView.isHidden = !flag
+                    self.bottomLabel.isHidden = !flag
+                    self.nextButton.isHidden = flag
+                    self.pickerView.isHidden = flag
                     let item = self.pickerElement.previousElement()
                     self.pickerElement = item.0
                     self.goalImageView.image = item.1
@@ -116,12 +108,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 }
             }).disposed(by: disposeBag)
         
-        loseWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        maintainWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        gainWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        Observable.merge(loseWeightButton.rx.tap.asObservable(),
-                         maintainWeightButton.rx.tap.asObservable(),
-                         gainWeightButton.rx.tap.asObservable())
+        Observable.merge(buttonList.map({ $0.rx.tap.asObservable() }))
             .map({ _ in false })
             .subscribe(onNext: { [weak self] flag in
                 self?.verForButtonStackView.isHidden = !flag
@@ -143,6 +130,11 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         nextButton.rx.tap
             .map({ _ in false })
             .subscribe(onNext: { [unowned self] flag in
+                let isEnd = self.pickerElement == .age
+                self.verForButtonStackView.isHidden = !isEnd
+                self.buttonList.last?.isHidden = !isEnd
+                self.nextButton.isHidden = isEnd
+                self.pickerView.isHidden = isEnd
                 let item = self.pickerElement.nextElement()
                 self.pickerElement = item.0
                 self.pickerView.reloadAllComponents()
@@ -159,7 +151,13 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             }).disposed(by: disposeBag)
     }
     
-    private var index = 0
+    private func createButton(with title: String) -> UIButton {
+        let button = UIButton(type: .roundedRect)
+        button.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
+        button.customButton(text: title , font: 20, weight: .regular,
+                            shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
+        return button
+    }
     
     private func setupPicker() {
         pickerView.delegate = self
@@ -174,6 +172,13 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 self.progressView.setProgress(0.2, animated: true)
             })
         }
+        buttonList = buttonsTitle.map({[unowned self] in
+            let button = self.createButton(with: $0)
+            button.animateWhenPressed(disposeBag: disposeBag)
+            button.heightAnchor.constraint(equalToConstant: Constants.sH / 9).isActive = true
+            return button
+        })
+        buttonList.last?.isHidden = true
     }
     
     fileprivate func addConstraints() {
@@ -184,16 +189,13 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         })
         progressView.heightAnchor.constraint(equalToConstant: 8).isActive = true
         progressView.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        loseWeightButton.heightAnchor.constraint(equalToConstant: Constants.sH / 9).isActive = true
-        verForButtonStackView.addArrangedSubview(loseWeightButton)
-        verForButtonStackView.addArrangedSubview(maintainWeightButton)
-        verForButtonStackView.addArrangedSubview(gainWeightButton)
         verStackView.addArrangedSubview(quetionLabel)
         verStackView.addArrangedSubview(progressView)
+        buttonList.forEach({[weak self] in self?.verForButtonStackView.addArrangedSubview($0) })
+        verForButtonStackView.addArrangedSubview(bottomLabel)
         view.add(verStackView, layoutBlock: { $0.centerX().topBottom(30, to: goalImageView) })
-        view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_812 ? 70 : 30) })
         view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(16).trailing(16).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
+            $0.leading(16).trailing(16).bottom(30)
         })
         view.add(nextButton, layoutBlock: {
             $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 10)
@@ -213,6 +215,7 @@ enum PickerData: CaseIterable {
     case weight
     case height
     case age
+    case completed
     
     func dataList() -> PickerListEntryType {
         switch self {
@@ -224,6 +227,8 @@ enum PickerData: CaseIterable {
             return [Array(1900...2200).map({"\($0)"}),
                     Calendar.current.monthSymbols,
                     Array(1...31).map({"\($0)"})]
+        case .completed:
+            return [[""]]
         }
     }
     
@@ -231,8 +236,10 @@ enum PickerData: CaseIterable {
         switch self {
         case .weight:
             return (.height, #imageLiteral(resourceName: "start_height_icon"), "What is your height?")
-        case .height, .age:
+        case .height:
             return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "Your birthday date?")
+        case .age, .completed:
+            return (.completed, #imageLiteral(resourceName: "start_activity_icon"), "You activity")
         }
     }
     func previousElement() -> PickerCollectionType {
@@ -241,6 +248,8 @@ enum PickerData: CaseIterable {
             return (.weight, #imageLiteral(resourceName: "start_weight_icon"), "What`s you weight?")
         case .age:
             return (.height, #imageLiteral(resourceName: "start_height_icon"), "What is your height?")
+        case .completed:
+            return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "Your birthday date?")
         }
     }
 }
