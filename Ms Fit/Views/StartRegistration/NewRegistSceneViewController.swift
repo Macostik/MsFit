@@ -79,6 +79,12 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                         shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: .systemBackground)
     })
     
+    private let nextStepButton = specify(UIButton(type: .roundedRect), {
+           $0.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+           $0.customButton(text: "next step", font: 17, weight: .regular,
+                           shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: #colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1))
+       })
+    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -114,7 +120,14 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                     self?.progressView.setProgress(0.4, animated: true)
                 })
             }).disposed(by: disposeBag)
+        nextStepButton.rx.tap.subscribe(onNext: { [unowned self] in
+            self.index += 1
+            self.pickerElement = PickerData.allCases[min(2, self.index)]
+            self.pickerView.reloadAllComponents()
+            }).disposed(by: disposeBag)
     }
+    
+    private var index = 0
     
     private func setupPicker() {
         pickerView.delegate = self
@@ -152,7 +165,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         })
         view.add(bottomLabel, layoutBlock: { $0.centerX().bottom(10)})
         view.sendSubviewToBack(pickerView, layoutBlock: {
-            $0.leading().trailing().bottom(30, to: bottomLabel).height(250) })
+            $0.leading().trailing().bottom(60, to: bottomLabel).height(250) })
+        view.sendSubviewToBack(nextStepButton, layoutBlock: {
+            $0.centerX().bottom(30).width(140) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -161,10 +176,10 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
 }
 
 typealias PickerListEntry = [[String]]
-enum PickerData {
+enum PickerData: CaseIterable {
     case weight
-    case age
     case height
+    case age
     
     func dataList() -> PickerListEntry {
         switch self {
@@ -191,16 +206,17 @@ extension NewRegistSceneViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         let weight = pickerElement.dataList()[component].max(by: {$1.count > $0.count})?.toString()
-        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 28.0)]).width ?? 70
-        return weight < 60 ? weight + 100 : weight
+        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 32.0)]).width ?? 70
+        return weight + (pickerElement != .age ? 100 : 0)
     }
-
+    
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
-        return component != 0 ? pickerElement == .weight ?
-            ".\(pickerElement.dataList()[component][row]) kg" :
-            "\(pickerElement.dataList()[component][row])" :
+        return pickerElement == .height && component == 0  ?
+            "\(pickerElement.dataList()[component][row]) cm" :
+            pickerElement == .weight && component != 0 ?
+                ".\(pickerElement.dataList()[component][row]) kg" :
         "\(pickerElement.dataList()[component][row])"
     }
 }
