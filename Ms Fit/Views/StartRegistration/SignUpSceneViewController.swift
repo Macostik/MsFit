@@ -142,6 +142,10 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             .map({ _ in })
             .bind(to: viewModel!.dismissObservable)
             .disposed(by: disposeBag)
+        signUpButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.signUpObservable)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

@@ -13,5 +13,5 @@ import RxCocoa
 final class SignUpSceneViewModel: BaseViewModel<ValidationSceneModel> {
     
     public let dismissObservable = PublishSubject<Void>()
-    
+    public let signUpObservable = PublishSubject<Void>()
 }
