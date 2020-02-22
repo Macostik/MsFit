@@ -114,10 +114,10 @@ extension UIView {
     @IBInspectable public var circled: Bool {
         set {
             cornerRadius = newValue ? bounds.height / 2.0 : 0
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
                 self.layoutIfNeeded()
                 self.cornerRadius = newValue ? self.bounds.height / 2.0 : 0
-            }
+            })
         }
         get {
             return cornerRadius == bounds.height / 2.0

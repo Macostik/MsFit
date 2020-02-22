@@ -47,7 +47,6 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private let nextButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.customButton(text: "Next Step", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
@@ -118,19 +117,11 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             }).disposed(by: disposeBag)
         
         loseWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        loseWeightButton.rx.tap
-            .subscribe(onNext: { _ in
-                //do something
-            }).disposed(by: disposeBag)
-        
         maintainWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        maintainWeightButton.rx.tap
-            .subscribe(onNext: { _ in
-                //do something
-            }).disposed(by: disposeBag)
-        
         gainWeightButton.animateWhenPressed(disposeBag: disposeBag)
-        gainWeightButton.rx.tap
+        Observable.merge(loseWeightButton.rx.tap.asObservable(),
+                         maintainWeightButton.rx.tap.asObservable(),
+                         gainWeightButton.rx.tap.asObservable())
             .map({ _ in false })
             .subscribe(onNext: { [weak self] flag in
                 self?.verForButtonStackView.isHidden = !flag
@@ -205,7 +196,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             $0.leading(16).trailing(16).bottomTop(Constants.sH_812 ? -40 : -20, to: bottomLabel)
         })
         view.add(nextButton, layoutBlock: {
-            $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 5.5)
+            $0.centerX().bottom(30).leading(16).trailing(16).height(Constants.sW / 10)
         })
         view.sendSubviewToBack(pickerView, layoutBlock: {
             $0.trailing(-20).leading().bottom(Constants.sH_812 ? 140 : 100, to: nextButton) })
@@ -226,9 +217,9 @@ enum PickerData: CaseIterable {
     func dataList() -> PickerListEntryType {
         switch self {
         case .weight:
-            return [Array(35...140).map({"\($0)"}), Array(0...9).map({"\($0)"})]
+            return [Array(35...140).map({"\($0)"}), Array(0...9).map({".\($0) kg"})]
         case .height:
-            return [Array(130...200).map({"\($0)"})]
+            return [Array(130...200).map({"\($0) cm"})]
         case .age:
             return [Array(1900...2200).map({"\($0)"}),
                     Calendar.current.monthSymbols,
@@ -265,17 +256,13 @@ extension NewRegistSceneViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         let weight = pickerElement.dataList()[component].max(by: {$1.count > $0.count})?.toString()
-        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 28.0)]).width ?? 70
-        return weight < 60 ? weight + 45 : weight
+        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 34.0)]).width ?? 70
+        return weight
     }
     
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
-        return pickerElement == .height && component == 0  ?
-            "\(pickerElement.dataList()[component][row]) cm" :
-            pickerElement == .weight && component != 0 ?
-                ".\(pickerElement.dataList()[component][row]) kg" :
-        "\(pickerElement.dataList()[component][row])"
+        return "\(pickerElement.dataList()[component][row])"
     }
 }

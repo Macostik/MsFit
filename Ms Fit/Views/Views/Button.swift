@@ -238,7 +238,7 @@ extension UIButton {
         layer.shadowOpacity = 0.6
         layer.shadowOffset = CGSize(width: 0, height: 3)
         backgroundColor = bgColor
-        layer.cornerRadius = self.intrinsicContentSize.height
+        circled = true
     }
     
     public func animateWhenPressed(disposeBag: DisposeBag) {
