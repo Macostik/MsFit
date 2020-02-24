@@ -59,6 +59,10 @@
 		AC12E32123FEBDFE007343A5 /* NewRegistSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */; };
 		AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */; };
 		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
+		AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */; };
+		AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */; };
+		AC4A00A52404247300764281 /* QuestionsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A12404247300764281 /* QuestionsSceneModel.swift */; };
+		AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */; };
 		AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */; };
 		AC4A783923FE7412003DD917 /* LoginSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */; };
 		AC4A783A23FE7412003DD917 /* ProfileSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783623FE7412003DD917 /* ProfileSceneModel.swift */; };
@@ -145,6 +149,10 @@
 		AC12E31D23FEBDFE007343A5 /* NewRegistSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewController.swift; sourceTree = "<group>"; };
 		AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneModel.swift; sourceTree = "<group>"; };
 		AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewModel.swift; sourceTree = "<group>"; };
+		AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewController.swift; sourceTree = "<group>"; };
+		AC4A00A12404247300764281 /* QuestionsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneModel.swift; sourceTree = "<group>"; };
+		AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewModel.swift; sourceTree = "<group>"; };
 		AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A783523FE7412003DD917 /* LoginSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewController.swift; sourceTree = "<group>"; };
 		AC4A783623FE7412003DD917 /* ProfileSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSceneModel.swift; sourceTree = "<group>"; };
@@ -460,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
+				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C0B2401BD6D00C16CFF /* DailySceneViewModel.swift */,
+				AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -476,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
+				AC4A00A12404247300764281 /* QuestionsSceneModel.swift */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -508,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C082401BD6D00C16CFF /* DailySceneCoordinator.swift */,
+				AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -694,6 +706,7 @@
 				56993C062401B78400C16CFF /* TabBarSceneModel.swift in Sources */,
 				56993C0F2401BD6D00C16CFF /* DailySceneViewModel.swift in Sources */,
 				564A675623FC701600D4901A /* SplashSceneViewController.swift in Sources */,
+				AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */,
 				56993C042401B78400C16CFF /* TabBarSceneCoordinator.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
@@ -701,12 +714,15 @@
 				564A676423FC76B100D4901A /* String+Ext.swift in Sources */,
 				ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */,
 				AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */,
+				AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */,
 				564A676023FC76B100D4901A /* UIView+Ext.swift in Sources */,
 				ACCED1C723FE8DA3000EB2DB /* Button.swift in Sources */,
 				56993C142401BDAA00C16CFF /* ExercisesSceneCoordinator.swift in Sources */,
+				AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */,
 				56993C1D2401BDF500C16CFF /* TipsSceneViewController.swift in Sources */,
 				564A674E23FC6EE700D4901A /* Environment.swift in Sources */,
 				564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */,
+				AC4A00A52404247300764281 /* QuestionsSceneModel.swift in Sources */,
 				AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */,
 				564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */,
 				56993BFF2401A84900C16CFF /* MainSceneViewModel.swift in Sources */,

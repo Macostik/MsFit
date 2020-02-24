@@ -26,7 +26,7 @@ class TabBarSceneCoordinator: BaseSceneCoordinator<UIViewController> {
 extension TabBarSceneCoordinator {
     public func configure() -> [Observable<UINavigationController>] {
         return TabBarSceneModel.allCases
-            .map {  coordinate(to: $0.coordinator(window: window, dependencies: dependencies)) }
+            .map { coordinate(to: $0.coordinator(window: window, dependencies: dependencies)) }
     }
 }
 
