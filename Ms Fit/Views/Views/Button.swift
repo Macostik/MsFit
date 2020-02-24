@@ -228,10 +228,10 @@ extension UIButton {
         isUserInteractionEnabled = active
     }
     
-    public func customButton(text: String? = "", font: CGFloat, weight: UIFont.Weight,
+    public func customButton(text: String? = "", font: CGFloat? = 16, weight: UIFont.Weight? = .regular,
                              shadowColor: UIColor? = nil, bgColor: UIColor? = nil) {
         setTitle(text, for: .normal)
-        titleLabel?.font = UIFont.systemFont(ofSize: font, weight: weight)
+        titleLabel?.font = UIFont.systemFont(ofSize: font ?? 16, weight: weight ?? .regular)
         tintColor = .systemBackground
         layer.shadowColor = shadowColor?.cgColor
         layer.shadowRadius = 4

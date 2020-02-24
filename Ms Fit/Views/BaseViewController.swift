@@ -94,7 +94,7 @@ class BaseViewController<T>: UIViewController, ViewModelBased, BaseInstance {
 }
 
 class BaseTabBarController<C>: BaseSceneCoordinator<UINavigationController> {
-    public var tabBarIcon: UIImage?
+    public var tabBarIcon: String = ""
 
     func controller() -> BaseViewController<C> {
         return BaseViewController<C>()
@@ -103,7 +103,8 @@ class BaseTabBarController<C>: BaseSceneCoordinator<UINavigationController> {
     override func start() -> Observable<UINavigationController> {
         let navigationController = UINavigationController(rootViewController: controller())
         navigationController.isNavigationBarHidden = true
-        navigationController.tabBarItem.image = tabBarIcon
+        navigationController.tabBarItem.image = UIImage(named: tabBarIcon)
+        navigationController.tabBarItem.title = tabBarIcon.capitalized
 
         return Observable<UINavigationController>.just(navigationController)
     }

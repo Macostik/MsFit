@@ -36,19 +36,19 @@ extension TabBarSceneModel {
            switch self {
            case .daily:
                let coordinator = DailySceneCoordinator(window: window, dependencies: dependencies)
-               coordinator.tabBarIcon = UIImage(named: rawValue)
+               coordinator.tabBarIcon = rawValue
                return coordinator
            case .exercises:
                let coordinator = ExercisesSceneCoordinator(window: window, dependencies: dependencies)
-               coordinator.tabBarIcon = UIImage(named: rawValue)
+               coordinator.tabBarIcon = rawValue
                return coordinator
            case .tips:
                let coordinator = TipsSceneCoordinator(window: window, dependencies: dependencies)
-               coordinator.tabBarIcon = UIImage(named: rawValue)
+               coordinator.tabBarIcon = rawValue
                return coordinator
            case .profile:
                let coordinator = ProfileSceneCoordinator(window: window, dependencies: dependencies)
-               coordinator.tabBarIcon = UIImage(named: rawValue)
+               coordinator.tabBarIcon = rawValue
                return coordinator
            }
        }

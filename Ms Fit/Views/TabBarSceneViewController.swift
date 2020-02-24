@@ -13,4 +13,9 @@ import RxCocoa
 class TabBarSceneViewController<T>: UITabBarController, ViewModelBased, BaseInstance {
     typealias ViewModel = T
     var viewModel: T?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.transform = CGAffineTransform(scaleX: -1, y: 1)
+    }
 }
