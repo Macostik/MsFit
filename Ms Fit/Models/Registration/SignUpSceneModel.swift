@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-final class ValidationSceneModel: Object {
+final class SignUpSceneModel: Object {
     
     @objc dynamic public var id = 0
     

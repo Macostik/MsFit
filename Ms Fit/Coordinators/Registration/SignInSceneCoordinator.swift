@@ -1,5 +1,5 @@
 //  
-//  SIgnInCoordinator.swift
+//  SignInSceneCoordinator.swift
 //  Ms Fit
 //
 //  Created by Maxim Granchenko on 19.02.2020.
@@ -10,11 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SIgnInCoordinator: BaseSceneCoordinator<Void> {
+class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
     
     override func start() -> Observable<Void> {
-        let viewModel = SIgnInViewModel(dependencies: dependencies)
-        let viewController = SIgnInViewController.instantiate(with: viewModel)
+        let viewModel = SignInSceneViewModel(dependencies: dependencies)
+        let viewController = SignInSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: false)
         return Observable.just(())
