@@ -139,12 +139,10 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
             .subscribe(onNext: {
                 // do something
             }).disposed(by: disposeBag)
-        
         questionButton.rx.tap
             .subscribe(onNext: {
                 // do something
             }).disposed(by: disposeBag)
-        
         verificationEmailButton.rx.tap
             .subscribe(onNext: {
                 // do something
