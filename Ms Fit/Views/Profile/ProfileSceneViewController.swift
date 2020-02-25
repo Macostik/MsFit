@@ -36,10 +36,6 @@ class ProfileSceneViewController: BaseViewController<ProfileSceneViewModel> {
     fileprivate func addConstraints() {
         view.add(tableView, layoutBlock: { $0.top().leading().trailing().bottom(tabBarHeight - 20) })
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }
 
 extension ProfileSceneViewController: UITableViewDelegate, UITableViewDataSource {

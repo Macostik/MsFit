@@ -100,8 +100,4 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         view.add(horStackView, layoutBlock: { $0.centerX().bottomTop(-35, to: verStackView) })
         instagramButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }

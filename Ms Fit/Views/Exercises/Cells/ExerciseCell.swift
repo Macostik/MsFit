@@ -40,9 +40,9 @@ class ExerciseCell: UICollectionViewCell {
         add(vContainerStackView, layoutBlock: { $0.center() })
     }
     
-    public func setup(exercise: Exercises) {
-        exerciseImageView.image =  UIImage(named: exercise.image)
-        exerciseText.text = exercise.text
+    public func setup(exercise: ExercisesSceneModel) {
+        exerciseImageView.image =  UIImage(named: exercise.rawValue)
+        exerciseText.text = exercise.rawValue
     }
     
     required init?(coder: NSCoder) {

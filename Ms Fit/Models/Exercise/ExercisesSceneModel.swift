@@ -9,15 +9,6 @@
 import UIKit
 import RealmSwift
 
-final class ExercisesSceneModel: Object {
-    
-    @objc dynamic public var id = 0
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-struct Exercises {
-    let image, text: String
+enum ExercisesSceneModel: String, CaseIterable {
+    case arm, abs, cardio, back, legs, chest, shoulder, complex, body
 }

@@ -77,8 +77,4 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }

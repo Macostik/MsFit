@@ -83,10 +83,6 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
         collectionView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9764705882, alpha: 1)
         collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.reuseId)
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }
 
 extension TipsSceneViewController: UICollectionViewDelegate, UICollectionViewDataSource,

@@ -28,8 +28,4 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
     fileprivate func addConstraints() {
         
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }

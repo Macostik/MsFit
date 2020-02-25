@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class TipsSceneCoordinator: BaseTabBarController<TipsSceneViewModel> {
+class TipsSceneCoordinator: BaseTabBarSceneCoordinator<TipsSceneViewModel> {
     
     override func controller() -> BaseViewController<TipsSceneViewModel> {
         return TipsSceneViewController.instantiate(with: TipsSceneViewModel(dependencies: dependencies))

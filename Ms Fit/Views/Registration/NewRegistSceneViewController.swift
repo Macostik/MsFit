@@ -208,10 +208,6 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             $0.trailing(-20).leading().height(250)
                 .bottom(Constants.sH_812 ? 140 : Constants.sH_667 ? 100 : 60, to: nextButton) })
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }
 
 typealias PickerListEntryType = [[String]]

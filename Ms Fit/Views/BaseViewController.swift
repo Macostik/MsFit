@@ -70,10 +70,6 @@ class BaseViewController<T>: UIViewController, ViewModelBased, BaseInstance {
         LastVisibleScreen.lastAppearedScreenName = screenName
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     deinit {
         Logger.info("\(NSStringFromClass(type(of: self))) deinit")
     }
@@ -93,7 +89,7 @@ class BaseViewController<T>: UIViewController, ViewModelBased, BaseInstance {
     internal func setupBindings() {}
 }
 
-class BaseTabBarController<C>: BaseSceneCoordinator<UINavigationController> {
+class BaseTabBarSceneCoordinator<C>: BaseSceneCoordinator<UINavigationController> {
     public var tabBarIcon: String = ""
 
     func controller() -> BaseViewController<C> {

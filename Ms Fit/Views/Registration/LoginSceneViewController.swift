@@ -123,8 +123,4 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 280 : 200)
         })
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }

@@ -140,8 +140,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
                 // do something
             }).disposed(by: disposeBag)
         questionButton.rx.tap
-            .subscribe(onNext: {
-                // do something
+            .subscribe({ [weak self] _ in
+                self?.viewModel?.splashObserver.accept(())
             }).disposed(by: disposeBag)
         verificationEmailButton.rx.tap
             .subscribe(onNext: {
@@ -201,9 +201,5 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         })
         mealsDietButton.add(mealsContainerView, layoutBlock: { $0.center() })
         exerciseWorkoutButton.add(exerciseContainerView, layoutBlock: { $0.center() })
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
     }
 }

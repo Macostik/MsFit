@@ -10,4 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class DailySceneViewModel: BaseViewModel<DailySceneModel> {}
+final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
+    public var splashObserver = PublishRelay<Void>()
+}

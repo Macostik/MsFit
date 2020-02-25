@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ExercisesSceneCoordinator: BaseTabBarController<ExercisesSceneViewModel> {
+class ExercisesSceneCoordinator: BaseTabBarSceneCoordinator<ExercisesSceneViewModel> {
     
     override func controller() -> BaseViewController<ExercisesSceneViewModel> {
         return ExercisesSceneViewController

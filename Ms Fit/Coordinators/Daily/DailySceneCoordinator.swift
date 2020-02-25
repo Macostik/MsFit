@@ -10,9 +10,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DailySceneCoordinator: BaseTabBarController<DailySceneViewModel> {
+class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
     
     override func controller() -> BaseViewController<DailySceneViewModel> {
-           return DailySceneViewController.instantiate(with: DailySceneViewModel(dependencies: dependencies))
-       }
+        let viewModel = DailySceneViewModel(dependencies: dependencies)
+        viewModel.splashObserver.subscribe(onNext: { _ in
+            print (">>self - <<")
+            }).disposed(by: disposeBag)
+        return DailySceneViewController.instantiate(with: viewModel)
+    }
+    
+    @discardableResult private func presentSplashScene() -> Observable<Void> {
+       let splashCoordinator = SplashSceneCoordinator(window: window, dependencies: dependencies)
+               return coordinate(to: splashCoordinator)
+    }
 }

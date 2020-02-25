@@ -12,17 +12,6 @@ import RxCocoa
 
 class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
     
-    private let exerciseModels = [
-        Exercises(image: "arm_image", text: "Arm"),
-        Exercises(image: "abs_image", text: "Abs"),
-        Exercises(image: "cardio_image", text: "Cardio"),
-        Exercises(image: "1_image", text: "Back"),
-        Exercises(image: "legs_image", text: "Legs"),
-        Exercises(image: "chest_image", text: "Chest"),
-        Exercises(image: "shoulder_image", text: "Shoulder"),
-        Exercises(image: "waist_image", text: "Complex")
-    ]
-    
     private var collectionView = UICollectionView(frame: .zero,
                                                   collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -76,24 +65,20 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         collectionView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
         collectionView.register(ExerciseCell.self, forCellWithReuseIdentifier: ExerciseCell.reuseId)
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
 }
 
 extension ExercisesSceneViewController: UICollectionViewDelegate, UICollectionViewDataSource,
                                         UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return exerciseModels.count
+        return ExercisesSceneModel.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExerciseCell.reuseId,
                                                       for: indexPath) as! ExerciseCell
-        let exercise = exerciseModels[indexPath.row]
+        let exercise = ExercisesSceneModel.allCases[indexPath.row]
         cell.setup(exercise: exercise)
 
         return cell
