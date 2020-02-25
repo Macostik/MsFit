@@ -27,10 +27,6 @@ class ExerciseCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        vContainerStackView.addArrangedSubview(exerciseImageView)
-        vContainerStackView.addArrangedSubview(exerciseText)
-        add(vContainerStackView, layoutBlock: { $0.center() })
-        
         handleUI()
     }
     
@@ -38,6 +34,10 @@ class ExerciseCell: UICollectionViewCell {
         backgroundColor = .systemBackground
         layer.cornerRadius = 10
         clipsToBounds = true
+        
+        vContainerStackView.addArrangedSubview(exerciseImageView)
+        vContainerStackView.addArrangedSubview(exerciseText)
+        add(vContainerStackView, layoutBlock: { $0.center() })
     }
     
     public func setup(exercise: Exercises) {

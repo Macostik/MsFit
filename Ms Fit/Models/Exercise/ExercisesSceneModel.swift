@@ -17,3 +17,7 @@ final class ExercisesSceneModel: Object {
         return "id"
     }
 }
+
+struct Exercises {
+    let image, text: String
+}

@@ -17,3 +17,7 @@ final class TipsSceneModel: Object {
         return "id"
     }
 }
+
+struct TipModels {
+    let image, text: String
+}

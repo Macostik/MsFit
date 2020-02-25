@@ -10,9 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-struct Exercises: Decodable, Hashable {
-    let image, text: String
-}
 
 class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
     
@@ -41,6 +38,11 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         $0.textColor = .systemBackground
     })
     
+    private let presentExerciseButton = specify(UIButton(type: .roundedRect), {
+        $0.setTitleColor(.systemBackground, for: .normal)
+        $0.customButton(text: "Exercises", font: 17, weight: .regular, shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1))
+    })
+    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -50,7 +52,7 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     }
     
     fileprivate func handleUI() {
-        view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -68,6 +70,7 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         view.add(collectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
         })
+        view.add(presentExerciseButton, layoutBlock: { $0.bottom(tabBarHeight + 20).centerX().width(200) })
     }
     
     fileprivate func addCollectionView() {
