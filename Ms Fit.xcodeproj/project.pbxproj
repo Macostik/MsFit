@@ -117,7 +117,7 @@
 		564A676823FC821F00D4901A /* OnboardSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSceneModel.swift; sourceTree = "<group>"; };
 		564A676923FC821F00D4901A /* OnboardSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSceneViewModel.swift; sourceTree = "<group>"; };
 		566C2D7824042F0A0006108B /* ProfileSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSceneViewController.swift; sourceTree = "<group>"; };
-		566C2D8124043F720006108B /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSceneCoordinator.swift; path = ../../../../../Downloads/ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
+		566C2D8124043F720006108B /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		566C2D83240440040006108B /* SignInSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInSceneCoordinator.swift; sourceTree = "<group>"; };
 		566C2D8B2404423E0006108B /* SignUpSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpSceneCoordinator.swift; sourceTree = "<group>"; };
 		566C2D8F240443770006108B /* MainSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSceneViewController.swift; sourceTree = "<group>"; };
