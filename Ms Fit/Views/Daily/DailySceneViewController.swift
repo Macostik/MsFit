@@ -139,10 +139,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
             .subscribe(onNext: {
                 // do something
             }).disposed(by: disposeBag)
-        questionButton.rx.tap
-            .subscribe({ [weak self] _ in
-                self?.viewModel?.splashObserver.accept(())
-            }).disposed(by: disposeBag)
+        viewModel?.questionClickhObserver = questionButton.rx.tap.asObservable()
         verificationEmailButton.rx.tap
             .subscribe(onNext: {
                 // do something

@@ -11,5 +11,14 @@ import RxSwift
 import RxCocoa
 
 final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
-    public var splashObserver = PublishRelay<Void>()
+    
+    public var splashObserver = PublishSubject<Void>()
+    
+    public var questionClickhObserver: Observable<Void>? {
+        willSet {
+            newValue?.subscribe(onNext: { _ in
+                self.splashObserver.onNext(())
+            }).disposed(by: disposeBag)
+        }
+    }
 }

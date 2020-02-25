@@ -15,13 +15,13 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
     override func controller() -> BaseViewController<DailySceneViewModel> {
         let viewModel = DailySceneViewModel(dependencies: dependencies)
         viewModel.splashObserver.subscribe(onNext: { _ in
-            print (">>self - <<")
-            }).disposed(by: disposeBag)
+            self.presenWorkOutScene()
+        }).disposed(by: disposeBag)
         return DailySceneViewController.instantiate(with: viewModel)
     }
     
-    @discardableResult private func presentSplashScene() -> Observable<Void> {
-       let splashCoordinator = SplashSceneCoordinator(window: window, dependencies: dependencies)
-               return coordinate(to: splashCoordinator)
+    @discardableResult private func presenWorkOutScene() -> Observable<Void> {
+        let workoutCoordinator = WorkOutSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: workoutCoordinator)
     }
 }
