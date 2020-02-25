@@ -80,6 +80,8 @@
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
+		ACAFECA02405439400C8AEBB /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9F2405439400C8AEBB /* HeaderCell.swift */; };
+		ACAFECA2240556CC00C8AEBB /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFECA1240556CB00C8AEBB /* GraphCell.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
 		ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */; };
 		ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C423FE8DA2000EB2DB /* Label.swift */; };
@@ -170,6 +172,8 @@
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
+		ACAFEC9F2405439400C8AEBB /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		ACAFECA1240556CB00C8AEBB /* GraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierPath+Ext.swift"; sourceTree = "<group>"; };
 		ACCED1C423FE8DA2000EB2DB /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				566C2D7824042F0A0006108B /* ProfileSceneViewController.swift */,
+				ACAFEC9E2405437B00C8AEBB /* ProfileCells */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -504,6 +509,15 @@
 				ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		ACAFEC9E2405437B00C8AEBB /* ProfileCells */ = {
+			isa = PBXGroup;
+			children = (
+				ACAFEC9F2405439400C8AEBB /* HeaderCell.swift */,
+				ACAFECA1240556CB00C8AEBB /* GraphCell.swift */,
+			);
+			path = ProfileCells;
 			sourceTree = "<group>";
 		};
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
@@ -775,6 +789,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACAFECA02405439400C8AEBB /* HeaderCell.swift in Sources */,
 				566C2D8C2404423E0006108B /* SignUpSceneCoordinator.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
 				56993C1C2401BDF500C16CFF /* TipsSceneCoordinator.swift in Sources */,
@@ -814,6 +829,7 @@
 				564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */,
 				56993BFF2401A84900C16CFF /* MainSceneViewModel.swift in Sources */,
 				ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */,
+				ACAFECA2240556CC00C8AEBB /* GraphCell.swift in Sources */,
 				564A676523FC76B100D4901A /* Reactive+Ext.swift in Sources */,
 				56993C162401BDAA00C16CFF /* ExercisesSceneModel.swift in Sources */,
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,

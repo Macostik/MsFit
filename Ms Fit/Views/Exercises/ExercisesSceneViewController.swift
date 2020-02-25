@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
 class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
     
     private let exerciseModels = [

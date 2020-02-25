@@ -176,7 +176,6 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         hWorkoutAndDietStackView.addArrangedSubview(exerciseWorkoutButton)
         vMealsStackView.addArrangedSubview(dayliMealsLabel)
         vMealsStackView.addArrangedSubview(countMealsLabel)
-        exerciseImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
         vExerciseStackView.addArrangedSubview(dayliExerciseLabel)
         vExerciseStackView.addArrangedSubview(countExerciseLabel)
         navigationView.add(hNavStackView, layoutBlock: { $0.leading(16).trailing(16).bottom(14) })
