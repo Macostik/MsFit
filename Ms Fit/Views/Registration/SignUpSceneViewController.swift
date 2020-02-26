@@ -120,12 +120,12 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         baseContainerView.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.3215686275, blue: 0.8509803922, alpha: 1)
         twitterButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         instagramButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        
+        let textFieldList = titleList.map({ [unowned self] title in self.createTFView(title: title) })
+        textFieldList.forEach({ [unowned self] tf in self.vTFStackView.addArrangedSubview(tf) })
     }
     
     fileprivate func addConstraints() {
-        let textFieldList = titleList.map({ [unowned self] title in self.createTFView(title: title) })
-        textFieldList.forEach({ [unowned self] tf in self.vTFStackView.addArrangedSubview(tf) })
-
         vStackView.addArrangedSubview(textLabel)
         vStackView.addArrangedSubview(hForButtonStackView)
         hForButtonStackView.addArrangedSubview(instagramButton)

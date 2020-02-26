@@ -511,9 +511,9 @@
 			isa = PBXGroup;
 			children = (
 				ACCED1C823FEA713000EB2DB /* ForgotPassSceneCoordinator.swift */,
-				566C2D83240440040006108B /* SignInSceneCoordinator.swift */,
 				AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */,
 				AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */,
+				566C2D83240440040006108B /* SignInSceneCoordinator.swift */,
 				566C2D8B2404423E0006108B /* SignUpSceneCoordinator.swift */,
 			);
 			path = Registration;
@@ -524,8 +524,8 @@
 			children = (
 				ACCED1CB23FEA713000EB2DB /* ForgotPassSceneViewModel.swift */,
 				AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */,
-				ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */,
 				AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */,
+				ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */,
 				AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */,
 			);
 			path = Registration;

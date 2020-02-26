@@ -14,7 +14,7 @@ final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
     
     public var splashObserver = PublishSubject<Void>()
     
-    public var questionClickhObserver: Observable<Void>? {
+    public var questionClickObserver: Observable<Void>? {
         willSet {
             newValue?.subscribe(onNext: { _ in
                 self.splashObserver.onNext(())

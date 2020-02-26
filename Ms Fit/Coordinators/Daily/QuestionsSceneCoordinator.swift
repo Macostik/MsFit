@@ -16,7 +16,8 @@ class QuestionsSceneCoordinator: BaseSceneCoordinator<Void> {
         let viewModel = QuestionsSceneViewModel(dependencies: dependencies)
         let viewController = QuestionsSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
-        navigationController?.pushViewController(viewController, animated: false)
+        navigationController?.pushViewController(viewController, animated: true)
+        
         return Observable.just(())
     }
     
