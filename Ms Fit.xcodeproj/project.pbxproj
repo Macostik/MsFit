@@ -81,6 +81,10 @@
 		AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */; };
 		AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
 		AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D523FC09500052B796 /* AppDelegate.swift */; };
+		AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */; };
+		AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */; };
+		AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */; };
+		AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -177,6 +181,10 @@
 		AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewModel.swift; sourceTree = "<group>"; };
 		AC53618224003F7300E5204A /* SignUpSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneModel.swift; sourceTree = "<group>"; };
 		AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewModel.swift; sourceTree = "<group>"; };
+		AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewController.swift; sourceTree = "<group>"; };
+		AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneModel.swift; sourceTree = "<group>"; };
+		AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewModel.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -440,11 +448,11 @@
 				564A672623FC2F1700D4901A /* CommonClasses */,
 				564A675923FC767500D4901A /* Extensions */,
 				564A673723FC48CE00D4901A /* Resources */,
+				564A673A23FC6DD000D4901A /* ViewModels */,
 				564A673B23FC6DD800D4901A /* Models */,
 				564A673C23FC6E1300D4901A /* Logger */,
 				564A673923FC6DAD00D4901A /* Views */,
 				56C7B4F82405C32C00CC2C8D /* WorkOut */,
-				564A673A23FC6DD000D4901A /* ViewModels */,
 			);
 			path = "Ms Fit";
 			sourceTree = "<group>";
@@ -620,6 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
+				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
 				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
 			);
 			path = Daily;
@@ -629,6 +638,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C0B2401BD6D00C16CFF /* DailySceneViewModel.swift */,
+				AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */,
 				AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */,
 			);
 			path = Daily;
@@ -638,6 +648,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
+				AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */,
 				AC4A00A12404247300764281 /* QuestionsSceneModel.swift */,
 			);
 			path = Daily;
@@ -671,6 +682,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C082401BD6D00C16CFF /* DailySceneCoordinator.swift */,
+				AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */,
 				AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */,
 			);
 			path = Daily;
@@ -866,6 +878,7 @@
 				56993C142401BDAA00C16CFF /* ExercisesSceneCoordinator.swift in Sources */,
 				AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */,
 				56993C1D2401BDF500C16CFF /* TipsSceneViewController.swift in Sources */,
+				AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */,
 				566C2DAA240444080006108B /* LoginSceneViewController.swift in Sources */,
 				564A674E23FC6EE700D4901A /* Environment.swift in Sources */,
 				564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */,
@@ -909,7 +922,9 @@
 				56993C0C2401BD6D00C16CFF /* DailySceneCoordinator.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
 				56993BFE2401A84900C16CFF /* MainSceneModel.swift in Sources */,
+				AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */,
 				56993C172401BDAA00C16CFF /* ExercisesSceneViewModel.swift in Sources */,
+				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
 				56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */,
 				ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */,
 				566C2D92240443770006108B /* TabBarSceneViewController.swift in Sources */,
@@ -919,6 +934,7 @@
 				ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */,
 				566C2D91240443770006108B /* MainSceneViewController.swift in Sources */,
 				ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */,
+				AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */,
 				56C7B4F32405C2DE00CC2C8D /* WorkOutSceneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

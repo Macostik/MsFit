@@ -135,11 +135,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     }
     
     override func setupBindings() {
-        homeButton.rx.tap
-            .subscribe(onNext: {
-                // do something
-            }).disposed(by: disposeBag)
-        
+        viewModel?.homeClickObserver = homeButton.rx.tap.asObservable()
         viewModel?.questionClickObserver = questionButton.rx.tap.asObservable()
         
         verificationEmailButton.rx.tap
@@ -180,7 +176,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         navigationView.add(hNavStackView, layoutBlock: { $0.leading(16).trailing(16).bottom(14) })
         view.add(bgDayliCircleImage, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing()
-                .height(Constants.sH_812 ? Constants.sW * 0.7 : Constants.sW * 0.6)
+                .height(Constants.sH_812 ? Constants.sW * 0.8 : Constants.sW * 0.6)
         })
         view.add(questionButton, layoutBlock: { $0.topBottom(20, to: navigationView).trailing(16).size(30) })
         view.add(homeButton, layoutBlock: { $0.topBottom(15, to: navigationView).leading(16) })

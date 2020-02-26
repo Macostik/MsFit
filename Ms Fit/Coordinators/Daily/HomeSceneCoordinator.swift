@@ -1,8 +1,8 @@
 //  
-//  QuestionsSceneCoordinator.swift
+//  HomeSceneCoordinator.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 24.02.2020.
+//  Created by Yura Granchenko on 26.02.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -10,11 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class QuestionsSceneCoordinator: BaseSceneCoordinator<Void> {
+class HomeSceneCoordinator: BaseSceneCoordinator<Void> {
     
     override func start() -> Observable<Void> {
-        let viewModel = QuestionsSceneViewModel(dependencies: dependencies)
-        let viewController = QuestionsSceneViewController.instantiate(with: viewModel)
+        let viewModel = HomeSceneViewModel(dependencies: dependencies)
+        let viewController = HomeSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         

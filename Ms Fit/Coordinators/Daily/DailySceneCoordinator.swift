@@ -19,11 +19,20 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
             self.presenQuestionsScene()
         }).disposed(by: disposeBag)
         
+        viewModel.splashHomeObserver.subscribe(onNext: { _ in
+            self.presenHomeScene()
+        }).disposed(by: disposeBag)
+        
         return DailySceneViewController.instantiate(with: viewModel)
     }
     
     @discardableResult private func presenQuestionsScene() -> Observable<Void> {
         let questionsCoordinator = QuestionsSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: questionsCoordinator)
+    }
+    
+    @discardableResult private func presenHomeScene() -> Observable<Void> {
+        let homeCoordinator = HomeSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: homeCoordinator)
     }
 }

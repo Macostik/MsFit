@@ -23,6 +23,13 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
+    private let navQuestionsLabel = specify(UILabel(), {
+        $0.text = "Questions"
+        $0.font = .systemFont(ofSize: 20, weight: .medium)
+        $0.textColor = .systemBackground
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    })
+    
     private let hQuestionViewsStackView = specify(UIStackView(), {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
@@ -34,6 +41,10 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
     }
     
     override func setupBindings() {
+        closeButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -48,6 +59,10 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : 80)
         })
+        navigationView.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44)
+        })
+        navigationView.add(navQuestionsLabel, layoutBlock: { $0.centerX().bottom(15) })
         view.add(hQuestionViewsStackView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().height(50)
         })
