@@ -15,12 +15,12 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
     override func controller() -> BaseViewController<DailySceneViewModel> {
         let viewModel = DailySceneViewModel(dependencies: dependencies)
         
-        viewModel.splashObserver.subscribe(onNext: { _ in
+        viewModel.questionPresentObserver.subscribe(onNext: { _ in
             self.presenQuestionsScene()
         }).disposed(by: disposeBag)
         
-        viewModel.splashHomeObserver.subscribe(onNext: { _ in
-            self.presenHomeScene()
+        viewModel.homePresentObserver.subscribe(onNext: { [weak self] _ in
+            self?.presenHomeScene()
         }).disposed(by: disposeBag)
         
         return DailySceneViewController.instantiate(with: viewModel)
