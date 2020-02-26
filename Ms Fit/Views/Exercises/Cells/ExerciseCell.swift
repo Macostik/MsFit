@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ExerciseCell: UICollectionViewCell {
-    
-    static let reuseId = "ExerciseCell"
+class ExerciseCell: UICollectionViewCell, CellIdentifierable {
     
     private let exerciseImageView = UIImageView()
     
@@ -40,7 +38,7 @@ class ExerciseCell: UICollectionViewCell {
         add(vContainerStackView, layoutBlock: { $0.center() })
     }
     
-    public func setup(exercise: ExercisesSceneModel) {
+    public func setup(exercise: ExercisesList) {
         exerciseImageView.image =  UIImage(named: exercise.rawValue)
         exerciseText.text = exercise.rawValue
     }

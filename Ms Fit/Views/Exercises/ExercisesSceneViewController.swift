@@ -9,11 +9,37 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
+
+typealias DataSource = RxCollectionViewSectionedReloadDataSource<ExercisesSceneModel>
 
 class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
     
-    private var collectionView = UICollectionView(frame: .zero,
-                                                  collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var dataSource: DataSource = {
+        return DataSource(configureCell: {  _, collectionView, indexPath, data in
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: ExerciseCell.identifier,
+                                     for: indexPath) as? ExerciseCell else { fatalError() }
+            cell.setup(exercise: data)
+            return cell
+        })
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+       
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 10
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let size = Constants.sW/2 - 15
+        layout.itemSize = CGSize(width: size, height: size)
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(ExerciseCell.self, forCellWithReuseIdentifier: ExerciseCell.identifier)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        return collectionView
+    }()
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
@@ -37,17 +63,15 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     }
     
     override func setupBindings() {
+        let section = [ExercisesSceneModel(items: ExercisesList.allCases)]
+        Observable.just(section)
+        .bind(to: collectionView.rx.items(dataSource: dataSource))
+        .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.contentInset = .init(top: 0, left: 0, bottom: 20, right: 0)
-        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        
-        addCollectionView()
     }
     
     fileprivate func addConstraints() {
@@ -59,44 +83,5 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
         })
         view.add(presentExerciseButton, layoutBlock: { $0.bottom(tabBarHeight + 20).centerX().width(200) })
-    }
-    
-    fileprivate func addCollectionView() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
-        collectionView.register(ExerciseCell.self, forCellWithReuseIdentifier: ExerciseCell.reuseId)
-    }
-}
-
-extension ExercisesSceneViewController: UICollectionViewDelegate, UICollectionViewDataSource,
-                                        UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ExercisesSceneModel.allCases.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExerciseCell.reuseId,
-                                                      for: indexPath) as! ExerciseCell
-        let exercise = ExercisesSceneModel.allCases[indexPath.row]
-        cell.setup(exercise: exercise)
-
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 10, left: 10, bottom: 0, right: 10)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftRightPadding = view.frame.width * 0.01
-        let insetSpacing = view.frame.width * 0.01
-        let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * insetSpacing) / 2
-
-        return .init(width: cellWidth - 10, height: cellWidth - 10)
     }
 }
