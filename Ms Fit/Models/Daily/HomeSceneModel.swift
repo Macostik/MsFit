@@ -9,11 +9,22 @@
 import UIKit
 import RealmSwift
 
-final class HomeSceneModel: Object {
+enum HomeImageList: String, CaseIterable {
+    case everydayExercise
+    case measurements
+    case meals
+    case motivation
     
-    @objc dynamic public var id = 0
-    
-    override static func primaryKey() -> String? {
-        return "id"
+    func description() -> (String, String) {
+        switch self {
+        case .everydayExercise:
+            return ("everyday Exercises", "Committing to a longer subscription increases your success rate")
+        case .measurements:
+            return ("measurements", "Committing to a longer subscription ")
+        case .meals:
+            return ("meals", "Committing to a longer subscription")
+        case .motivation:
+            return ("motivation", "Committing to a longer subscription increases your success rate")
+        }
     }
 }
