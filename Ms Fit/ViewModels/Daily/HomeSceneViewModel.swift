@@ -9,9 +9,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
-final class HomeSceneViewModel: BaseViewModel<HomeSceneModel> {
+final class HomeSceneViewModel: BaseViewModel<Object> {
     
     public var dismissObserver = PublishSubject<Void>()
-    
 }

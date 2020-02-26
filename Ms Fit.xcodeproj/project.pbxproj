@@ -85,6 +85,7 @@
 		AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */; };
 		AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */; };
 		AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */; };
+		AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FBF2406C18900CB7A39 /* HomeCell.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -185,6 +186,7 @@
 		AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewController.swift; sourceTree = "<group>"; };
 		AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneModel.swift; sourceTree = "<group>"; };
 		AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewModel.swift; sourceTree = "<group>"; };
+		AC738FBF2406C18900CB7A39 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -539,6 +541,14 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		AC738FBE2406C16600CB7A39 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC738FBF2406C18900CB7A39 /* HomeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		ACAFEC952405158D00C8AEBB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,6 +640,7 @@
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
 				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
 				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
+				AC738FBE2406C16600CB7A39 /* Cells */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -919,6 +930,7 @@
 				566C2DA8240444080006108B /* SignUpSceneViewController.swift in Sources */,
 				56993C2B2401BEBD00C16CFF /* ProfileSceneViewModel.swift in Sources */,
 				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
+				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
 				56993C0C2401BD6D00C16CFF /* DailySceneCoordinator.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
 				56993BFE2401A84900C16CFF /* MainSceneModel.swift in Sources */,
