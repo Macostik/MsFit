@@ -37,7 +37,7 @@ class HomeCell: FSPagerViewCell {
     })
     
     public func setup(entry: HomeImageList) {
-        add(topImageView, layoutBlock: { $0.top(20).centerX() })
+        add(topImageView, layoutBlock: { $0.top(0).centerX() })
         verticalStackView.addArrangedSubview(topLabel)
         verticalStackView.addArrangedSubview(bottomLabel)
         add(verticalStackView, layoutBlock: {

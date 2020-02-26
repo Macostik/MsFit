@@ -132,12 +132,12 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         pagerView.delegate = self
         pagerView.bounces = true
         pagerView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.identifier)
-        pageControl.interitemSpacing = 15
+        pageControl.interitemSpacing = 10
         pageControl.numberOfPages = HomeImageList.allCases.count
         pageControl.setFillColor(UIColor.systemBackground.withAlphaComponent(0.3), for: .normal)
         pageControl.setFillColor(UIColor.systemBackground, for: .selected)
-        pageControl.setPath(.init(ovalIn: .init(x: -1, y: -2, width: 12, height: 12)), for: .selected)
-        pageControl.setPath(.init(ovalIn: .init(x: 0, y: 0, width: 8, height: 8)), for: .normal)
+        pageControl.setPath(.init(ovalIn: .init(x: -1, y: -1.5, width: 10, height: 10)), for: .selected)
+        pageControl.setPath(.init(ovalIn: .init(x: 0, y: 0, width: 7, height: 7)), for: .normal)
     }
     
     fileprivate func addConstraints() {
@@ -174,7 +174,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
                 .height(Constants.sH_812 ? 105 : Constants.sH_667 ? 84 : 64)
         })
         bgDayliCircleImage.add(pagerView, layoutBlock: { $0.edges() })
-        pagerView.add(pageControl, layoutBlock: { $0.bottom(40).centerX() })
+        pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_812 ? 40 : 10).centerX() })
     }
 }
 
