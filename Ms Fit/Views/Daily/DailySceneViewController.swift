@@ -135,8 +135,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     }
     
     override func setupBindings() {
-        viewModel?.homeClickObserver = homeButton.rx.tap.asObservable()
-        viewModel?.questionClickObserver = questionButton.rx.tap.asObservable()
+        homeButton.rx.tap.bind(to: viewModel!.homePresentObserver).disposed(by: disposeBag)
+        questionButton.rx.tap.bind(to: viewModel!.questionPresentObserver).disposed(by: disposeBag)
         
         verificationEmailButton.rx.tap
             .subscribe(onNext: {
