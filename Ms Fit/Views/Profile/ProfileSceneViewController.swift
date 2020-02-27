@@ -31,6 +31,7 @@ class ProfileSceneViewController: BaseViewController<ProfileSceneViewModel> {
         tableView.dataSource = self
         tableView.register(GraphCell.self, forCellReuseIdentifier: GraphCell.reuseId)
         tableView.showsVerticalScrollIndicator = false
+        tableView.contentInsetAdjustmentBehavior = .never
     }
     
     fileprivate func addConstraints() {

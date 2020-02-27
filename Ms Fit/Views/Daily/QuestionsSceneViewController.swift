@@ -12,6 +12,8 @@ import RxCocoa
 
 class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> {
     
+    private let slideSegmentControl = SlideSegmentControl()
+    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -30,11 +32,6 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
-    private let hQuestionViewsStackView = specify(UIStackView(), {
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-    })
-    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -48,11 +45,8 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
     }
     
     fileprivate func handleUI() {
-        view.backgroundColor = #colorLiteral(red: 0.9800000191, green: 0.9800000191, blue: 0.9800000191, alpha: 1)
+        view.backgroundColor = .systemBackground
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
-        
-        let labelsList = questionsList.map({ [unowned self] title in self.createTFView(title: title) })
-        labelsList.forEach({ [unowned self] view in self.hQuestionViewsStackView.addArrangedSubview(view) })
     }
     
     fileprivate func addConstraints() {
@@ -63,21 +57,8 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
             $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44)
         })
         navigationView.add(navQuestionsLabel, layoutBlock: { $0.centerX().bottom(15) })
-        view.add(hQuestionViewsStackView, layoutBlock: {
-            $0.topBottom(to: navigationView).leading().trailing().height(50)
+        view.add(slideSegmentControl, layoutBlock: {
+            $0.topBottom(to: navigationView).leading().trailing().bottom()
         })
-    }
-    
-    private let questionsList = ["Meals", "Exercises", "Subcriptions"]
-    
-    fileprivate func createTFView(title: String) -> UIView {
-        let view = UIView()
-        let label = UILabel()
-        label.text = title
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .systemBackground
-        view.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        view.add(label, layoutBlock: { $0.center() })
-        return view
     }
 }

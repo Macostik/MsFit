@@ -9,8 +9,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
-final class QuestionsSceneViewModel: BaseViewModel<QuestionsSceneModel> {
+final class QuestionsSceneViewModel: BaseViewModel<Object> {
     
     public var dismissObserver = PublishSubject<Void>()
     

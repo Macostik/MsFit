@@ -86,6 +86,10 @@
 		AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */; };
 		AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */; };
 		AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FBF2406C18900CB7A39 /* HomeCell.swift */; };
+		AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2232407C6950029D33E /* SlideSegmenControl.swift */; };
+		AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2262407CBFE0029D33E /* MealsView.swift */; };
+		AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2282407CC110029D33E /* ExerciseView.swift */; };
+		AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C22A2407CC220029D33E /* SubscriptionView.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -187,6 +191,10 @@
 		AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneModel.swift; sourceTree = "<group>"; };
 		AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewModel.swift; sourceTree = "<group>"; };
 		AC738FBF2406C18900CB7A39 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		AC86C2232407C6950029D33E /* SlideSegmenControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideSegmenControl.swift; sourceTree = "<group>"; };
+		AC86C2262407CBFE0029D33E /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
+		AC86C2282407CC110029D33E /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		AC86C22A2407CC220029D33E /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -549,6 +557,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		AC86C2252407CBDA0029D33E /* QuestionViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC86C2262407CBFE0029D33E /* MealsView.swift */,
+				AC86C2282407CC110029D33E /* ExerciseView.swift */,
+				AC86C22A2407CC220029D33E /* SubscriptionView.swift */,
+			);
+			path = QuestionViews;
+			sourceTree = "<group>";
+		};
 		ACAFEC952405158D00C8AEBB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,9 +603,11 @@
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACCED1BF23FE8AB9000EB2DB /* TextField.swift */,
 				ACCED1C523FE8DA3000EB2DB /* Button.swift */,
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
+				ACCED1BF23FE8AB9000EB2DB /* TextField.swift */,
+				AC86C2232407C6950029D33E /* SlideSegmenControl.swift */,
+				AC86C2252407CBDA0029D33E /* QuestionViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -873,8 +893,10 @@
 				AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */,
 				56993C062401B78400C16CFF /* TabBarSceneModel.swift in Sources */,
 				56993C0F2401BD6D00C16CFF /* DailySceneViewModel.swift in Sources */,
+				AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */,
 				AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */,
 				56993C042401B78400C16CFF /* TabBarSceneCoordinator.swift in Sources */,
+				AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
 				56C7B4F22405C2DE00CC2C8D /* WorkOutSceneCoordinator.swift in Sources */,
@@ -902,6 +924,7 @@
 				56C7B4F52405C2DE00CC2C8D /* WorkOutSceneViewModel.swift in Sources */,
 				564A676523FC76B100D4901A /* Reactive+Ext.swift in Sources */,
 				56993C162401BDAA00C16CFF /* ExercisesSceneModel.swift in Sources */,
+				AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */,
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,
 				56993C0E2401BD6D00C16CFF /* DailySceneModel.swift in Sources */,
 				566C2D84240440040006108B /* SignInSceneCoordinator.swift in Sources */,
@@ -942,6 +965,7 @@
 				566C2D92240443770006108B /* TabBarSceneViewController.swift in Sources */,
 				566C2DA9240444080006108B /* NewRegistSceneViewController.swift in Sources */,
 				ACEFD7F12401CA3A00C2EED8 /* LoginSceneModel.swift in Sources */,
+				AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */,
 				566C2D91240443770006108B /* MainSceneViewController.swift in Sources */,
