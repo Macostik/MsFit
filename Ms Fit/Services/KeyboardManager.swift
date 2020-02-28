@@ -69,7 +69,8 @@ public class RxKeyboard: NSObject, RxKeyboardType {
     self.visibleHeight = self.frame.map { UIScreen.main.bounds.height - $0.origin.y }
     self.willShowVisibleHeight = self.visibleHeight
       .scan((visibleHeight: 0, isShowing: false)) { lastState, newVisibleHeight in
-        return (visibleHeight: newVisibleHeight, isShowing: lastState.visibleHeight == 0 && newVisibleHeight > 0)
+        return (visibleHeight: newVisibleHeight,
+                isShowing: lastState.visibleHeight == 0 && newVisibleHeight > 0)
       }
       .filter { state in state.isShowing }
       .map { state in state.visibleHeight }
@@ -137,7 +138,6 @@ public class RxKeyboard: NSObject, RxKeyboardType {
   }
 
 }
-
 
 // MARK: - UIGestureRecognizerDelegate
 extension RxKeyboard: UIGestureRecognizerDelegate {
