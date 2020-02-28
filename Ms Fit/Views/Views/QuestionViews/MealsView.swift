@@ -29,7 +29,7 @@ class MealsView: UIView {
         addConstraint()
     }
     
-    fileprivate func setupUI() {        
+    fileprivate func setupUI() {
         Observable.just(QuestionMealModels.allCases).bind(to: mealTableView.rx
             .items(cellIdentifier: QuestionMealCell.identifier,
                    cellType: QuestionMealCell.self)) { _, model, cell in

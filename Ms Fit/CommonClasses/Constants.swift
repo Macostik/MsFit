@@ -14,6 +14,7 @@ let keyWindow = UIApplication.shared.connectedScenes.filter({$0.activationState 
     .map({$0 as? UIWindowScene}).compactMap({$0}).first?.windows.filter({$0.isKeyWindow}).first
 let navigationBarHeight = 44 + (keyWindow?.safeAreaInsets.bottom ?? 0)
 let tabBarHeight = 44 + (keyWindow?.safeAreaInsets.bottom ?? 0)
+let rootViewController = UIApplication.shared.windows.first?.rootViewController?.view
 
 struct Constants {
     static let baseURL = Environment.isProduction ? "http://nps-api-proxy.onespace.prod/api/v1/mobile/news" :

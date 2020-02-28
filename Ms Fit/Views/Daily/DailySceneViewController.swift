@@ -12,6 +12,8 @@ import RxCocoa
 
 class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
+    private let verificationView = VerificationEmailPopupView()
+    
     private let mealsImage = UIImageView(image: #imageLiteral(resourceName: "daily_Meals_Icon"))
     private let exerciseImage = UIImageView(image: #imageLiteral(resourceName: "dayli_Exercises"))
     
@@ -135,12 +137,25 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     }
     
     override func setupBindings() {
-        homeButton.rx.tap.bind(to: viewModel!.homePresentObserver).disposed(by: disposeBag)
-        questionButton.rx.tap.bind(to: viewModel!.questionPresentObserver).disposed(by: disposeBag)
+        homeButton.rx.tap
+            .bind(to: viewModel!.homePresentObserver)
+            .disposed(by: disposeBag)
+        questionButton.rx.tap
+            .bind(to: viewModel!.questionPresentObserver)
+            .disposed(by: disposeBag)
         
         verificationEmailButton.rx.tap
-            .subscribe(onNext: {
-                // do something
+            .subscribe(onNext: { _ in
+                rootViewController?.add(self.verificationView, layoutBlock: { $0.edges() })
+                self.verificationView.alpha = 0
+                self.verificationView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+                    self.verificationView.alpha = 1
+                }
+                UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5,
+                               initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+                    self.verificationView.containerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                })
             }).disposed(by: disposeBag)
         
         exerciseWorkoutButton.animateWhenPressed(disposeBag: disposeBag)

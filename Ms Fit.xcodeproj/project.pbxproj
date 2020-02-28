@@ -70,6 +70,8 @@
 		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
 		AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */; };
 		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
+		AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */; };
+		AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A7FAC240930B80058248D /* KeyboardManager.swift */; };
 		AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */; };
 		AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */; };
 		AC4A00A52404247300764281 /* QuestionsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A12404247300764281 /* QuestionsSceneModel.swift */; };
@@ -177,6 +179,8 @@
 		AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneModel.swift; sourceTree = "<group>"; };
 		AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewModel.swift; sourceTree = "<group>"; };
+		AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationEmailPopupView.swift; sourceTree = "<group>"; };
+		AC1A7FAC240930B80058248D /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewController.swift; sourceTree = "<group>"; };
 		AC4A00A12404247300764281 /* QuestionsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneModel.swift; sourceTree = "<group>"; };
@@ -458,6 +462,7 @@
 				564A672623FC2F1700D4901A /* CommonClasses */,
 				564A675923FC767500D4901A /* Extensions */,
 				564A673723FC48CE00D4901A /* Resources */,
+				AC1A7FAB240930A00058248D /* Services */,
 				564A673A23FC6DD000D4901A /* ViewModels */,
 				564A673B23FC6DD800D4901A /* Models */,
 				564A673C23FC6E1300D4901A /* Logger */,
@@ -549,6 +554,22 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		AC1A7FA8240904070058248D /* VerificPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */,
+			);
+			path = VerificPopupView;
+			sourceTree = "<group>";
+		};
+		AC1A7FAB240930A00058248D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC1A7FAC240930B80058248D /* KeyboardManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AC738FBE2406C16600CB7A39 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +628,7 @@
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
 				ACCED1BF23FE8AB9000EB2DB /* TextField.swift */,
 				AC86C2232407C6950029D33E /* SlideSegmenControl.swift */,
+				AC1A7FA8240904070058248D /* VerificPopupView */,
 				AC86C2252407CBDA0029D33E /* QuestionViews */,
 			);
 			path = Views;
@@ -951,6 +973,7 @@
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				566C2DA8240444080006108B /* SignUpSceneViewController.swift in Sources */,
+				AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */,
 				56993C2B2401BEBD00C16CFF /* ProfileSceneViewModel.swift in Sources */,
 				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
 				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
@@ -971,6 +994,7 @@
 				566C2D91240443770006108B /* MainSceneViewController.swift in Sources */,
 				ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */,
 				AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */,
+				AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */,
 				56C7B4F32405C2DE00CC2C8D /* WorkOutSceneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
