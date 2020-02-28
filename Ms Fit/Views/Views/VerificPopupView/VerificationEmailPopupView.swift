@@ -14,7 +14,7 @@ class VerificationEmailPopupView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private var centerXContainerView: NSLayoutConstraint!
+    private var centerYContainerView: NSLayoutConstraint!
     
     private let emailImageView = UIImageView(image: UIImage(named: "login_email"))
     
@@ -97,13 +97,13 @@ class VerificationEmailPopupView: UIView {
         
 //        RxKeyboard.instance.visibleHeight
 //            .drive(onNext: { [weak centerXContainerView, weak self] _ in
-//                self?.centerXContainerView?.constant -= 110
+//                self?.centerYContainerView?.constant -= 110
 //                self?.layoutIfNeeded()
 //            }).disposed(by: disposeBag)
-//        
+//
 //        emailTextField.rx.controlEvent(.editingDidEndOnExit)
 //            .subscribe(onNext: { [weak self] _ in
-//                self?.centerXContainerView.constant += 110
+//                self?.centerYContainerView.constant += 110
 //                self?.layoutIfNeeded()
 //            }).disposed(by: disposeBag)
     }
@@ -111,8 +111,8 @@ class VerificationEmailPopupView: UIView {
     func addConstraints() {
         add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).trailing(4).size(44) })
         add(containerView, layoutBlock: { $0.centerX().width(Constants.sW - 40) })
-        centerXContainerView = containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        centerXContainerView.isActive = true
+        centerYContainerView = containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        centerYContainerView.isActive = true
         vContainerStackView.addArrangedSubview(topLabel)
         vContainerStackView.addArrangedSubview(bottomLabel)
         containerView.add(emailImageView, layoutBlock: {
