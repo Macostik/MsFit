@@ -10,4 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class WorkOutSceneViewModel: BaseViewModel<WorkOutSceneModel> {}
+final class WorkOutSceneViewModel: BaseViewModel<WorkOutSceneModel> {
+    
+    public var dismissObserver = PublishSubject<Void>()
+}

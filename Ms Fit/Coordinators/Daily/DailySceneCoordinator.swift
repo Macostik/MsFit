@@ -23,6 +23,10 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
             self?.presenHomeScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentWorkoutObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentWorkoutScene()
+        }).disposed(by: disposeBag)
+        
         return DailySceneViewController.instantiate(with: viewModel)
     }
     
@@ -34,5 +38,10 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
     @discardableResult private func presenHomeScene() -> Observable<Void> {
         let homeCoordinator = HomeSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: homeCoordinator)
+    }
+    
+    @discardableResult private func presentWorkoutScene() -> Observable<Void> {
+        let workoutCoordinator = WorkOutSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: workoutCoordinator)
     }
 }

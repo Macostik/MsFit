@@ -160,9 +160,9 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         
         exerciseWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
         exerciseWorkoutButton.rx.tap
-            .subscribe(onNext: {
-                // do something
-            }).disposed(by: disposeBag)
+            .map({ _ in })
+            .bind(to: viewModel!.presentWorkoutObserver)
+            .disposed(by: disposeBag)
         
         mealsDietButton.animateWhenPressed(disposeBag: disposeBag)
         mealsDietButton.rx.tap

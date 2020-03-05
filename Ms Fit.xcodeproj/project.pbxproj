@@ -92,6 +92,10 @@
 		AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2262407CBFE0029D33E /* MealsView.swift */; };
 		AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2282407CC110029D33E /* ExerciseView.swift */; };
 		AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C22A2407CC220029D33E /* SubscriptionView.swift */; };
+		AC9E1DED2410F11000417E9A /* WorkoutSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEC2410F11000417E9A /* WorkoutSegmentController.swift */; };
+		AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */; };
+		AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */; };
+		AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -199,6 +203,10 @@
 		AC86C2262407CBFE0029D33E /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
 		AC86C2282407CC110029D33E /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		AC86C22A2407CC220029D33E /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		AC9E1DEC2410F11000417E9A /* WorkoutSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSegmentController.swift; sourceTree = "<group>"; };
+		AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWorkoutView.swift; sourceTree = "<group>"; };
+		AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowWorkoutView.swift; sourceTree = "<group>"; };
+		AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWorkoutView.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -463,10 +471,10 @@
 				564A675923FC767500D4901A /* Extensions */,
 				564A673723FC48CE00D4901A /* Resources */,
 				AC1A7FAB240930A00058248D /* Services */,
-				564A673A23FC6DD000D4901A /* ViewModels */,
-				564A673B23FC6DD800D4901A /* Models */,
 				564A673C23FC6E1300D4901A /* Logger */,
 				564A673923FC6DAD00D4901A /* Views */,
+				564A673A23FC6DD000D4901A /* ViewModels */,
+				564A673B23FC6DD800D4901A /* Models */,
 				56C7B4F82405C32C00CC2C8D /* WorkOut */,
 			);
 			path = "Ms Fit";
@@ -491,7 +499,9 @@
 		56C7B4F82405C32C00CC2C8D /* WorkOut */ = {
 			isa = PBXGroup;
 			children = (
+				AC9E1DEE2410F2E800417E9A /* WorkoutViews */,
 				56C7B4EF2405C2DE00CC2C8D /* WorkOutSceneViewController.swift */,
+				AC9E1DEC2410F11000417E9A /* WorkoutSegmentController.swift */,
 			);
 			path = WorkOut;
 			sourceTree = "<group>";
@@ -588,6 +598,16 @@
 			path = QuestionViews;
 			sourceTree = "<group>";
 		};
+		AC9E1DEE2410F2E800417E9A /* WorkoutViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */,
+				AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */,
+				AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */,
+			);
+			path = WorkoutViews;
+			sourceTree = "<group>";
+		};
 		ACAFEC952405158D00C8AEBB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,12 +644,12 @@
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC1A7FA8240904070058248D /* VerificPopupView */,
+				AC86C2252407CBDA0029D33E /* QuestionViews */,
 				ACCED1C523FE8DA3000EB2DB /* Button.swift */,
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
 				ACCED1BF23FE8AB9000EB2DB /* TextField.swift */,
 				AC86C2232407C6950029D33E /* SlideSegmenControl.swift */,
-				AC1A7FA8240904070058248D /* VerificPopupView */,
-				AC86C2252407CBDA0029D33E /* QuestionViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -679,10 +699,10 @@
 		ACEFD7F82401CB6D00C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				AC738FBE2406C16600CB7A39 /* Cells */,
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
 				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
 				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
-				AC738FBE2406C16600CB7A39 /* Cells */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -911,6 +931,8 @@
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
 				AC4A783A23FE7412003DD917 /* ProfileSceneModel.swift in Sources */,
 				56993C1E2401BDF500C16CFF /* TipsSceneModel.swift in Sources */,
+				AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */,
+				AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */,
 				564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */,
 				AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */,
 				56993C062401B78400C16CFF /* TabBarSceneModel.swift in Sources */,
@@ -946,6 +968,7 @@
 				56C7B4F52405C2DE00CC2C8D /* WorkOutSceneViewModel.swift in Sources */,
 				564A676523FC76B100D4901A /* Reactive+Ext.swift in Sources */,
 				56993C162401BDAA00C16CFF /* ExercisesSceneModel.swift in Sources */,
+				AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */,
 				AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */,
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,
 				56993C0E2401BD6D00C16CFF /* DailySceneModel.swift in Sources */,
@@ -953,6 +976,7 @@
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */,
 				56993BFC2401A84900C16CFF /* MainSceneCoordinator.swift in Sources */,
+				AC9E1DED2410F11000417E9A /* WorkoutSegmentController.swift in Sources */,
 				56993C072401B78400C16CFF /* TabBarSceneViewModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */,

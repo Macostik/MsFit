@@ -1,21 +1,21 @@
 //
-//  SlideSegmentControl.swift
+//  WorkoutSegmentController.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 27.02.2020.
+//  Created by Yura Granchenko on 05.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
 import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
 
-class SlideSegmentControl: UIView {
+class WorkoutSegmentController: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private let menuItems = ["Meals", "Exercises", "Subscriptions"]
-    private let slideItems = [MealsView(), ExerciseView(), SubscriptionView()]
+    private let menuItems = ["Yesterday", "Today", "Tomorrow"]
+    private let slideItems = [YesterdayWorkoutView(), TodayWorkoutView(), TomorrowWorkoutView()]
     
     private var slideView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
@@ -47,8 +47,8 @@ class SlideSegmentControl: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
-        let navHeight: CGFloat = 100
-        let menuHeight: CGFloat = 55
+        let navHeight: CGFloat = Constants.sH_812 ? 100 : 80
+        let menuHeight: CGFloat = 45
         layout.itemSize = CGSize(width: Constants.sW, height: Constants.sH - navHeight - menuHeight)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -108,23 +108,4 @@ class SlideSegmentControl: UIView {
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-}
-
-class MenuCell: UICollectionViewCell, CellIdentifierable {
-    
-    public let titleLabel = specify(Label()) {
-        $0.textColor = .systemBackground
-    }
-    
-    public func setup(_ entry: String) {
-        titleLabel.text = entry
-        add(titleLabel, layoutBlock: { $0.center() })
-    }
-}
-
-class SlideCell: UICollectionViewCell, CellIdentifierable {
-    
-    public func setup(_ entry: UIView) {
-        add(entry, layoutBlock: { $0.edges() })
-    }
 }

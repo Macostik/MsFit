@@ -12,13 +12,53 @@ import RxCocoa
 
 class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     
+    private let workoutSegmentController = WorkoutSegmentController()
+    
+    private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
+    private lazy var closeButton = specify(UIButton(type: .roundedRect), {
+        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+    })
+    
+    private let navigationView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    })
+    
+    private let navWorkoutLabel = specify(UILabel(), {
+        $0.text = "Workout"
+        $0.font = .systemFont(ofSize: 20, weight: .medium)
+        $0.textColor = .systemBackground
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    })
+    
     override func setupUI() {
-        view.backgroundColor = .white
+        handleUI()
+        addConstraints()
     }
     
     override func setupBindings() {
-//        viewModel?.indicatorViewAnimating.drive(<#drive#>),
-//        viewModel?.elements.drive(<#drive#>),
-//        viewModel?.loadError.drive(onNext: {<#drive#>}),
+        closeButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+    }
+    
+    fileprivate func handleUI() {
+        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        view.transform = CGAffineTransform(scaleX: -1, y: 1)
+    }
+    
+    fileprivate func addConstraints() {
+        view.add(navigationView, layoutBlock: {
+            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : 80)
+        })
+        navigationView.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44)
+        })
+        navigationView.add(navWorkoutLabel, layoutBlock: { $0.centerX().bottom(15) })
+        view.add(workoutSegmentController, layoutBlock: {
+            $0.topBottom(to: navigationView).leading().trailing().bottom()
+        })
     }
 }
