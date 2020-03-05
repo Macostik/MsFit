@@ -53,7 +53,11 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     
     private let presentExerciseButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Exercises", font: 17, weight: .regular, shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1))
+        $0.setTitle("Exercises", for: .normal)
+        $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
+        $0.layer.cornerRadius = 17
+        $0.clipsToBounds = true
+        $0.titleLabel?.font = .systemFont(ofSize: 17, weight: .regular)
     })
     
     override func setupUI() {
@@ -81,6 +85,8 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         view.add(collectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
         })
-        view.add(presentExerciseButton, layoutBlock: { $0.bottom(tabBarHeight + 20).centerX().width(200) })
+        view.add(presentExerciseButton, layoutBlock: {
+            $0.bottom(tabBarHeight + 15).centerX().width(Constants.sW / 2).height(34)
+        })
     }
 }

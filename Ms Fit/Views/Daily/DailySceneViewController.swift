@@ -104,14 +104,27 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
 
     private let verificationEmailButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
-        $0.customButton(text: "Ver-tion", font: 16, weight: .medium,
-                        shadowColor: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1), bgColor: .systemBackground)
+        $0.setTitle("Ver-tion", for: .normal)
+        $0.backgroundColor = .systemBackground
+        $0.layer.cornerRadius = 19.5
+        $0.layer.shadowColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1)
+        $0.layer.shadowOpacity = 0.4
+        $0.layer.shadowOffset = .init(width: 0, height: 3)
+        $0.layer.shadowRadius = 3
     })
     
     private let questionButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
-        $0.customButton(text: "?", font: 22, weight: .bold, shadowColor: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1), bgColor: .systemBackground)
+        $0.setTitle("?", for: .normal)
+        $0.backgroundColor = .systemBackground
+        $0.layer.cornerRadius = 15
+        $0.layer.shadowColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1)
+        $0.layer.shadowOpacity = 0.4
+        $0.layer.shadowOffset = .init(width: 0, height: 3)
+        $0.layer.shadowRadius = 4
     })
     
     private let homeButton = specify(UIButton(type: .roundedRect), {
@@ -120,13 +133,19 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let exerciseWorkoutButton = specify(UIButton(type: .roundedRect), {
-        $0.customButton(shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1))
+        $0.layer.shadowColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
+        $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
+        $0.layer.cornerRadius = (Constants.sW * 0.4) / 2
+        $0.layer.shadowOpacity = 0.4
         $0.layer.shadowRadius = 8
         $0.layer.shadowOffset = CGSize(width: 0, height: 6)
     })
     
     private let mealsDietButton = specify(UIButton(type: .roundedRect), {
-        $0.customButton(shadowColor: #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), bgColor: #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1))
+        $0.layer.shadowColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
+        $0.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
+        $0.layer.cornerRadius = (Constants.sW * 0.4) / 2
+        $0.layer.shadowOpacity = 0.4
         $0.layer.shadowRadius = 8
         $0.layer.shadowOffset = CGSize(width: 0, height: 6)
     })
