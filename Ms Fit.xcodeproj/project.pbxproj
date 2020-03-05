@@ -96,6 +96,7 @@
 		AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */; };
 		AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */; };
 		AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */; };
+		AC9E1DF724112A4F00417E9A /* YesterdayWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -207,6 +208,7 @@
 		AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWorkoutView.swift; sourceTree = "<group>"; };
+		AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWorkoutCell.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -601,11 +603,20 @@
 		AC9E1DEE2410F2E800417E9A /* WorkoutViews */ = {
 			isa = PBXGroup;
 			children = (
+				AC9E1DF524112A3300417E9A /* WorkoutCells */,
 				AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */,
 				AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */,
 				AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */,
 			);
 			path = WorkoutViews;
+			sourceTree = "<group>";
+		};
+		AC9E1DF524112A3300417E9A /* WorkoutCells */ = {
+			isa = PBXGroup;
+			children = (
+				AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */,
+			);
+			path = WorkoutCells;
 			sourceTree = "<group>";
 		};
 		ACAFEC952405158D00C8AEBB /* Profile */ = {
@@ -681,8 +692,8 @@
 		ACEFD7F52401CB1A00C2EED8 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
-				56993C112401BDAA00C16CFF /* ExercisesSceneViewController.swift */,
 				ACAFEC982405176E00C8AEBB /* Cells */,
+				56993C112401BDAA00C16CFF /* ExercisesSceneViewController.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -690,8 +701,8 @@
 		ACEFD7F62401CB2500C2EED8 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
-				56993C192401BDF500C16CFF /* TipsSceneViewController.swift */,
 				ACAFEC9B24051FB000C8AEBB /* Cells */,
+				56993C192401BDF500C16CFF /* TipsSceneViewController.swift */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -987,6 +998,7 @@
 				ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */,
 				56993C0D2401BD6D00C16CFF /* DailySceneViewController.swift in Sources */,
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
+				AC9E1DF724112A4F00417E9A /* YesterdayWorkoutCell.swift in Sources */,
 				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
 				ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,

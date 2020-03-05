@@ -9,20 +9,37 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
+
+typealias WorkoutDataSource = RxCollectionViewSectionedReloadDataSource<YesterdayWorkoutSceneModel>
 
 class YesterdayWorkoutView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private let containerForButton = specify(UIView(), {
+    private lazy var dataSource: WorkoutDataSource = {
+        return WorkoutDataSource(configureCell: {  _, collectionView, indexPath, data in
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: YesterdayWorkoutCell.identifier,
+                                     for: indexPath) as? YesterdayWorkoutCell else { fatalError() }
+            cell.setup(exercise: data)
+            return cell
+        })
+    }()
+    
+    private let containerForButtonsView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
+    })
+    
+    private let separatorView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.layer.shadowColor = #colorLiteral(red: 0.4309999943, green: 0.4309999943, blue: 0.474999994, alpha: 1)
+        $0.layer.shadowOpacity = 0.2
+        $0.layer.shadowOffset = .init(width: 0, height: 3)
     })
     
     private let containerForExercisesView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        $0.layer.shadowOpacity = 0.3
-        $0.layer.shadowOffset = .init(width: 0, height: 2)
     })
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .thin)
@@ -36,7 +53,7 @@ class YesterdayWorkoutView: UIView {
     private let hExercisesStackView = specify(UIStackView(), {
         $0.axis = .horizontal
         $0.distribution = .fillProportionally
-        $0.spacing = 5
+        $0.spacing = 2
     })
     
     private let minutesLabel = specify(UILabel(), {
@@ -46,9 +63,9 @@ class YesterdayWorkoutView: UIView {
     })
     
     private let timeLabel = specify(UILabel(), {
-        $0.text = "0"
+        $0.text = "110"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.font = .systemFont(ofSize: 20, weight: .medium)
+        $0.font = .systemFont(ofSize: 20, weight: .semibold)
     })
     
     private let clockImageView = specify(UIImageView(), {
@@ -58,15 +75,22 @@ class YesterdayWorkoutView: UIView {
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
-//    
-//    private let mealTableView = specify(UITableView(), {
-//        $0.allowsSelection = false
-//        $0.register(QuestionMealCell.self, forCellReuseIdentifier: QuestionMealCell.identifier)
-//        $0.rowHeight = 40
-//        $0.contentInset = .init(top: 15, left: 0, bottom: 0, right: 0)
-//        $0.separatorInset = .zero
-//        $0.separatorColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9137254902, alpha: 1)
-//    })
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 15
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 25, left: 15, bottom: 15, right: 15)
+        let size = Constants.sW/2 - 22
+        layout.itemSize = CGSize(width: size, height: size - 15)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(YesterdayWorkoutCell.self,
+                                forCellWithReuseIdentifier: YesterdayWorkoutCell.identifier)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        collectionView.scrollIndicatorInsets = .init(top: 15, left: 0, bottom: 0, right: 0)
+        return collectionView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -74,12 +98,11 @@ class YesterdayWorkoutView: UIView {
         addConstraint()
     }
     
-    fileprivate func setupUI() {
-//        Observable.just(QuestionMealModels.allCases).bind(to: mealTableView.rx
-//            .items(cellIdentifier: QuestionMealCell.identifier,
-//                   cellType: QuestionMealCell.self)) { _, model, cell in
-//                    cell.setup(meals: model)
-//        }.disposed(by: disposeBag)
+    fileprivate func setupUI() {        
+        let section = [YesterdayWorkoutSceneModel(items: YesterdayWorkoutList.allCases)]
+        Observable.just(section)
+            .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
         startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
         startWorkoutButton.rx.tap
@@ -94,59 +117,24 @@ class YesterdayWorkoutView: UIView {
         hExercisesStackView.addArrangedSubview(minutesLabel)
         hExercisesStackView.addArrangedSubview(timeLabel)
         hExercisesStackView.addArrangedSubview(clockImageView)
-        add(containerForButton, layoutBlock: {
-            $0.bottom().leading().trailing().height(Constants.sH_812 ? 110 : 100)
+        add(containerForButtonsView, layoutBlock: {
+            $0.bottom().leading().trailing().height(Constants.sH_812 ? 110 : Constants.sH_667 ? 90 : 80)
         })
-        containerForButton.add(startWorkoutButton, layoutBlock: {
+        containerForButtonsView.add(startWorkoutButton, layoutBlock: {
             $0.top(15).leading(16).trailing(16).height(Constants.sW / 6.5)
         })
         add(containerForExercisesView, layoutBlock: {
-            $0.top(10).leading().trailing().height(Constants.sW / 5)
+            $0.top(10).leading().trailing().height(Constants.sH_812 ? 70 : Constants.sH_667 ? 50 : 40)
         })
-        containerForExercisesView.add(hExercisesStackView, layoutBlock: { $0.center() })
+        containerForExercisesView.add(hExercisesStackView, layoutBlock: { $0.centerX().centerY(5) })
+        add(collectionView, layoutBlock: {
+            $0.topBottom(to: containerForExercisesView)
+                .leading().trailing().bottomTop(to: containerForButtonsView)
+        })
+        add(separatorView, layoutBlock: {
+            $0.leading().trailing().height(10).topBottom(to: containerForExercisesView)
+        })
     }
     
     required init?(coder: NSCoder) { fatalError("has not been implemented meals table view") }
-}
-
-class YesterdayCell: UITableViewCell, CellIdentifierable {
-    
-    static var identifier: String = "YesterdayCell"
-    
-//    private lazy var  plusImageView = specify(UIImageView(), {
-//        $0.image = UIImage(systemName: "plus", withConfiguration:
-//            UIImage.SymbolConfiguration(weight: .bold))?
-//            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal)
-//        $0.tintColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-//    })
-//
-//    private let titleLabel = specify(UILabel(), {
-//        $0.font = .systemFont(ofSize: 16, weight: .regular)
-//    })
-//
-//    private let discriptionLabel = specify(UILabel(), {
-//        $0.font = .systemFont(ofSize: 12, weight: .regular)
-//    })
-//
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        setupUI()
-//        addConstraint()
-//    }
-//
-//    public func setup(meals: QuestionMealModels) {
-//        plusImageView.image = UIImage(systemName: "plus")
-//        titleLabel.text = meals.description().0
-//    }
-    
-    fileprivate func setupUI() {
-        
-    }
-    
-    fileprivate func addConstraint() {
-//        add(plusImageView, layoutBlock: { $0.leading(16).centerY().size(18) })
-//        add(titleLabel, layoutBlock: { $0.trailing(16).leadingTrailing(10, to: plusImageView).centerY() })
-    }
-    
-    required init?(coder: NSCoder) { fatalError("has not been implemented meal cell") }
 }

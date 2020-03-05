@@ -9,8 +9,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
-final class WorkOutSceneViewModel: BaseViewModel<WorkOutSceneModel> {
+final class WorkOutSceneViewModel: BaseViewModel<Object> {
     
     public var dismissObserver = PublishSubject<Void>()
 }

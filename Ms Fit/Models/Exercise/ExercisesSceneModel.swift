@@ -19,10 +19,10 @@ struct ExercisesSceneModel {
 }
 
 extension ExercisesSceneModel: SectionModelType {
-  typealias Item = ExercisesList
-
-   init(original: ExercisesSceneModel, items: [Item]) {
-    self = original
-    self.items = items
-  }
+    typealias Item = ExercisesList
+    
+    init(original: ExercisesSceneModel, items: [Item]) {
+        self = original
+        self.items = items
+    }
 }

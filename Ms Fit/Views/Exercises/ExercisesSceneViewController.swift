@@ -11,12 +11,12 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-typealias DataSource = RxCollectionViewSectionedReloadDataSource<ExercisesSceneModel>
+typealias ExercisesDataSource = RxCollectionViewSectionedReloadDataSource<ExercisesSceneModel>
 
 class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
     
-    private lazy var dataSource: DataSource = {
-        return DataSource(configureCell: {  _, collectionView, indexPath, data in
+    private lazy var dataSource: ExercisesDataSource = {
+        return ExercisesDataSource(configureCell: {  _, collectionView, indexPath, data in
             guard let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: ExerciseCell.identifier,
                                      for: indexPath) as? ExerciseCell else { fatalError() }
@@ -26,7 +26,6 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     }()
     
     private lazy var collectionView: UICollectionView = {
-       
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         layout.scrollDirection = .vertical
@@ -65,8 +64,8 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     override func setupBindings() {
         let section = [ExercisesSceneModel(items: ExercisesList.allCases)]
         Observable.just(section)
-        .bind(to: collectionView.rx.items(dataSource: dataSource))
-        .disposed(by: disposeBag)
+            .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
