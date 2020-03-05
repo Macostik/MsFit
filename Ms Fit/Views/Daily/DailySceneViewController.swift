@@ -182,6 +182,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         })
         hNavStackView.addArrangedSubview(verificationEmailButton)
         hNavStackView.addArrangedSubview(navTextLabel)
+        exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
+        exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
         hWorkoutAndDietStackView.addArrangedSubview(mealsDietButton)
         hWorkoutAndDietStackView.addArrangedSubview(exerciseWorkoutButton)
         vMealsStackView.addArrangedSubview(dayliMealsLabel)
@@ -196,7 +198,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         view.add(questionButton, layoutBlock: { $0.topBottom(20, to: navigationView).trailing(16).size(30) })
         view.add(homeButton, layoutBlock: { $0.topBottom(15, to: navigationView).leading(16) })
         view.add(hWorkoutAndDietStackView, layoutBlock: {
-            $0.bottom(tabBarHeight + (Constants.sH_812 ? 50 : 30)).trailing(25).leading(25).height(150)
+            $0.bottom(tabBarHeight + (Constants.sH_812 ? 50 : 30)).centerX()
         })
         view.add(middletextLabel, layoutBlock: {
             $0.bottomTop(Constants.sH_667 ? -50 : -20 , to: hWorkoutAndDietStackView).leading(20).trailing(20)
