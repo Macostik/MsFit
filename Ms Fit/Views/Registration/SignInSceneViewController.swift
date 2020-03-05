@@ -95,7 +95,9 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
+        view.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 51 : 20).leading(6).size(44)
+        })
         view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(16).trailing(16) })
         view.add(horStackView, layoutBlock: { $0.centerX().bottomTop(-35, to: verStackView) })
         instagramButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true

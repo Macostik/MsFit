@@ -103,7 +103,9 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        view.add(closeButton, layoutBlock: {$0.top(Constants.sH_812 ? 40 : 20).leading(6).size(44) })
+        view.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(6).size(44)
+        })
         view.add(emailImageView, layoutBlock: {
             $0.top(Constants.sH_812 ? 100 : 40).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })

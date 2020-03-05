@@ -109,7 +109,9 @@ class VerificationEmailPopupView: UIView {
     }
 
     func addConstraints() {
-        add(closeButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).trailing(4).size(44) })
+        add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
+        })
         add(containerView, layoutBlock: { $0.centerX().width(Constants.sW - 40) })
         centerYContainerView = containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         centerYContainerView.isActive = true

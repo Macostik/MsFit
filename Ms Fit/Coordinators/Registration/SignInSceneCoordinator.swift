@@ -16,7 +16,7 @@ class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
         let viewModel = SignInSceneViewModel(dependencies: dependencies)
         let viewController = SignInSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
-        navigationController?.pushViewController(viewController, animated: false)
+        navigationController?.pushViewController(viewController, animated: true)
         
         viewModel.dismissObserver.subscribe(onNext: { _ in
             navigationController?.popViewController(animated: true)

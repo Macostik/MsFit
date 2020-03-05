@@ -51,12 +51,10 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
     
     fileprivate func addConstraints() {
         view.add(navigationView, layoutBlock: {
-            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : 80)
+            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44)
-        })
-        navigationView.add(navQuestionsLabel, layoutBlock: { $0.centerX().bottom(15) })
+        navigationView.add(navQuestionsLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navQuestionsLabel).leading(4).size(44)})
         view.add(slideSegmentControl, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom()
         })

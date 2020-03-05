@@ -186,7 +186,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     fileprivate func addConstraints() {
-        view.add(backButton, layoutBlock: { $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44) })
+        view.add(backButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
+        })
         view.add(goalImageView, layoutBlock: {
             $0.top(Constants.sH_812 ? 100 : 30).centerX()
                 .width(Constants.sW / 4.7).height(Constants.sW / 4)

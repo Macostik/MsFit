@@ -75,7 +75,7 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     
     fileprivate func addConstraints() {
         view.add(navigationView, layoutBlock: {
-            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : 80)
+            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(5) })
         view.add(collectionView, layoutBlock: {

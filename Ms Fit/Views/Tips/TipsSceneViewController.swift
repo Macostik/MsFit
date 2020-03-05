@@ -69,7 +69,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     
     fileprivate func addConstraints() {
         view.add(navigationView, layoutBlock: {
-            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : 80)
+            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         vNavButtonsStackView.addArrangedSubview(navTextLabel)
         vNavButtonsStackView.addArrangedSubview(allCatigoriesButton)

@@ -139,7 +139,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             $0.top().trailing().leading().bottomTop(-10, to: vStackView)
         })
         baseContainerView.add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 40 : 20).leading(4).size(44)
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
         baseContainerView.add(signUpButton, layoutBlock: {
             $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 30 : 20).height(Constants.sW / 5.5)

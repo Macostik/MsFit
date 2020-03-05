@@ -47,7 +47,7 @@ class WorkoutSegmentController: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
-        let navHeight: CGFloat = Constants.sH_812 ? 100 : 80
+        let navHeight: CGFloat = Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70
         let menuHeight: CGFloat = 45
         layout.itemSize = CGSize(width: Constants.sW, height: Constants.sH - navHeight - menuHeight)
         
