@@ -2,7 +2,7 @@
 //  HomeCell.swift
 //  Ms Fit
 //
-//  Created by Maxim Granchenko on 26.02.2020.
+//  Created by Yura Granchenko on 26.02.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
