@@ -94,7 +94,7 @@
 		AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2262407CBFE0029D33E /* MealsView.swift */; };
 		AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2282407CC110029D33E /* ExerciseView.swift */; };
 		AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C22A2407CC220029D33E /* SubscriptionView.swift */; };
-		AC9E1DED2410F11000417E9A /* WorkoutSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEC2410F11000417E9A /* WorkoutSegmentController.swift */; };
+		AC9E1DED2410F11000417E9A /* WorkoutSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEC2410F11000417E9A /* WorkoutSegmentView.swift */; };
 		AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */; };
 		AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */; };
 		AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */; };
@@ -208,7 +208,7 @@
 		AC86C2262407CBFE0029D33E /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
 		AC86C2282407CC110029D33E /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		AC86C22A2407CC220029D33E /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
-		AC9E1DEC2410F11000417E9A /* WorkoutSegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSegmentController.swift; sourceTree = "<group>"; };
+		AC9E1DEC2410F11000417E9A /* WorkoutSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSegmentView.swift; sourceTree = "<group>"; };
 		AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWorkoutView.swift; sourceTree = "<group>"; };
@@ -507,7 +507,7 @@
 			children = (
 				AC9E1DEE2410F2E800417E9A /* WorkoutViews */,
 				56C7B4EF2405C2DE00CC2C8D /* WorkOutSceneViewController.swift */,
-				AC9E1DEC2410F11000417E9A /* WorkoutSegmentController.swift */,
+				AC9E1DEC2410F11000417E9A /* WorkoutSegmentView.swift */,
 			);
 			path = WorkOut;
 			sourceTree = "<group>";
@@ -993,7 +993,7 @@
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */,
 				56993BFC2401A84900C16CFF /* MainSceneCoordinator.swift in Sources */,
-				AC9E1DED2410F11000417E9A /* WorkoutSegmentController.swift in Sources */,
+				AC9E1DED2410F11000417E9A /* WorkoutSegmentView.swift in Sources */,
 				56993C072401B78400C16CFF /* TabBarSceneViewModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */,

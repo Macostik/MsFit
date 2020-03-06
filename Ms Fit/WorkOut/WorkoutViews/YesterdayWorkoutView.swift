@@ -121,7 +121,7 @@ class YesterdayWorkoutView: UIView {
             $0.bottom().leading().trailing().height(Constants.sH_812 ? 110 : Constants.sH_667 ? 90 : 80)
         })
         containerForButtonsView.add(startWorkoutButton, layoutBlock: {
-            $0.top(15).leading(16).trailing(16).height(Constants.sW / 6.5)
+            $0.top(15).width(Constants.sW - 32).height(Constants.sW / 6.5).centerX()
         })
         add(containerForExercisesView, layoutBlock: {
             $0.top(10).leading().trailing().height(Constants.sH_812 ? 70 : Constants.sH_667 ? 50 : 40)

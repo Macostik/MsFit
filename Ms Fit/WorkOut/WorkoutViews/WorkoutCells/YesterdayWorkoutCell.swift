@@ -10,7 +10,7 @@ import UIKit
 
 class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
-    static var identifier: String = "YesterdayCell"
+    static var identifier: String = "YesterdayWorkoutCell"
     
     private let exercisesImageView = specify(UIImageView(), {
         $0.clipsToBounds = true
@@ -58,7 +58,7 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
         vForTextStackView.addArrangedSubview(exerciseText)
         vForTextStackView.addArrangedSubview(descriptionText)
         containerForTextView.add(vForTextStackView, layoutBlock: { $0.leading(10).trailing(10).centerY() })
-        add(vContainerStackView, layoutBlock: { $0.top().bottom().trailing().leading() })
+        add(vContainerStackView, layoutBlock: { $0.edges() })
     }
     
     public func setup(exercise: YesterdayWorkoutList) {

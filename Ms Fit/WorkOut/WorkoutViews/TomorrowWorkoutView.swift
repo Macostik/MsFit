@@ -35,7 +35,7 @@ class TomorrowWorkoutView: UIView {
         $0.backgroundColor = .systemBackground
         $0.layer.shadowColor = #colorLiteral(red: 0.4309999943, green: 0.4309999943, blue: 0.474999994, alpha: 1)
         $0.layer.shadowOpacity = 0.2
-        $0.layer.shadowOffset = .init(width: 0, height: 3)
+        $0.layer.shadowOffset = .init(width: 0, height: 4)
     })
     
     private let containerForExercisesView = specify(UIView(), {
@@ -63,7 +63,7 @@ class TomorrowWorkoutView: UIView {
     })
     
     private let timeLabel = specify(UILabel(), {
-        $0.text = "40"
+        $0.text = "60"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
     })
@@ -121,7 +121,7 @@ class TomorrowWorkoutView: UIView {
             $0.bottom().leading().trailing().height(Constants.sH_812 ? 110 : Constants.sH_667 ? 90 : 80)
         })
         containerForButtonsView.add(startWorkoutButton, layoutBlock: {
-            $0.top(15).leading(16).trailing(16).height(Constants.sW / 6.5)
+            $0.top(15).width(Constants.sW - 32).height(Constants.sW / 6.5).centerX()
         })
         add(containerForExercisesView, layoutBlock: {
             $0.top(10).leading().trailing().height(Constants.sH_812 ? 70 : Constants.sH_667 ? 50 : 40)
@@ -129,7 +129,7 @@ class TomorrowWorkoutView: UIView {
         containerForExercisesView.add(hExercisesStackView, layoutBlock: { $0.centerX().centerY(5) })
         add(collectionView, layoutBlock: {
             $0.topBottom(to: containerForExercisesView)
-                .leading().trailing().bottomTop(to: containerForButtonsView)
+                .leading().trailing().bottomTop(to: containerForButtonsView) //the mistake here
         })
         add(separatorView, layoutBlock: {
             $0.leading().trailing().height(10).topBottom(to: containerForExercisesView)
