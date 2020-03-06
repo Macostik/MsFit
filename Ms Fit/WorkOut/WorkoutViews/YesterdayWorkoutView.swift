@@ -11,14 +11,14 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 
-typealias WorkoutDataSource = RxCollectionViewSectionedReloadDataSource<YesterdayWorkoutSceneModel>
+typealias YesterdayWorkoutDataSource = RxCollectionViewSectionedReloadDataSource<YesterdayWorkoutSceneModel>
 
 class YesterdayWorkoutView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private lazy var dataSource: WorkoutDataSource = {
-        return WorkoutDataSource(configureCell: {  _, collectionView, indexPath, data in
+    private lazy var dataSource: YesterdayWorkoutDataSource = {
+        return YesterdayWorkoutDataSource(configureCell: {  _, collectionView, indexPath, data in
             guard let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: YesterdayWorkoutCell.identifier,
                                      for: indexPath) as? YesterdayWorkoutCell else { fatalError() }
@@ -45,8 +45,8 @@ class YesterdayWorkoutView: UIView {
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .thin)
     private lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: mediumConfiguration)?
-            .withTintColor(#colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), bgColor: #colorLiteral(red: 0.5882352941, green: 0.5882352941, blue: 0.6274509804, alpha: 1))
+            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+        $0.customButton(text: "Start Workout", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1))
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
     })
     

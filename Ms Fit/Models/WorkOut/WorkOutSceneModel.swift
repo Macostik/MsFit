@@ -47,3 +47,33 @@ extension YesterdayWorkoutSceneModel: SectionModelType {
         self.items = items
     }
 }
+
+enum TodayWorkoutList: String, CaseIterable {
+    case arm_rotations, push_ups, crunches, arm_circles
+    
+    func description() -> (String, String) {
+        switch self {
+        case .arm_rotations:
+            return ("1. Arm rotations", "15min")
+        case .push_ups:
+            return ("2. Push-ups", "20 repeats/5 sets")
+        case .crunches:
+            return ("3. Crunches", "30 sec/4 sets")
+        case .arm_circles:
+            return ("4. Arm circles", "15 min")
+        }
+    }
+}
+
+struct TodayWorkoutSceneModel {
+    var items: [TodayWorkoutList]
+}
+
+extension TodayWorkoutSceneModel: SectionModelType {
+    typealias Item = TodayWorkoutList
+    
+    init(original: TodayWorkoutSceneModel, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}

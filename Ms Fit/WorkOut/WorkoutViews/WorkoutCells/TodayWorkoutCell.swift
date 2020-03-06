@@ -1,16 +1,16 @@
 //
-//  YesterdayWorkoutCell.swift
+//  TodayWorkoutCell.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 05.03.2020.
+//  Created by Yura Granchenko on 06.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
 import UIKit
 
-class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
+class TodayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
-    static var identifier: String = "YesterdayCell"
+    static var identifier: String = "TodayWorkoutCell"
     
     private let exercisesImageView = specify(UIImageView(), {
         $0.clipsToBounds = true
@@ -61,11 +61,11 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
         add(vContainerStackView, layoutBlock: { $0.top().bottom().trailing().leading() })
     }
     
-    public func setup(exercise: YesterdayWorkoutList) {
+    public func setup(exercise: TodayWorkoutList) {
         exercisesImageView.image =  UIImage(named: exercise.rawValue)
         exerciseText.text = exercise.description().0
         descriptionText.text = exercise.description().1
     }
     
-    required init?(coder: NSCoder) { fatalError("not implemented yesterday workout cell") }
+    required init?(coder: NSCoder) { fatalError("not implemented today workout cell") }
 }
