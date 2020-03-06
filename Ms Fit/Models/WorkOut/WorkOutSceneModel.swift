@@ -49,14 +49,10 @@ extension YesterdayWorkoutSceneModel: SectionModelType {
 }
 
 enum TodayWorkoutList: String, CaseIterable {
-    case arm_rotations, push_ups, crunches, arm_circles
+    case crunches, arm_circles
     
     func description() -> (String, String) {
         switch self {
-        case .arm_rotations:
-            return ("1. Arm rotations", "15min")
-        case .push_ups:
-            return ("2. Push-ups", "20 repeats/5 sets")
         case .crunches:
             return ("3. Crunches", "30 sec/4 sets")
         case .arm_circles:
@@ -73,6 +69,40 @@ extension TodayWorkoutSceneModel: SectionModelType {
     typealias Item = TodayWorkoutList
     
     init(original: TodayWorkoutSceneModel, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+enum TomorrowWorkoutList: String, CaseIterable {
+    case crunches, arm_circles, burpees, wall_sit, arm_rotations, push_ups
+    
+    func description() -> (String, String) {
+        switch self {
+        case .burpees:
+            return ("5. Burpees", "5 sets/20 repeats")
+        case .wall_sit:
+            return ("6. Wall Sit", "15 min")
+        case .crunches:
+            return ("3. Crunches", "30 sec/4 sets")
+        case .arm_circles:
+            return ("4. Arm circles", "15 min")
+        case .arm_rotations:
+            return ("1. Arm rotations", "15min")
+        case .push_ups:
+            return ("2. Push-ups", "20 repeats/5 sets")
+        }
+    }
+}
+
+struct TomorrowWorkoutSceneModel {
+    var items: [TomorrowWorkoutList]
+}
+
+extension TomorrowWorkoutSceneModel: SectionModelType {
+    typealias Item = TomorrowWorkoutList
+    
+    init(original: TomorrowWorkoutSceneModel, items: [Item]) {
         self = original
         self.items = items
     }
