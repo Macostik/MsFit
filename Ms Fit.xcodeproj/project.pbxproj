@@ -295,14 +295,15 @@
 		564A673923FC6DAD00D4901A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
+				ACEFD7F82401CB6D00C2EED8 /* Daily */,
+				ACEFD7F52401CB1A00C2EED8 /* Exercises */,
 				566C2DA2240444080006108B /* Registration */,
 				566C2D93240443800006108B /* Splash */,
 				566C2D8E240443770006108B /* Main */,
 				566C2D8024043EE10006108B /* Profile */,
-				ACEFD7F82401CB6D00C2EED8 /* Daily */,
 				ACEFD7F62401CB2500C2EED8 /* Tips */,
-				ACEFD7F52401CB1A00C2EED8 /* Exercises */,
-				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
+				56C7B4F82405C32C00CC2C8D /* WorkOut */,
 				ACCED1C323FE8D2E000EB2DB /* Views */,
 			);
 			path = Views;
@@ -312,10 +313,10 @@
 			isa = PBXGroup;
 			children = (
 				564A674923FC6E9800D4901A /* BaseViewModel.swift */,
-				566C2D8A2404413C0006108B /* Main */,
 				ACEFD7F92401CB8100C2EED8 /* Daily */,
 				ACEFD7F42401CAD500C2EED8 /* Exercises */,
 				AC12E31B23FEBD9A007343A5 /* Registration */,
+				566C2D8A2404413C0006108B /* Main */,
 				ACEFD7F22401CABF00C2EED8 /* Profile */,
 				ACEFD7F32401CAD100C2EED8 /* Tips */,
 				566C2D89240441350006108B /* Splash */,
@@ -489,7 +490,6 @@
 				564A673923FC6DAD00D4901A /* Views */,
 				564A673A23FC6DD000D4901A /* ViewModels */,
 				564A673B23FC6DD800D4901A /* Models */,
-				56C7B4F82405C32C00CC2C8D /* WorkOut */,
 			);
 			path = "Ms Fit";
 			sourceTree = "<group>";

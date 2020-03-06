@@ -13,7 +13,17 @@ import RxCocoa
 class ExercisesSceneCoordinator: BaseTabBarSceneCoordinator<ExercisesSceneViewModel> {
     
     override func controller() -> BaseViewController<ExercisesSceneViewModel> {
-        return ExercisesSceneViewController
-            .instantiate(with: ExercisesSceneViewModel(dependencies: dependencies))
+        let viewModel = ExercisesSceneViewModel(dependencies: dependencies)
+        
+        viewModel.presentWorkoutObserver.subscribe(onNext: { _ in
+            self.presenWorkoutScene()
+        }).disposed(by: disposeBag)
+        
+        return ExercisesSceneViewController.instantiate(with: viewModel)
+    }
+    
+    @discardableResult private func presenWorkoutScene() -> Observable<Void> {
+        let workoutCoordinator = WorkOutSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: workoutCoordinator)
     }
 }
