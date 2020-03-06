@@ -183,9 +183,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         
         mealsDietButton.animateWhenPressed(disposeBag: disposeBag)
         mealsDietButton.rx.tap
-            .subscribe(onNext: {
-                // do something
-            }).disposed(by: disposeBag)
+            .bind(to: viewModel!.presentMealObserver)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

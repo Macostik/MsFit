@@ -78,6 +78,10 @@
 		AC219312241273E800F388C1 /* DetailsWorkoutSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21930E241273E800F388C1 /* DetailsWorkoutSceneViewController.swift */; };
 		AC219313241273E800F388C1 /* DetailsWorkoutSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21930F241273E800F388C1 /* DetailsWorkoutSceneModel.swift */; };
 		AC219314241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC219310241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift */; };
+		AC21931A2412900400F388C1 /* MealSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193162412900400F388C1 /* MealSceneCoordinator.swift */; };
+		AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193172412900400F388C1 /* MealSceneViewController.swift */; };
+		AC21931C2412900400F388C1 /* MealSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193182412900400F388C1 /* MealSceneModel.swift */; };
+		AC21931D2412900400F388C1 /* MealSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193192412900400F388C1 /* MealSceneViewModel.swift */; };
 		AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */; };
 		AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */; };
 		AC4A00A52404247300764281 /* QuestionsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A12404247300764281 /* QuestionsSceneModel.swift */; };
@@ -198,6 +202,10 @@
 		AC21930E241273E800F388C1 /* DetailsWorkoutSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWorkoutSceneViewController.swift; sourceTree = "<group>"; };
 		AC21930F241273E800F388C1 /* DetailsWorkoutSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWorkoutSceneModel.swift; sourceTree = "<group>"; };
 		AC219310241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWorkoutSceneViewModel.swift; sourceTree = "<group>"; };
+		AC2193162412900400F388C1 /* MealSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC2193172412900400F388C1 /* MealSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneViewController.swift; sourceTree = "<group>"; };
+		AC2193182412900400F388C1 /* MealSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneModel.swift; sourceTree = "<group>"; };
+		AC2193192412900400F388C1 /* MealSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneViewModel.swift; sourceTree = "<group>"; };
 		AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewController.swift; sourceTree = "<group>"; };
 		AC4A00A12404247300764281 /* QuestionsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneModel.swift; sourceTree = "<group>"; };
@@ -278,7 +286,6 @@
 				566C2D86240440950006108B /* Main */,
 				ACEFD8012401CBD900C2EED8 /* Tips */,
 				566C2D852404406A0006108B /* Splash */,
-				56C7B4F62405C2F100CC2C8D /* WorkOut */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -303,7 +310,6 @@
 				566C2D8E240443770006108B /* Main */,
 				566C2D8024043EE10006108B /* Profile */,
 				ACEFD7F62401CB2500C2EED8 /* Tips */,
-				56C7B4F82405C32C00CC2C8D /* WorkOut */,
 				ACCED1C323FE8D2E000EB2DB /* Views */,
 			);
 			path = Views;
@@ -320,7 +326,6 @@
 				ACEFD7F22401CABF00C2EED8 /* Profile */,
 				ACEFD7F32401CAD100C2EED8 /* Tips */,
 				566C2D89240441350006108B /* Splash */,
-				56C7B4F92405C34B00CC2C8D /* WorkOut */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -328,14 +333,13 @@
 		564A673B23FC6DD800D4901A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ACEFD7FA2401CBAE00C2EED8 /* Daily */,
 				566C2D88240440D40006108B /* Main */,
 				566C2D87240440C10006108B /* Splash */,
-				ACEFD7FA2401CBAE00C2EED8 /* Daily */,
 				ACEFD7FB2401CBB500C2EED8 /* Exercise */,
 				ACEFD7FD2401CBCA00C2EED8 /* Profile */,
 				ACEFD7FC2401CBC000C2EED8 /* Tips */,
 				AC12E31923FEBD91007343A5 /* Registration */,
-				56C7B4F72405C31400CC2C8D /* WorkOut */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,6 +602,38 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		AC21931524128FDA00F388C1 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				AC2193162412900400F388C1 /* MealSceneCoordinator.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		AC21931E2412902000F388C1 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				AC2193172412900400F388C1 /* MealSceneViewController.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		AC21931F2412902D00F388C1 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				AC2193192412900400F388C1 /* MealSceneViewModel.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		AC2193202412904400F388C1 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				AC2193182412900400F388C1 /* MealSceneModel.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
 		AC738FBE2406C16600CB7A39 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,7 +764,9 @@
 		ACEFD7F82401CB6D00C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				AC21931E2412902000F388C1 /* Meal */,
 				AC738FBE2406C16600CB7A39 /* Cells */,
+				56C7B4F82405C32C00CC2C8D /* WorkOut */,
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
 				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
 				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
@@ -739,6 +777,8 @@
 		ACEFD7F92401CB8100C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				56C7B4F92405C34B00CC2C8D /* WorkOut */,
+				AC21931F2412902D00F388C1 /* Meal */,
 				56993C0B2401BD6D00C16CFF /* DailySceneViewModel.swift */,
 				AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */,
 				AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */,
@@ -749,6 +789,8 @@
 		ACEFD7FA2401CBAE00C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				56C7B4F72405C31400CC2C8D /* WorkOut */,
+				AC2193202412904400F388C1 /* Meal */,
 				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
 				AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */,
 				AC4A00A12404247300764281 /* QuestionsSceneModel.swift */,
@@ -783,6 +825,8 @@
 		ACEFD7FE2401CBD900C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				AC21931524128FDA00F388C1 /* Meal */,
+				56C7B4F62405C2F100CC2C8D /* WorkOut */,
 				56993C082401BD6D00C16CFF /* DailySceneCoordinator.swift */,
 				AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */,
 				AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */,
@@ -971,12 +1015,15 @@
 				56993C042401B78400C16CFF /* TabBarSceneCoordinator.swift in Sources */,
 				AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
+				AC21931A2412900400F388C1 /* MealSceneCoordinator.swift in Sources */,
 				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
 				56C7B4F22405C2DE00CC2C8D /* WorkOutSceneCoordinator.swift in Sources */,
 				AC219312241273E800F388C1 /* DetailsWorkoutSceneViewController.swift in Sources */,
 				564A676423FC76B100D4901A /* String+Ext.swift in Sources */,
+				AC21931C2412900400F388C1 /* MealSceneModel.swift in Sources */,
 				ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */,
 				ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */,
+				AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */,
 				566C2DAC240444080006108B /* SignInSceneViewController.swift in Sources */,
 				AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */,
 				AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */,
@@ -1011,6 +1058,7 @@
 				56993C072401B78400C16CFF /* TabBarSceneViewModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */,
+				AC21931D2412900400F388C1 /* MealSceneViewModel.swift in Sources */,
 				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
