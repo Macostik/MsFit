@@ -168,10 +168,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
                 rootViewController?.add(self.verificationView, layoutBlock: { $0.edges() })
                 self.verificationView.alpha = 0
                 self.verificationView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
-                    self.verificationView.alpha = 1
-                }
-                UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5,
+                self.verificationView.alpha = 1
+                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5,
                                initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
                     self.verificationView.containerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 })
