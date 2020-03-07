@@ -19,24 +19,12 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let verTFStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.distribution = .fillEqually
-        $0.spacing = 10
-    })
-    
-    private let verForButtonStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 10
-        $0.distribution = .fillEqually
-    })
-    
     private let containerLoginView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = .clear
     })
     
     private let containerPasswordView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = .clear
     })
     
     private let loginTextField = specify(TextField(), {
@@ -103,6 +91,14 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        let verTFStackView = VStackView(arrangedSubviews: [containerLoginView, containerPasswordView],
+                                        spacing: 10)
+        verTFStackView.distribution = .fillEqually
+        
+        let verForButtonStackView = VStackView(arrangedSubviews: [startWorkoutButton, forgotPasswordButton],
+                                        spacing: 10)
+        verForButtonStackView.distribution = .fillEqually
+        
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(6).size(44)
         })
@@ -111,15 +107,12 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         })
         containerLoginView.add(loginTextField, layoutBlock: { $0.edges() })
         containerPasswordView.add(passwordTextField, layoutBlock: { $0.edges() })
-        verTFStackView.addArrangedSubview(containerLoginView)
-        verTFStackView.addArrangedSubview(passwordTextField)
         containerLoginView.heightAnchor.constraint(equalToConstant: Constants.sW / 6).isActive = true
         view.add(verTFStackView, layoutBlock: {
             $0.topBottom(Constants.sH_812 ? 25 : Constants.sH_667 ? 20 : 0, to: emailImageView)
                 .leading(16).trailing(20)
         })
-        verForButtonStackView.addArrangedSubview(startWorkoutButton)
-        verForButtonStackView.addArrangedSubview(forgotPasswordButton)
+        
         startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verForButtonStackView, layoutBlock: {
             $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 280 : 200)

@@ -29,11 +29,6 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
-    private let verStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 30
-    })
-    
     private let verForButtonStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.spacing = Constants.sH_667 ? 30 : 20
@@ -186,6 +181,8 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     }
     
     fileprivate func addConstraints() {
+        let verStackView = VStackView(arrangedSubviews: [quetionLabel, progressView], spacing: 30)
+        
         view.add(backButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
@@ -195,9 +192,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         })
         progressView.heightAnchor.constraint(equalToConstant: 8).isActive = true
         progressView.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        verStackView.addArrangedSubview(quetionLabel)
-        verStackView.addArrangedSubview(progressView)
+        
         buttonList.forEach({[weak self] in self?.verForButtonStackView.addArrangedSubview($0) })
+        
         verForButtonStackView.addArrangedSubview(bottomLabel)
         view.add(verStackView, layoutBlock: {
             $0.centerX().topBottom(Constants.sH_667 ? 30 : 10, to: goalImageView)

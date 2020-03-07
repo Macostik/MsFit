@@ -37,12 +37,6 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
         $0.strokeColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     })
     
-    private let verStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.distribution = .fillEqually
-        $0.spacing = Constants.sH_812 ? 80 : Constants.sH_667 ? 50 : 40
-    })
-    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -62,14 +56,16 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     }
     
     fileprivate func addConstraints() {
+        let verStackView = VStackView(arrangedSubviews: [emailTextField, sendRecoverInfoButton],
+                                      spacing: Constants.sH_812 ? 80 : Constants.sH_667 ? 50 : 40)
+        verStackView.distribution = .fillEqually
+        
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(6).size(44)
         })
         view.add(emailImageView, layoutBlock: {
             $0.top(Constants.sH * 0.13).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })
-        verStackView.addArrangedSubview(emailTextField)
-        verStackView.addArrangedSubview(sendRecoverInfoButton)
         sendRecoverInfoButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verStackView, layoutBlock: {
             $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 350 : 250)

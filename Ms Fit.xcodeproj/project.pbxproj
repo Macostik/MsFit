@@ -82,6 +82,7 @@
 		AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193172412900400F388C1 /* MealSceneViewController.swift */; };
 		AC21931C2412900400F388C1 /* MealSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193182412900400F388C1 /* MealSceneModel.swift */; };
 		AC21931D2412900400F388C1 /* MealSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2193192412900400F388C1 /* MealSceneViewModel.swift */; };
+		AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4874EE24129B69007FE6A4 /* CaloriesView.swift */; };
 		AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */; };
 		AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */; };
 		AC4A00A52404247300764281 /* QuestionsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A12404247300764281 /* QuestionsSceneModel.swift */; };
@@ -91,6 +92,7 @@
 		AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */; };
 		AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618224003F7300E5204A /* SignUpSceneModel.swift */; };
 		AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */; };
+		AC5515532413A4BD0093373D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5515522413A4BD0093373D /* StackView.swift */; };
 		AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
 		AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D523FC09500052B796 /* AppDelegate.swift */; };
 		AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */; };
@@ -206,6 +208,7 @@
 		AC2193172412900400F388C1 /* MealSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneViewController.swift; sourceTree = "<group>"; };
 		AC2193182412900400F388C1 /* MealSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneModel.swift; sourceTree = "<group>"; };
 		AC2193192412900400F388C1 /* MealSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSceneViewModel.swift; sourceTree = "<group>"; };
+		AC4874EE24129B69007FE6A4 /* CaloriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesView.swift; sourceTree = "<group>"; };
 		AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewController.swift; sourceTree = "<group>"; };
 		AC4A00A12404247300764281 /* QuestionsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneModel.swift; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 		AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewModel.swift; sourceTree = "<group>"; };
 		AC53618224003F7300E5204A /* SignUpSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneModel.swift; sourceTree = "<group>"; };
 		AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewModel.swift; sourceTree = "<group>"; };
+		AC5515522413A4BD0093373D /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewController.swift; sourceTree = "<group>"; };
 		AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneModel.swift; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 				564A675F23FC76B100D4901A /* Reactive+Ext.swift */,
 				564A675E23FC76B100D4901A /* String+Ext.swift */,
 				564A675A23FC76B100D4901A /* UIView+Ext.swift */,
+				AC5515522413A4BD0093373D /* StackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 		AC21931E2412902000F388C1 /* Meal */ = {
 			isa = PBXGroup;
 			children = (
+				AC4874ED24129B11007FE6A4 /* MealViews */,
 				AC2193172412900400F388C1 /* MealSceneViewController.swift */,
 			);
 			path = Meal;
@@ -632,6 +638,14 @@
 				AC2193182412900400F388C1 /* MealSceneModel.swift */,
 			);
 			path = Meal;
+			sourceTree = "<group>";
+		};
+		AC4874ED24129B11007FE6A4 /* MealViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC4874EE24129B69007FE6A4 /* CaloriesView.swift */,
+			);
+			path = MealViews;
 			sourceTree = "<group>";
 		};
 		AC738FBE2406C16600CB7A39 /* Cells */ = {
@@ -765,8 +779,8 @@
 			isa = PBXGroup;
 			children = (
 				AC21931E2412902000F388C1 /* Meal */,
-				AC738FBE2406C16600CB7A39 /* Cells */,
 				56C7B4F82405C32C00CC2C8D /* WorkOut */,
+				AC738FBE2406C16600CB7A39 /* Cells */,
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
 				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
 				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
@@ -1075,12 +1089,14 @@
 				56993C152401BDAA00C16CFF /* ExercisesSceneViewController.swift in Sources */,
 				566C2D96240443800006108B /* SplashSceneViewController.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
+				AC5515532413A4BD0093373D /* StackView.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				566C2DA8240444080006108B /* SignUpSceneViewController.swift in Sources */,
 				AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */,
 				56993C2B2401BEBD00C16CFF /* ProfileSceneViewModel.swift in Sources */,
 				AC219314241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift in Sources */,
 				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
+				AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */,
 				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
 				56993C0C2401BD6D00C16CFF /* DailySceneCoordinator.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,

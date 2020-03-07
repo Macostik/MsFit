@@ -38,11 +38,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         $0.numberOfLines = 0
     })
     
-    private let vTopStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = Constants.sH_812 ? 10 : 7
-    })
-    
     private let vTFStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.spacing = 10
@@ -82,17 +77,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
                         shadowColor: .clear, bgColor: .systemBackground)
     })
     
-    private let hForButtonStackView = specify(UIStackView(), {
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 16
-    })
-    
-    private let vStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 15
-    })
-    
     private let textLabel = specify(UILabel(), {
         $0.text = "Or use social media"
         $0.font = .systemFont(ofSize: 19, weight: .regular)
@@ -126,12 +110,13 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        vStackView.addArrangedSubview(textLabel)
-        vStackView.addArrangedSubview(hForButtonStackView)
-        hForButtonStackView.addArrangedSubview(instagramButton)
-        hForButtonStackView.addArrangedSubview(twitterButton)
-        vTopStackView.addArrangedSubview(congratulationsLabel)
-        vTopStackView.addArrangedSubview(memberShipLabel)
+        let hForButtonStackView = HStackView(arrangedSubviews: [instagramButton, twitterButton], spacing: 15)
+        hForButtonStackView.distribution = .fillEqually
+        
+        let vStackView = VStackView(arrangedSubviews: [textLabel, hForButtonStackView], spacing: 15)
+        let vTopStackView = VStackView(arrangedSubviews: [congratulationsLabel, memberShipLabel],
+                                       spacing: Constants.sH_812 ? 10 : 7)
+        
         instagramButton.heightAnchor.constraint(equalToConstant:
             Constants.sH_812 ? Constants.sW / 6.5 : Constants.sW / 8 ).isActive = true
         view.add(vStackView, layoutBlock: { $0.bottom(Constants.sH_812 ? 18 : 8).leading(16).trailing(16) })

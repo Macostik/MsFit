@@ -29,13 +29,7 @@ class VerificationEmailPopupView: UIView {
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
     })
-    
-    private let vContainerStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.distribution = .fillProportionally
-        $0.spacing = Constants.sH_667 ? 15 : 10
-    })
-    
+
     private let topLabel = specify(UILabel(), {
         $0.setLineHeight("Hi, Elsa! Increasing prosperity in our lives can be.",
                          lineHeight: Constants.sH_667 ? 5 : 3)
@@ -109,14 +103,15 @@ class VerificationEmailPopupView: UIView {
     }
 
     func addConstraints() {
+        let vContainerStackView = VStackView(arrangedSubviews: [topLabel, bottomLabel],
+                                             spacing: Constants.sH_667 ? 15 : 10)
+         
         add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
         })
         add(containerView, layoutBlock: { $0.centerX().width(Constants.sW - 40) })
         centerYContainerView = containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         centerYContainerView.isActive = true
-        vContainerStackView.addArrangedSubview(topLabel)
-        vContainerStackView.addArrangedSubview(bottomLabel)
         containerView.add(emailImageView, layoutBlock: {
             $0.top(Constants.sH_667 ? 40 : 20).centerX()
                 .width(Constants.sH_667 ? 86 : 66).height(Constants.sH_667 ? 70 : 50)

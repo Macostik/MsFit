@@ -18,14 +18,6 @@ class TodayWorkoutCell: UICollectionViewCell, CellIdentifierable {
         $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     })
     
-    private let vContainerStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
-    private let vForTextStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
     private let containerForTextView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.shadowColor = #colorLiteral(red: 0.4309999943, green: 0.4309999943, blue: 0.474999994, alpha: 1)
@@ -53,10 +45,9 @@ class TodayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     }
     
     private func handleUI() {
-        vContainerStackView.addArrangedSubview(exercisesImageView)
-        vContainerStackView.addArrangedSubview(containerForTextView)
-        vForTextStackView.addArrangedSubview(exerciseText)
-        vForTextStackView.addArrangedSubview(descriptionText)
+        let vContainerStackView = VStackView(arrangedSubviews: [exercisesImageView, containerForTextView])
+        let vForTextStackView = VStackView(arrangedSubviews: [exerciseText, descriptionText])
+        
         containerForTextView.add(vForTextStackView, layoutBlock: { $0.leading(10).trailing(10).centerY() })
         add(vContainerStackView, layoutBlock: { $0.edges() })
     }

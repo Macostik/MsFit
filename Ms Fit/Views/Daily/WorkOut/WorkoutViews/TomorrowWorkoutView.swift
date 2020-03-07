@@ -50,12 +50,6 @@ class TomorrowWorkoutView: UIView {
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
     })
     
-    private let hExercisesStackView = specify(UIStackView(), {
-        $0.axis = .horizontal
-        $0.distribution = .fillProportionally
-        $0.spacing = 2
-    })
-    
     private let minutesLabel = specify(UILabel(), {
         $0.text = "minutes"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
@@ -112,11 +106,12 @@ class TomorrowWorkoutView: UIView {
     }
     
     fileprivate func addConstraint() {
+        let hExercisesStackView = HStackView(arrangedSubviews: [minutesLabel, timeLabel, clockImageView],
+                                             spacing: 5)
+        
         clockImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
         clockImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        hExercisesStackView.addArrangedSubview(minutesLabel)
-        hExercisesStackView.addArrangedSubview(timeLabel)
-        hExercisesStackView.addArrangedSubview(clockImageView)
+        
         add(containerForButtonsView, layoutBlock: {
             $0.bottom().leading().trailing().height(Constants.sH_812 ? 110 : Constants.sH_667 ? 90 : 80)
         })

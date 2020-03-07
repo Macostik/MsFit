@@ -45,18 +45,6 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         $0.isUserInteractionEnabled = true
     })
     
-    private let vOneMonthStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 6
-        $0.isUserInteractionEnabled = false
-    })
-    
-    private let vThreeMonthStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 6
-        $0.isUserInteractionEnabled = false
-    })
-    
     private let oneMonthLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center
@@ -90,12 +78,6 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 20 : 17, weight: .regular)
         $0.textAlignment = .center
-    })
-    
-    private let vForButtonsStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.distribution = .fillEqually
-        $0.spacing = 25
     })
     
     private let buyOneMonthButton = specify(UIButton(type: .roundedRect), {
@@ -141,6 +123,19 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        
+        let vForButtonsStackView = VStackView(arrangedSubviews: [buyOneMonthButton, buyThreeMonthButton],
+                                              spacing: 25)
+        vForButtonsStackView.distribution = .fillEqually
+        
+        let vOneMonthStackView = VStackView(arrangedSubviews: [oneMonthLabel, priceOneMonthLabel],
+                                            spacing: 6)
+        vOneMonthStackView.isUserInteractionEnabled = false
+        
+        let vThreeMonthStackView = VStackView(arrangedSubviews: [threeMonthLabel, priceThreeMonthLabel],
+                                              spacing: 6)
+        vThreeMonthStackView.isUserInteractionEnabled = false
+        
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
@@ -152,18 +147,14 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
                 .height(Constants.sH_812 ? Constants.sW * 0.8 : Constants.sW * 0.6)
         })
         buyOneMonthButton.heightAnchor.constraint(equalToConstant: Constants.sH / 9).isActive = true
-        vForButtonsStackView.addArrangedSubview(buyOneMonthButton)
-        vForButtonsStackView.addArrangedSubview(buyThreeMonthButton)
+        
         view.add(vForButtonsStackView, layoutBlock: {
             $0.bottom(Constants.sH_812 ? 80 : 50).leading(16).trailing(16)
         })
         view.add(getPremiumLabel, layoutBlock: {
             $0.bottomTop(Constants.sH_812 ? -50 : -25, to: vForButtonsStackView).leading(16).trailing(16)
         })
-        vOneMonthStackView.addArrangedSubview(oneMonthLabel)
-        vOneMonthStackView.addArrangedSubview(priceOneMonthLabel)
-        vThreeMonthStackView.addArrangedSubview(threeMonthLabel)
-        vThreeMonthStackView.addArrangedSubview(priceThreeMonthLabel)
+        
         buyOneMonthButton.add(vOneMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(vThreeMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(fullProgramImage, layoutBlock: {

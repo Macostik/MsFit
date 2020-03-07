@@ -21,6 +21,7 @@ class HomeCell: FSPagerViewCell {
     private let topLabel = specify(UILabel(), {
         $0.textColor = UIColor.systemBackground
         $0.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.textAlignment = .center
     })
     
     private let bottomLabel = specify(UILabel(), {
@@ -30,16 +31,10 @@ class HomeCell: FSPagerViewCell {
         $0.numberOfLines = 0
     })
     
-    private let verticalStackView = specify(UIStackView(), {
-        $0.spacing = 20
-        $0.alignment = .center
-        $0.axis = .vertical
-    })
-    
     public func setup(entry: HomeImageList) {
+        let verticalStackView = VStackView(arrangedSubviews: [topLabel, bottomLabel], spacing: 20)
+        
         add(topImageView, layoutBlock: { $0.top(0).centerX() })
-        verticalStackView.addArrangedSubview(topLabel)
-        verticalStackView.addArrangedSubview(bottomLabel)
         add(verticalStackView, layoutBlock: {
             $0.leading(30).trailing(30).topBottom(30, to: topImageView)
         })

@@ -12,11 +12,6 @@ class ExerciseCell: UICollectionViewCell, CellIdentifierable {
     
     private let exerciseImageView = UIImageView()
     
-    private let vContainerStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 10
-    })
-    
     private let exerciseText = specify(UILabel(), {
         $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -33,8 +28,8 @@ class ExerciseCell: UICollectionViewCell, CellIdentifierable {
         layer.cornerRadius = 10
         clipsToBounds = true
         
-        vContainerStackView.addArrangedSubview(exerciseImageView)
-        vContainerStackView.addArrangedSubview(exerciseText)
+        let vContainerStackView = VStackView(arrangedSubviews: [exerciseImageView, exerciseText], spacing: 10)
+
         add(vContainerStackView, layoutBlock: { $0.center() })
     }
     
