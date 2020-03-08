@@ -21,6 +21,9 @@ class WorkOutSceneCoordinator: BaseSceneCoordinator<Void> {
         viewModel.dismissObserver.subscribe(onNext: {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
+        viewModel.presentObserver.subscribe(onNext: { index, model in
+            print (">>self - \(index) \(model)<<")
+        }).disposed(by: disposeBag)
         
         return Observable.just(())
     }

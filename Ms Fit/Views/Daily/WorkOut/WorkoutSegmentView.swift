@@ -14,6 +14,8 @@ class WorkoutSegmentView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
+    public var viewModel: WorkOutSceneViewModel?
+    
     private let menuItems = ["Yesterday", "Today", "Tomorrow"]
     private let slideItems = [YesterdayWorkoutView(), TodayWorkoutView(), TomorrowWorkoutView()]
     
@@ -59,13 +61,15 @@ class WorkoutSegmentView: UIView {
         return collectionView
     }()
     
-    init() {
+    init(with viewModel: WorkOutSceneViewModel) {
         super.init(frame: .zero)
+        self.viewModel = viewModel
         handleUI()
         addConstraints()
     }
     
     fileprivate func handleUI() {
+        slideItems.forEach({ [unowned self] in $0.viewModel = self.viewModel })
         Observable.just(menuItems)
             .bind(to: menuCollection.rx
                 .items(cellIdentifier: MenuCell.identifier, cellType: MenuCell.self)) { _, model, cell in

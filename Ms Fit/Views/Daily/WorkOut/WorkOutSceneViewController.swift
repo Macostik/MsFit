@@ -12,7 +12,7 @@ import RxCocoa
 
 class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     
-    private let workoutSegmentView = WorkoutSegmentView()
+    private lazy var workoutSegmentView = WorkoutSegmentView(with: self.viewModel!)
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {

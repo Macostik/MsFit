@@ -13,6 +13,8 @@ import RxDataSources
 
 class BaseWorkOutView: UIView {
     internal let disposeBag = DisposeBag()
+    
+    public var viewModel: WorkOutSceneViewModel?
      
      private let containerForButtonsView = specify(UIView(), {
          $0.backgroundColor = .systemBackground
@@ -74,7 +76,7 @@ class BaseWorkOutView: UIView {
         collectionView.scrollIndicatorInsets = .init(top: 15, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
-    
+     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupUI()
