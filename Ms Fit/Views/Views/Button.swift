@@ -229,7 +229,7 @@ extension UIButton {
     }
     
     public func customButton(text: String? = "", font: CGFloat? = 16, weight: UIFont.Weight? = .regular,
-                             shadowColor: UIColor? = nil, bgColor: UIColor? = nil) {
+                             shadowColor: UIColor? = nil, bgColor: UIColor? = nil, isCircled: Bool = true) {
         setTitle(text, for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: font ?? 16, weight: weight ?? .regular)
         tintColor = .systemBackground
@@ -238,7 +238,9 @@ extension UIButton {
         layer.shadowOpacity = 0.6
         layer.shadowOffset = CGSize(width: 0, height: 3)
         backgroundColor = bgColor
-        circled = true
+        if isCircled {
+             circled = true
+        }
     }
     
     public func animateWhenPressed(disposeBag: DisposeBag) {

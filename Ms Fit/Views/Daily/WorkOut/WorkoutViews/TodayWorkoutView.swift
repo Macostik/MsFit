@@ -46,7 +46,12 @@ class TodayWorkoutView: UIView {
     private lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1))
+        $0.customButton(text: "Start Workout",
+                        font: 20,
+                        weight: .bold,
+                        shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1),
+                        bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1),
+                        isCircled: false)
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
     })
     
@@ -124,11 +129,12 @@ class TodayWorkoutView: UIView {
         containerForExercisesView.add(hExercisesStackView, layoutBlock: { $0.centerX().centerY(5) })
         add(collectionView, layoutBlock: {
             $0.topBottom(to: containerForExercisesView)
-                .leading().trailing().bottomTop(to: containerForButtonsView) //the mistake here
+                .leading().trailing().bottomTop(to: containerForButtonsView) 
         })
         add(separatorView, layoutBlock: {
             $0.leading().trailing().height(10).topBottom(to: containerForExercisesView)
         })
+        startWorkoutButton.cornerRadius = (Constants.sW / 6.5)/2
     }
     
     required init?(coder: NSCoder) { fatalError("has not been implemented meals table view") }
