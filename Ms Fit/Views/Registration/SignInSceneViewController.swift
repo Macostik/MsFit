@@ -80,7 +80,8 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        let verStackView = VStackView(arrangedSubviews: [instagramButton, twitterButton, emailButton], spacing: 35)
+        let verStackView = VStackView(arrangedSubviews: [instagramButton, twitterButton, emailButton],
+                                      spacing: 35)
         verStackView.distribution = .fillEqually
         
         let horStackView = HStackView(arrangedSubviews: [smileImage, topLabel], spacing: 6)

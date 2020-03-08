@@ -68,6 +68,7 @@
 		56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7B4F02405C2DE00CC2C8D /* WorkOutSceneModel.swift */; };
 		56C7B4F52405C2DE00CC2C8D /* WorkOutSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7B4F12405C2DE00CC2C8D /* WorkOutSceneViewModel.swift */; };
 		56EE488D24153A5100FBEBEC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE488C24153A5100FBEBEC /* ApiManager.swift */; };
+		56EE4893241568FE00FBEBEC /* BaseWorkOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */; };
 		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
 		AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */; };
 		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
@@ -194,6 +195,7 @@
 		56C7B4F02405C2DE00CC2C8D /* WorkOutSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutSceneModel.swift; sourceTree = "<group>"; };
 		56C7B4F12405C2DE00CC2C8D /* WorkOutSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutSceneViewModel.swift; sourceTree = "<group>"; };
 		56EE488C24153A5100FBEBEC /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWorkOutView.swift; sourceTree = "<group>"; };
 		60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.release.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.release.xcconfig"; sourceTree = "<group>"; };
 		AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneModel.swift; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 				AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */,
 				AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */,
 				AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */,
+				56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */,
 			);
 			path = WorkoutViews;
 			sourceTree = "<group>";
@@ -1020,6 +1023,7 @@
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				566C2D97240443800006108B /* OnboardSceneViewController.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
+				56EE4893241568FE00FBEBEC /* BaseWorkOutView.swift in Sources */,
 				AC4A783A23FE7412003DD917 /* ProfileSceneModel.swift in Sources */,
 				56993C1E2401BDF500C16CFF /* TipsSceneModel.swift in Sources */,
 				AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */,
