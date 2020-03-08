@@ -70,6 +70,12 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         Observable.just(section)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        presentExerciseButton.animateWhenPressed(disposeBag: disposeBag)
+        presentExerciseButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel?.presentWorkoutObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

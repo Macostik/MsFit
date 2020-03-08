@@ -26,10 +26,6 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     private var collectionView = UICollectionView(frame: .zero,
                                                   collectionViewLayout: UICollectionViewFlowLayout())
     
-    private let vNavButtonsStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -68,11 +64,11 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        let vNavButtonsStackView = VStackView(arrangedSubviews: [navTextLabel, allCatigoriesButton])
+        
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        vNavButtonsStackView.addArrangedSubview(navTextLabel)
-        vNavButtonsStackView.addArrangedSubview(allCatigoriesButton)
         navigationView.add(vNavButtonsStackView, layoutBlock: { $0.centerX().bottom(6) })
         view.add(collectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)

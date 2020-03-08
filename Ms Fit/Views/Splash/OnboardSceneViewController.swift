@@ -37,10 +37,6 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
         $0.setTitleColor(.black, for: .normal)
     })
     
-    private let verticalStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
     override func setupUI() {
         addPagerVeiw()
         addConstraints()
@@ -78,8 +74,8 @@ extension OnboardSceneViewController {
     }
     
     fileprivate func addConstraints() {
-        verticalStackView.addArrangedSubview(startButton)
-        verticalStackView.addArrangedSubview(signInButton)
+        let verticalStackView = VStackView(arrangedSubviews: [startButton, signInButton])
+        
         startButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         view.add(pagerView, layoutBlock: { $0.edges() })
@@ -138,18 +134,14 @@ class ImageCell: FSPagerViewCell {
         $0.numberOfLines = 0
     })
     
-    private let verticalStackView = specify(UIStackView(), {
-        $0.spacing = 10
-        $0.alignment = .center
-        $0.axis = .vertical
-    })
-    
     public func setup(entry: ImageList) {
+        let verticalStackView = VStackView(arrangedSubviews: [topLabel, bottomLabel], spacing: 10)
+        verticalStackView.alignment = .center
+        verticalStackView.axis = .vertical
+        
         add(splashImageView, layoutBlock: {
             $0.top().leading().trailing().bottom(Constants.sH / 4.7)
         })
-        verticalStackView.addArrangedSubview(topLabel)
-        verticalStackView.addArrangedSubview(bottomLabel)
         splashImageView.add(verticalStackView, layoutBlock: {
             $0.leading(50).trailing(50).bottom(Constants.sH_812 ? 80 : 50)
         })

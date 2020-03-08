@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class WorkoutSegmentController: UIView {
+class WorkoutSegmentView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
@@ -29,7 +29,7 @@ class WorkoutSegmentController: UIView {
         $0.layer.shadowOffset = CGSize(width: 0, height: 3)
     })
     
-    private lazy var menuCollection: UICollectionView = {
+    public lazy var menuCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal

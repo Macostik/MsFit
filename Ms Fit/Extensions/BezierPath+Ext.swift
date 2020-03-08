@@ -3,7 +3,7 @@
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 1/23/19.
-//  Copyright © 2019 Simcord. All rights reserved.
+//  Copyright © 2019 Selecto. All rights reserved.
 //
 
 import UIKit

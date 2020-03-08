@@ -15,4 +15,5 @@ final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
     public var questionPresentObserver = PublishSubject<Void>()
     public var homePresentObserver = PublishSubject<Void>()
     public var presentWorkoutObserver = PublishSubject<Void>()
+    public var presentMealObserver = PublishSubject<Void>()
 }

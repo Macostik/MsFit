@@ -12,7 +12,7 @@ import RxCocoa
 
 class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     
-    private let workoutSegmentController = WorkoutSegmentController()
+    private let workoutSegmentView = WorkoutSegmentView()
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
@@ -55,7 +55,7 @@ class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
         })
         navigationView.add(navWorkoutLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navWorkoutLabel).leading(4).size(44) })
-        view.add(workoutSegmentController, layoutBlock: {
+        view.add(workoutSegmentView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom()
         })
     }

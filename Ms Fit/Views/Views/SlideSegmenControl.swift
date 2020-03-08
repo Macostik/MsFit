@@ -113,6 +113,7 @@ class SlideSegmentControl: UIView {
 class MenuCell: UICollectionViewCell, CellIdentifierable {
     
     public let titleLabel = specify(Label()) {
+        $0.font = .systemFont(ofSize: 16, weight: .regular)
         $0.textColor = .systemBackground
     }
     

@@ -82,26 +82,6 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.textColor = .systemBackground
         $0.textAlignment = .center
     })
-    
-    private let vExerciseStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
-    private let vMealsStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
-    private let hWorkoutAndDietStackView = specify(UIStackView(), {
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 25
-    })
-    
-    private let hNavStackView = specify(UIStackView(), {
-        $0.axis = .horizontal
-        $0.distribution = .fillProportionally
-        $0.spacing = 10
-    })
 
     private let verificationEmailButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
@@ -168,10 +148,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
                 rootViewController?.add(self.verificationView, layoutBlock: { $0.edges() })
                 self.verificationView.alpha = 0
                 self.verificationView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
-                    self.verificationView.alpha = 1
-                }
-                UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5,
+                self.verificationView.alpha = 1
+                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5,
                                initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
                     self.verificationView.containerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 })
@@ -185,9 +163,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         
         mealsDietButton.animateWhenPressed(disposeBag: disposeBag)
         mealsDietButton.rx.tap
-            .subscribe(onNext: {
-                // do something
-            }).disposed(by: disposeBag)
+            .bind(to: viewModel!.presentMealObserver)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -196,19 +173,22 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        let hNavStackView = HStackView(arrangedSubviews: [verificationEmailButton, navTextLabel], spacing: 10)
+        hNavStackView.distribution = .fillProportionally
+        
+        let hWorkoutAndDietStackView = HStackView(arrangedSubviews: [mealsDietButton, exerciseWorkoutButton],
+                                                  spacing: 25)
+        hWorkoutAndDietStackView.distribution = .fillEqually
+        
+        let vMealsStackView = VStackView(arrangedSubviews: [dayliMealsLabel, countMealsLabel])
+        let vExerciseStackView = VStackView(arrangedSubviews: [dayliExerciseLabel, countExerciseLabel])
+        
+        exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
+        exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
+        
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        hNavStackView.addArrangedSubview(verificationEmailButton)
-        hNavStackView.addArrangedSubview(navTextLabel)
-        exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
-        exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
-        hWorkoutAndDietStackView.addArrangedSubview(mealsDietButton)
-        hWorkoutAndDietStackView.addArrangedSubview(exerciseWorkoutButton)
-        vMealsStackView.addArrangedSubview(dayliMealsLabel)
-        vMealsStackView.addArrangedSubview(countMealsLabel)
-        vExerciseStackView.addArrangedSubview(dayliExerciseLabel)
-        vExerciseStackView.addArrangedSubview(countExerciseLabel)
         navigationView.add(hNavStackView, layoutBlock: { $0.leading(16).trailing(16).bottom(14) })
         view.add(bgDayliCircleImage, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing()

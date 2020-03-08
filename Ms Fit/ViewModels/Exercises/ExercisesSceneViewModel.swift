@@ -10,4 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class ExercisesSceneViewModel: BaseViewModel<ExercisesSceneModel> {}
+final class ExercisesSceneViewModel: BaseViewModel<ExercisesSceneModel> {
+    
+    public var presentWorkoutObserver = PublishSubject<Void>()
+}

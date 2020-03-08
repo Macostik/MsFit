@@ -10,20 +10,12 @@ import UIKit
 
 class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
-    static var identifier: String = "YesterdayCell"
+    static var identifier: String = "YesterdayWorkoutCell"
     
     private let exercisesImageView = specify(UIImageView(), {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 5
         $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-    })
-    
-    private let vContainerStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
-    private let vForTextStackView = specify(UIStackView(), {
-        $0.axis = .vertical
     })
     
     private let containerForTextView = specify(UIView(), {
@@ -53,12 +45,11 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     }
     
     private func handleUI() {
-        vContainerStackView.addArrangedSubview(exercisesImageView)
-        vContainerStackView.addArrangedSubview(containerForTextView)
-        vForTextStackView.addArrangedSubview(exerciseText)
-        vForTextStackView.addArrangedSubview(descriptionText)
+        let vContainerStackView = VStackView(arrangedSubviews: [exercisesImageView, containerForTextView])
+        let vForTextStackView = VStackView(arrangedSubviews: [exerciseText, descriptionText])
+        
         containerForTextView.add(vForTextStackView, layoutBlock: { $0.leading(10).trailing(10).centerY() })
-        add(vContainerStackView, layoutBlock: { $0.top().bottom().trailing().leading() })
+        add(vContainerStackView, layoutBlock: { $0.edges() })
     }
     
     public func setup(exercise: YesterdayWorkoutList) {
@@ -67,5 +58,5 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
         descriptionText.text = exercise.description().1
     }
     
-    required init?(coder: NSCoder) { fatalError("not implemented exercise cell") }
+    required init?(coder: NSCoder) { fatalError("not implemented yesterday workout cell") }
 }

@@ -1,5 +1,5 @@
 //
-//  YesterdayWorkoutView.swift
+//  TodayWorkoutView.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 05.03.2020.
@@ -11,17 +11,17 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 
-typealias WorkoutDataSource = RxCollectionViewSectionedReloadDataSource<YesterdayWorkoutSceneModel>
+typealias TodayWorkoutDataSource = RxCollectionViewSectionedReloadDataSource<TodayWorkoutSceneModel>
 
-class YesterdayWorkoutView: UIView {
+class TodayWorkoutView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private lazy var dataSource: WorkoutDataSource = {
-        return WorkoutDataSource(configureCell: {  _, collectionView, indexPath, data in
+    private lazy var dataSource: TodayWorkoutDataSource = {
+        return TodayWorkoutDataSource(configureCell: {  _, collectionView, indexPath, data in
             guard let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: YesterdayWorkoutCell.identifier,
-                                     for: indexPath) as? YesterdayWorkoutCell else { fatalError() }
+                .dequeueReusableCell(withReuseIdentifier: TodayWorkoutCell.identifier,
+                                     for: indexPath) as? TodayWorkoutCell else { fatalError() }
             cell.setup(exercise: data)
             return cell
         })
@@ -35,7 +35,7 @@ class YesterdayWorkoutView: UIView {
         $0.backgroundColor = .systemBackground
         $0.layer.shadowColor = #colorLiteral(red: 0.4309999943, green: 0.4309999943, blue: 0.474999994, alpha: 1)
         $0.layer.shadowOpacity = 0.2
-        $0.layer.shadowOffset = .init(width: 0, height: 3)
+        $0.layer.shadowOffset = .init(width: 0, height: 4)
     })
     
     private let containerForExercisesView = specify(UIView(), {
@@ -45,15 +45,9 @@ class YesterdayWorkoutView: UIView {
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .thin)
     private lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: mediumConfiguration)?
-            .withTintColor(#colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), bgColor: #colorLiteral(red: 0.5882352941, green: 0.5882352941, blue: 0.6274509804, alpha: 1))
+            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+        $0.customButton(text: "Start Workout", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1))
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
-    })
-    
-    private let hExercisesStackView = specify(UIStackView(), {
-        $0.axis = .horizontal
-        $0.distribution = .fillProportionally
-        $0.spacing = 2
     })
     
     private let minutesLabel = specify(UILabel(), {
@@ -63,7 +57,7 @@ class YesterdayWorkoutView: UIView {
     })
     
     private let timeLabel = specify(UILabel(), {
-        $0.text = "110"
+        $0.text = "40"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
     })
@@ -84,8 +78,8 @@ class YesterdayWorkoutView: UIView {
         layout.itemSize = CGSize(width: size, height: size - 15)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(YesterdayWorkoutCell.self,
-                                forCellWithReuseIdentifier: YesterdayWorkoutCell.identifier)
+        collectionView.register(TodayWorkoutCell.self,
+                                forCellWithReuseIdentifier: TodayWorkoutCell.identifier)
         collectionView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
         collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         collectionView.scrollIndicatorInsets = .init(top: 15, left: 0, bottom: 0, right: 0)
@@ -98,8 +92,8 @@ class YesterdayWorkoutView: UIView {
         addConstraint()
     }
     
-    fileprivate func setupUI() {        
-        let section = [YesterdayWorkoutSceneModel(items: YesterdayWorkoutList.allCases)]
+    fileprivate func setupUI() {
+        let section = [TodayWorkoutSceneModel(items: TodayWorkoutList.allCases)]
         Observable.just(section)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -112,16 +106,17 @@ class YesterdayWorkoutView: UIView {
     }
     
     fileprivate func addConstraint() {
+        let hExercisesStackView = HStackView(arrangedSubviews: [minutesLabel, timeLabel, clockImageView],
+                                             spacing: 5)
+        
         clockImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
         clockImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        hExercisesStackView.addArrangedSubview(minutesLabel)
-        hExercisesStackView.addArrangedSubview(timeLabel)
-        hExercisesStackView.addArrangedSubview(clockImageView)
+        
         add(containerForButtonsView, layoutBlock: {
             $0.bottom().leading().trailing().height(Constants.sH_812 ? 110 : Constants.sH_667 ? 90 : 80)
         })
         containerForButtonsView.add(startWorkoutButton, layoutBlock: {
-            $0.top(15).leading(16).trailing(16).height(Constants.sW / 6.5)
+            $0.top(15).width(Constants.sW - 32).height(Constants.sW / 6.5).centerX()
         })
         add(containerForExercisesView, layoutBlock: {
             $0.top(10).leading().trailing().height(Constants.sH_812 ? 70 : Constants.sH_667 ? 50 : 40)
@@ -129,7 +124,7 @@ class YesterdayWorkoutView: UIView {
         containerForExercisesView.add(hExercisesStackView, layoutBlock: { $0.centerX().centerY(5) })
         add(collectionView, layoutBlock: {
             $0.topBottom(to: containerForExercisesView)
-                .leading().trailing().bottomTop(to: containerForButtonsView)
+                .leading().trailing().bottomTop(to: containerForButtonsView) //the mistake here
         })
         add(separatorView, layoutBlock: {
             $0.leading().trailing().height(10).topBottom(to: containerForExercisesView)

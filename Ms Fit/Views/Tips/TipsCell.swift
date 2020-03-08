@@ -18,10 +18,6 @@ class TipsCell: UICollectionViewCell {
         $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     })
     
-    private let vContainerStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-    })
-    
     private let containerForTextView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -45,8 +41,8 @@ class TipsCell: UICollectionViewCell {
     }
     
     private func handleUI() {
-        vContainerStackView.addArrangedSubview(tipImageView)
-        vContainerStackView.addArrangedSubview(containerForTextView)
+        let vContainerStackView = VStackView(arrangedSubviews: [tipImageView, containerForTextView])
+        
         containerForTextView.add(tipText, layoutBlock: {
             $0.leading(10).trailing(10).top(25).bottom(25)
         })

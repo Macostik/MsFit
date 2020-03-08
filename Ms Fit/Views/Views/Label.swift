@@ -22,7 +22,7 @@ public class Label: UILabel {
                      size: CGFloat = UIFont.systemFontSize,
                      textColor: UIColor = UIColor.black) {
         self.init()
-        self.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
+        self.font = font
         self.text = icon
         self.textColor = textColor
     }
