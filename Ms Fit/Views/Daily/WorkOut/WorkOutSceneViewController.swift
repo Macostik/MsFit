@@ -35,6 +35,11 @@ class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     override func setupUI() {
         handleUI()
         addConstraints()
+        DispatchQueue.main.async {
+            self.workoutSegmentView.slideCollection.selectItem(at: IndexPath(row: 1, section: 0),
+                                                               animated: false,
+                                                               scrollPosition: .centeredHorizontally)
+        }
     }
     
     override func setupBindings() {

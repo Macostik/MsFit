@@ -43,7 +43,7 @@ class WorkoutSegmentView: UIView {
         return collectionView
     }()
     
-    private let slideCollection: UICollectionView = {
+    public let slideCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
