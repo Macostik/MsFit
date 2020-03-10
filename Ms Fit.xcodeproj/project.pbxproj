@@ -95,6 +95,9 @@
 		AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618224003F7300E5204A /* SignUpSceneModel.swift */; };
 		AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */; };
 		AC5515532413A4BD0093373D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5515522413A4BD0093373D /* StackView.swift */; };
+		AC57A1792417892B006E9144 /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = AC57A1782417892B006E9144 /* meals.json */; };
+		AC57A17E2417A009006E9144 /* BreakfastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57A17D2417A009006E9144 /* BreakfastCell.swift */; };
+		AC57A18024180AFA006E9144 /* MealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57A17F24180AFA006E9144 /* MealHeaderView.swift */; };
 		AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
 		AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D523FC09500052B796 /* AppDelegate.swift */; };
 		AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */; };
@@ -223,6 +226,9 @@
 		AC53618224003F7300E5204A /* SignUpSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneModel.swift; sourceTree = "<group>"; };
 		AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewModel.swift; sourceTree = "<group>"; };
 		AC5515522413A4BD0093373D /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		AC57A1782417892B006E9144 /* meals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
+		AC57A17D2417A009006E9144 /* BreakfastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastCell.swift; sourceTree = "<group>"; };
+		AC57A17F24180AFA006E9144 /* MealHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHeaderView.swift; sourceTree = "<group>"; };
 		AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewController.swift; sourceTree = "<group>"; };
 		AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneModel.swift; sourceTree = "<group>"; };
@@ -493,6 +499,7 @@
 		569FB0D423FC09500052B796 /* Ms Fit */ = {
 			isa = PBXGroup;
 			children = (
+				AC57A1782417892B006E9144 /* meals.json */,
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
 				569FB0D723FC09500052B796 /* SceneDelegate.swift */,
 				564A672923FC2F9500D4901A /* Coordinators */,
@@ -648,9 +655,19 @@
 		AC4874ED24129B11007FE6A4 /* MealViews */ = {
 			isa = PBXGroup;
 			children = (
+				AC57A17C24179DE2006E9144 /* MealCells */,
 				AC4874EE24129B69007FE6A4 /* CaloriesView.swift */,
 			);
 			path = MealViews;
+			sourceTree = "<group>";
+		};
+		AC57A17C24179DE2006E9144 /* MealCells */ = {
+			isa = PBXGroup;
+			children = (
+				AC57A17D2417A009006E9144 /* BreakfastCell.swift */,
+				AC57A17F24180AFA006E9144 /* MealHeaderView.swift */,
+			);
+			path = MealCells;
 			sourceTree = "<group>";
 		};
 		AC738FBE2406C16600CB7A39 /* Cells */ = {
@@ -941,6 +958,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				564A673823FC4F0700D4901A /* Assets.xcassets in Resources */,
+				AC57A1792417892B006E9144 /* meals.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1041,7 @@
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				566C2D97240443800006108B /* OnboardSceneViewController.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
+				AC57A18024180AFA006E9144 /* MealHeaderView.swift in Sources */,
 				56EE4893241568FE00FBEBEC /* BaseWorkOutView.swift in Sources */,
 				AC4A783A23FE7412003DD917 /* ProfileSceneModel.swift in Sources */,
 				56993C1E2401BDF500C16CFF /* TipsSceneModel.swift in Sources */,
@@ -1110,6 +1129,7 @@
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
 				56993BFE2401A84900C16CFF /* MainSceneModel.swift in Sources */,
 				AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */,
+				AC57A17E2417A009006E9144 /* BreakfastCell.swift in Sources */,
 				56993C172401BDAA00C16CFF /* ExercisesSceneViewModel.swift in Sources */,
 				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
 				56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */,

@@ -68,8 +68,7 @@ class WorkoutSegmentView: UIView {
         addConstraints()
     }
     
-    fileprivate func handleUI() {
-        slideItems.forEach({ [unowned self] in $0.viewModel = self.viewModel })
+    fileprivate func handleUI() {        
         Observable.just(menuItems)
             .bind(to: menuCollection.rx
                 .items(cellIdentifier: MenuCell.identifier, cellType: MenuCell.self)) { _, model, cell in

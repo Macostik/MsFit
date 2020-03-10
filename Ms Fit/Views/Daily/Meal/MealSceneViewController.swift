@@ -13,6 +13,7 @@ import RxCocoa
 class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let caloriesView = CaloriesView()
+    private let cells = [BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell()]
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
@@ -38,6 +39,22 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         $0.customButton(shadowColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), bgColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     })
     
+    public lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: Constants.sW, height: Constants.sH * 0.6)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.register(SlideCell.self, forCellWithReuseIdentifier: SlideCell.identifier)
+        collectionView.register(MealHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: MealHeaderView.identifier)
+        return collectionView
+    }()
+    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -48,6 +65,13 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
+        
+        Observable.just(cells)
+            .bind(to: collectionView.rx
+                .items(cellIdentifier: SlideCell.identifier,
+                       cellType: SlideCell.self)) { _, model, cell in
+                    cell.setup(model)
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -62,6 +86,28 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         navigationView.add(navQuestionsLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navQuestionsLabel).leading(4).size(44)})
         view.add(caloriesView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
+        view.add(collectionView, layoutBlock: { $0.topBottom(to: caloriesView).leading().trailing().bottom()})
+        
         view.add(myMealsButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
     }
+}
+
+extension MealSceneViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let header =
+            collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                            withReuseIdentifier: MealHeaderView.identifier,
+                                                            for: indexPath) as! MealHeaderView
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: Constants.sW, height: 200)
+    }
+    
 }

@@ -109,9 +109,9 @@ class CaloriesView: UIView {
             protsLabel, HStackView(arrangedSubviews: [countProtsLabel, gramsProtsLabel], spacing: 2)
         ], spacing: 5)
         
-        let hCaloriesStackView = HStackView(arrangedSubviews: [vCaloriesStackView, vCarbsStackView,
-                                                               vFatStackView, vProtsStackView],
-                                            spacing: Constants.sH_812 ? 20 : Constants.sH_667 ? 15 : 10)
+        let hCaloriesStackView = HStackView(arrangedSubviews: [
+            vCaloriesStackView, vCarbsStackView, vFatStackView, vProtsStackView
+            ], spacing: Constants.sH_812 ? 20 : Constants.sH_667 ? 15 : 10)
         
         add(hEatenStackView, layoutBlock: { $0.top(10).trailing(16) })
         add(hLeftStackView, layoutBlock: { $0.top(10).leading(16) })
@@ -119,9 +119,9 @@ class CaloriesView: UIView {
             $0.topBottom(8, to: hEatenStackView).height(12).leading(16).trailing(16)
         })
         add(hCaloriesStackView, layoutBlock: {
-            $0.topBottom(10, to: progressView).centerX() })
+            $0.topBottom(15, to: progressView).centerX() })
         add(chevronDownButton, layoutBlock: {
-            $0.centerX().topBottom(5, to: hCaloriesStackView).bottom().size(30)
+            $0.centerX().topBottom(10, to: hCaloriesStackView).bottom().size(30)
         })
     }
     
