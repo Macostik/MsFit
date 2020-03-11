@@ -82,7 +82,6 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                 UIView.animate(withDuration: 0.2) {
                     self.heightCaloriesLayout?.constant = self.isAnimationCalories ? 80 : 140
                     self.heightCaloriesLayout?.isActive = true
-//                    self.caloriesView.hCaloriesStackView.isHidden = self.isAnimationCalories
                     self.caloriesView.chevronDownButton.transform = self.isAnimationCalories ?
                         CGAffineTransform.identity : CGAffineTransform(rotationAngle: -.pi)
                     self.view.layoutIfNeeded()
@@ -95,7 +94,6 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
-//        caloriesView.hCaloriesStackView.isHidden = true
     }
     
     fileprivate func addConstraints() {
