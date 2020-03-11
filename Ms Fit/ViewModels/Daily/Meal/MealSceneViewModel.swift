@@ -13,4 +13,6 @@ import RxCocoa
 final class MealSceneViewModel: BaseViewModel<MealSceneModel> {
     
     public var dismissObserver = PublishSubject<Void>()
+    public var presentMealsStorege = PublishSubject<Void>()
+    
 }

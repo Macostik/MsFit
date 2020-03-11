@@ -10,4 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class MealsStorageSceneViewModel: BaseViewModel<MealsStorageSceneModel> {}
+final class MealsStorageSceneViewModel: BaseViewModel<MealsStorageSceneModel> {
+    
+    public var dismissObserver = PublishSubject<Void>()
+}

@@ -76,10 +76,15 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                     cell.setup(model)
         }.disposed(by: disposeBag)
         
+        myMealsButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentMealsStorege.onNext(())
+            }).disposed(by: disposeBag)
+        
         caloriesView.chevronDownButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 self.heightCaloriesLayout?.isActive = false
-                UIView.animate(withDuration: 0.2) {
+                UIView.animate(withDuration: 0.3) {
                     self.heightCaloriesLayout?.constant = self.isAnimationCalories ? 80 : 140
                     self.heightCaloriesLayout?.isActive = true
                     self.caloriesView.chevronDownButton.transform = self.isAnimationCalories ?

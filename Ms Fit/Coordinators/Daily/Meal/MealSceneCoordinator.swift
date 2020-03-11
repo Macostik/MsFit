@@ -22,11 +22,15 @@ class MealSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
+        viewModel.presentMealsStorege.subscribe(onNext: { [weak self] _ in
+            self?.presentMealsStoregeScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
-//    }
+    @discardableResult private func presentMealsStoregeScene() -> Observable<Void> {
+        let storageCoordinator = MealsStorageSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: storageCoordinator)
+    }
 }

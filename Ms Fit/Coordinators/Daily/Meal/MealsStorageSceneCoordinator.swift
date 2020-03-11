@@ -17,6 +17,11 @@ class MealsStorageSceneCoordinator: BaseSceneCoordinator<Void> {
         let viewController = MealsStorageSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
+        
+        viewModel.dismissObserver.subscribe(onNext: { _ in
+            navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
