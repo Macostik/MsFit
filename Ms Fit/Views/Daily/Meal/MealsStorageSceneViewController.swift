@@ -13,6 +13,7 @@ import RxCocoa
 class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewModel> {
     
     private let caloriesView = CaloriesView()
+    private let clearPopupView = ClearPopupView()
     
     private var isAnimationCalories = false
     private var heightCaloriesLayout: NSLayoutConstraint?
@@ -61,9 +62,16 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
             .disposed(by: disposeBag)
         
         clearAllMeals.rx.tap
-            .subscribe(onNext: { _ in
-                print("tap")
-            }).disposed(by: disposeBag)
+        .subscribe(onNext: { _ in
+            rootViewController?.add(self.clearPopupView, layoutBlock: { $0.edges() })
+            self.clearPopupView.alpha = 0
+            self.clearPopupView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self.clearPopupView.alpha = 1
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+                self.clearPopupView.containerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            })
+        }).disposed(by: disposeBag)
         
         caloriesView.chevronDownButton.rx.tap
         .subscribe(onNext: { [unowned self] _ in

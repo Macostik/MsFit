@@ -117,6 +117,7 @@
 		ACA3CE5224191D81001213AC /* MealsStorageSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4E24191D81001213AC /* MealsStorageSceneViewController.swift */; };
 		ACA3CE5324191D81001213AC /* MealsStorageSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */; };
 		ACA3CE5424191D81001213AC /* MealsStorageSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */; };
+		ACA3CE56241929D6001213AC /* ClearPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE55241929D6001213AC /* ClearPopupView.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -249,6 +250,7 @@
 		ACA3CE4E24191D81001213AC /* MealsStorageSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneViewController.swift; sourceTree = "<group>"; };
 		ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneModel.swift; sourceTree = "<group>"; };
 		ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneViewModel.swift; sourceTree = "<group>"; };
+		ACA3CE55241929D6001213AC /* ClearPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearPopupView.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */,
+				ACA3CE55241929D6001213AC /* ClearPopupView.swift */,
 			);
 			path = VerificPopupView;
 			sourceTree = "<group>";
@@ -1118,6 +1121,7 @@
 				56993C0D2401BD6D00C16CFF /* DailySceneViewController.swift in Sources */,
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
 				AC9E1DF724112A4F00417E9A /* YesterdayWorkoutCell.swift in Sources */,
+				ACA3CE56241929D6001213AC /* ClearPopupView.swift in Sources */,
 				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
 				ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
