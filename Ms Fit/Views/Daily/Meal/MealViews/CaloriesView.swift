@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CaloriesView: UIView {
+    
+    public var hCaloriesStackView: HStackView!
     
     private let countCaloriesLabel = Label(icon: "1200/1200", font: .systemFont(ofSize: 16, weight: .medium),
                                            size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
@@ -59,9 +63,12 @@ class CaloriesView: UIView {
                                    size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .regular)
-    private lazy var chevronDownButton = specify(UIButton(type: .roundedRect), {
+    public lazy var chevronDownButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.down", withConfiguration: mediumConfiguration)?
             .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
+    })
+    private let containerViewForProgress = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
     })
     
     private let progressView = specify(UIProgressView(), {
@@ -92,6 +99,9 @@ class CaloriesView: UIView {
     fileprivate func addConstraint() {
         let hEatenStackView = HStackView(arrangedSubviews: [countEatenLabel, eatenLabel], spacing: 5)
         let hLeftStackView = HStackView(arrangedSubviews: [countLeftLabel, leftLabel], spacing: 5)
+        let hBaseStackView = HStackView(arrangedSubviews: [hLeftStackView, UIView(), hEatenStackView])
+        let vStackView = VStackView(arrangedSubviews: [hBaseStackView, progressView], spacing: 10)
+        progressView.heightAnchor.constraint(equalToConstant: 12).isActive = true
         
         let vCaloriesStackView = VStackView(arrangedSubviews: [
             caloriesLabel, HStackView(arrangedSubviews: [countCaloriesLabel, kCalCaloriesLabel], spacing: 2)
@@ -109,20 +119,14 @@ class CaloriesView: UIView {
             protsLabel, HStackView(arrangedSubviews: [countProtsLabel, gramsProtsLabel], spacing: 2)
         ], spacing: 5)
         
-        let hCaloriesStackView = HStackView(arrangedSubviews: [
+        hCaloriesStackView = HStackView(arrangedSubviews: [
             vCaloriesStackView, vCarbsStackView, vFatStackView, vProtsStackView
             ], spacing: Constants.sH_812 ? 20 : Constants.sH_667 ? 15 : 10)
         
-        add(hEatenStackView, layoutBlock: { $0.top(10).trailing(16) })
-        add(hLeftStackView, layoutBlock: { $0.top(10).leading(16) })
-        add(progressView, layoutBlock: {
-            $0.topBottom(8, to: hEatenStackView).height(12).leading(16).trailing(16)
-        })
-        add(hCaloriesStackView, layoutBlock: {
-            $0.topBottom(15, to: progressView).centerX() })
-        add(chevronDownButton, layoutBlock: {
-            $0.centerX().topBottom(10, to: hCaloriesStackView).bottom().size(30)
-        })
+        add(chevronDownButton, layoutBlock: { $0.centerX().bottom().size(30) })
+        add(hCaloriesStackView, layoutBlock: { $0.bottomTop(-4, to: chevronDownButton).centerX() })
+        add(containerViewForProgress, layoutBlock: { $0.top(10).leading(16).trailing(16) })
+        containerViewForProgress.add(vStackView, layoutBlock: { $0.edges() })
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

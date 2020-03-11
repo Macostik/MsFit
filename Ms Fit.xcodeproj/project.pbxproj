@@ -95,7 +95,6 @@
 		AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618224003F7300E5204A /* SignUpSceneModel.swift */; };
 		AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */; };
 		AC5515532413A4BD0093373D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5515522413A4BD0093373D /* StackView.swift */; };
-		AC57A1792417892B006E9144 /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = AC57A1782417892B006E9144 /* meals.json */; };
 		AC57A17E2417A009006E9144 /* BreakfastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57A17D2417A009006E9144 /* BreakfastCell.swift */; };
 		AC57A18024180AFA006E9144 /* MealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC57A17F24180AFA006E9144 /* MealHeaderView.swift */; };
 		AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569FB0D723FC09500052B796 /* SceneDelegate.swift */; };
@@ -226,7 +225,6 @@
 		AC53618224003F7300E5204A /* SignUpSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneModel.swift; sourceTree = "<group>"; };
 		AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewModel.swift; sourceTree = "<group>"; };
 		AC5515522413A4BD0093373D /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
-		AC57A1782417892B006E9144 /* meals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		AC57A17D2417A009006E9144 /* BreakfastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastCell.swift; sourceTree = "<group>"; };
 		AC57A17F24180AFA006E9144 /* MealHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHeaderView.swift; sourceTree = "<group>"; };
 		AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneCoordinator.swift; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 		569FB0D423FC09500052B796 /* Ms Fit */ = {
 			isa = PBXGroup;
 			children = (
-				AC57A1782417892B006E9144 /* meals.json */,
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
 				569FB0D723FC09500052B796 /* SceneDelegate.swift */,
 				564A672923FC2F9500D4901A /* Coordinators */,
@@ -958,7 +955,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				564A673823FC4F0700D4901A /* Assets.xcassets in Resources */,
-				AC57A1792417892B006E9144 /* meals.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

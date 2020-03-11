@@ -15,6 +15,9 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     private let caloriesView = CaloriesView()
     private let cells = [BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell()]
     
+    private var isAnimationCalories = false
+    private var heightCaloriesLayout: NSLayoutConstraint?
+    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -72,14 +75,33 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                        cellType: SlideCell.self)) { _, model, cell in
                     cell.setup(model)
         }.disposed(by: disposeBag)
+        
+        caloriesView.chevronDownButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.heightCaloriesLayout?.isActive = false
+                UIView.animate(withDuration: 0.2) {
+                    self.heightCaloriesLayout?.constant = self.isAnimationCalories ? 80 : 140
+                    self.heightCaloriesLayout?.isActive = true
+//                    self.caloriesView.hCaloriesStackView.isHidden = self.isAnimationCalories
+                    self.caloriesView.chevronDownButton.transform = self.isAnimationCalories ?
+                        CGAffineTransform.identity : CGAffineTransform(rotationAngle: -.pi)
+                    self.view.layoutIfNeeded()
+                }
+                self.isAnimationCalories = !self.isAnimationCalories
+            }).disposed(by: disposeBag)
+        
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        caloriesView.hCaloriesStackView.isHidden = true
     }
     
     fileprivate func addConstraints() {
+        heightCaloriesLayout = caloriesView.heightAnchor.constraint(equalToConstant: 80)
+        heightCaloriesLayout?.isActive = true
+        
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
@@ -93,21 +115,21 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
 }
 
 extension MealSceneViewController: UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         let header =
             collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                             withReuseIdentifier: MealHeaderView.identifier,
-                                                            for: indexPath) as! MealHeaderView
+                                                            for: indexPath)
         return header
     }
-    
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: Constants.sW, height: 200)
     }
-    
+
 }
