@@ -63,7 +63,7 @@ class AddPopupView: UIView {
             $0.bottom(Constants.sH_812 ? 20 : 0).leading().trailing().height(60)
         })
         containerView.add(tableView, layoutBlock: {
-            $0.top(10).leading(16).trailing(16).bottomTop(-10, to: addButton).height(250)
+            $0.top(10).leading(16).trailing(16).bottomTop(-10, to: addButton)
         })
         // <--
     }

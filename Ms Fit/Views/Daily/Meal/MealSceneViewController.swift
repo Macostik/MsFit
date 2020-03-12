@@ -125,6 +125,8 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         addPopupView.isHidden = false
         addPopupView.heightAddPopupViewLayout?.isActive = false
         UIView.animate(withDuration: 0.4) {
+            self.addPopupView.heightAddPopupViewLayout = self.addPopupView.containerView.heightAnchor.constraint(equalToConstant: 350)
+            self.addPopupView.heightAddPopupViewLayout?.isActive = true
             self.view.layoutIfNeeded()
         }
     }
