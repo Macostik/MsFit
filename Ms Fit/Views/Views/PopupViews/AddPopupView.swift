@@ -14,11 +14,6 @@ class AddPopupView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    public var heightAddPopupViewLayout: NSLayoutConstraint?
-    
-    public let heightContainer: CGFloat = 350
-    public let lowContainer: CGFloat = 0
-    
     public let containerView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 20
@@ -54,37 +49,31 @@ class AddPopupView: UIView {
     }
     
     fileprivate func addConstraints() {
-        heightAddPopupViewLayout = containerView.heightAnchor.constraint(equalToConstant: 0)
-        heightAddPopupViewLayout?.isActive = true
         
-        //fix constraints -->
-        add(containerView, layoutBlock: { $0.bottom().leading().trailing() })
+        add(containerView, layoutBlock: { $0.bottom().leading().trailing().height(350) })
         containerView.add(addButton, layoutBlock: {
             $0.bottom(Constants.sH_812 ? 20 : 0).leading().trailing().height(60)
         })
         containerView.add(tableView, layoutBlock: {
             $0.top(10).leading(16).trailing(16).bottomTop(-10, to: addButton)
         })
-        // <--
+        containerView.transform = CGAffineTransform(translationX: 0, y: self.containerView.height)
     }
     
     fileprivate func setupBindings() {
         addButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
-                self.heightAddPopupViewLayout?.isActive = false
                 UIView.animate(withDuration: 0.4, delay: 0, animations: {
-                    self.heightAddPopupViewLayout =
-                        self.containerView.heightAnchor.constraint(equalToConstant: 0)
-                    self.heightAddPopupViewLayout?.isActive = true
-                    self.layoutIfNeeded()
+                    self.containerView.transform = CGAffineTransform(translationX: 0,
+                                                                     y: self.containerView.height)
                 }, completion: { _ in
-                self.isHidden = true
+                    self.isHidden = true
                 })
             }).disposed(by: disposeBag)
         Observable.just(LunchList.allCases)
             .bind(to: tableView.rx.items(cellIdentifier: LunchCell.identifier,
-                                             cellType: LunchCell.self)) { _, data, cell in
-                                                cell.setup(data)
+                                         cellType: LunchCell.self)) { _, data, cell in
+                                            cell.setup(data)
         }.disposed(by: disposeBag)
     }
     
