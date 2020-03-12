@@ -129,3 +129,10 @@ class SlideCell: UICollectionViewCell, CellIdentifierable {
         add(entry, layoutBlock: { $0.edges() })
     }
 }
+
+class DietCell: UICollectionViewCell, CellIdentifierable {
+    
+    public func setup(_ entry: BreakfastCell) {
+        add(entry, layoutBlock: { $0.edges() })
+    }
+}

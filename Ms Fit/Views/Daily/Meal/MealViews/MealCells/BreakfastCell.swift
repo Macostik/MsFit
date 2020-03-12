@@ -8,13 +8,16 @@
 
 import UIKit
 import FSPagerView
+import RxSwift
+import RxCocoa
 
 class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifierable {
     
     private let pagerView = FSPagerView()
+    public var tapHalper: (() -> Void)?
     
     private let iconImageView = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "Breakfast")
+        $0.image = #imageLiteral(resourceName: "breakfast")
     })
     
     private let breakfastLabel = specify(UILabel(), {
@@ -62,6 +65,7 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
                                                  at: index) as! BreakfastPagerCell
         let entry = BreakfastList.allCases[index]
         cell.setup(entry: entry)
+        cell.tapHalper = tapHalper
         return cell
     }
     
@@ -69,6 +73,9 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
 }
 
 class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
+    
+    fileprivate let disposeBag = DisposeBag()
+    public var tapHalper: (() -> Void)?
     
     private let breakfastImageView = specify(UIImageView(), {
         $0.contentMode = .scaleAspectFill
@@ -93,7 +100,7 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
         $0.textColor = #colorLiteral(red: 0.6156862745, green: 0.6156862745, blue: 0.6666666667, alpha: 1)
     })
     
-    private let addItemsButton = specify(UIButton(type: .roundedRect), {
+    public let addItemsButton = specify(UIButton(type: .roundedRect), {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.setTitleColor(#colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), for: .normal)
@@ -120,11 +127,19 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupUI()
+        setupBindings()
         addConstraints()
     }
     
     fileprivate func setupUI() {
         backgroundColor = .clear
+    }
+    
+    func setupBindings() {
+        addItemsButton.rx.tap
+            .subscribe(onNext: {
+                self.tapHalper?()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {

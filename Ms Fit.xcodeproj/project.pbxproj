@@ -118,6 +118,7 @@
 		ACA3CE5324191D81001213AC /* MealsStorageSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */; };
 		ACA3CE5424191D81001213AC /* MealsStorageSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */; };
 		ACA3CE56241929D6001213AC /* ClearPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE55241929D6001213AC /* ClearPopupView.swift */; };
+		ACACD456241A31050017D4D7 /* AddPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACD455241A31050017D4D7 /* AddPopupView.swift */; };
 		ACAFEC97240515B500C8AEBB /* ProfileSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
@@ -251,6 +252,7 @@
 		ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneModel.swift; sourceTree = "<group>"; };
 		ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneViewModel.swift; sourceTree = "<group>"; };
 		ACA3CE55241929D6001213AC /* ClearPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearPopupView.swift; sourceTree = "<group>"; };
+		ACACD455241A31050017D4D7 /* AddPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopupView.swift; sourceTree = "<group>"; };
 		ACAFEC96240515B500C8AEBB /* ProfileSceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
@@ -610,13 +612,14 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
-		AC1A7FA8240904070058248D /* VerificPopupView */ = {
+		AC1A7FA8240904070058248D /* PopupViews */ = {
 			isa = PBXGroup;
 			children = (
-				AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */,
+				ACACD455241A31050017D4D7 /* AddPopupView.swift */,
 				ACA3CE55241929D6001213AC /* ClearPopupView.swift */,
+				AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */,
 			);
-			path = VerificPopupView;
+			path = PopupViews;
 			sourceTree = "<group>";
 		};
 		AC1A7FAB240930A00058248D /* Services */ = {
@@ -758,7 +761,7 @@
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AC1A7FA8240904070058248D /* VerificPopupView */,
+				AC1A7FA8240904070058248D /* PopupViews */,
 				AC86C2252407CBDA0029D33E /* QuestionViews */,
 				ACCED1C523FE8DA3000EB2DB /* Button.swift */,
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
@@ -838,8 +841,8 @@
 		ACEFD7FA2401CBAE00C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
-				56C7B4F72405C31400CC2C8D /* WorkOut */,
 				AC2193202412904400F388C1 /* Meal */,
+				56C7B4F72405C31400CC2C8D /* WorkOut */,
 				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
 				AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */,
 				AC4A00A12404247300764281 /* QuestionsSceneModel.swift */,
@@ -1085,6 +1088,7 @@
 				56993C142401BDAA00C16CFF /* ExercisesSceneCoordinator.swift in Sources */,
 				AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */,
 				56993C1D2401BDF500C16CFF /* TipsSceneViewController.swift in Sources */,
+				ACACD456241A31050017D4D7 /* AddPopupView.swift in Sources */,
 				AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */,
 				566C2DAA240444080006108B /* LoginSceneViewController.swift in Sources */,
 				564A674E23FC6EE700D4901A /* Environment.swift in Sources */,

@@ -13,6 +13,7 @@ import RxCocoa
 class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let caloriesView = CaloriesView()
+    private let addPopupView = AddPopupView()
     private let cells = [BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell()]
     
     private var isAnimationCalories = false
@@ -51,7 +52,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
-        collectionView.register(SlideCell.self, forCellWithReuseIdentifier: SlideCell.identifier)
+        collectionView.register(DietCell.self, forCellWithReuseIdentifier: DietCell.identifier)
         collectionView.register(MealHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: MealHeaderView.identifier)
@@ -71,9 +72,12 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         
         Observable.just(cells)
             .bind(to: collectionView.rx
-                .items(cellIdentifier: SlideCell.identifier,
-                       cellType: SlideCell.self)) { _, model, cell in
+                .items(cellIdentifier: DietCell.identifier,
+                       cellType: DietCell.self)) { _, model, cell in
                     cell.setup(model)
+                        model.tapHalper = {
+                            self.handlePopupView()
+                        }
         }.disposed(by: disposeBag)
         
         myMealsButton.rx.tap
@@ -115,6 +119,10 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         
         view.add(myMealsButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
     }
+    
+    fileprivate func handlePopupView() {
+        view.add(addPopupView, layoutBlock: { $0.edges() })
+    }
 }
 
 extension MealSceneViewController: UICollectionViewDelegateFlowLayout {
@@ -134,5 +142,4 @@ extension MealSceneViewController: UICollectionViewDelegateFlowLayout {
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: Constants.sW, height: 200)
     }
-
 }

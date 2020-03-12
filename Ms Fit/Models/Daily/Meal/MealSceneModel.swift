@@ -50,3 +50,26 @@ enum BreakfastList: String, CaseIterable {
         }
     }
 }
+
+enum LunchList: String, CaseIterable {
+    case breakfast
+    case snack1
+    case lunch
+    case snack2
+    case dinner
+    
+    func description() -> (String) {
+        switch self {
+        case .breakfast:
+            return ("Breakfast")
+        case .snack1:
+            return ("Snack1")
+        case .lunch:
+            return ("Lunch")
+        case .snack2:
+            return ("Snack2")
+        case .dinner:
+            return ("Dinner")
+        }
+    }
+}
