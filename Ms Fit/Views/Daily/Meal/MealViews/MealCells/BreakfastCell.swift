@@ -25,14 +25,9 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
         $0.font = UIFont.systemFont(ofSize: 22, weight: .bold)
     })
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    public func setup(_ entry: Int) {
         setupUI()
         addConstraint()
-    }
-    
-    public func setup(_ entry: UIView) {
-        add(entry, layoutBlock: { $0.edges() })
     }
     
     fileprivate func setupUI() {
@@ -68,8 +63,6 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
         cell.tapHalper = tapHalper
         return cell
     }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented BreakfastCell") }
 }
 
 class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {

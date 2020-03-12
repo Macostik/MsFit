@@ -14,7 +14,6 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let caloriesView = CaloriesView()
     private let addPopupView = AddPopupView()
-    private let cells = [BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell(), BreakfastCell()]
     
     private var isAnimationCalories = false
     private var heightCaloriesLayout: NSLayoutConstraint?
@@ -52,7 +51,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
-        collectionView.register(DietCell.self, forCellWithReuseIdentifier: DietCell.identifier)
+        collectionView.register(BreakfastCell.self, forCellWithReuseIdentifier: BreakfastCell.identifier)
         collectionView.register(MealHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: MealHeaderView.identifier)
@@ -70,12 +69,12 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
-        Observable.just(cells)
+        Observable.just(Array(0...5))
             .bind(to: collectionView.rx
-                .items(cellIdentifier: DietCell.identifier,
-                       cellType: DietCell.self)) { _, model, cell in
-                    cell.setup(model)
-                        model.tapHalper = {
+                .items(cellIdentifier: BreakfastCell.identifier,
+                       cellType: BreakfastCell.self)) { _, model, cell in
+                        cell.setup(model)
+                        cell.tapHalper = { [unowned self] in 
                             self.handlePopupView()
                         }
         }.disposed(by: disposeBag)
