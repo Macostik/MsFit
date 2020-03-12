@@ -14,6 +14,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let caloriesView = CaloriesView()
     private let addPopupView = AddPopupView()
+    fileprivate let mealList = Array(0...5)
     
     private var isAnimationCalories = false
     private var heightCaloriesLayout: NSLayoutConstraint?
@@ -46,11 +47,13 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: Constants.sW, height: Constants.sH * 0.6)
+        layout.headerReferenceSize = CGSize(width: Constants.sW, height: 150)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.delegate = self
+        
+        collectionView.rx.setDataSource(self).disposed(by: disposeBag)
         collectionView.register(BreakfastCell.self, forCellWithReuseIdentifier: BreakfastCell.identifier)
         collectionView.register(MealHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -68,16 +71,6 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
-        
-        Observable.just(Array(0...5))
-            .bind(to: collectionView.rx
-                .items(cellIdentifier: BreakfastCell.identifier,
-                       cellType: BreakfastCell.self)) { _, model, cell in
-                        cell.setup(model)
-                        cell.tapHalper = { [unowned self] in 
-                            self.handlePopupView()
-                        }
-        }.disposed(by: disposeBag)
         
         myMealsButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
@@ -128,21 +121,37 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     }
 }
 
-extension MealSceneViewController: UICollectionViewDelegateFlowLayout {
-
+extension MealSceneViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return mealList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: BreakfastCell.identifier,
+                                 for: indexPath) as? BreakfastCell
+            else { fatalError()}
+        let model = mealList[indexPath.row]
+        cell.setup(model)
+        cell.tapHalper = { [unowned self] in
+            self.handlePopupView()
+        }
+        
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
-        let header =
-            collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                            withReuseIdentifier: MealHeaderView.identifier,
-                                                            for: indexPath)
-        return header
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: Constants.sW, height: 200)
+        guard let headerView = collectionView
+            .dequeueReusableSupplementaryView(ofKind: kind,
+                                              withReuseIdentifier: MealHeaderView.identifier,
+                                              for: indexPath) as? MealHeaderView else { fatalError() }
+        return headerView
     }
 }
