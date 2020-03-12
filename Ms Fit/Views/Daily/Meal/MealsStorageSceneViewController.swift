@@ -9,6 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
+
+typealias ProfileDataSource = RxTableViewSectionedReloadDataSource<SectionOfMeal>
 
 class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewModel> {
     
@@ -50,6 +53,24 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
                         bgColor: .systemBackground, isCircled: true)
     })
     
+    
+    // There is tableView should refactor and fit correct data
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(ProfileCell.self, forCellReuseIdentifier: ProfileCell.identifier)
+        return tableView
+    }()
+    
+    internal lazy var dataSource = {
+           return ProfileDataSource(configureCell: { _, tableView, indexPath, item in
+               guard let cell = tableView
+                   .dequeueReusableCell(withIdentifier: ProfileCell.identifier,
+                                        for: indexPath) as? ProfileCell else { fatalError() }
+               cell.setup(profile: item)
+               return cell
+           })
+       }()
+    
     override func setupUI() {
        handleUI()
        addConstraints()
@@ -88,8 +109,12 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     }
     
     fileprivate func handleUI() {
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
+        Observable.just(MealsStorageData.allCases.map({ $0.description() }))
+        .bind(to: tableView.rx.items(dataSource: dataSource))
+        .disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
@@ -100,10 +125,58 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(navLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        
         view.add(caloriesView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
+        view.add(tableView, layoutBlock: {$0.leading().trailing().topBottom(50, to: caloriesView).bottom()})
         
         view.add(containerForButtonView, layoutBlock: { $0.leading().topBottom(to: caloriesView).trailing() })
         containerForButtonView.add(clearAllMeals, layoutBlock: { $0.top(8).bottom(8).leading(16).width(100) })
         view.add(closeButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
+    }
+}
+
+extension MealsStorageSceneViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = ProfileHeaderView()
+        let title = dataSource.sectionModels[section].header
+        header.setup(title: title)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 2 ? 10 : 20
+    }
+}
+
+class ProfileCell: UITableViewCell {
+    static let identifier = "ProfileCell"
+    
+    let profileSwitch = specify(UISwitch(), {
+        $0.onTintColor = #colorLiteral(red: 0.5098039216, green: 0.368627451, blue: 0.7137254902, alpha: 1)
+    })
+    
+    func setup(profile: MealsStorageSceneModel) {
+        textLabel?.text = profile.description().0
+        textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        textLabel?.textColor = #colorLiteral(red: 0.2823529412, green: 0.2431372549, blue: 0.4470588235, alpha: 1)
+        if profile.description().1 {
+            add(profileSwitch, layoutBlock: { $0.trailing(20).centerY() })
+        } else {
+            accessoryType = .disclosureIndicator
+        }
+    }
+}
+
+class ProfileHeaderView: UIView {
+    
+    let titleLabel = specify(UILabel(), {
+        $0.font = UIFont.boldSystemFont(ofSize: 13.0)
+        $0.textColor = #colorLiteral(red: 0.5098039216, green: 0.368627451, blue: 0.7137254902, alpha: 1)
+    })
+    
+    public func setup(title: String) {
+        add(titleLabel, layoutBlock: { $0.leading(16).bottom(5) })
+        titleLabel.text = title
     }
 }
