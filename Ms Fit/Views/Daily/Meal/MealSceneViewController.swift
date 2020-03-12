@@ -116,12 +116,17 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navQuestionsLabel).leading(4).size(44)})
         view.add(caloriesView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
         view.add(collectionView, layoutBlock: { $0.topBottom(to: caloriesView).leading().trailing().bottom()})
-        
         view.add(myMealsButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
+        view.add(addPopupView, layoutBlock: { $0.edges() })
+        addPopupView.isHidden = true
     }
     
     fileprivate func handlePopupView() {
-        view.add(addPopupView, layoutBlock: { $0.edges() })
+        addPopupView.isHidden = false
+        addPopupView.heightAddPopupViewLayout?.isActive = false
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 

@@ -14,6 +14,11 @@ class AddPopupView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
+    public var heightAddPopupViewLayout: NSLayoutConstraint?
+    
+    public let heightContainer: CGFloat = 350
+    public let lowContainer: CGFloat = 0
+    
     public let containerView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 20
@@ -49,19 +54,32 @@ class AddPopupView: UIView {
     }
     
     fileprivate func addConstraints() {
-        add(containerView, layoutBlock: { $0.bottom().leading().trailing().height(350) })
+        heightAddPopupViewLayout = containerView.heightAnchor.constraint(equalToConstant: 0)
+        heightAddPopupViewLayout?.isActive = true
+        
+        //fix constraints -->
+        add(containerView, layoutBlock: { $0.bottom().leading().trailing() })
         containerView.add(addButton, layoutBlock: {
             $0.bottom(Constants.sH_812 ? 20 : 0).leading().trailing().height(60)
         })
         containerView.add(tableView, layoutBlock: {
-            $0.top(10).leading(16).trailing(16).bottomTop(-10, to: addButton)
+            $0.top(10).leading(16).trailing(16).bottomTop(-10, to: addButton).height(250)
         })
+        // <--
     }
     
     fileprivate func setupBindings() {
         addButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
-                self.removeFromSuperview()
+                self.heightAddPopupViewLayout?.isActive = false
+                UIView.animate(withDuration: 0.4, delay: 0, animations: {
+                    self.heightAddPopupViewLayout =
+                        self.containerView.heightAnchor.constraint(equalToConstant: 0)
+                    self.heightAddPopupViewLayout?.isActive = true
+                    self.layoutIfNeeded()
+                }, completion: { _ in
+                self.isHidden = true
+                })
             }).disposed(by: disposeBag)
         Observable.just(LunchList.allCases)
             .bind(to: tableView.rx.items(cellIdentifier: LunchCell.identifier,
@@ -88,10 +106,10 @@ class LunchCell: UITableViewCell, CellIdentifierable {
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
-    private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var checkmarkButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "checkmark.circle.fill", withConfiguration: mediumConfiguration)?
-            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+        $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
+        $0.tintColor = .systemBackground
+        $0.backgroundColor = #colorLiteral(red: 0.7254901961, green: 0.2117647059, blue: 0.7803921569, alpha: 1)
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 32 / 2
