@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     
+    fileprivate let disposeBag = DisposeBag()
+    
     static var identifier: String = "MealHeaderView"
+    public var tapPresentSearchHanper: (() -> Void)?
     
     private let searchLabel = Label(icon: "All meals", font: .systemFont(ofSize: 12, weight: .regular),
                                     size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
@@ -60,17 +65,29 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     }
     
     fileprivate func setupBindings() {
-        
+        highProteinButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("tap highProteinButton")
+            }).disposed(by: disposeBag)
+        favoriteButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("tap favoriteButton")
+            }).disposed(by: disposeBag)
+        searchButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                print("tap searchButton")
+                self.tapPresentSearchHanper?()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraint() {
-        searchButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        searchButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        highProteinButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
         highProteinButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        favoriteButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        highProteinButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
         favoriteButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
-
+        favoriteButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        searchButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        searchButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
         let searchStackView = VStackView(arrangedSubviews: [highProteinButton, highProtein], spacing: 5)
         let dietStackView = VStackView(arrangedSubviews: [favoriteButton, favoriteLabel], spacing: 5)
         let favoriteStackView = VStackView(arrangedSubviews: [searchButton, searchLabel], spacing: 5)

@@ -74,7 +74,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         
         myMealsButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
-                self.viewModel?.presentMealsStorege.onNext(())
+                self.viewModel?.presentMealsStoregeObserver.onNext(())
             }).disposed(by: disposeBag)
         
         caloriesView.chevronDownButton.rx.tap
@@ -152,6 +152,9 @@ extension MealSceneViewController: UICollectionViewDataSource {
             .dequeueReusableSupplementaryView(ofKind: kind,
                                               withReuseIdentifier: MealHeaderView.identifier,
                                               for: indexPath) as? MealHeaderView else { fatalError() }
+        headerView.tapPresentSearchHanper = { [unowned self] in
+            self.viewModel?.presentSearchObserver.onNext(())
+        }
         return headerView
     }
 }
