@@ -12,28 +12,32 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     
     static var identifier: String = "MealHeaderView"
     
-    private let searchLabel = Label(icon: "search", font: .systemFont(ofSize: 12, weight: .regular),
+    private let searchLabel = Label(icon: "All meals", font: .systemFont(ofSize: 12, weight: .regular),
                                     size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
-    private let dietLabel = Label(icon: "diet", font: .systemFont(ofSize: 12, weight: .regular),
+    private let highProtein = Label(icon: "High protein", font: .systemFont(ofSize: 12, weight: .regular),
                                   size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
-    private let favoriteLabel = Label(icon: "favorite", font: .systemFont(ofSize: 12, weight: .regular),
+    private let favoriteLabel = Label(icon: "Favorites", font: .systemFont(ofSize: 12, weight: .regular),
                                       size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
     
-    private let favoriteConfiguration = UIImage.SymbolConfiguration(weight: .medium)
-    private lazy var favoriteButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "heart", withConfiguration: favoriteConfiguration)?
-            .withTintColor(#colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
+    private let searchButton = specify(UIButton(type: .roundedRect), {
+        $0.setImage(#imageLiteral(resourceName: "search_icon.pdf"), for: .normal)
+        $0.tintColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
     })
     
-    private let searchConfiguration = UIImage.SymbolConfiguration(weight: .medium)
-    private lazy var searchButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "heart", withConfiguration: searchConfiguration)?
-            .withTintColor(#colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
+    private let favoriteButton = specify(UIButton(type: .roundedRect), {
+        $0.setImage(#imageLiteral(resourceName: "heart_icon.pdf"), for: .normal)
+        $0.tintColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
     })
     
-    private let dietsButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(#imageLiteral(resourceName: "daily_Meals_Icon"), for: .normal)
-        $0.setTitleColor(#colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), for: .normal)
+    private let highProteinButton = specify(UIButton(type: .roundedRect), {
+        $0.setImage(#imageLiteral(resourceName: "snack2"), for: .normal)
+        $0.tintColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
     })
     
     override func awakeFromNib() {
@@ -49,7 +53,10 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     }
     
     fileprivate func setupUI() {
-        backgroundColor = .red
+        backgroundColor = .clear
+        searchLabel.textAlignment = .center
+        highProtein.textAlignment = .center
+        favoriteLabel.textAlignment = .center
     }
     
     fileprivate func setupBindings() {
@@ -57,13 +64,20 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     }
     
     fileprivate func addConstraint() {
-        let searchStackView = VStackView(arrangedSubviews: [searchButton, searchLabel], spacing: 5)
-        let dietStackView = VStackView(arrangedSubviews: [dietsButton, dietLabel], spacing: 5)
-        let favoriteStackView = VStackView(arrangedSubviews: [favoriteButton, favoriteLabel], spacing: 5)
+        searchButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        searchButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        highProteinButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        highProteinButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        favoriteButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        favoriteButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
+
+        let searchStackView = VStackView(arrangedSubviews: [highProteinButton, highProtein], spacing: 5)
+        let dietStackView = VStackView(arrangedSubviews: [favoriteButton, favoriteLabel], spacing: 5)
+        let favoriteStackView = VStackView(arrangedSubviews: [searchButton, searchLabel], spacing: 5)
         let hStackView = HStackView(arrangedSubviews: [searchStackView, dietStackView, favoriteStackView],
-                                    spacing: 20)
+            spacing: 25)
         
-        add(hStackView, layoutBlock: { $0.center() })
+        add(hStackView, layoutBlock: { $0.centerX().top(15) })
     }
     
     required init?(coder: NSCoder) {

@@ -17,7 +17,8 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
     public var tapHalper: (() -> Void)?
     
     private let iconImageView = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "food5")
+        $0.image = #imageLiteral(resourceName: "lunch")
+        $0.contentMode = .scaleAspectFit
     })
     
     private let breakfastLabel = specify(UILabel(), {
@@ -47,7 +48,7 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
         iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         let hStackView = HStackView(arrangedSubviews: [iconImageView, breakfastLabel], spacing: 10)
         
-        add(hStackView, layoutBlock: { $0.top().centerX() })
+        add(hStackView, layoutBlock: { $0.top().centerX(-10) })
         add(pagerView, layoutBlock: { $0.topBottom(to: hStackView).leading().bottom().trailing() })
     }
     
@@ -146,7 +147,7 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
             $0.leading(16).trailing(16).top(Constants.sH_667 ? 30 : 15)
         })
         containerView.add(caloriesLabel, layoutBlock: {
-            $0.leading(16).topBottom(25, to: subheadingLabel).trailing(16).bottom(Constants.sH_667 ? 50 : 20)
+            $0.leading(16).topBottom(25, to: subheadingLabel).trailing(16).bottom(Constants.sH_667 ? 40 : 20)
         })
         containerView.add(addItemsButton, layoutBlock: {
             $0.trailing(16).centerY(to: caloriesLabel).width(50).height(30)

@@ -53,7 +53,6 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
                         bgColor: .systemBackground, isCircled: true)
     })
     
-    
     // There is tableView should refactor and fit correct data
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)

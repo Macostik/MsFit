@@ -68,4 +68,3 @@ enum MealsStorageSceneModel: String, CaseIterable {
         }
     }
 }
-

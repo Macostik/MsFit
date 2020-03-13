@@ -47,7 +47,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: Constants.sW, height: Constants.sH * 0.6)
-        layout.headerReferenceSize = CGSize(width: Constants.sW, height: 150)
+        layout.headerReferenceSize = CGSize(width: Constants.sW, height: 130)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -95,6 +95,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
+        addPopupView.isHidden = true
     }
     
     fileprivate func addConstraints() {
@@ -110,7 +111,6 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         view.add(collectionView, layoutBlock: { $0.topBottom(to: caloriesView).leading().trailing().bottom()})
         view.add(myMealsButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
         view.add(addPopupView, layoutBlock: { $0.edges() })
-        addPopupView.isHidden = true
     }
     
     fileprivate func handlePopupView() {
