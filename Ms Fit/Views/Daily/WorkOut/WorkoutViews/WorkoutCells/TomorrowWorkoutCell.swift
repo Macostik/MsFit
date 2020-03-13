@@ -29,12 +29,12 @@ class TomorrowWorkoutCell: UICollectionViewCell, CellIdentifierable {
         $0.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     })
     
-    private let exerciseText = specify(UILabel(), {
+    private let exerciseTextLabel = specify(UILabel(), {
         $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
     })
     
-    private let descriptionText = specify(UILabel(), {
+    private let sets_RepsTextLabel = specify(UILabel(), {
         $0.textColor = #colorLiteral(red: 0.6156862745, green: 0.6156862745, blue: 0.6666666667, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 13, weight: .regular)
     })
@@ -46,7 +46,7 @@ class TomorrowWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
     private func handleUI() {
         let vContainerStackView = VStackView(arrangedSubviews: [exercisesImageView, containerForTextView])
-        let vForTextStackView = VStackView(arrangedSubviews: [exerciseText, descriptionText])
+        let vForTextStackView = VStackView(arrangedSubviews: [exerciseTextLabel, sets_RepsTextLabel])
         
         containerForTextView.add(vForTextStackView, layoutBlock: { $0.leading(10).trailing(10).centerY() })
         add(vContainerStackView, layoutBlock: { $0.edges() })
@@ -54,8 +54,8 @@ class TomorrowWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
     public func setup(exercise: TomorrowWorkoutList) {
         exercisesImageView.image =  UIImage(named: exercise.rawValue)
-        exerciseText.text = exercise.description().0
-        descriptionText.text = exercise.description().1
+        exerciseTextLabel.text = exercise.description().0
+        sets_RepsTextLabel.text = exercise.description().1
     }
     
     required init?(coder: NSCoder) { fatalError("not implemented tomorrow workout cell") }

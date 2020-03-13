@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 enum HomeImageList: String, CaseIterable {
     case everydayExercise
@@ -27,4 +26,8 @@ enum HomeImageList: String, CaseIterable {
             return ("motivation", "Committing to a longer subscription increases your success rate")
         }
     }
+}
+
+enum DetailsImageList: String, CaseIterable {
+    case arm_rotations, push_ups, crunches
 }

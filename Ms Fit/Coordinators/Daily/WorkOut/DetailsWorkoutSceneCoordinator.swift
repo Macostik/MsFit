@@ -16,7 +16,12 @@ class DetailsWorkoutSceneCoordinator: BaseSceneCoordinator<Void> {
         let viewModel = DetailsWorkoutSceneViewModel(dependencies: dependencies)
         let viewController = DetailsWorkoutSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
-        navigationController?.pushViewController(viewController, animated: false)
+        navigationController?.pushViewController(viewController, animated: true)
+        
+        viewModel.dismissObserver.subscribe(onNext: {
+            navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
