@@ -12,5 +12,4 @@ import RxCocoa
 
 final class SearchMealsSceneViewModel: BaseViewModel<SearchMealsSceneModel> {
     
-    
 }

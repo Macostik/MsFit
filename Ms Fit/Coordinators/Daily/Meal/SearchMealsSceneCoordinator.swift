@@ -18,8 +18,6 @@ class SearchMealsSceneCoordinator: BaseSceneCoordinator<Void> {
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
-        
-        
         return Observable.just(())
     }
     
