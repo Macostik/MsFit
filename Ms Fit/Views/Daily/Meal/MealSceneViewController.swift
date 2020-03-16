@@ -14,7 +14,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let caloriesView = CaloriesView()
     private let addPopupView = AddPopupView()
-    fileprivate let mealList = Array(0...5)
+    fileprivate let mealList = Array(0...4)
     
     private var isAnimationCalories = false
     private var heightCaloriesLayout: NSLayoutConstraint?

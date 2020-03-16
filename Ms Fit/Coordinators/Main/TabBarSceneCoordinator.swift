@@ -47,7 +47,7 @@ extension TabBarSceneModel {
                coordinator.tabBarIcon = rawValue
                return coordinator
            case .profile:
-               let coordinator = ProfileSceneCoordinator(window: window, dependencies: dependencies)
+               let coordinator = SettingsSceneCoordinator(window: window, dependencies: dependencies)
                coordinator.tabBarIcon = rawValue
                return coordinator
            }
