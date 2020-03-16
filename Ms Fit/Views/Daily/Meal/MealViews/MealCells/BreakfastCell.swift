@@ -17,7 +17,7 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
     public var tapHalper: (() -> Void)?
     
     private let iconImageView = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "lunch")
+        $0.image = #imageLiteral(resourceName: "breakfast")
         $0.contentMode = .scaleAspectFit
     })
     
