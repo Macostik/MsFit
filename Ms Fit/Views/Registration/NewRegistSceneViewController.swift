@@ -65,11 +65,10 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     private var buttonList = [UIButton]()
     
     private let nextStepButton = specify(UIButton(type: .roundedRect), {
-           $0.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-           $0.customButton(text: "next step", font: 17, weight: .regular,
-                           shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: #colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1))
-       })
-
+        $0.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        $0.customButton(text: "next step", font: 17, weight: .regular, shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: #colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1))
+    })
+    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -98,7 +97,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                     UIView.animate(withDuration: 0.5) {
                         self.progressView
                             .setProgress(self.progressView.progress - 0.2,
-                                                            animated: true)
+                                         animated: true)
                     }
                 }
             }).disposed(by: disposeBag)
@@ -258,14 +257,14 @@ extension NewRegistSceneViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerElement.dataList().count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return pickerElement.dataList()[component].count
+        return pickerElement.dataList()[component].count
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         let weight = pickerElement.dataList()[component].max(by: {$1.count > $0.count})?.toString()
-        .size(withAttributes: [.font: UIFont.systemFont(ofSize: 34.0)]).width ?? 70
+            .size(withAttributes: [.font: UIFont.systemFont(ofSize: 34.0)]).width ?? 70
         return weight
     }
     

@@ -10,6 +10,11 @@ import UIKit
 
 class UserView: UIView {
     
+    private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
+    public let editProfileImageView = UIImageView(image: #imageLiteral(resourceName: "profileEdit_icon"))
+
+    private let hideView = specify(UIView(), { $0.backgroundColor = .clear })
+    
     public let settingsButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "settings_icon"), for: .normal)
         $0.tintColor = #colorLiteral(red: 0.5333333333, green: 0.3490196078, blue: 0.8901960784, alpha: 1)
@@ -17,23 +22,14 @@ class UserView: UIView {
         $0.titleEdgeInsets = .init(top: 0, left: 5, bottom: 0, right: 0)
     })
     
-    private let separatorView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
-    })
-    
     private let profileImageView = specify(UIImageView(), {
-        $0.layer.cornerRadius = 140 / 2
         $0.image = #imageLiteral(resourceName: "food8")
+        $0.layer.cornerRadius = 140 / 2
         $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        $0.layer.borderWidth = 4
+        $0.layer.borderWidth = 5
         $0.clipsToBounds = true
     })
-    
-    public let editProfileImageButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(#imageLiteral(resourceName: "profileEdit_icon"), for: .normal)
-        $0.setTitleColor(.clear, for: .normal)
-    })
-    
+        
     public let contactUsButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(#colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), for: .normal)
         $0.customButton(text: "Contact Us", font: 15, weight: .regular, shadowColor: .clear, isCircled: false)
@@ -56,20 +52,21 @@ class UserView: UIView {
     
     fileprivate func handleUI() {
         backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+        editProfileImageView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {
+        settingsButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         let vTextsStackView = VStackView(arrangedSubviews: [fullNameLabel, generalAccountLabel], spacing: 20)
+        let hButtonsStackView = HStackView(arrangedSubviews: [contactUsButton, UIView(), settingsButton])
         
-        add(settingsButton, layoutBlock: { $0.top(40).trailing(16).width(80) })
-        add(contactUsButton, layoutBlock: { $0.top(35).leading(16) })
-        add(profileImageView, layoutBlock: { $0.top(40).centerX().size(140) })
-        profileImageView.add(editProfileImageButton, layoutBlock: { $0.bottom(15).trailing(15).size(35) })
+        add(hButtonsStackView, layoutBlock: { $0.top(Constants.sH_812 ? 60 : 40).leading(16).trailing(16) })
+        add(hideView, layoutBlock: { $0.top(Constants.sH_812 ? 60 : 40).centerX().size(140) })
+        hideView.add(profileImageView, layoutBlock: { $0.edges() })
+        hideView.add(editProfileImageView, layoutBlock: { $0.bottom(6).leading(6).size(35) })
         add(vTextsStackView, layoutBlock: { $0.topBottom(20, to: profileImageView).centerX().bottom(25) })
         add(separatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented UserView")
-    }
+    required init?(coder: NSCoder) { fatalError() }
 }

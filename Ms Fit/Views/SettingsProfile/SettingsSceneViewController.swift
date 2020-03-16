@@ -14,6 +14,7 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
     
     private let userView = UserView()
     private let graphView = GraphView()
+    private let measurementsView = MeasurementsView()
     
     private let scrollView = specify(UIScrollView(), {
         $0.showsVerticalScrollIndicator = false
@@ -35,9 +36,11 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        let vBaseStackView = VStackView(arrangedSubviews: [userView, graphView])
+        let vBaseStackView = VStackView(arrangedSubviews: [userView, graphView, measurementsView])
         
         view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).bottom(tabBarHeight) })
-        scrollView.add(vBaseStackView, layoutBlock: { $0.top(40).bottom().width(Constants.sW) })
+        scrollView.add(vBaseStackView, layoutBlock: {
+            $0.top().bottom().width(Constants.sW)
+        })
     }
 }

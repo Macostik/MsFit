@@ -58,5 +58,5 @@ class TodayWorkoutCell: UICollectionViewCell, CellIdentifierable {
         descriptionText.text = exercise.description().1
     }
     
-    required init?(coder: NSCoder) { fatalError("not implemented today workout cell") }
+    required init?(coder: NSCoder) { fatalError() }
 }

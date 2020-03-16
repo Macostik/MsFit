@@ -114,7 +114,6 @@ class GraphView: UIView {
     
     fileprivate func setupUI() {
         backgroundColor = .systemBackground
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addconstraints() {
@@ -132,6 +131,7 @@ class GraphView: UIView {
         let hBaseReusltStackView =
             HStackView(arrangedSubviews: [lostContainerView, nowContainerView, standartContainerView])
         hBaseReusltStackView.distribution = .fillEqually
+        hBaseReusltStackView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
         lostContainerView.add(vLostStackView, layoutBlock: { $0.center() })
         nowContainerView.add(nowLeftSeparatorView, layoutBlock: { $0.leading().top(5).bottom(5).width(1) })
@@ -149,7 +149,5 @@ class GraphView: UIView {
         })
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented GraphView")
-    }
+    required init?(coder: NSCoder) { fatalError() }
 }

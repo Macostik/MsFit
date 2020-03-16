@@ -41,7 +41,7 @@ class ExerciseView: UIView {
         add(mealTableView, layoutBlock: { $0.edges() })
     }
     
-    required init?(coder: NSCoder) { fatalError("has not been implemented meals table view") }
+    required init?(coder: NSCoder) { fatalError() }
 }
 
 class QuestionExerciseCell: UITableViewCell, CellIdentifierable {
@@ -83,5 +83,5 @@ class QuestionExerciseCell: UITableViewCell, CellIdentifierable {
         add(titleLabel, layoutBlock: { $0.trailing(16).leadingTrailing(10, to: plusImageView).centerY() })
     }
     
-    required init?(coder: NSCoder) { fatalError("has not been implemented exercise cell") }
+    required init?(coder: NSCoder) { fatalError() }
 }

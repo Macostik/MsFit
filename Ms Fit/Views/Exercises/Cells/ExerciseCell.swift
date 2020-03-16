@@ -38,7 +38,5 @@ class ExerciseCell: UICollectionViewCell, CellIdentifierable {
         exerciseText.text = exercise.rawValue
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("not implemented exercise cell")
-    }
+    required init?(coder: NSCoder) { fatalError() }
 }

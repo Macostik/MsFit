@@ -31,9 +31,7 @@ open class BaseCoordinator<ResultType> {
             .do(onNext: { [weak self] _ in self?.free(coordinator: coordinator) })
     }
     
-    public func start() -> Observable<ResultType> {
-        fatalError("Start method should be implemented.")
-    }
+    public func start() -> Observable<ResultType> { fatalError() }
 }
 
 open class BaseSceneCoordinator<T>: BaseCoordinator<T> {

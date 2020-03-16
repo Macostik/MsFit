@@ -77,9 +77,7 @@ class AddPopupView: UIView {
         }.disposed(by: disposeBag)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented AddPopupView")
-    }
+    required init?(coder: NSCoder) { fatalError() }
 }
 
 class LunchCell: UITableViewCell, CellIdentifierable {
@@ -127,7 +125,5 @@ class LunchCell: UITableViewCell, CellIdentifierable {
         add(checkmarkButton, layoutBlock: { $0.trailing(16).centerY().size(32) })
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented LunchCell")
-    }
+    required init?(coder: NSCoder) { fatalError() }
 }

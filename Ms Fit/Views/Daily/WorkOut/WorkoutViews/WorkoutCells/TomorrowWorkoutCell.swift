@@ -58,5 +58,5 @@ class TomorrowWorkoutCell: UICollectionViewCell, CellIdentifierable {
         sets_RepsTextLabel.text = exercise.description().1
     }
     
-    required init?(coder: NSCoder) { fatalError("not implemented tomorrow workout cell") }
+    required init?(coder: NSCoder) { fatalError() }
 }

@@ -42,7 +42,7 @@ class SubscriptionView: UIView {
         add(mealTableView, layoutBlock: { $0.edges() })
     }
     
-    required init?(coder: NSCoder) { fatalError("has not been implemented subscription table view") }
+    required init?(coder: NSCoder) { fatalError() }
 }
 
 class QuestionSubscriptionCell: UITableViewCell, CellIdentifierable {
@@ -84,5 +84,5 @@ class QuestionSubscriptionCell: UITableViewCell, CellIdentifierable {
         add(titleLabel, layoutBlock: { $0.trailing(16).leadingTrailing(10, to: plusImageView).centerY() })
     }
     
-    required init?(coder: NSCoder) { fatalError("has not been implemented exercise cell") }
+    required init?(coder: NSCoder) { fatalError() }
 }

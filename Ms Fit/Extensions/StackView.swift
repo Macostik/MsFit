@@ -19,9 +19,7 @@ class VStackView: UIStackView {
         self.axis = .vertical
     }
     
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init(coder: NSCoder) { fatalError() }
 }
 
 class HStackView: UIStackView {
@@ -35,7 +33,5 @@ class HStackView: UIStackView {
         self.axis = .horizontal
     }
     
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init(coder: NSCoder) { fatalError() }
 }

@@ -695,10 +695,8 @@
 		AC70FF98241F97FC0064CEC5 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				AC70FFAF241F9CF80064CEC5 /* SettingViews */,
 				AC70FFA2241F993E0064CEC5 /* SettingsSceneViewController.swift */,
-				AC70FFA9241F9B480064CEC5 /* UserView.swift */,
-				AC70FFAB241F9B730064CEC5 /* GraphView.swift */,
-				AC70FFAD241F9B8F0064CEC5 /* MeasurementsView.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -709,6 +707,16 @@
 				AC70FFA1241F993E0064CEC5 /* SettingsSceneCoordinator.swift */,
 			);
 			path = SettingsProfile;
+			sourceTree = "<group>";
+		};
+		AC70FFAF241F9CF80064CEC5 /* SettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC70FFA9241F9B480064CEC5 /* UserView.swift */,
+				AC70FFAB241F9B730064CEC5 /* GraphView.swift */,
+				AC70FFAD241F9B8F0064CEC5 /* MeasurementsView.swift */,
+			);
+			name = SettingViews;
 			sourceTree = "<group>";
 		};
 		AC738FBE2406C16600CB7A39 /* Cells */ = {

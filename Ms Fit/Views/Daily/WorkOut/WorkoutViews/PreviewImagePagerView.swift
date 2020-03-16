@@ -38,9 +38,7 @@ class PreviewImagePagerView: FSPagerView {
         add(pageControl, layoutBlock: { $0.bottom(20).centerX() })
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented PreviewImagePagerView")
-    }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
 }
 
 extension PreviewImagePagerView: FSPagerViewDataSource {

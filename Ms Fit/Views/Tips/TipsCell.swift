@@ -54,7 +54,5 @@ class TipsCell: UICollectionViewCell {
         tipText.text = tip.text
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("not implemented exercise cell")
-    }
+    required init?(coder: NSCoder) { fatalError() }
 }

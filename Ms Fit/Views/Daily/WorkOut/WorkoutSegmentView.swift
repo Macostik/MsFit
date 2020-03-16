@@ -111,5 +111,5 @@ class WorkoutSegmentView: UIView {
         separatorView.add(slideView, layoutBlock: { $0.width(Constants.sW / 3).height(5).leading().bottom() })
     }
     
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder: NSCoder) { fatalError() }
 }

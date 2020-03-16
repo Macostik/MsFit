@@ -109,5 +109,5 @@ class BaseWorkOutView: UIView {
         startWorkoutButton.cornerRadius = (Constants.sW / 6.5)/2
     }
     
-    required init?(coder: NSCoder) { fatalError("has not been implemented meals table view") }
+    required init?(coder: NSCoder) { fatalError() }
 }
