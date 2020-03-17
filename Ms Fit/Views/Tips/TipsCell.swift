@@ -8,9 +8,7 @@
 
 import UIKit
 
-class TipsCell: UICollectionViewCell {
-    
-    static let reuseId = "TipsCell"
+class TipsCell: UICollectionViewCell, CellIdentifierable {
     
     private let tipImageView = specify(UIImageView(), {
         $0.clipsToBounds = true
@@ -49,9 +47,9 @@ class TipsCell: UICollectionViewCell {
         add(vContainerStackView, layoutBlock: { $0.top(15).bottom().trailing(15).leading(15) })
     }
     
-    public func setup(tip: TipModels) {
-        tipImageView.image =  UIImage(named: tip.image)
-        tipText.text = tip.text
+    public func setup(_ tip: TipsModel) {
+        tipImageView.image =  UIImage(named: tip.rawValue)
+        tipText.text = tip.description()
     }
     
     required init?(coder: NSCoder) { fatalError() }

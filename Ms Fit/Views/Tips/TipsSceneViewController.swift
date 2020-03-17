@@ -12,19 +12,19 @@ import RxCocoa
 
 class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     
-    private let tipsModel = [
-        TipModels(image: "food1", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food2", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food3", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food4", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food5", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food6", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food7", text: "Chicken breast with rice and boiled vegetables"),
-        TipModels(image: "food8", text: "Chicken breast with rice and boiled vegetables")
-    ]
-    
-    private var collectionView = UICollectionView(frame: .zero,
-                                                  collectionViewLayout: UICollectionViewFlowLayout())
+    private let tipsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let size = Constants.sW
+        layout.itemSize = CGSize(width: size, height: size)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.identifier)
+        collectionView.contentInset = .init(top: 0, left: 0, bottom: 16, right: 0)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        return collectionView
+    }()
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
@@ -50,17 +50,17 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     }
     
     override func setupBindings() {
+        
+        Observable.just(TipsModel.allCases).bind(to: tipsCollectionView.rx
+            .items(cellIdentifier: TipsCell.identifier,
+                   cellType: TipsCell.self)) { _, model, cell in
+                    cell.setup(model)
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        collectionView.contentInset = .init(top: 0, left: 0, bottom: 20, right: 0)
-        
-        addCollectionView()
     }
     
     fileprivate func addConstraints() {
@@ -70,38 +70,8 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(vNavButtonsStackView, layoutBlock: { $0.centerX().bottom(6) })
-        view.add(collectionView, layoutBlock: {
+        view.add(tipsCollectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
         })
-    }
-    
-    fileprivate func addCollectionView() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9764705882, alpha: 1)
-        collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.reuseId)
-    }
-}
-
-extension TipsSceneViewController: UICollectionViewDelegate, UICollectionViewDataSource,
-                                   UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tipsModel.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TipsCell.reuseId,
-                                                      for: indexPath) as! TipsCell
-        let tip = tipsModel[indexPath.row]
-        cell.setup(tip: tip)
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return .init(width: Constants.sW, height: Constants.sW * 0.9)
     }
 }

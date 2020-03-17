@@ -18,6 +18,27 @@ final class TipsSceneModel: Object {
     }
 }
 
-struct TipModels {
-    let image, text: String
+enum TipsModel: String, CaseIterable {
+    case food1, food2, food3, food4, food5, food6, food7, food8
+    
+    func description() -> String {
+        switch self {
+        case .food1:
+            return ("Committing to a longer subscription increases your success rate")
+        case .food2:
+            return ("Committing to a longer subscription ")
+        case .food3:
+            return ("Committing to a longer subscription")
+        case .food4:
+            return ("Committing to a longer subscription increases your success rate")
+        case .food5:
+            return ("Committing to a longer subscription increases your success rate")
+        case .food6:
+            return ("Committing to a longer subscription ")
+        case .food7:
+            return ("Committing to a longer subscription")
+        case .food8:
+            return ("Committing to a longer subscription increases your success rate")
+        }
+    }
 }
