@@ -12,6 +12,10 @@ import RxCocoa
 
 class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     
+    private let tipsMenuView = TipsMenuView()
+    
+    private var isShowMenu = false
+    
     private let tipsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -50,12 +54,31 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     }
     
     override func setupBindings() {
-        
-        Observable.just(TipsModel.allCases).bind(to: tipsCollectionView.rx
-            .items(cellIdentifier: TipsCell.identifier,
-                   cellType: TipsCell.self)) { _, model, cell in
+        Observable.just(TipsModel.allCases)
+            .bind(to: tipsCollectionView.rx.items(cellIdentifier: TipsCell.identifier, cellType:
+                TipsCell.self)) { _, model, cell in
                     cell.setup(model)
         }.disposed(by: disposeBag)
+        
+        allCatigoriesButton.rx.tap
+        .subscribe(onNext: { [unowned self] _ in
+            if self.isShowMenu {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.tipsMenuView.heightConstraints.constant = 0
+                    self.tipsMenuView.layoutIfNeeded()
+                }, completion: { _ in
+                    self.tipsMenuView.isHidden = true
+                })
+            } else {
+                self.tipsMenuView.isHidden = false
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.tipsMenuView.heightConstraints.constant = Constants.sW * 0.9
+                    self.tipsMenuView.layoutIfNeeded()
+                })
+            }
+            self.tipsMenuView.heightConstraints.isActive = self.tipsMenuView.heightConstraints.isActive
+            self.isShowMenu = !self.isShowMenu
+        }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -73,5 +96,9 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
         view.add(tipsCollectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
         })
+        rootViewController?.add(tipsMenuView, layoutBlock: {
+            $0.top(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70).leading().trailing().bottom()
+        })
+        tipsMenuView.isHidden = true
     }
 }

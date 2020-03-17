@@ -130,6 +130,8 @@
 		ACACD460241BB41B0017D4D7 /* PreviewImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACD45F241BB41B0017D4D7 /* PreviewImagePagerView.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
+		ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39B82421068100D97A11 /* TipsMenuCell.swift */; };
+		ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
 		ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */; };
 		ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1C423FE8DA2000EB2DB /* Label.swift */; };
@@ -270,6 +272,8 @@
 		ACACD45F241BB41B0017D4D7 /* PreviewImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImagePagerView.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
+		ACCD39B82421068100D97A11 /* TipsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuCell.swift; sourceTree = "<group>"; };
+		ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuView.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ACCED1C123FE8D1E000EB2DB /* BezierPath+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierPath+Ext.swift"; sourceTree = "<group>"; };
 		ACCED1C423FE8DA2000EB2DB /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -772,6 +776,7 @@
 			isa = PBXGroup;
 			children = (
 				ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */,
+				ACCD39B82421068100D97A11 /* TipsMenuCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -827,6 +832,7 @@
 			children = (
 				ACAFEC9B24051FB000C8AEBB /* Cells */,
 				56993C192401BDF500C16CFF /* TipsSceneViewController.swift */,
+				ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -1087,6 +1093,7 @@
 				AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				AC21931A2412900400F388C1 /* MealSceneCoordinator.swift in Sources */,
+				ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */,
 				ACACD45D241B8C980017D4D7 /* SearchMealsSceneModel.swift in Sources */,
 				564A674823FC6E6E00D4901A /* BaseViewController.swift in Sources */,
 				56C7B4F22405C2DE00CC2C8D /* WorkOutSceneCoordinator.swift in Sources */,
@@ -1099,6 +1106,7 @@
 				ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */,
 				AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */,
 				566C2DAC240444080006108B /* SignInSceneViewController.swift in Sources */,
+				ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */,
 				AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */,
 				AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */,
 				564A676023FC76B100D4901A /* UIView+Ext.swift in Sources */,

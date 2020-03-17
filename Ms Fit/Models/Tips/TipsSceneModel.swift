@@ -18,6 +18,10 @@ final class TipsSceneModel: Object {
     }
 }
 
+enum TipsMenuModel: String, CaseIterable {
+    case AllCategories, Favorites, Health, Food, Recipes
+}
+
 enum TipsModel: String, CaseIterable {
     case food1, food2, food3, food4, food5, food6, food7, food8
     
