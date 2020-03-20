@@ -51,12 +51,16 @@ class UserView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         handleUI()
+        setupBindings()
         addConstraints()
     }
     
     fileprivate func handleUI() {
         backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         editProfileImageView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    }
+    
+    fileprivate func setupBindings() {
     }
     
     fileprivate func addConstraints() {

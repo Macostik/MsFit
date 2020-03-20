@@ -68,12 +68,6 @@ class MeasurementsView: UIView {
     private let measurementLabel = Label(icon: "Measurements",font: .systemFont(ofSize: 13, weight: .regular),
                                          size: 13, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
     
-//    private let updateMeasureButton = specify(UIButton(type: .roundedRect), {
-//        $0.setTitleColor(.systemBackground, for: .normal)
-//        $0.layer.cornerRadius = (Constants.sW / 5.5) / 2
-//        $0.customButton(text: "Update Measurements", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
-//    })
-    
     private let updateMeasureButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)

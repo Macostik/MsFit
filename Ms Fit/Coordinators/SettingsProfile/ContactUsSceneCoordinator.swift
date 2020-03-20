@@ -2,7 +2,7 @@
 //  ContactUsSceneCoordinator.swift
 //  Ms Fit
 //
-//  Created by Maxim Granchenko on 20.03.2020.
+//  Created by Yura Granchenko on 20.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -16,7 +16,12 @@ class ContactUsSceneCoordinator: BaseSceneCoordinator<Void> {
         let viewModel = ContactUsSceneViewModel(dependencies: dependencies)
         let viewController = ContactUsSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
-        navigationController?.pushViewController(viewController, animated: false)
+        navigationController?.pushViewController(viewController, animated: true)
+        
+        viewModel.dismissObserver.subscribe(onNext: {
+            navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     

@@ -20,6 +20,7 @@ class TipsMenuCell: UITableViewCell, CellIdentifierable {
     private let checkImageView = specify(UIImageView(), {
         $0.image = UIImage(systemName: "checkmark")
         $0.tintColor = .systemBackground
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let separatorView = specify(UIView(), {

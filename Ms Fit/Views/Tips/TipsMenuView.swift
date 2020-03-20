@@ -19,6 +19,7 @@ class TipsMenuView: UIView {
     public let menuTableView = specify(UITableView(), {
         $0.backgroundColor = .systemBackground
         $0.rowHeight = Constants.sW * 0.9 / 5
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.isScrollEnabled = false
         $0.allowsSelection = false
         $0.separatorStyle = .none

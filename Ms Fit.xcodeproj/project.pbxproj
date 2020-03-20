@@ -134,6 +134,8 @@
 		ACBF70102424C7CB00FFEAC8 /* ContactUsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */; };
 		ACBF70112424C7CB00FFEAC8 /* ContactUsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */; };
 		ACBF70122424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */; };
+		ACBF70142424EC4500FFEAC8 /* SubjectMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF70132424EC4500FFEAC8 /* SubjectMenuTableView.swift */; };
+		ACBF70172424EE0F00FFEAC8 /* SubjectMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */; };
 		ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39B82421068100D97A11 /* TipsMenuCell.swift */; };
 		ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
@@ -280,6 +282,8 @@
 		ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneViewController.swift; sourceTree = "<group>"; };
 		ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneModel.swift; sourceTree = "<group>"; };
 		ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneViewModel.swift; sourceTree = "<group>"; };
+		ACBF70132424EC4500FFEAC8 /* SubjectMenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectMenuTableView.swift; sourceTree = "<group>"; };
+		ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectMenuCell.swift; sourceTree = "<group>"; };
 		ACCD39B82421068100D97A11 /* TipsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuCell.swift; sourceTree = "<group>"; };
 		ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuView.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -726,9 +730,11 @@
 		AC70FFAF241F9CF80064CEC5 /* SettingViews */ = {
 			isa = PBXGroup;
 			children = (
+				ACBF70152424EDFF00FFEAC8 /* Cells */,
 				AC70FFA9241F9B480064CEC5 /* UserView.swift */,
 				AC70FFAB241F9B730064CEC5 /* GraphView.swift */,
 				AC70FFAD241F9B8F0064CEC5 /* MeasurementsView.swift */,
+				ACBF70132424EC4500FFEAC8 /* SubjectMenuTableView.swift */,
 			);
 			name = SettingViews;
 			sourceTree = "<group>";
@@ -787,6 +793,14 @@
 			children = (
 				ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */,
 				ACCD39B82421068100D97A11 /* TipsMenuCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		ACBF70152424EDFF00FFEAC8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1152,6 +1166,7 @@
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,
 				56993C0E2401BD6D00C16CFF /* DailySceneModel.swift in Sources */,
 				AC70FFA8241F993E0064CEC5 /* SettingsSceneViewModel.swift in Sources */,
+				ACBF70142424EC4500FFEAC8 /* SubjectMenuTableView.swift in Sources */,
 				566C2D84240440040006108B /* SignInSceneCoordinator.swift in Sources */,
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */,
@@ -1212,6 +1227,7 @@
 				ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */,
 				AC21930C241246D800F388C1 /* TomorrowWorkoutCell.swift in Sources */,
 				AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */,
+				ACBF70172424EE0F00FFEAC8 /* SubjectMenuCell.swift in Sources */,
 				AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */,
 				AC70FFAE241F9B8F0064CEC5 /* MeasurementsView.swift in Sources */,
 				AC219311241273E800F388C1 /* DetailsWorkoutSceneCoordinator.swift in Sources */,

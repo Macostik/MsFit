@@ -13,7 +13,17 @@ import RxCocoa
 class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewModel> {
     
     override func controller() -> BaseViewController<SettingsSceneViewModel> {
-        return SettingsSceneViewController
-            .instantiate(with: SettingsSceneViewModel(dependencies: dependencies))
+        let viewModel = SettingsSceneViewModel(dependencies: dependencies)
+        
+        viewModel.presentContactUsObserver.subscribe(onNext: { _ in
+            self.presentContactUsScene()
+        }).disposed(by: disposeBag)
+        
+        return SettingsSceneViewController.instantiate(with: viewModel)
+    }
+    
+    @discardableResult private func presentContactUsScene() -> Observable<Void> {
+        let contactUsCoordinator = ContactUsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: contactUsCoordinator)
     }
 }

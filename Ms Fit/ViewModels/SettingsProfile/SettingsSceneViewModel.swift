@@ -10,4 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SettingsSceneViewModel: BaseViewModel<SettingsSceneModel> {}
+final class SettingsSceneViewModel: BaseViewModel<SettingsSceneModel> {
+    
+    public var presentContactUsObserver = PublishSubject<Void>()
+}
