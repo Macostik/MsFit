@@ -130,6 +130,10 @@
 		ACACD460241BB41B0017D4D7 /* PreviewImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACD45F241BB41B0017D4D7 /* PreviewImagePagerView.swift */; };
 		ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */; };
 		ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */; };
+		ACBF700F2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700B2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift */; };
+		ACBF70102424C7CB00FFEAC8 /* ContactUsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */; };
+		ACBF70112424C7CB00FFEAC8 /* ContactUsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */; };
+		ACBF70122424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */; };
 		ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39B82421068100D97A11 /* TipsMenuCell.swift */; };
 		ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
@@ -272,6 +276,10 @@
 		ACACD45F241BB41B0017D4D7 /* PreviewImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImagePagerView.swift; sourceTree = "<group>"; };
 		ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCell.swift; sourceTree = "<group>"; };
+		ACBF700B2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneViewController.swift; sourceTree = "<group>"; };
+		ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneModel.swift; sourceTree = "<group>"; };
+		ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneViewModel.swift; sourceTree = "<group>"; };
 		ACCD39B82421068100D97A11 /* TipsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuCell.swift; sourceTree = "<group>"; };
 		ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuView.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -700,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				AC70FFAF241F9CF80064CEC5 /* SettingViews */,
+				ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */,
 				AC70FFA2241F993E0064CEC5 /* SettingsSceneViewController.swift */,
 			);
 			path = SettingsProfile;
@@ -708,6 +717,7 @@
 		AC70FF9D241F98360064CEC5 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				ACBF700B2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift */,
 				AC70FFA1241F993E0064CEC5 /* SettingsSceneCoordinator.swift */,
 			);
 			path = SettingsProfile;
@@ -797,6 +807,7 @@
 		ACEFD7F22401CABF00C2EED8 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */,
 				AC70FFA4241F993E0064CEC5 /* SettingsSceneViewModel.swift */,
 			);
 			path = SettingsProfile;
@@ -893,6 +904,7 @@
 		ACEFD7FD2401CBCA00C2EED8 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */,
 				AC70FFA3241F993E0064CEC5 /* SettingsSceneModel.swift */,
 			);
 			path = SettingsProfile;
@@ -1069,6 +1081,7 @@
 			files = (
 				566C2D8C2404423E0006108B /* SignUpSceneCoordinator.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
+				ACBF700F2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift in Sources */,
 				56993C1C2401BDF500C16CFF /* TipsSceneCoordinator.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
 				AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */,
@@ -1106,10 +1119,12 @@
 				ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */,
 				AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */,
 				566C2DAC240444080006108B /* SignInSceneViewController.swift in Sources */,
+				ACBF70122424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift in Sources */,
 				ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */,
 				AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */,
 				AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */,
 				564A676023FC76B100D4901A /* UIView+Ext.swift in Sources */,
+				ACBF70102424C7CB00FFEAC8 /* ContactUsSceneViewController.swift in Sources */,
 				ACCED1C723FE8DA3000EB2DB /* Button.swift in Sources */,
 				56993C142401BDAA00C16CFF /* ExercisesSceneCoordinator.swift in Sources */,
 				AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */,
@@ -1168,6 +1183,7 @@
 				ACACD460241BB41B0017D4D7 /* PreviewImagePagerView.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				AC5515532413A4BD0093373D /* StackView.swift in Sources */,
+				ACBF70112424C7CB00FFEAC8 /* ContactUsSceneModel.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				566C2DA8240444080006108B /* SignUpSceneViewController.swift in Sources */,
 				AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */,

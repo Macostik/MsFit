@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class UserView: UIView {
+    
+    fileprivate let disposeBag = DisposeBag()
     
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
     public let editProfileImageView = UIImageView(image: #imageLiteral(resourceName: "profileEdit_icon"))
