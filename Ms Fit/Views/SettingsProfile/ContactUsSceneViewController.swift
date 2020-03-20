@@ -78,6 +78,11 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     }
     
     override func setupBindings() {
+        view.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+                self.view.endEditing(true)
+            }).disposed(by: disposeBag)
         closeButton.rx.tap
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
