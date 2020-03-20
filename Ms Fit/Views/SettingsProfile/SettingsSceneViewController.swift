@@ -32,6 +32,11 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentContactUsObserver.onNext(())
             }).disposed(by: disposeBag)
+        
+        userView.mySettingsButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentMySettingsObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

@@ -13,4 +13,5 @@ import RxCocoa
 final class SettingsSceneViewModel: BaseViewModel<SettingsSceneModel> {
     
     public var presentContactUsObserver = PublishSubject<Void>()
+    public var presentMySettingsObserver = PublishSubject<Void>()
 }

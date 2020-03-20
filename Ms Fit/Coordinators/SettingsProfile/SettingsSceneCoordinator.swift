@@ -19,11 +19,20 @@ class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewMode
             self.presentContactUsScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentMySettingsObserver.subscribe(onNext: { _ in
+            self.presentMySettingsScene()
+        }).disposed(by: disposeBag)
+        
         return SettingsSceneViewController.instantiate(with: viewModel)
     }
     
     @discardableResult private func presentContactUsScene() -> Observable<Void> {
         let contactUsCoordinator = ContactUsSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: contactUsCoordinator)
+    }
+    
+    @discardableResult private func presentMySettingsScene() -> Observable<Void> {
+        let mySettingsCoordinator = MySettingsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: mySettingsCoordinator)
     }
 }

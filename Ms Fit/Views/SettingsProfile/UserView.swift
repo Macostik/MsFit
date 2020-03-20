@@ -19,7 +19,7 @@ class UserView: UIView {
 
     private let hideView = specify(UIView(), { $0.backgroundColor = .clear })
     
-    public let settingsButton = specify(UIButton(type: .roundedRect), {
+    public let mySettingsButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "settings_icon"), for: .normal)
         $0.tintColor = #colorLiteral(red: 0.5333333333, green: 0.3490196078, blue: 0.8901960784, alpha: 1)
         $0.setTitle("Settings", for: .normal)
@@ -64,9 +64,9 @@ class UserView: UIView {
     }
     
     fileprivate func addConstraints() {
-        settingsButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        mySettingsButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         let vTextsStackView = VStackView(arrangedSubviews: [fullNameLabel, generalAccountLabel], spacing: 20)
-        let hButtonsStackView = HStackView(arrangedSubviews: [contactUsButton, UIView(), settingsButton])
+        let hButtonsStackView = HStackView(arrangedSubviews: [contactUsButton, UIView(), mySettingsButton])
         
         add(hButtonsStackView, layoutBlock: { $0.top(Constants.sH_812 ? 60 : 40).leading(16).trailing(16) })
         add(hideView, layoutBlock: { $0.top(Constants.sH_812 ? 60 : 40).centerX().size(140) })

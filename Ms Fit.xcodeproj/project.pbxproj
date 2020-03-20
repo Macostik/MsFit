@@ -136,6 +136,10 @@
 		ACBF70122424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */; };
 		ACBF70142424EC4500FFEAC8 /* SubjectMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF70132424EC4500FFEAC8 /* SubjectMenuTableView.swift */; };
 		ACBF70172424EE0F00FFEAC8 /* SubjectMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */; };
+		ACBF701C2425151E00FFEAC8 /* MySettingsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF70182425151E00FFEAC8 /* MySettingsSceneCoordinator.swift */; };
+		ACBF701D2425151E00FFEAC8 /* MySettingsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF70192425151E00FFEAC8 /* MySettingsSceneViewController.swift */; };
+		ACBF701E2425151E00FFEAC8 /* MySettingsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF701A2425151E00FFEAC8 /* MySettingsSceneModel.swift */; };
+		ACBF701F2425151E00FFEAC8 /* MySettingsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF701B2425151E00FFEAC8 /* MySettingsSceneViewModel.swift */; };
 		ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39B82421068100D97A11 /* TipsMenuCell.swift */; };
 		ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
@@ -284,6 +288,10 @@
 		ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsSceneViewModel.swift; sourceTree = "<group>"; };
 		ACBF70132424EC4500FFEAC8 /* SubjectMenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectMenuTableView.swift; sourceTree = "<group>"; };
 		ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectMenuCell.swift; sourceTree = "<group>"; };
+		ACBF70182425151E00FFEAC8 /* MySettingsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingsSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACBF70192425151E00FFEAC8 /* MySettingsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingsSceneViewController.swift; sourceTree = "<group>"; };
+		ACBF701A2425151E00FFEAC8 /* MySettingsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingsSceneModel.swift; sourceTree = "<group>"; };
+		ACBF701B2425151E00FFEAC8 /* MySettingsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingsSceneViewModel.swift; sourceTree = "<group>"; };
 		ACCD39B82421068100D97A11 /* TipsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuCell.swift; sourceTree = "<group>"; };
 		ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuView.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -713,6 +721,7 @@
 			children = (
 				AC70FFAF241F9CF80064CEC5 /* SettingViews */,
 				ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */,
+				ACBF70192425151E00FFEAC8 /* MySettingsSceneViewController.swift */,
 				AC70FFA2241F993E0064CEC5 /* SettingsSceneViewController.swift */,
 			);
 			path = SettingsProfile;
@@ -722,6 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				ACBF700B2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift */,
+				ACBF70182425151E00FFEAC8 /* MySettingsSceneCoordinator.swift */,
 				AC70FFA1241F993E0064CEC5 /* SettingsSceneCoordinator.swift */,
 			);
 			path = SettingsProfile;
@@ -822,6 +832,7 @@
 			isa = PBXGroup;
 			children = (
 				ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */,
+				ACBF701B2425151E00FFEAC8 /* MySettingsSceneViewModel.swift */,
 				AC70FFA4241F993E0064CEC5 /* SettingsSceneViewModel.swift */,
 			);
 			path = SettingsProfile;
@@ -919,6 +930,7 @@
 			isa = PBXGroup;
 			children = (
 				ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */,
+				ACBF701A2425151E00FFEAC8 /* MySettingsSceneModel.swift */,
 				AC70FFA3241F993E0064CEC5 /* SettingsSceneModel.swift */,
 			);
 			path = SettingsProfile;
@@ -1139,6 +1151,7 @@
 				AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */,
 				564A676023FC76B100D4901A /* UIView+Ext.swift in Sources */,
 				ACBF70102424C7CB00FFEAC8 /* ContactUsSceneViewController.swift in Sources */,
+				ACBF701F2425151E00FFEAC8 /* MySettingsSceneViewModel.swift in Sources */,
 				ACCED1C723FE8DA3000EB2DB /* Button.swift in Sources */,
 				56993C142401BDAA00C16CFF /* ExercisesSceneCoordinator.swift in Sources */,
 				AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */,
@@ -1158,9 +1171,11 @@
 				56993BFF2401A84900C16CFF /* MainSceneViewModel.swift in Sources */,
 				ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */,
 				56C7B4F52405C2DE00CC2C8D /* WorkOutSceneViewModel.swift in Sources */,
+				ACBF701E2425151E00FFEAC8 /* MySettingsSceneModel.swift in Sources */,
 				564A676523FC76B100D4901A /* Reactive+Ext.swift in Sources */,
 				56993C162401BDAA00C16CFF /* ExercisesSceneModel.swift in Sources */,
 				AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */,
+				ACBF701C2425151E00FFEAC8 /* MySettingsSceneCoordinator.swift in Sources */,
 				AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */,
 				AC219313241273E800F388C1 /* DetailsWorkoutSceneModel.swift in Sources */,
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,
@@ -1223,6 +1238,7 @@
 				AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */,
+				ACBF701D2425151E00FFEAC8 /* MySettingsSceneViewController.swift in Sources */,
 				566C2D91240443770006108B /* MainSceneViewController.swift in Sources */,
 				ACCED1C623FE8DA3000EB2DB /* Label.swift in Sources */,
 				AC21930C241246D800F388C1 /* TomorrowWorkoutCell.swift in Sources */,

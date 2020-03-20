@@ -22,7 +22,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     
     private let navTextLabel = specify(UILabel(), {
         $0.text = "Contact Us"
-        $0.font = .systemFont(ofSize: 18, weight: .medium)
+        $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
     
