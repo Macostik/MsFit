@@ -14,4 +14,6 @@ final class SettingsSceneViewModel: BaseViewModel<SettingsSceneModel> {
     
     public var presentContactUsObserver = PublishSubject<Void>()
     public var presentMySettingsObserver = PublishSubject<Void>()
+    public var presentUpdateMeasurementObserver = PublishSubject<Void>()
+
 }

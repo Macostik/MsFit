@@ -61,18 +61,18 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     }()
     
     internal lazy var dataSource = {
-           return ProfileDataSource(configureCell: { _, tableView, indexPath, item in
-               guard let cell = tableView
-                   .dequeueReusableCell(withIdentifier: ProfileCell.identifier,
-                                        for: indexPath) as? ProfileCell else { fatalError() }
-               cell.setup(profile: item)
-               return cell
-           })
-       }()
+        return ProfileDataSource(configureCell: { _, tableView, indexPath, item in
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: ProfileCell.identifier,
+                                     for: indexPath) as? ProfileCell else { fatalError() }
+            cell.setup(profile: item)
+            return cell
+        })
+    }()
     
     override func setupUI() {
-       handleUI()
-       addConstraints()
+        handleUI()
+        addConstraints()
     }
     
     override func setupBindings() {
@@ -82,29 +82,30 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
             .disposed(by: disposeBag)
         
         clearAllMeals.rx.tap
-        .subscribe(onNext: { _ in
-            rootViewController?.add(self.clearPopupView, layoutBlock: { $0.edges() })
-            self.clearPopupView.alpha = 0
-            self.clearPopupView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            self.clearPopupView.alpha = 1
-            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5,
-                           initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-                self.clearPopupView.containerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            })
-        }).disposed(by: disposeBag)
+            .subscribe(onNext: { _ in
+                rootViewController?.add(self.clearPopupView, layoutBlock: { $0.edges() })
+                self.clearPopupView.alpha = 0
+                self.clearPopupView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                self.clearPopupView.alpha = 1
+                UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5,
+                               initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+                                self.clearPopupView.containerView.transform = CGAffineTransform(scaleX: 1.0,
+                                                                                                y: 1.0)
+                })
+            }).disposed(by: disposeBag)
         
         caloriesView.chevronDownButton.rx.tap
-        .subscribe(onNext: { [unowned self] _ in
-            self.heightCaloriesLayout?.isActive = false
-            UIView.animate(withDuration: 0.3) {
-                self.heightCaloriesLayout?.constant = self.isAnimationCalories ? 80 : 140
-                self.heightCaloriesLayout?.isActive = true
-                self.caloriesView.chevronDownButton.transform = self.isAnimationCalories ?
-                    CGAffineTransform.identity : CGAffineTransform(rotationAngle: -.pi)
-                self.view.layoutIfNeeded()
-            }
-            self.isAnimationCalories = !self.isAnimationCalories
-        }).disposed(by: disposeBag)
+            .subscribe(onNext: { [unowned self] _ in
+                self.heightCaloriesLayout?.isActive = false
+                UIView.animate(withDuration: 0.3) {
+                    self.heightCaloriesLayout?.constant = self.isAnimationCalories ? 80 : 140
+                    self.heightCaloriesLayout?.isActive = true
+                    self.caloriesView.chevronDownButton.transform = self.isAnimationCalories ?
+                        CGAffineTransform.identity : CGAffineTransform(rotationAngle: -.pi)
+                    self.view.layoutIfNeeded()
+                }
+                self.isAnimationCalories = !self.isAnimationCalories
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -112,14 +113,14 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
         Observable.just(MealsStorageData.allCases.map({ $0.description() }))
-        .bind(to: tableView.rx.items(dataSource: dataSource))
-        .disposed(by: disposeBag)
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
         heightCaloriesLayout = caloriesView.heightAnchor.constraint(equalToConstant: 80)
         heightCaloriesLayout?.isActive = true
-
+        
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })

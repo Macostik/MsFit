@@ -23,6 +23,10 @@ class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewMode
             self.presentMySettingsScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentUpdateMeasurementObserver.subscribe(onNext: { _ in
+            self.presentUpdateMeasureScene()
+        }).disposed(by: disposeBag)
+        
         return SettingsSceneViewController.instantiate(with: viewModel)
     }
     
@@ -34,5 +38,10 @@ class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewMode
     @discardableResult private func presentMySettingsScene() -> Observable<Void> {
         let mySettingsCoordinator = MySettingsSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: mySettingsCoordinator)
+    }
+    
+    @discardableResult private func presentUpdateMeasureScene() -> Observable<Void> {
+        let updateCoordinator = UpdateMeasurSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: updateCoordinator)
     }
 }

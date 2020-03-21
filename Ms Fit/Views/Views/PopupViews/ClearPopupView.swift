@@ -21,7 +21,7 @@ class ClearPopupView: UIView {
     })
     
     private let textLabel = specify(UILabel(), {
-        $0.setLineHeight("Are you sure that you want to clear all meals?", lineHeight: 6.0)
+        $0.setLineHeight("Are you sure that you want to clear all?", lineHeight: 6.0)
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 22 : 18, weight: .medium)
         $0.textAlignment = .center
         $0.numberOfLines = 2

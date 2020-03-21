@@ -24,10 +24,22 @@ class MeasurementsView: UIView {
     private let armsSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
     private let measureSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
     
-    private let chestImageView = UIImageView(image: #imageLiteral(resourceName: "chest"))
-    private let waistImageView = UIImageView(image: #imageLiteral(resourceName: "waist"))
-    private let thighImageView = UIImageView(image: #imageLiteral(resourceName: "legs"))
-    private let armsImageView = UIImageView(image: #imageLiteral(resourceName: "arm"))
+    private let chestImageView = specify(UIImageView(), {
+        $0.contentMode = .scaleAspectFit
+        $0.image = #imageLiteral(resourceName: "chest")
+    })
+    private let waistImageView = specify(UIImageView(), {
+        $0.contentMode = .scaleAspectFit
+        $0.image = #imageLiteral(resourceName: "waist")
+    })
+    private let thighImageView = specify(UIImageView(), {
+        $0.contentMode = .scaleAspectFit
+        $0.image = #imageLiteral(resourceName: "legs")
+    })
+    private let armsImageView = specify(UIImageView(), {
+        $0.contentMode = .scaleAspectFit
+        $0.image = #imageLiteral(resourceName: "arm")
+    })
     
     private let chestLeftImageView = UIImageView(image: UIImage(systemName: "chevron.left", withConfiguration:
         UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal))
@@ -68,7 +80,7 @@ class MeasurementsView: UIView {
     private let measurementLabel = Label(icon: "Measurements",font: .systemFont(ofSize: 13, weight: .regular),
                                          size: 13, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
     
-    private let updateMeasureButton = specify(UIButton(type: .roundedRect), {
+    public let updateMeasureButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setTitle("Update Measurements", for: .normal)
@@ -107,7 +119,7 @@ class MeasurementsView: UIView {
                                               spacing: 5)
         hChestCountStackView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
-        waistImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        waistImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         waistImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         let hWaistStackView = HStackView(arrangedSubviews: [waistImageView, waistLabel], spacing: 14)
         let hWaistCountStackView = HStackView(arrangedSubviews: [waistLeftImageView, waistCountLabel],
@@ -137,7 +149,7 @@ class MeasurementsView: UIView {
         })
         chestView.add(chestSeparatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
         
-        waistView.add(hWaistStackView, layoutBlock: { $0.leading(21).centerY() })
+        waistView.add(hWaistStackView, layoutBlock: { $0.leading(16).centerY() })
         waistView.add(hWaistCountStackView, layoutBlock: { $0.trailing(16).centerY() })
         waistView.add(waist_CM, layoutBlock: {
             $0.trailingLeading(-4, to: hWaistCountStackView).centerY(1, to: hWaistCountStackView)
