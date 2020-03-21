@@ -18,7 +18,8 @@ class SplashSceneCoordinator: BaseSceneCoordinator<Void> {
         let rootViewController = UINavigationController(rootViewController: viewController)
         rootViewController.isNavigationBarHidden = true
         viewModel.pushObservable.subscribe(onNext: { [weak self] _ in
-            self?.presentOnboardScene()
+//            self?.presentOnboardScene()
+            self?.presentMainScene()
         }).disposed(by: disposeBag)
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
@@ -26,8 +27,12 @@ class SplashSceneCoordinator: BaseSceneCoordinator<Void> {
         return Observable.empty()
     }
     
-        @discardableResult private func presentOnboardScene() -> Observable<Void> {
-            let onboardCoordinator = OnboardSceneCoordinator(window: window, dependencies: dependencies)
+    @discardableResult private func presentOnboardScene() -> Observable<Void> {
+        let onboardCoordinator = OnboardSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: onboardCoordinator)
+    }
+    @discardableResult private func presentMainScene() -> Observable<Void> {
+        let mainCoordinator = MainSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: mainCoordinator)
     }
 }

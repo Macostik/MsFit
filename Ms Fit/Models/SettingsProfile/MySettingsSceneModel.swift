@@ -8,27 +8,26 @@
 
 import UIKit
 import RealmSwift
-
-import UIKit
-import RealmSwift
 import RxDataSources
 
 enum SettingsStorageData: CaseIterable {
-    case settings, support, empty
+    case settings, account, msFit, empty
     
     func description() -> SectionOfSettings {
         switch self {
         case .settings:
-            return SectionOfSettings(header: "SETTINGS",
-                                 items: [SettingsStorageSceneModel.sound, SettingsStorageSceneModel.vibration])
-        case .support:
-            return SectionOfSettings(header: "SUPPORT",
-                                 items: [SettingsStorageSceneModel.changeColor, SettingsStorageSceneModel.support])
+            return SectionOfSettings(header: "PROFILE SETTINGS",
+                                     items: [.goal, .heigth, .startWeight, .dateOfBirth,
+                                             .activity, .workoutType])
+        case .account:
+            return SectionOfSettings(header: "ACCOUNT",
+                                     items: [.accountSettings, .accountType])
+        case .msFit:
+            return SectionOfSettings(header: "MS FIT",
+                                     items: [.contactUs, .aboutApp, .privacyPolicy, .termOfUse, .version])
         case .empty:
             return SectionOfSettings(header: "",
-                                 items: [SettingsStorageSceneModel.share,
-                                         SettingsStorageSceneModel.rate,
-                                         SettingsStorageSceneModel.policy])
+                                     items: [.logOut])
         }
     }
 }
@@ -47,25 +46,39 @@ extension SectionOfSettings: SectionModelType {
 }
 
 enum SettingsStorageSceneModel: String, CaseIterable {
-    case sound, vibration, changeColor, support, share, rate, policy
+    case goal, heigth, startWeight, dateOfBirth, activity, workoutType, accountSettings, accountType,
+    contactUs, aboutApp, privacyPolicy, termOfUse, version, logOut
     
-    func description() -> (String, Bool) {
+    func description() -> (String, String) {
         switch self {
-        case .sound:
-            return ("Sound", true)
-        case .vibration:
-            return ("Vibration", true)
-        case .changeColor:
-            return ("How to Color", false)
-        case .support:
-            return ("Contact Support", false)
-        case .share:
-            return ("Share App", false)
-        case .rate:
-            return ("Rate Us", false)
-        case .policy:
-            return ("Privacy Policy", false)
-            
+        case .goal:
+            return ("Goal", "Gain Weight")
+        case .heigth:
+            return ("Height", "170 cm")
+        case .startWeight:
+            return ("Start Weight", "62 kg")
+        case .dateOfBirth:
+            return ("Date of birth", "01/11/2020")
+        case .activity:
+            return ("Activity", "Destop job")
+        case .workoutType:
+            return ("Workout Type", "Gym")
+        case .accountSettings:
+            return ("Account Settings", "")
+        case .accountType:
+            return ("Account Type", "General Membership")
+        case .contactUs:
+            return ("Contact Us", "")
+        case .aboutApp:
+            return ("About app", "")
+        case .privacyPolicy:
+            return ("Private Policy", "")
+        case .termOfUse:
+            return ("Term of use", "")
+        case .version:
+            return ("Version", "1.0")
+        case .logOut:
+            return ("Log Out", "")
         }
     }
 }

@@ -42,7 +42,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                guard let cell = tableView
                    .dequeueReusableCell(withIdentifier: SettingsCell.identifier,
                                         for: indexPath) as? SettingsCell else { fatalError() }
-               cell.setup(profile: item)
+               cell.setup(setting: item)
                return cell
            })
        }()
@@ -61,6 +61,8 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+        view.transform = CGAffineTransform(scaleX: -1, y: 1)
+        tableView.showsHorizontalScrollIndicator = false
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         Observable.just(SettingsStorageData.allCases.map({ $0.description() }))
         .bind(to: tableView.rx.items(dataSource: dataSource))
@@ -80,29 +82,31 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
 extension MySettingsSceneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = ProfileHeaderView()
+        let header = SettingsHeaderView()
         let title = dataSource.sectionModels[section].header
         header.setup(title: title)
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 2 ? 10 : 20
+        return section == 3 ? 10 : 30
     }
 }
 
 class SettingsCell: UITableViewCell, CellIdentifierable {
     
-    let profileSwitch = specify(UISwitch(), {
-        $0.onTintColor = #colorLiteral(red: 0.5098039216, green: 0.368627451, blue: 0.7137254902, alpha: 1)
-    })
+    let tosSwitch = UISwitch()
+    let accessoryLabel = UILabel()
     
-    func setup(profile: SettingsStorageSceneModel) {
-        textLabel?.text = profile.description().0
-        textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
-        textLabel?.textColor = #colorLiteral(red: 0.2823529412, green: 0.2431372549, blue: 0.4470588235, alpha: 1)
-        if profile.description().1 {
-            add(profileSwitch, layoutBlock: { $0.trailing(20).centerY() })
+    func setup(setting: SettingsStorageSceneModel) {
+        textLabel?.text = setting.description().0
+        add(accessoryLabel, layoutBlock: { $0.centerY().trailing(40) })
+        accessoryLabel.text = setting.description().1
+        if setting == .logOut {
+            textLabel?.textAlignment = .center
+            textLabel?.textColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
+        } else if setting == .termOfUse {
+            add(tosSwitch, layoutBlock: { $0.centerY().trailing(20) })
         } else {
             accessoryType = .disclosureIndicator
         }
@@ -112,8 +116,8 @@ class SettingsCell: UITableViewCell, CellIdentifierable {
 class SettingsHeaderView: UIView {
     
     let titleLabel = specify(UILabel(), {
-        $0.font = UIFont.boldSystemFont(ofSize: 13.0)
-        $0.textColor = #colorLiteral(red: 0.5098039216, green: 0.368627451, blue: 0.7137254902, alpha: 1)
+        $0.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        $0.font = UIFont.systemFont(ofSize: 13.0)
     })
     
     public func setup(title: String) {

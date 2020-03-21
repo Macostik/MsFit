@@ -137,7 +137,7 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
 extension MealsStorageSceneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = ProfileHeaderView()
+        let header = SettingsHeaderView()
         let title = dataSource.sectionModels[section].header
         header.setup(title: title)
         return header
@@ -164,18 +164,5 @@ class ProfileCell: UITableViewCell {
         } else {
             accessoryType = .disclosureIndicator
         }
-    }
-}
-
-class ProfileHeaderView: UIView {
-    
-    let titleLabel = specify(UILabel(), {
-        $0.font = UIFont.boldSystemFont(ofSize: 13.0)
-        $0.textColor = #colorLiteral(red: 0.5098039216, green: 0.368627451, blue: 0.7137254902, alpha: 1)
-    })
-    
-    public func setup(title: String) {
-        add(titleLabel, layoutBlock: { $0.leading(16).bottom(5) })
-        titleLabel.text = title
     }
 }
