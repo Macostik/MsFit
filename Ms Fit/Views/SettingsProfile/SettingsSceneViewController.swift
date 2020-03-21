@@ -37,6 +37,11 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentMySettingsObserver.onNext(())
             }).disposed(by: disposeBag)
+        userView.editProfileImageView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+                self.openGalery()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -49,5 +54,29 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
         
         view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).bottom(tabBarHeight) })
         scrollView.add(vBaseStackView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
+    }
+    
+    fileprivate func openGalery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+}
+
+extension SettingsSceneViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editImage = info[.editedImage] as? UIImage {
+            userView.profileImageView.image = editImage
+            userView.profileImageView.contentMode = .scaleAspectFill
+        } else if let originImage = info[.originalImage] as? UIImage {
+            userView.profileImageView.image = originImage
+            userView.profileImageView.contentMode = .scaleAspectFit
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
 }

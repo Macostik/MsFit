@@ -26,7 +26,7 @@ class UserView: UIView {
         $0.titleEdgeInsets = .init(top: 0, left: 5, bottom: 0, right: 0)
     })
     
-    private let profileImageView = specify(UIImageView(), {
+    public let profileImageView = specify(UIImageView(), {
         $0.image = #imageLiteral(resourceName: "food8")
         $0.layer.cornerRadius = 140 / 2
         $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
