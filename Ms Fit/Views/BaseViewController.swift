@@ -115,3 +115,10 @@ extension CellIdentifierable where Self: UICollectionViewCell {
         return NSStringFromClass(Self.self)
     }
 }
+
+extension CellIdentifierable where Self: UITableViewCell {
+    static var identifier: String {
+        return NSStringFromClass(Self.self)
+    }
+}
+
