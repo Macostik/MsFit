@@ -12,31 +12,27 @@ import RxCocoa
 
 class TipDetailsSceneViewController: BaseViewController<TipDetailsSceneViewModel> {
     
-    private let tipDetailView = TipDetailsView()
     private let navigationView = UIView()
-    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let scrollView = specify(UIScrollView(), {
-        $0.backgroundColor = .clear
-        $0.contentInsetAdjustmentBehavior = .never
-    })
-    
-    private let tipsCollectionView: UICollectionView = {
+    public lazy var tipsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        
-        let size = Constants.sW
-        layout.itemSize = CGSize(width: size, height: size)
+        layout.itemSize = CGSize(width: Constants.sW, height: Constants.sW)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.identifier)
-        collectionView.isScrollEnabled = false
-        collectionView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.rx.setDataSource(self).disposed(by: disposeBag)
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.contentInset = .init(top: 0, left: 0, bottom: 30, right: 0)
+        collectionView.register(TipDetailCell.self, forCellWithReuseIdentifier: TipDetailCell.identifier)
+        collectionView.register(TipDetailsView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: TipDetailsView.identifier)
         return collectionView
     }()
     
@@ -51,42 +47,71 @@ class TipDetailsSceneViewController: BaseViewController<TipDetailsSceneViewModel
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
-        Observable.just(TipsModel.allCases)
-            .bind(to: tipsCollectionView.rx.items(cellIdentifier: TipsCell.identifier, cellType:
-                TipsCell.self)) { _, model, cell in
-                    cell.setup(model)
-        }.disposed(by: disposeBag)
-        
-        scrollView.rx.contentOffset
+        tipsCollectionView.rx.contentOffset
             .subscribe(onNext: { [unowned self] offset in
-                self.scrollView.contentOffset.y = offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
+                self.tipsCollectionView.contentOffset.y =
+                    offset.y < 0.0 ? 0.0 : self.tipsCollectionView.contentOffset.y
             }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        navigationView.setGradientView(topColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), bottomColor: .clear, locations: [0.0, 1.0])
+        tipsCollectionView.delegate = self
     }
     
     fileprivate func addConstraints() {
-        view.add(scrollView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
+        view.add(tipsCollectionView, layoutBlock: { $0.top().bottom().leading().trailing() })
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
-        scrollView.add(tipDetailView, layoutBlock: { $0.top().width(Constants.sW) })
-        scrollView.add(tipsCollectionView, layoutBlock: {
-            $0.topBottom(40, to: tipDetailView).width(Constants.sW).bottom(20).height(400)
-        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension TipDetailsSceneViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return TipsDetailModel.allCases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: TipDetailCell.identifier,
+                                 for: indexPath) as? TipDetailCell
+            else { fatalError()}
+        let model = TipsDetailModel.allCases[indexPath.row]
+        cell.setup(model)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView
+            .dequeueReusableSupplementaryView(ofKind: kind,
+                                              withReuseIdentifier: TipDetailsView.identifier,
+                                              for: indexPath) as? TipDetailsView else { fatalError() }
+        return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let indexPath = IndexPath(row: 0, section: section)
+        let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind:
+            UICollectionView.elementKindSectionHeader, at: indexPath)
+        
+        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width,
+                                                         height: UIView.layoutFittingExpandedSize.height),
+                                                  withHorizontalFittingPriority: .required,
+                                                  verticalFittingPriority: .fittingSizeLevel)
     }
 }

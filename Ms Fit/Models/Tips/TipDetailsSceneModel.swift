@@ -17,3 +17,16 @@ final class TipDetailsSceneModel: Object {
         return "id"
     }
 }
+
+enum TipsDetailModel: String, CaseIterable {
+    case food1, food2
+    
+    func description() -> String {
+        switch self {
+        case .food1:
+            return ("Committing to a longer subscription")
+        case .food2:
+            return ("Committing to a longer subscription")
+        }
+    }
+}

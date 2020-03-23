@@ -117,6 +117,7 @@
 		AC99A7562428B347004C75BC /* TipDetailsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A7522428B347004C75BC /* TipDetailsSceneModel.swift */; };
 		AC99A7572428B347004C75BC /* TipDetailsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A7532428B347004C75BC /* TipDetailsSceneViewModel.swift */; };
 		AC99A7592428C0AE004C75BC /* TipDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A7582428C0AE004C75BC /* TipDetailsView.swift */; };
+		AC99A75B24290DE6004C75BC /* TipDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A75A24290DE6004C75BC /* TipDetailCell.swift */; };
 		AC9E1DED2410F11000417E9A /* WorkoutSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEC2410F11000417E9A /* WorkoutSegmentView.swift */; };
 		AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */; };
 		AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */; };
@@ -279,6 +280,7 @@
 		AC99A7522428B347004C75BC /* TipDetailsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsSceneModel.swift; sourceTree = "<group>"; };
 		AC99A7532428B347004C75BC /* TipDetailsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsSceneViewModel.swift; sourceTree = "<group>"; };
 		AC99A7582428C0AE004C75BC /* TipDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsView.swift; sourceTree = "<group>"; };
+		AC99A75A24290DE6004C75BC /* TipDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailCell.swift; sourceTree = "<group>"; };
 		AC9E1DEC2410F11000417E9A /* WorkoutSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSegmentView.swift; sourceTree = "<group>"; };
 		AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowWorkoutView.swift; sourceTree = "<group>"; };
@@ -824,6 +826,7 @@
 			isa = PBXGroup;
 			children = (
 				ACAFEC9C24051FC200C8AEBB /* TipsCell.swift */,
+				AC99A75A24290DE6004C75BC /* TipDetailCell.swift */,
 				ACCD39B82421068100D97A11 /* TipsMenuCell.swift */,
 			);
 			name = Cells;
@@ -1225,6 +1228,7 @@
 				ACBF7026242620E100FFEAC8 /* UpdateMeasurSceneModel.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */,
+				AC99A75B24290DE6004C75BC /* TipDetailCell.swift in Sources */,
 				AC21931D2412900400F388C1 /* MealSceneViewModel.swift in Sources */,
 				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,

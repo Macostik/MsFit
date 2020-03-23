@@ -8,8 +8,10 @@
 
 import UIKit
 
-class TipDetailsView: UIView {
+class TipDetailsView: UICollectionReusableView, CellIdentifierable {
     
+    static var identifier: String = "TipDetailsView"
+        
     private let imageView = UIImageView(image: #imageLiteral(resourceName: "food2"))
     
     private let titleLabel = specify(UILabel(), {
