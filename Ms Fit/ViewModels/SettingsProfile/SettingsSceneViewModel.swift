@@ -9,8 +9,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
-final class SettingsSceneViewModel: BaseViewModel<SettingsSceneModel> {
+final class SettingsSceneViewModel: BaseViewModel<Object> {
     
     public var presentContactUsObserver = PublishSubject<Void>()
     public var presentMySettingsObserver = PublishSubject<Void>()
