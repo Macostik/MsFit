@@ -28,21 +28,21 @@ enum TipsModel: String, CaseIterable {
     func description() -> String {
         switch self {
         case .food1:
-            return ("Committing to a longer subscription increases your success rate")
+            return ("Committing to a longer subscription")
         case .food2:
-            return ("Committing to a longer subscription ")
+            return ("Committing to a longer subscription")
         case .food3:
             return ("Committing to a longer subscription")
         case .food4:
-            return ("Committing to a longer subscription increases your success rate")
+            return ("Committing to a longer subscription")
         case .food5:
-            return ("Committing to a longer subscription increases your success rate")
+            return ("Committing to a longer subscription")
         case .food6:
-            return ("Committing to a longer subscription ")
+            return ("Committing to a longer subscription")
         case .food7:
             return ("Committing to a longer subscription")
         case .food8:
-            return ("Committing to a longer subscription increases your success rate")
+            return ("Committing to a longer subscription")
         }
     }
 }

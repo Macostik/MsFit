@@ -10,4 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class TipsSceneViewModel: BaseViewModel<TipsSceneModel> {}
+final class TipsSceneViewModel: BaseViewModel<TipsSceneModel> {
+    
+    public let presentDetailsObserver = PublishSubject<(Int, String)>()
+}

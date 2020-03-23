@@ -26,7 +26,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.identifier)
         collectionView.contentInset = .init(top: 0, left: 0, bottom: 16, right: 0)
-        collectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -58,6 +58,12 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
             .bind(to: tipsCollectionView.rx.items(cellIdentifier: TipsCell.identifier, cellType:
                 TipsCell.self)) { _, model, cell in
                     cell.setup(model)
+        }.disposed(by: disposeBag)
+        
+        Observable
+            .zip(tipsCollectionView.rx.itemSelected, tipsCollectionView.rx.modelSelected(TipsModel.self))
+            .bind { indexPath, model in
+                self.viewModel?.presentDetailsObserver.onNext((indexPath.row, model.rawValue))
         }.disposed(by: disposeBag)
         
         allCatigoriesButton.rx.tap

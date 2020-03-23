@@ -13,6 +13,17 @@ import RxCocoa
 class TipsSceneCoordinator: BaseTabBarSceneCoordinator<TipsSceneViewModel> {
     
     override func controller() -> BaseViewController<TipsSceneViewModel> {
-        return TipsSceneViewController.instantiate(with: TipsSceneViewModel(dependencies: dependencies))
+        let viewModel = TipsSceneViewModel(dependencies: dependencies)
+        
+        viewModel.presentDetailsObserver.subscribe(onNext: { _ in
+            self.presentDetailsUsScene()
+        }).disposed(by: disposeBag)
+        
+        return TipsSceneViewController.instantiate(with: viewModel)
+    }
+    
+    @discardableResult private func presentDetailsUsScene() -> Observable<Void> {
+        let tipDetailsCoordinator = TipDetailsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: tipDetailsCoordinator)
     }
 }

@@ -36,9 +36,14 @@ class TipsCell: UICollectionViewCell, CellIdentifierable {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         handleUI()
+        addConstraints()
     }
     
     private func handleUI() {
+        backgroundColor = .clear
+    }
+    
+    func addConstraints() {
         let vContainerStackView = VStackView(arrangedSubviews: [tipImageView, containerForTextView])
         
         containerForTextView.add(tipText, layoutBlock: {

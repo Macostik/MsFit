@@ -208,10 +208,4 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
     }
-    
-    func createSeparatorView() -> UIView {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
-        return view
-    }
 }
