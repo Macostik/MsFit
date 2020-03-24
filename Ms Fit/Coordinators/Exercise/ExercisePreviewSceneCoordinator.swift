@@ -22,6 +22,10 @@ class ExercisePreviewSceneCoordinator: BaseSceneCoordinator<Void> {
             self.presenWorkoutScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentDetailObserver.subscribe(onNext: { _ in
+            self.presenDetailScene()
+        }).disposed(by: disposeBag)
+        
         viewModel.dismissObserver.subscribe(onNext: {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
@@ -32,5 +36,10 @@ class ExercisePreviewSceneCoordinator: BaseSceneCoordinator<Void> {
     @discardableResult private func presenWorkoutScene() -> Observable<Void> {
         let workoutCoordinator = WorkOutSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: workoutCoordinator)
+    }
+    
+    @discardableResult private func presenDetailScene() -> Observable<Void> {
+        let detailCoordinator = ExerciseDetailSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: detailCoordinator)
     }
 }

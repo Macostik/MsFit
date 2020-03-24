@@ -89,11 +89,11 @@ class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewScen
                 self?.viewModel?.presentWorkoutObserver.onNext(())
             }).disposed(by: disposeBag)
         
-//       Observable
-//        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExercisesList.self))
-//        .bind { indexPath, model in
-//            self.viewModel?.presentPreviewObserver.onNext((indexPath.row, model.rawValue))
-//        }.disposed(by: disposeBag)
+       Observable
+        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExercisePreviewList.self))
+        .bind { indexPath, model in
+            self.viewModel?.presentDetailObserver.onNext((indexPath.row, model.rawValue))
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -105,8 +105,8 @@ class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewScen
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(5) })
-        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
+        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44) })
         view.add(collectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom()
         })

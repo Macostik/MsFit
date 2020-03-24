@@ -12,6 +12,7 @@ import RxCocoa
 
 final class ExercisePreviewSceneViewModel: BaseViewModel<ExercisePreviewSceneModel> {
     
+    public var presentDetailObserver = PublishSubject<(Int, String)>()
     public var presentWorkoutObserver = PublishSubject<Void>()
     public var dismissObserver = PublishSubject<Void>()
 }

@@ -1,8 +1,8 @@
 //  
-//  DetailsWorkoutSceneViewController.swift
+//  ExerciseDetailSceneViewController.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 06.03.2020.
+//  Created by Yura Granchenko on 24.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -10,12 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneViewModel> {
+class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneViewModel> {
     
     private let previewImagePagerView = PreviewImagePagerView()
     
     private let scrollView = specify(UIScrollView(), {
         $0.showsHorizontalScrollIndicator = false
+        $0.contentInset = .init(top: 0, left: 0, bottom: 5, right: 0)
     })
     
     private let nameExerciseView = specify(UIView(), {
@@ -34,37 +35,8 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     
     private let chevronConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: chevronConfiguration)?
-            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-    })
-    
-    private let previousButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(#imageLiteral(resourceName: "previous_icon.pdf"), for: .normal)
-        $0.tintColor = .systemBackground
-        $0.customButton(text: "Previous", font: 20, weight: .medium,
-                        shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
-    })
-    
-    private let nextButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(#imageLiteral(resourceName: "next_icon.pdf"), for: .normal)
-        $0.tintColor = .systemBackground
-        $0.customButton(text: "Next", font: 20, weight: .medium,
-                        shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
-        $0.semanticContentAttribute = .forceRightToLeft
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
-    })
-    
-    private let navigationView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-    })
-    
-    private let navPreviewLabel = specify(UILabel(), {
-        $0.text = "Preview"
-        $0.font = .systemFont(ofSize: 20, weight: .medium)
-        $0.textColor = .systemBackground
+        $0.setImage(UIImage(systemName: "xmark", withConfiguration: chevronConfiguration)?
+            .withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
     })
     
     private let nameExerciseLabel = specify(UILabel(), {
@@ -100,9 +72,6 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         $0.textColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1)
     })
     
-    private let sevenLabel = Label(icon: "- Stand up straight7", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
-    
     private let performSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
     private let noteLabel = Label(icon: "Note", font:
@@ -116,22 +85,6 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     
     private let noteSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let startConfiguration = UIImage.SymbolConfiguration(weight: .thin)
-    internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "play.fill", withConfiguration: startConfiguration)?
-            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .bold,
-                        shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: true)
-        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
-    })
-    
-    private let readyToStartLabel = specify(UILabel(), {
-        $0.text = "This is just an exercise preview. Ready to start?"
-        $0.font = .systemFont(ofSize: 13, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.textAlignment = .center
-    })
-    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -142,26 +95,21 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     }
     
     fileprivate func addConstraints() {
-        let hStackView = HStackView(arrangedSubviews: [previousButton, nextButton], spacing: 0.5)
-        hStackView.distribution = .fillEqually
-        
         previewImagePagerView.heightAnchor.constraint(equalToConstant:
             Constants.sH_812 ? 250 : 200).isActive = true
         let baseVStackView = VStackView(arrangedSubviews: [
             previewImagePagerView, nameExerciseView, musclesInvolvedView,
             performReoetitionView, notesView, readyToStartView
         ])
-        
-        view.add(navigationView, layoutBlock: {
-            $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
-        })
-        navigationView.add(navPreviewLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
-        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navPreviewLabel).leading(4).size(44) })
-        view.add(hStackView, layoutBlock: { $0.leading().trailing().bottom().height(Constants.sW / 6.5) })
+    
         view.add(scrollView, layoutBlock: {
-            $0.topBottom(to: navigationView).width(Constants.sW).bottomTop(to: hStackView)
+            $0.top(Constants.sH_812 ? -45 : -20).width(Constants.sW).bottom()
+        })
+        view.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
         scrollView.add(baseVStackView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
+        
         nameExerciseView.add(nameExerciseLabel, layoutBlock: { $0.top(60).centerX().bottom(40) })
         nameExerciseView.add(sets_repsLabel, layoutBlock: { $0.trailing(16).bottom(16) })
         nameExerciseView.add(nameSeparatorView, layoutBlock: {
@@ -187,13 +135,6 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         ], spacing: 15)
         notesView.add(noteVStackView, layoutBlock: { $0.leading(16).trailing(16).top(12).bottom(40) })
         notesView.add(noteSeparatorView, layoutBlock: { $0.bottom().leading(16).trailing(16).height(1) })
-        
-        startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 6.5).isActive = true
-        let readyStartStackView = VStackView(arrangedSubviews: [readyToStartLabel, startWorkoutButton],
-                                             spacing: 10)
-        readyToStartView.add(readyStartStackView, layoutBlock: {
-            $0.top(25).leading(16).trailing(16).bottom(16)
-        })
     }
     
     override func setupBindings() {
