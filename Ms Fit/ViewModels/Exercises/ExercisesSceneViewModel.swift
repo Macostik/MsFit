@@ -13,4 +13,5 @@ import RxCocoa
 final class ExercisesSceneViewModel: BaseViewModel<ExercisesSceneModel> {
     
     public var presentWorkoutObserver = PublishSubject<Void>()
+    public var presentPreviewObserver = PublishSubject<(Int, String)>()
 }

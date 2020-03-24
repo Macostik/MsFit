@@ -108,6 +108,11 @@
 		AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */; };
 		AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */; };
 		AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC738FBF2406C18900CB7A39 /* HomeCell.swift */; };
+		AC80710C242A4CC5000F0BE7 /* ExercisePreviewSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */; };
+		AC80710D242A4CC5000F0BE7 /* ExercisePreviewSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */; };
+		AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */; };
+		AC80710F242A4CC5000F0BE7 /* ExercisePreviewSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80710B242A4CC5000F0BE7 /* ExercisePreviewSceneViewModel.swift */; };
+		AC807111242A4F04000F0BE7 /* ExercisePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807110242A4F04000F0BE7 /* ExercisePreviewCell.swift */; };
 		AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2232407C6950029D33E /* SlideSegmenControl.swift */; };
 		AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2262407CBFE0029D33E /* MealsView.swift */; };
 		AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2282407CC110029D33E /* ExerciseView.swift */; };
@@ -271,6 +276,11 @@
 		AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneModel.swift; sourceTree = "<group>"; };
 		AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneViewModel.swift; sourceTree = "<group>"; };
 		AC738FBF2406C18900CB7A39 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneViewController.swift; sourceTree = "<group>"; };
+		AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneModel.swift; sourceTree = "<group>"; };
+		AC80710B242A4CC5000F0BE7 /* ExercisePreviewSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneViewModel.swift; sourceTree = "<group>"; };
+		AC807110242A4F04000F0BE7 /* ExercisePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewCell.swift; sourceTree = "<group>"; };
 		AC86C2232407C6950029D33E /* SlideSegmenControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideSegmenControl.swift; sourceTree = "<group>"; };
 		AC86C2262407CBFE0029D33E /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
 		AC86C2282407CC110029D33E /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
@@ -417,9 +427,9 @@
 			isa = PBXGroup;
 			children = (
 				ACEFD7FA2401CBAE00C2EED8 /* Daily */,
+				ACEFD7FB2401CBB500C2EED8 /* Exercise */,
 				566C2D88240440D40006108B /* Main */,
 				566C2D87240440C10006108B /* Splash */,
-				ACEFD7FB2401CBB500C2EED8 /* Exercise */,
 				ACEFD7FD2401CBCA00C2EED8 /* SettingsProfile */,
 				ACEFD7FC2401CBC000C2EED8 /* Tips */,
 				AC12E31923FEBD91007343A5 /* Registration */,
@@ -818,6 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				ACAFEC992405176E00C8AEBB /* ExerciseCell.swift */,
+				AC807110242A4F04000F0BE7 /* ExercisePreviewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -878,6 +889,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C132401BDAA00C16CFF /* ExercisesSceneViewModel.swift */,
+				AC80710B242A4CC5000F0BE7 /* ExercisePreviewSceneViewModel.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -887,6 +899,7 @@
 			children = (
 				ACAFEC982405176E00C8AEBB /* Cells */,
 				56993C112401BDAA00C16CFF /* ExercisesSceneViewController.swift */,
+				AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -944,6 +957,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C122401BDAA00C16CFF /* ExercisesSceneModel.swift */,
+				AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -984,6 +998,7 @@
 			isa = PBXGroup;
 			children = (
 				56993C102401BDAA00C16CFF /* ExercisesSceneCoordinator.swift */,
+				AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -1218,6 +1233,7 @@
 				56993C0E2401BD6D00C16CFF /* DailySceneModel.swift in Sources */,
 				AC70FFA8241F993E0064CEC5 /* SettingsSceneViewModel.swift in Sources */,
 				ACBF70142424EC4500FFEAC8 /* SubjectMenuTableView.swift in Sources */,
+				AC80710F242A4CC5000F0BE7 /* ExercisePreviewSceneViewModel.swift in Sources */,
 				566C2D84240440040006108B /* SignInSceneCoordinator.swift in Sources */,
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
 				AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */,
@@ -1231,6 +1247,7 @@
 				AC99A75B24290DE6004C75BC /* TipDetailCell.swift in Sources */,
 				AC21931D2412900400F388C1 /* MealSceneViewModel.swift in Sources */,
 				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
+				AC807111242A4F04000F0BE7 /* ExercisePreviewCell.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
 				566C2DAB240444080006108B /* ForgotPassSceneViewController.swift in Sources */,
@@ -1264,6 +1281,7 @@
 				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
 				AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */,
 				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
+				AC80710D242A4CC5000F0BE7 /* ExercisePreviewSceneViewController.swift in Sources */,
 				ACBF7027242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift in Sources */,
 				56993C0C2401BD6D00C16CFF /* DailySceneCoordinator.swift in Sources */,
 				564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */,
@@ -1271,8 +1289,10 @@
 				56993BFE2401A84900C16CFF /* MainSceneModel.swift in Sources */,
 				AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */,
 				AC57A17E2417A009006E9144 /* BreakfastCell.swift in Sources */,
+				AC80710C242A4CC5000F0BE7 /* ExercisePreviewSceneCoordinator.swift in Sources */,
 				56993C172401BDAA00C16CFF /* ExercisesSceneViewModel.swift in Sources */,
 				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
+				AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */,
 				56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */,
 				ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */,
 				566C2D92240443770006108B /* TabBarSceneViewController.swift in Sources */,

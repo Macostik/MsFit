@@ -19,11 +19,20 @@ class ExercisesSceneCoordinator: BaseTabBarSceneCoordinator<ExercisesSceneViewMo
             self.presenWorkoutScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentPreviewObserver.subscribe(onNext: { _ in
+            self.presenPreviewScene()
+        }).disposed(by: disposeBag)
+        
         return ExercisesSceneViewController.instantiate(with: viewModel)
     }
     
     @discardableResult private func presenWorkoutScene() -> Observable<Void> {
         let workoutCoordinator = WorkOutSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: workoutCoordinator)
+    }
+    
+    @discardableResult private func presenPreviewScene() -> Observable<Void> {
+        let previewCoordinator = ExercisePreviewSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: previewCoordinator)
     }
 }

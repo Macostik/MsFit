@@ -1,8 +1,8 @@
 //  
-//  ExercisesSceneViewController.swift
+//  ExercisePreviewSceneViewController.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 22.02.2020.
+//  Created by Yura Granchenko on 24.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -11,19 +11,25 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-typealias ExercisesDataSource = RxCollectionViewSectionedReloadDataSource<ExercisesSceneModel>
+typealias ExercisePreviewDataSource = RxCollectionViewSectionedReloadDataSource<ExercisePreviewSceneModel>
 
-class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> {
+class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewSceneViewModel> {
     
-    private lazy var dataSource: ExercisesDataSource = {
-        return ExercisesDataSource(configureCell: {  _, collectionView, indexPath, data in
+    private lazy var dataSource: ExercisePreviewDataSource = {
+        return ExercisePreviewDataSource(configureCell: {  _, collectionView, indexPath, data in
             guard let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: ExerciseCell.identifier,
-                                     for: indexPath) as? ExerciseCell else { fatalError() }
+                .dequeueReusableCell(withReuseIdentifier: ExercisePreviewCell.identifier,
+                                     for: indexPath) as? ExercisePreviewCell else { fatalError() }
             cell.setup(exercise: data)
             return cell
         })
     }()
+    
+    private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
+    private lazy var closeButton = specify(UIButton(type: .roundedRect), {
+        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+    })
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -34,7 +40,8 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         layout.itemSize = CGSize(width: size, height: size)
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(ExerciseCell.self, forCellWithReuseIdentifier: ExerciseCell.identifier)
+        collectionView.register(ExercisePreviewCell.self,
+                                forCellWithReuseIdentifier: ExercisePreviewCell.identifier)
         collectionView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
         collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         return collectionView
@@ -46,7 +53,7 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Exercises"
+        $0.text = "Cardio"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -66,7 +73,12 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     }
     
     override func setupBindings() {
-        let section = [ExercisesSceneModel(items: ExercisesList.allCases)]
+        closeButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+        
+        let section = [ExercisePreviewSceneModel(items: ExercisePreviewList.allCases)]
         Observable.just(section)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -77,11 +89,11 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
                 self?.viewModel?.presentWorkoutObserver.onNext(())
             }).disposed(by: disposeBag)
         
-       Observable
-        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExercisesList.self))
-        .bind { indexPath, model in
-            self.viewModel?.presentPreviewObserver.onNext((indexPath.row, model.rawValue))
-        }.disposed(by: disposeBag)
+//       Observable
+//        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExercisesList.self))
+//        .bind { indexPath, model in
+//            self.viewModel?.presentPreviewObserver.onNext((indexPath.row, model.rawValue))
+//        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -94,11 +106,12 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(5) })
+        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
         view.add(collectionView, layoutBlock: {
-            $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
+            $0.topBottom(to: navigationView).leading().trailing().bottom()
         })
         view.add(presentExerciseButton, layoutBlock: {
-            $0.bottom(tabBarHeight + 15).centerX().width(Constants.sW / 2).height(34)
+            $0.bottom(Constants.sH_812 ? 25 : 10).centerX().width(Constants.sW / 2).height(34)
         })
     }
 }
