@@ -47,8 +47,8 @@ class SlideSegmentControl: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
-        let navHeight: CGFloat = 100
-        let menuHeight: CGFloat = 55
+        let navHeight: CGFloat = Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70
+        let menuHeight: CGFloat = 45
         layout.itemSize = CGSize(width: Constants.sW, height: Constants.sH - navHeight - menuHeight)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
