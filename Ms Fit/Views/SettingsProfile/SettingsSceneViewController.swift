@@ -59,6 +59,7 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        measurementsView.heightAnchor.constraint(equalToConstant: 440).isActive = true
         let vBaseStackView = VStackView(arrangedSubviews: [userView, graphView, measurementsView])
         
         view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).bottom(tabBarHeight) })

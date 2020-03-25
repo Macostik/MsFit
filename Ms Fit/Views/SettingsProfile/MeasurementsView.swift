@@ -68,10 +68,10 @@ class MeasurementsView: UIView {
     fileprivate func addConstraints() {
         add(tableView, layoutBlock: { $0.top(60).leading().trailing().height(237.33) })
         add(topSeparatorView, layoutBlock: {$0.bottomTop(to: tableView).leading().trailing().height(1) })
-        add(containerView, layoutBlock: { $0.topBottom(to: tableView).leading().trailing().bottom(30) })
+        add(containerView, layoutBlock: { $0.topBottom(to: tableView).leading().trailing() })
         containerView.add(bottomSeparatorView, layoutBlock: {$0.bottom().trailing().leading().height(1) })
         containerView.add(updateMeasureButton, layoutBlock: {
-            $0.top(20).leading(16).trailing(16).bottom(20).height(Constants.sW / 5.5)
+            $0.width(Constants.sW - 32).height(Constants.sW / 5.5).centerX().bottom(20).top(20)
         })
     }
     
