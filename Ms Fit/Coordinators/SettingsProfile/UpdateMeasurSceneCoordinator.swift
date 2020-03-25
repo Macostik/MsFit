@@ -17,16 +17,21 @@ class UpdateMeasurSceneCoordinator: BaseSceneCoordinator<Void> {
         let viewController = UpdateMeasurSceneViewController.instantiate(with: viewModel)
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
-
+        
         viewModel.dismissObserver.subscribe(onNext: {
             navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentUpdateObserver.subscribe(onNext: { _ in
+            self.presentUpdateExerciseScene()
         }).disposed(by: disposeBag)
         
         return Observable.just(())
     }
     
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
-//    }
+    @discardableResult private func presentUpdateExerciseScene() -> Observable<Void> {
+        let updateExerciseCoordinator = UpdateExerciseSceneCoordinator(window: window,
+                                                                       dependencies: dependencies)
+        return coordinate(to: updateExerciseCoordinator)
+    }
 }

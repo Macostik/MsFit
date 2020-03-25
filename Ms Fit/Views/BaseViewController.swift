@@ -121,4 +121,3 @@ extension CellIdentifierable where Self: UITableViewCell {
         return NSStringFromClass(Self.self)
     }
 }
-

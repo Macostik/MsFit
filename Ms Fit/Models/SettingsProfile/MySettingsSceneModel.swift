@@ -82,5 +82,3 @@ enum SettingsStorageSceneModel: String, CaseIterable {
         }
     }
 }
-
-

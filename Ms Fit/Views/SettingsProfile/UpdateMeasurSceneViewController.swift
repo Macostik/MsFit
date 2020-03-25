@@ -40,7 +40,6 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     
     private let tableView = specify(UITableView(), {
         $0.isScrollEnabled = false
-        $0.allowsSelection = false
         $0.separatorStyle = .none
         $0.backgroundColor = .clear
         $0.register(UpdateMeasurementCell.self, forCellReuseIdentifier: UpdateMeasurementCell.identifier)
@@ -48,8 +47,6 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     
     private let updateButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.isUserInteractionEnabled = false
-        $0.alpha = 0.4
         $0.customButton(text: "Update", font: 20, weight: .medium,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), isCircled: true)
     })
@@ -65,9 +62,20 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
+        updateButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+        
         Observable.just(UpdateMeasurementModel.allCases).bind(to: tableView.rx.items(cellIdentifier:
             UpdateMeasurementCell.identifier, cellType: UpdateMeasurementCell.self)) { _, model, cell in
                 cell.setup(model)
+        }.disposed(by: disposeBag)
+        
+        Observable
+        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(UpdateMeasurementModel.self))
+        .bind { indexPath, model in
+            self.viewModel?.presentUpdateObserver.onNext((indexPath.row, model.rawValue))
         }.disposed(by: disposeBag)
         
         clearResultButton.rx.tap
@@ -97,7 +105,7 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
         view.add(clearResultButton, layoutBlock: { $0.topBottom(16, to: navigationView).trailing(16) })
         view.add(resultLabel, layoutBlock: { $0.topBottom(25, to: navigationView).leading(16) })
         view.add(updateButton, layoutBlock: {
-            $0.bottom(25).leading(16).trailing(16).height(Constants.sW / 6.5)
+            $0.bottom(Constants.sH_812 ? 25 : 15).leading(16).trailing(16).height(Constants.sW / 6.5)
         })
         view.add(tableView, layoutBlock: {
             $0.topBottom(60, to: navigationView).leading().trailing().height(240)

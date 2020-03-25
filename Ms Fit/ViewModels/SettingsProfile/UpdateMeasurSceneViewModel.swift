@@ -12,5 +12,6 @@ import RxCocoa
 
 final class UpdateMeasurSceneViewModel: BaseViewModel<UpdateMeasurSceneModel> {
     
+    public var presentUpdateObserver = PublishSubject<(Int, String)>()
     public var dismissObserver = PublishSubject<Void>()
 }

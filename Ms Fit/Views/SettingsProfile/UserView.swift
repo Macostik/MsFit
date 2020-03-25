@@ -14,7 +14,7 @@ class UserView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
+    private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1) })
     public let editProfileImageView = UIImageView(image: #imageLiteral(resourceName: "profileEdit_icon"))
 
     private let hideView = specify(UIView(), { $0.backgroundColor = .clear })

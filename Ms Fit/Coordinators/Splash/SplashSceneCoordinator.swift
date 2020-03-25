@@ -31,6 +31,7 @@ class SplashSceneCoordinator: BaseSceneCoordinator<Void> {
         let onboardCoordinator = OnboardSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: onboardCoordinator)
     }
+    
     @discardableResult private func presentMainScene() -> Observable<Void> {
         let mainCoordinator = MainSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: mainCoordinator)

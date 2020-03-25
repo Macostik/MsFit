@@ -12,6 +12,8 @@ import RxCocoa
 
 class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> {
     
+    internal var pickerElement = PickerData.weight
+    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var backButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -22,7 +24,6 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.transform = CGAffineTransform(scaleX: -1, y: 1)
         $0.isHidden = true
     })
-    internal var pickerElement = PickerData.weight
     
     private let goalImageView = specify(UIImageView(), {
         $0.image = #imageLiteral(resourceName: "start_goal_icon")
@@ -210,6 +211,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
 
 typealias PickerListEntryType = [[String]]
 typealias PickerCollectionType = (PickerData, UIImage, String)
+
 enum PickerData: CaseIterable {
     case weight
     case height

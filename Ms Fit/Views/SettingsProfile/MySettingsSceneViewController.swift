@@ -64,9 +64,10 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
         tableView.showsHorizontalScrollIndicator = false
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
         Observable.just(SettingsStorageData.allCases.map({ $0.description() }))
-        .bind(to: tableView.rx.items(dataSource: dataSource))
-        .disposed(by: disposeBag)
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
