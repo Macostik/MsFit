@@ -46,6 +46,11 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentUpdateMeasurementObserver.onNext(())
             }).disposed(by: disposeBag)
+        
+        graphView.historyButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentHistoryObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

@@ -1,14 +1,14 @@
 //
-//  GraphView.swift
+//  HistoryGraphView.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 16.03.2020.
+//  Created by Yura Granchenko on 25.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
 import UIKit
 
-class GraphView: UIView {
+class HistoryGraphView: UIView {
     
     private let topSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) })
     private let bottomSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) })
@@ -71,27 +71,6 @@ class GraphView: UIView {
         $0.font = .systemFont(ofSize: 12, weight: .regular)
     })
     
-    private let updateWeightButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
-        $0.setTitleColor(.systemBackground, for: .normal)
-        $0.setTitle("Update Weight", for: .normal)
-        $0.layer.shadowColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
-        $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
-        $0.layer.cornerRadius = (Constants.sW / 5.5) / 2
-        $0.layer.shadowOpacity = 0.4
-        $0.layer.shadowOffset = .init(width: 0, height: 3)
-        $0.layer.shadowRadius = 3
-    })
-    
-    public let historyButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitleColor(#colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), for: .normal)
-        $0.semanticContentAttribute = .forceRightToLeft
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight:
-            .medium))?.withTintColor(#colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "History", font: 16, weight: .regular, shadowColor: .clear)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
-    })
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -103,8 +82,6 @@ class GraphView: UIView {
     }
     
     fileprivate func addconstraints() {
-        let vForButtonsStackView = VStackView(arrangedSubviews: [updateWeightButton, historyButton])
-        vForButtonsStackView.distribution = .fillEqually
         
         let hLostResultStackView = HStackView(arrangedSubviews: [lostResultLabel, lostKGLabel])
         let vLostStackView = VStackView(arrangedSubviews: [lostTextLabel, hLostResultStackView], spacing: 4)
@@ -127,11 +104,7 @@ class GraphView: UIView {
         add(hBaseReusltStackView, layoutBlock: { $0.leading().trailing().height(80).top() })
         hBaseReusltStackView.add(separatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
         add(graphContainerView, layoutBlock: {
-            $0.topBottom(to: hBaseReusltStackView).leading().trailing().height(300)
-        })
-        updateWeightButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
-        add(vForButtonsStackView, layoutBlock: {
-            $0.topBottom(30, to: graphContainerView).leading(16).trailing(16).bottom()
+            $0.topBottom(to: hBaseReusltStackView).leading().trailing().height(300).bottom()
         })
         add(topSeparatorView, layoutBlock: { $0.top().leading().trailing().height(1) })
         add(bottomSeparatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })

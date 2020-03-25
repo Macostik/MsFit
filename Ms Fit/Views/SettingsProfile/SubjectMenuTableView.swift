@@ -33,7 +33,6 @@ class SubjectMenuTableView: UIView {
     public let menuTableView = specify(UITableView(), {
         $0.backgroundColor = .clear
         $0.isScrollEnabled = false
-        $0.allowsSelection = false
         $0.separatorStyle = .none
         $0.register(SubjectMenuCell.self, forCellReuseIdentifier: SubjectMenuCell.identifier)
     })

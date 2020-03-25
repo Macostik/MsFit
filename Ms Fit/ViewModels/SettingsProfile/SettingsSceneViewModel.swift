@@ -13,6 +13,7 @@ import RealmSwift
 
 final class SettingsSceneViewModel: BaseViewModel<Object> {
     
+    public var presentHistoryObserver = PublishSubject<Void>()
     public var presentContactUsObserver = PublishSubject<Void>()
     public var presentMySettingsObserver = PublishSubject<Void>()
     public var presentUpdateMeasurementObserver = PublishSubject<Void>()

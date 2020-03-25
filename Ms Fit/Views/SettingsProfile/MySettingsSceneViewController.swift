@@ -61,7 +61,6 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
         tableView.showsHorizontalScrollIndicator = false
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -75,8 +74,8 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
-        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
-        view.add(tableView, layoutBlock: {$0.leading().trailing().topBottom(to: navigationView).bottom()})
+        navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44) })
+        view.add(tableView, layoutBlock: {$0.leading().trailing().topBottom(to: navigationView).bottom() })
     }
 }
 
@@ -96,7 +95,9 @@ extension MySettingsSceneViewController: UITableViewDelegate {
 
 class SettingsCell: UITableViewCell, CellIdentifierable {
     
-    let tosSwitch = UISwitch()
+    let tosSwitch = specify(UISwitch(), {
+        $0.isOn = true
+    })
     let accessoryLabel = UILabel()
     
     func setup(setting: SettingsStorageSceneModel) {

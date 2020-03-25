@@ -18,8 +18,9 @@ class SubjectMenuCell: UITableViewCell, CellIdentifierable {
     })
     
     public func setup(_ entry: String) {
-        subjectNameLabel.text = entry
         backgroundColor = .clear
+        selectionStyle = .none
+        subjectNameLabel.text = entry
         add(subjectNameLabel, layoutBlock: { $0.leading(16).top(12).bottom(10).trailing(16) })
     }
     
