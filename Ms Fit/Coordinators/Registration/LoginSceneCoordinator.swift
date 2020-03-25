@@ -26,6 +26,10 @@ class LoginSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
+        viewModel.presentMainScene.subscribe(onNext: { [weak self] in
+            self?.presentMainScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -33,4 +37,9 @@ class LoginSceneCoordinator: BaseSceneCoordinator<Void> {
         let forgotCoordinator = ForgotPassSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: forgotCoordinator)
     }
+    
+    @discardableResult private func presentMainScene() -> Observable<Void> {
+           let mainCoordinator = MainSceneCoordinator(window: window, dependencies: dependencies)
+           return coordinate(to: mainCoordinator)
+       }
 }
