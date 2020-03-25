@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		447F9F9A4B1B46F88172EBF4 /* Pods_Ms_Fit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */; };
+		560586D5242BDD8B00423832 /* PagerViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560586D4242BDD8B00423832 /* PagerViewTransformer.swift */; };
 		564A672823FC2F3400D4901A /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672723FC2F3400D4901A /* Dependency.swift */; };
 		564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672A23FC2FB000D4901A /* AppCoordinator.swift */; };
 		564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672C23FC2FD000D4901A /* BaseCoordinator.swift */; };
@@ -187,6 +188,7 @@
 /* Begin PBXFileReference section */
 		0246DC5AC07BDDF4EDE91CC9 /* Pods-Ms Fit.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.dev.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.dev.xcconfig"; sourceTree = "<group>"; };
 		446EC7B18DD8760A775FF0E1 /* Pods-Ms Fit.stg.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.stg.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.stg.xcconfig"; sourceTree = "<group>"; };
+		560586D4242BDD8B00423832 /* PagerViewTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewTransformer.swift; sourceTree = "<group>"; };
 		564A672723FC2F3400D4901A /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		564A672A23FC2FB000D4901A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		564A672C23FC2FD000D4901A /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1A7FAC240930B80058248D /* KeyboardManager.swift */,
+				560586D4242BDD8B00423832 /* PagerViewTransformer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1363,6 +1366,7 @@
 				AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */,
 				ACBF70172424EE0F00FFEAC8 /* SubjectMenuCell.swift in Sources */,
 				AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */,
+				560586D5242BDD8B00423832 /* PagerViewTransformer.swift in Sources */,
 				AC807116242A6898000F0BE7 /* ExerciseDetailSceneCoordinator.swift in Sources */,
 				AC70FFAE241F9B8F0064CEC5 /* MeasurementsView.swift in Sources */,
 				AC220461242BBC530089C801 /* HistoryGraphView.swift in Sources */,
