@@ -32,7 +32,7 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
     }
     
     fileprivate func setupUI() {
-        pagerView.transformer = FSPagerViewTransformer(type: .coverFlow)
+        pagerView.transformer = PagerViewTransformer(type: .coverFlow)
         pagerView.register(BreakfastPagerCell.self, forCellWithReuseIdentifier: BreakfastPagerCell.identifier)
         pagerView.backgroundColor = .systemBackground
         pagerView.itemSize = CGSize(width: Constants.sW - 120, height: Constants.sH * 0.47)
