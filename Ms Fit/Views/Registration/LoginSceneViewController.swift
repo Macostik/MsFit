@@ -76,8 +76,13 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         
         startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
         startWorkoutButton.rx.tap
-            .subscribe(onNext: {
-                //do something
+            .subscribe(onNext: { [unowned self] in
+                Observable.zip(self.loginTextField.rx.text.asObservable(),
+                               self.passwordTextField.rx.text.asObservable())
+                    .subscribe(onNext: { (email, password) in
+                        self.viewModel?.tryLoginObserver = .just((email, password))
+                    }).disposed(by: self.disposeBag)
+
             }).disposed(by: disposeBag)
         
         forgotPasswordButton.rx.tap

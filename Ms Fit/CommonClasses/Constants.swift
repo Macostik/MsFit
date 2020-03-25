@@ -17,9 +17,9 @@ let tabBarHeight = 44 + (keyWindow?.safeAreaInsets.bottom ?? 0)
 let rootViewController = UIApplication.shared.windows.first?.rootViewController?.view
 
 struct Constants {
-    static let baseURL = Environment.isProduction ? "http://nps-api-proxy.onespace.prod/api/v1/mobile/news" :
-        Environment.isDevelop ? "https://nps.simcord.info/api/v1/mobile/news" :
-    "http://nps-api-proxy.onespace.stg/api/v1/mobile/news"
+    static let baseURL = Environment.isProduction ? "http://msfit.selectotech.com/api/v2" :
+        Environment.isDevelop ? "http://msfit.selectotech.com/api/v2" :
+    "http://msfit.selectotech.com/api/v2"
     static let splashTimeAnimation = 3000
     static let groupId = ""
     static let sW = UIScreen.main.bounds.width
