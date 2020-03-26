@@ -38,5 +38,4 @@ class OnboardSceneCoordinator: BaseSceneCoordinator<Void> {
         let newRegistCoordinator = NewRegistSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: newRegistCoordinator)
     }
-    
 }

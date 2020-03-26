@@ -12,7 +12,7 @@ import RxCocoa
 
 class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> {
     
-    internal var pickerElement = PickerData.weight
+    public var pickerElement = PickerData.weight
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var backButton = specify(UIButton(type: .roundedRect), {
@@ -20,7 +20,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let pickerView = specify(UIPickerView(), {
+    public let pickerView = specify(UIPickerView(), {
         $0.transform = CGAffineTransform(scaleX: -1, y: 1)
         $0.isHidden = true
     })
@@ -30,7 +30,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
-    private let verForButtonStackView = specify(UIStackView(), {
+    public let verForButtonStackView = specify(UIStackView(), {
         $0.axis = .vertical
         $0.spacing = Constants.sH_667 ? 30 : 20
         $0.distribution = .fill

@@ -12,9 +12,15 @@ import RxCocoa
 
 class NewRegistSceneCoordinator: BaseSceneCoordinator<Void> {
     
+    public var pickerElement = PickerData.weight
+    public var isProceed = false
+    
     override func start() -> Observable<Void> {
         let viewModel = NewRegistSceneViewModel(dependencies: dependencies)
         let viewController = NewRegistSceneViewController.instantiate(with: viewModel)
+        viewController.pickerElement = pickerElement
+        viewController.verForButtonStackView.isHidden = isProceed
+        viewController.pickerView.isHidden = !isProceed
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         

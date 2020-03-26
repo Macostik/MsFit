@@ -67,6 +67,11 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         Observable.just(SettingsStorageData.allCases.map({ $0.description() }))
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(SettingsStorageSceneModel.self)
+        .subscribe(onNext: { [weak self] model in
+            self?.viewModel?.heightSceneObserver.onNext(())
+        }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {

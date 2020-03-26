@@ -14,4 +14,5 @@ import RealmSwift
 final class MySettingsSceneViewModel: BaseViewModel<Object> {
     
     public var dismissObserver = PublishSubject<Void>()
+    public var heightSceneObserver = PublishSubject<Void>()
 }
