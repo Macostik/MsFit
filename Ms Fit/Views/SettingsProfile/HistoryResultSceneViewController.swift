@@ -30,12 +30,11 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-//    private let tableView = specify(UITableView(), {
-//        $0.isScrollEnabled = false
-//        $0.separatorStyle = .none
-//        $0.backgroundColor = .clear
-//        $0.register(UpdateMeasurementCell.self, forCellReuseIdentifier: UpdateMeasurementCell.identifier)
-//    })
+    private let tableView = specify(UITableView(), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.separatorStyle = .none
+        $0.register(HistoryCell.self, forCellReuseIdentifier: HistoryCell.identifier)
+    })
     
     override func setupUI() {
         handleUI()
@@ -47,10 +46,15 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
+        
+        Observable.just(HistoryModel.allCases).bind(to: tableView.rx.items(cellIdentifier:
+            HistoryCell.identifier, cellType: HistoryCell.self)) { _, model, cell in
+                cell.setup(model)
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
-        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
     }
     
     fileprivate func addConstraints() {
@@ -60,5 +64,8 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
         navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
         view.add(historyGraphView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
+        view.add(tableView, layoutBlock: {
+            $0.topBottom(25, to: historyGraphView).leading().trailing().height(240)
+        })
     }
 }

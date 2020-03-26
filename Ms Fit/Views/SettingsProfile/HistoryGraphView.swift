@@ -18,7 +18,7 @@ class HistoryGraphView: UIView {
     private let lostContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     private let standartContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     private let nowContainerView = specify(UIView(), {  $0.backgroundColor = .systemBackground })
-    private let graphContainerView = specify(UIView(), { $0.backgroundColor = .systemGray2 })
+    private let graphContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     
     private let lostTextLabel = specify(UILabel(), {
         $0.text = "LOST"
@@ -62,7 +62,7 @@ class HistoryGraphView: UIView {
     })
     
     private let standartResultLabel = specify(UILabel(), {
-        $0.text = "80.1"
+        $0.text = "2120.1"
         $0.font = .systemFont(ofSize: 24, weight: .regular)
     })
     
@@ -82,14 +82,9 @@ class HistoryGraphView: UIView {
     }
     
     fileprivate func addconstraints() {
-        
-        let hLostResultStackView = HStackView(arrangedSubviews: [lostResultLabel, lostKGLabel])
-        let vLostStackView = VStackView(arrangedSubviews: [lostTextLabel, hLostResultStackView], spacing: 4)
-        
-        let hNowResultStackView = HStackView(arrangedSubviews: [nowResultLabel, nowKGLabel])
-        let vNowStackView = VStackView(arrangedSubviews: [nowTextLabel, hNowResultStackView], spacing: 4)
-        let hStandartResultStackView = HStackView(arrangedSubviews: [standartResultLabel, standartKGLabel])
-        let vStandartStackView = VStackView(arrangedSubviews: [standartTextLabel, hStandartResultStackView],
+        let vLostStackView = VStackView(arrangedSubviews: [lostTextLabel, lostResultLabel], spacing: 4)
+        let vNowStackView = VStackView(arrangedSubviews: [nowTextLabel, nowResultLabel], spacing: 4)
+        let vStandartStackView = VStackView(arrangedSubviews: [standartTextLabel, standartResultLabel],
                                             spacing: 4)
         let hBaseReusltStackView =
             HStackView(arrangedSubviews: [lostContainerView, nowContainerView, standartContainerView])
@@ -97,10 +92,20 @@ class HistoryGraphView: UIView {
         hBaseReusltStackView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
         lostContainerView.add(vLostStackView, layoutBlock: { $0.center() })
+        lostContainerView.add(lostKGLabel, layoutBlock: {
+            $0.leadingTrailing(to: lostTextLabel).bottom(3, to: vLostStackView)
+        })
         nowContainerView.add(nowLeftSeparatorView, layoutBlock: { $0.leading().top(5).bottom(5).width(1) })
         nowContainerView.add(nowRightSeparatorView, layoutBlock: { $0.trailing().top(5).bottom(5).width(1) })
         nowContainerView.add(vNowStackView, layoutBlock: { $0.center() })
+        nowContainerView.add(nowKGLabel, layoutBlock: {
+            $0.leadingTrailing(to: nowTextLabel).bottom(3, to: vNowStackView)
+        })
         standartContainerView.add(vStandartStackView, layoutBlock: { $0.center() })
+        standartContainerView.add(standartKGLabel, layoutBlock: {
+            $0.leadingTrailing(to: standartTextLabel).bottom(3, to: vStandartStackView)
+        })
+        
         add(hBaseReusltStackView, layoutBlock: { $0.leading().trailing().height(80).top() })
         hBaseReusltStackView.add(separatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
         add(graphContainerView, layoutBlock: {

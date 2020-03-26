@@ -102,6 +102,7 @@
 		AC4A00A62404247300764281 /* QuestionsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */; };
 		AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */; };
 		AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */; };
+		AC4CC20B242CEFA000F7AB41 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4CC20A242CEFA000F7AB41 /* HistoryCell.swift */; };
 		AC53618624003F7300E5204A /* SignUpSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618224003F7300E5204A /* SignUpSceneModel.swift */; };
 		AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */; };
 		AC5515532413A4BD0093373D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5515522413A4BD0093373D /* StackView.swift */; };
@@ -289,6 +290,7 @@
 		AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewModel.swift; sourceTree = "<group>"; };
 		AC4A783423FE7412003DD917 /* LoginSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A783723FE7412003DD917 /* LoginSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneViewModel.swift; sourceTree = "<group>"; };
+		AC4CC20A242CEFA000F7AB41 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		AC53618224003F7300E5204A /* SignUpSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneModel.swift; sourceTree = "<group>"; };
 		AC53618324003F7300E5204A /* SignUpSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSceneViewModel.swift; sourceTree = "<group>"; };
 		AC5515522413A4BD0093373D /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
@@ -888,8 +890,9 @@
 		ACBF70152424EDFF00FFEAC8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */,
+				AC4CC20A242CEFA000F7AB41 /* HistoryCell.swift */,
 				ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */,
+				ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */,
 				AC22044E242BB4740089C801 /* SettingUpdateCell.swift */,
 			);
 			name = Cells;
@@ -1357,6 +1360,7 @@
 				560586D9242BEC2D00423832 /* RealmService.swift in Sources */,
 				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
 				AC807117242A6898000F0BE7 /* ExerciseDetailSceneViewController.swift in Sources */,
+				AC4CC20B242CEFA000F7AB41 /* HistoryCell.swift in Sources */,
 				AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */,
 				56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */,
 				ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */,

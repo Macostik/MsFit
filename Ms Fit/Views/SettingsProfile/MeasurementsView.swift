@@ -66,6 +66,7 @@ class MeasurementsView: UIView {
     }
     
     fileprivate func addConstraints() {
+        add(measurementLabel, layoutBlock: { $0.leading(16).top(30) })
         add(tableView, layoutBlock: { $0.top(60).leading().trailing().height(237.33) })
         add(topSeparatorView, layoutBlock: {$0.bottomTop(to: tableView).leading().trailing().height(1) })
         add(containerView, layoutBlock: { $0.topBottom(to: tableView).leading().trailing() })

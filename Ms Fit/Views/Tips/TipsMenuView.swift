@@ -43,7 +43,6 @@ class TipsMenuView: UIView {
             TipsMenuCell.identifier, cellType: TipsMenuCell.self)) { _, model, cell in
                 cell.setup(model)
         }.disposed(by: disposeBag)
-        
     }
     
     func addConstraints() {
