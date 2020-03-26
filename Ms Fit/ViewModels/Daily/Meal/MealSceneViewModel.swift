@@ -15,5 +15,5 @@ final class MealSceneViewModel: BaseViewModel<MealSceneModel> {
     public var dismissObserver = PublishSubject<Void>()
     public var presentMealsStoregeObserver = PublishSubject<Void>()
     public var presentSearchObserver = PublishSubject<Void>()
-    
+    public var presentMealDetailObserver = PublishSubject<Int>()
 }

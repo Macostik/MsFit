@@ -137,6 +137,9 @@ extension MealSceneViewController: UICollectionViewDataSource {
         cell.tapHalper = { [unowned self] in
             self.handlePopupView()
         }
+        cell.cellTapHalper = { [weak self] index in
+            self?.viewModel?.presentMealDetailObserver.onNext((index))
+        }
         
         return cell
     }

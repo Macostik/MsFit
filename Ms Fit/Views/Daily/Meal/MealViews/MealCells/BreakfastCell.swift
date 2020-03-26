@@ -11,10 +11,11 @@ import FSPagerView
 import RxSwift
 import RxCocoa
 
-class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifierable {
+class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, FSPagerViewDelegate, CellIdentifierable {
     
     private let pagerView = FSPagerView()
     public var tapHalper: (() -> Void)?
+    public var cellTapHalper: ((Int) -> Void)?
     
     private let iconImageView = specify(UIImageView(), {
         $0.image = UIImage(named: "Breakfast")
@@ -38,6 +39,7 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
         pagerView.itemSize = CGSize(width: Constants.sW - 120, height: Constants.sH * 0.47)
         pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.dataSource = self
+        pagerView.delegate = self
         pagerView.isInfinite = true
         pagerView.backgroundColor = .clear
         backgroundColor = .clear
@@ -63,6 +65,10 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, CellIdentifier
         cell.setup(entry: entry)
         cell.tapHalper = tapHalper
         return cell
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        cellTapHalper?(index)
     }
 }
 

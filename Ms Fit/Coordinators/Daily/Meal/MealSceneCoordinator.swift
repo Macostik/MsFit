@@ -30,6 +30,10 @@ class MealSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentSearchScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentMealDetailObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentMealDetailScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -39,6 +43,11 @@ class MealSceneCoordinator: BaseSceneCoordinator<Void> {
     }
     
     @discardableResult private func presentSearchScene() -> Observable<Void> {
+        let searchCoordinator = SearchMealsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: searchCoordinator)
+    }
+    
+    @discardableResult private func presentMealDetailScene() -> Observable<Void> {
         let searchCoordinator = SearchMealsSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: searchCoordinator)
     }
