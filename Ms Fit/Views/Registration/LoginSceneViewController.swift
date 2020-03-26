@@ -19,18 +19,34 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let containerLoginView = specify(UIView(), {
+    private var loginCenterYConstr: NSLayoutConstraint!
+    private var passCenterYConstr: NSLayoutConstraint!
+    
+    private let contLoginView = specify(UIView(), {
+        $0.backgroundColor = .clear
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    })
+    
+    private let contPasswordView = specify(UIView(), {
         $0.backgroundColor = .clear
     })
     
-    private let containerPasswordView = specify(UIView(), {
-        $0.backgroundColor = .clear
+    private let loginLabel = specify(UILabel(), {
+        $0.text = "Login"
+        $0.textAlignment = .right
+        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+    })
+    
+    private let passwordLabel = specify(UILabel(), {
+        $0.text = "Password"
+        $0.textAlignment = .left
+        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
     })
     
     private let loginTextField = specify(TextField(), {
-        $0.placeholder = "Login"
-        $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.keyboardType = .emailAddress
         $0.autocorrectionType = .no
         $0.autocapitalizationType = .none
@@ -40,9 +56,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     })
     
     private let passwordTextField = specify(TextField(), {
-        $0.placeholder = "Password"
-        $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.autocorrectionType = .no
         $0.returnKeyType = .done
         $0.autocapitalizationType = .none
@@ -82,12 +96,40 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
                     .subscribe(onNext: { (email, password) in
                         self.viewModel?.tryLoginObserver = .just((email, password))
                     }).disposed(by: self.disposeBag)
-
             }).disposed(by: disposeBag)
         
         forgotPasswordButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.viewModel!.presentForgotPassObserver.onNext(())
+            }).disposed(by: disposeBag)
+        
+        loginTextField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [unowned self] _ in
+                self.isAnimationPlaceholder(isAnimation: true, nameLabel: self.loginLabel,
+                                            constr: self.loginCenterYConstr, view: self.contLoginView)
+            }).disposed(by: disposeBag)
+        
+        loginTextField.rx.controlEvent(.editingDidEnd)
+            .subscribe(onNext: { [unowned self] _ in
+                self.isAnimationPlaceholder(isAnimation: false, nameLabel: self.loginLabel,
+                                            constr: self.loginCenterYConstr, view: self.contLoginView)
+            }).disposed(by: disposeBag)
+        
+        loginTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] _ in
+                self.passwordTextField.becomeFirstResponder()
+            }).disposed(by: disposeBag)
+        
+        passwordTextField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [unowned self] _ in
+                self.isAnimationPlaceholder(isAnimation: true, nameLabel: self.passwordLabel,
+                                            constr: self.passCenterYConstr, view: self.contPasswordView)
+            }).disposed(by: disposeBag)
+        
+        passwordTextField.rx.controlEvent(.editingDidEnd)
+            .subscribe(onNext: { [unowned self] _ in
+                self.isAnimationPlaceholder(isAnimation: false, nameLabel: self.passwordLabel,
+                                            constr: self.passCenterYConstr, view: self.contPasswordView)
             }).disposed(by: disposeBag)
     }
     
@@ -96,8 +138,9 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        let verTFStackView = VStackView(arrangedSubviews: [containerLoginView, containerPasswordView],
-                                        spacing: 10)
+        contLoginView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        let verTFStackView = VStackView(arrangedSubviews: [contLoginView, contPasswordView],
+                                        spacing: 25)
         verTFStackView.distribution = .fillEqually
         
         let verForButtonStackView = VStackView(arrangedSubviews: [startWorkoutButton, forgotPasswordButton],
@@ -110,17 +153,35 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         view.add(emailImageView, layoutBlock: {
             $0.top(Constants.sH_812 ? 100 : 40).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })
-        containerLoginView.add(loginTextField, layoutBlock: { $0.edges() })
-        containerPasswordView.add(passwordTextField, layoutBlock: { $0.edges() })
-        containerLoginView.heightAnchor.constraint(equalToConstant: Constants.sW / 6).isActive = true
+        contLoginView.add(loginTextField, layoutBlock: { $0.top(20).leading().trailing().bottom() })
+        contLoginView.add(loginLabel, layoutBlock: { $0.trailing(5).width(100) })
+        contPasswordView.add(passwordTextField, layoutBlock: { $0.top(20).leading().trailing().bottom() })
+        contPasswordView.add(passwordLabel, layoutBlock: { $0.leading(5).width(100) })
         view.add(verTFStackView, layoutBlock: {
             $0.topBottom(Constants.sH_812 ? 25 : Constants.sH_667 ? 20 : 0, to: emailImageView)
                 .leading(16).trailing(20)
         })
         
+        loginCenterYConstr = loginLabel.centerYAnchor.constraint(equalTo: contLoginView.centerYAnchor)
+        loginCenterYConstr.isActive = true
+        passCenterYConstr = passwordLabel.centerYAnchor.constraint(equalTo: contPasswordView.centerYAnchor)
+        passCenterYConstr.isActive = true
+        
         startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verForButtonStackView, layoutBlock: {
             $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 280 : 200)
         })
+    }
+    
+    fileprivate func isAnimationPlaceholder(isAnimation: Bool, nameLabel: UILabel,
+                                            constr: NSLayoutConstraint, view: UIView) {
+            UIView.animate(withDuration: 0.3) {
+                nameLabel.textColor = isAnimation ? #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1) : #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+                constr.constant = isAnimation ? -20 : 0
+                constr.isActive = !isAnimation
+                nameLabel.font = isAnimation ? .systemFont(ofSize: 16, weight: .regular) :
+                    .systemFont(ofSize: 18, weight: .regular)
+                view.layoutIfNeeded()
+            }
     }
 }

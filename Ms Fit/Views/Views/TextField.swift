@@ -59,6 +59,12 @@ final class TextField: UITextField {
         return flag
     }
     
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        var rect = super.caretRect(for: position)
+        rect = CGRect(x: rect.origin.x, y: .pi, width: 2, height: 35)
+        return rect
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         guard !disableSeparator else { return }

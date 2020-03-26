@@ -39,11 +39,11 @@ public class RealmService<T>: RealmServiceType {
 }
 
 struct RealmProvider {
-  private let configuration: Realm.Configuration
-
-  internal init(config: Realm.Configuration) { configuration = config }
+    private let configuration: Realm.Configuration
     
-  public var realm: Realm {
+    internal init(config: Realm.Configuration) { configuration = config }
+    
+    public var realm: Realm {
         do {
             return try Realm(configuration: configuration)
         } catch {
