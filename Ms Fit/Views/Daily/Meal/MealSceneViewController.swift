@@ -116,7 +116,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     fileprivate func handlePopupView() {
         addPopupView.isHidden = false
         UIView.animate(withDuration: 0.4) {
-            self.addPopupView.containerView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.addPopupView.containerView.transform = .identity
         }
     }
 }

@@ -12,8 +12,6 @@ import RxSwift
 
 class CaloriesView: UIView {
     
-    public var hCaloriesStackView: HStackView!
-    
     private let countCaloriesLabel = Label(icon: "1200/1200", font: .systemFont(ofSize: 16, weight: .medium),
                                            size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
     
@@ -119,9 +117,9 @@ class CaloriesView: UIView {
             protsLabel, HStackView(arrangedSubviews: [countProtsLabel, gramsProtsLabel], spacing: 2)
         ], spacing: 5)
         
-        hCaloriesStackView = HStackView(arrangedSubviews: [
+        let hCaloriesStackView = HStackView(arrangedSubviews: [
             vCaloriesStackView, vCarbsStackView, vFatStackView, vProtsStackView
-            ], spacing: Constants.sH_812 ? 20 : Constants.sH_667 ? 15 : 10)
+        ], spacing: Constants.sH_812 ? 20 : Constants.sH_667 ? 15 : 10)
         
         add(chevronDownButton, layoutBlock: { $0.centerX().bottom().size(30) })
         add(hCaloriesStackView, layoutBlock: { $0.bottomTop(-4, to: chevronDownButton).centerX() })

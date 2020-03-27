@@ -48,7 +48,7 @@ class MealSceneCoordinator: BaseSceneCoordinator<Void> {
     }
     
     @discardableResult private func presentMealDetailScene() -> Observable<Void> {
-        let searchCoordinator = SearchMealsSceneCoordinator(window: window, dependencies: dependencies)
-        return coordinate(to: searchCoordinator)
+        let mealDetailCoordinator = MealDetailSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: mealDetailCoordinator)
     }
 }

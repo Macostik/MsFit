@@ -39,14 +39,14 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     }()
     
     internal lazy var dataSource = {
-           return SettingsDataSource(configureCell: { _, tableView, indexPath, item in
-               guard let cell = tableView
-                   .dequeueReusableCell(withIdentifier: SettingsCell.identifier,
-                                        for: indexPath) as? SettingsCell else { fatalError() }
-               cell.setup(setting: item)
-               return cell
-           })
-       }()
+        return SettingsDataSource(configureCell: { _, tableView, indexPath, item in
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: SettingsCell.identifier,
+                                     for: indexPath) as? SettingsCell else { fatalError() }
+            cell.setup(setting: item)
+            return cell
+        })
+    }()
     
     override func setupUI() {
         handleUI()
@@ -69,9 +69,9 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(SettingsStorageSceneModel.self)
-        .subscribe(onNext: { [weak self] model in
-            self?.viewModel?.heightSceneObserver.onNext(())
-        }).disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] model in
+                self?.viewModel?.heightSceneObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {

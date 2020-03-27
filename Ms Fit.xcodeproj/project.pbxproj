@@ -70,6 +70,10 @@
 		56C7B4F52405C2DE00CC2C8D /* WorkOutSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7B4F12405C2DE00CC2C8D /* WorkOutSceneViewModel.swift */; };
 		56EE488D24153A5100FBEBEC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE488C24153A5100FBEBEC /* ApiManager.swift */; };
 		56EE4893241568FE00FBEBEC /* BaseWorkOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */; };
+		AC12457F242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457B242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift */; };
+		AC124580242DFFBA00533AA0 /* MealDetailSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */; };
+		AC124581242DFFBA00533AA0 /* MealDetailSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */; };
+		AC124582242DFFBA00533AA0 /* MealDetailSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457E242DFFBA00533AA0 /* MealDetailSceneViewModel.swift */; };
 		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
 		AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */; };
 		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
@@ -258,6 +262,10 @@
 		56EE488C24153A5100FBEBEC /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWorkOutView.swift; sourceTree = "<group>"; };
 		60C34FA39CA150B7BB135E80 /* Pods-Ms Fit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ms Fit.release.xcconfig"; path = "Target Support Files/Pods-Ms Fit/Pods-Ms Fit.release.xcconfig"; sourceTree = "<group>"; };
+		AC12457B242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneViewController.swift; sourceTree = "<group>"; };
+		AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneModel.swift; sourceTree = "<group>"; };
+		AC12457E242DFFBA00533AA0 /* MealDetailSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneViewModel.swift; sourceTree = "<group>"; };
 		AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneModel.swift; sourceTree = "<group>"; };
 		AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewModel.swift; sourceTree = "<group>"; };
@@ -732,6 +740,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2193162412900400F388C1 /* MealSceneCoordinator.swift */,
+				AC12457B242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift */,
 				ACA3CE4D24191D81001213AC /* MealsStorageSceneCoordinator.swift */,
 				ACACD457241B8C980017D4D7 /* SearchMealsSceneCoordinator.swift */,
 			);
@@ -743,6 +752,7 @@
 			children = (
 				AC4874ED24129B11007FE6A4 /* MealViews */,
 				AC2193172412900400F388C1 /* MealSceneViewController.swift */,
+				AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */,
 				ACA3CE4E24191D81001213AC /* MealsStorageSceneViewController.swift */,
 				ACACD458241B8C980017D4D7 /* SearchMealsSceneViewController.swift */,
 			);
@@ -753,6 +763,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2193192412900400F388C1 /* MealSceneViewModel.swift */,
+				AC12457E242DFFBA00533AA0 /* MealDetailSceneViewModel.swift */,
 				ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */,
 				ACACD45A241B8C980017D4D7 /* SearchMealsSceneViewModel.swift */,
 			);
@@ -763,6 +774,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2193182412900400F388C1 /* MealSceneModel.swift */,
+				AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */,
 				ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */,
 				ACACD459241B8C980017D4D7 /* SearchMealsSceneModel.swift */,
 			);
@@ -1215,6 +1227,7 @@
 				AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */,
 				AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */,
 				56EE488D24153A5100FBEBEC /* ApiManager.swift in Sources */,
+				AC12457F242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				AC807119242A6898000F0BE7 /* ExerciseDetailSceneViewModel.swift in Sources */,
 				566C2D97240443800006108B /* OnboardSceneViewController.swift in Sources */,
@@ -1305,6 +1318,7 @@
 				56993C072401B78400C16CFF /* TabBarSceneViewModel.swift in Sources */,
 				AC70FFAA241F9B480064CEC5 /* UserView.swift in Sources */,
 				ACBF7026242620E100FFEAC8 /* UpdateMeasurSceneModel.swift in Sources */,
+				AC124580242DFFBA00533AA0 /* MealDetailSceneViewController.swift in Sources */,
 				564A675823FC701600D4901A /* SplashSceneViewModel.swift in Sources */,
 				AC4A783823FE7412003DD917 /* LoginSceneCoordinator.swift in Sources */,
 				AC99A75B24290DE6004C75BC /* TipDetailCell.swift in Sources */,
@@ -1315,12 +1329,14 @@
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
 				566C2DAB240444080006108B /* ForgotPassSceneViewController.swift in Sources */,
+				AC124581242DFFBA00533AA0 /* MealDetailSceneModel.swift in Sources */,
 				ACBF7024242620E100FFEAC8 /* UpdateMeasurSceneCoordinator.swift in Sources */,
 				ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */,
 				56993C0D2401BD6D00C16CFF /* DailySceneViewController.swift in Sources */,
 				564A674C23FC6ECE00D4901A /* Constants.swift in Sources */,
 				AC9E1DF724112A4F00417E9A /* YesterdayWorkoutCell.swift in Sources */,
 				ACA3CE56241929D6001213AC /* ClearPopupView.swift in Sources */,
+				AC124582242DFFBA00533AA0 /* MealDetailSceneViewModel.swift in Sources */,
 				AC70FFA7241F993E0064CEC5 /* SettingsSceneModel.swift in Sources */,
 				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
