@@ -50,12 +50,14 @@ class AddPopupView: UIView {
     
     fileprivate func addConstraints() {
         
-        add(containerView, layoutBlock: { $0.bottom().leading().trailing().height(350) })
+        add(containerView, layoutBlock: {
+            $0.bottom().leading().trailing().height(Constants.sH_812 ? 340 : 325)
+        })
         containerView.add(addButton, layoutBlock: {
-            $0.bottom(Constants.sH_812 ? 20 : 0).leading().trailing().height(60)
+            $0.bottom().leading().trailing().height(Constants.sH_812 ? 80 : 60)
         })
         containerView.add(tableView, layoutBlock: {
-            $0.top(10).leading(16).trailing(16).bottomTop(-10, to: addButton)
+            $0.top().leading(16).trailing(16).bottomTop(to: addButton)
         })
         containerView.transform = CGAffineTransform(translationX: 0, y: self.containerView.height)
     }
@@ -93,10 +95,10 @@ class LunchCell: UITableViewCell, CellIdentifierable {
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
-    private lazy var checkmarkButton = specify(UIButton(type: .roundedRect), {
+    private let checkmarkButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = .systemBackground
-        $0.backgroundColor = #colorLiteral(red: 0.7254901961, green: 0.2117647059, blue: 0.7803921569, alpha: 1)
+        $0.backgroundColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 32 / 2

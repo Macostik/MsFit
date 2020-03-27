@@ -12,6 +12,8 @@ import RxCocoa
 
 class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel> {
     
+    private let addPopupView = AddPopupView()
+    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -206,10 +208,16 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
                 self.scrollView.contentOffset.y =
                     offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
             }).disposed(by: disposeBag)
+        
+        addMealButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.handlePopupView()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        addPopupView.isHidden = true
     }
     
     fileprivate func addConstraints() {
@@ -220,6 +228,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         view.add(heartButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
         })
+        view.add(addPopupView, layoutBlock: { $0.edges() })
         
         fruitView.heightAnchor.constraint(equalToConstant: Constants.sW / 6.5).isActive = true
         fruitView.widthAnchor.constraint(equalToConstant: Constants.sW / 6.5).isActive = true
@@ -296,5 +305,12 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
             $0.topBottom(60, to: hStackViewForButtons).bottom(Constants.sH_812 ? 50 : 30).centerX()
                 .width(Constants.sW - 32).height(Constants.sW / 6.5)
         })
+    }
+    
+    fileprivate func handlePopupView() {
+        addPopupView.isHidden = false
+        UIView.animate(withDuration: 0.4) {
+            self.addPopupView.containerView.transform = CGAffineTransform(translationX: 0, y: 0)
+        }
     }
 }
