@@ -74,6 +74,7 @@
 		AC124580242DFFBA00533AA0 /* MealDetailSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */; };
 		AC124581242DFFBA00533AA0 /* MealDetailSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */; };
 		AC124582242DFFBA00533AA0 /* MealDetailSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457E242DFFBA00533AA0 /* MealDetailSceneViewModel.swift */; };
+		AC124584242E4AFD00533AA0 /* AddFeedsPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC124583242E4AFD00533AA0 /* AddFeedsPopupView.swift */; };
 		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
 		AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */; };
 		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
@@ -266,6 +267,7 @@
 		AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneViewController.swift; sourceTree = "<group>"; };
 		AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneModel.swift; sourceTree = "<group>"; };
 		AC12457E242DFFBA00533AA0 /* MealDetailSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneViewModel.swift; sourceTree = "<group>"; };
+		AC124583242E4AFD00533AA0 /* AddFeedsPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedsPopupView.swift; sourceTree = "<group>"; };
 		AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC12E31E23FEBDFE007343A5 /* NewRegistSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneModel.swift; sourceTree = "<group>"; };
 		AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewModel.swift; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 			isa = PBXGroup;
 			children = (
 				ACACD455241A31050017D4D7 /* AddPopupView.swift */,
+				AC124583242E4AFD00533AA0 /* AddFeedsPopupView.swift */,
 				ACA3CE55241929D6001213AC /* ClearPopupView.swift */,
 				AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */,
 			);
@@ -1295,6 +1298,7 @@
 				564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */,
 				56993BFF2401A84900C16CFF /* MainSceneViewModel.swift in Sources */,
 				ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */,
+				AC124584242E4AFD00533AA0 /* AddFeedsPopupView.swift in Sources */,
 				56C7B4F52405C2DE00CC2C8D /* WorkOutSceneViewModel.swift in Sources */,
 				ACBF701E2425151E00FFEAC8 /* MySettingsSceneModel.swift in Sources */,
 				AC22044A242B5D550089C801 /* UpdateExerciseSceneCoordinator.swift in Sources */,

@@ -13,6 +13,7 @@ import RxCocoa
 class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel> {
     
     private let addPopupView = AddPopupView()
+    private let addFeedsPopupView = AddFeedsPopupView()
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
@@ -213,6 +214,30 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
             .subscribe(onNext: { [unowned self] _ in
                 self.handlePopupView()
             }).disposed(by: disposeBag)
+        
+        fruitView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+                self.handleAddMealPopupView()
+            }).disposed(by: disposeBag)
+        
+        drinkView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+            self.handleAddMealPopupView()
+            }).disposed(by: disposeBag)
+        
+        saucesView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+            self.handleAddMealPopupView()
+            }).disposed(by: disposeBag)
+        
+        snackView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+            self.handleAddMealPopupView()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -304,6 +329,18 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         scrollView.add(addMealButton, layoutBlock: {
             $0.topBottom(60, to: hStackViewForButtons).bottom(Constants.sH_812 ? 50 : 30).centerX()
                 .width(Constants.sW - 32).height(Constants.sW / 6.5)
+        })
+    }
+    
+    fileprivate func handleAddMealPopupView() {
+        rootViewController?.add(self.addFeedsPopupView, layoutBlock: { $0.edges() })
+        self.addFeedsPopupView.alpha = 0
+        self.addFeedsPopupView.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        self.addFeedsPopupView.alpha = 1
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+                        self.addFeedsPopupView.containerView.transform = CGAffineTransform(scaleX: 1.0,
+                                                                                           y: 1.0)
         })
     }
     

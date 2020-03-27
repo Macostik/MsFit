@@ -98,5 +98,4 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     }
     
     required init?(coder: NSCoder) { fatalError() }
-    
 }
