@@ -84,11 +84,11 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
 
     private let verificationEmailButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
         $0.setTitle("Ver-tion", for: .normal)
         $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = Constants.sH_812 ? 20 : 15
+        $0.layer.cornerRadius = (Constants.sH_812 ? 36 : 25) / 2
         $0.layer.shadowColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1)
         $0.layer.shadowOpacity = 0.4
         $0.layer.shadowOffset = .init(width: 0, height: 3)
@@ -130,6 +130,81 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.layer.shadowOffset = CGSize(width: 0, height: 6)
     })
     
+    private let baseView = specify(UIView(), { $0.backgroundColor = .clear })
+    private let daysLabel = Label(icon: "8", font: UIFont.systemFont(ofSize: 80, weight: .bold),
+                                  textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+    private let dayLabel = specify(UILabel(), {
+        $0.text = "Day"
+        $0.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.textAlignment = .center
+        $0.textColor = #colorLiteral(red: 0.7254901961, green: 0.6823529412, blue: 1, alpha: 1)
+    })
+    
+    private let zeroView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let oneView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.circled = true
+    })
+    private let twoView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.circled = true
+    })
+    private let threeView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.circled = true
+    })
+    private let fourView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.circled = true
+    })
+    private let fiveView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.circled = true
+    })
+    private let sixView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.circled = true
+    })
+    
+    private let sevenView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        $0.layer.borderWidth = 2
+        $0.circled = true
+    })
+    
+    private let eightView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let nineView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let tenView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let elevenView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let twelveView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let threeteenView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+    private let fourteenView = specify(UIView(), {
+        $0.backgroundColor = .systemBackground
+        $0.circled = true
+    })
+        
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -174,7 +249,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     fileprivate func addConstraints() {
         verificationEmailButton.heightAnchor.constraint(equalToConstant:
-            Constants.sH_812 ? 40 : 30).isActive = true
+            Constants.sH_812 ? 36 : 25).isActive = true
         let hNavStackView = HStackView(arrangedSubviews: [verificationEmailButton, navTextLabel], spacing: 10)
         hNavStackView.distribution = .fillProportionally
         
@@ -196,8 +271,56 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         })
         view.add(bgDayliCircleImage, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing()
-                .height(Constants.sH_812 ? Constants.sW * 0.8 : Constants.sW * 0.6)
+                .height(Constants.sH_812 ? Constants.sW * 0.8 : Constants.sW * 0.7)
         })
+        
+        // start circle days
+        bgDayliCircleImage.add(baseView, layoutBlock: { $0.centerX().centerY().size(Constants.sW / 1.9) })
+        
+        baseView.add(zeroView, layoutBlock: { $0.centerX().top().size(16) })
+        baseView.add(oneView, layoutBlock: {
+            $0.centerX(Constants.sW * 0.11).centerY(Constants.sW * -0.21).size(16)
+        })
+        baseView.add(twoView, layoutBlock: {
+            $0.centerX(Constants.sW * 0.19).centerY(Constants.sW * -0.14).size(16)
+        })
+        baseView.add(threeView, layoutBlock: {
+            $0.trailing(1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
+        })
+        baseView.add(fourView, layoutBlock: {
+            $0.trailing(1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
+        })
+        baseView.add(fiveView, layoutBlock: {
+            $0.centerX(Constants.sW * 0.19).centerY(Constants.sW * 0.14).size(16)
+        })
+        baseView.add(sixView, layoutBlock: {
+            $0.centerX(Constants.sW * 0.11).centerY(Constants.sW * 0.21).size(16)
+        })
+        //----- middle
+        baseView.add(sevenView, layoutBlock: { $0.centerX().bottom().size(16) })
+        //----- middle
+        baseView.add(eightView, layoutBlock: {
+            $0.centerX(Constants.sW * -0.11).centerY(Constants.sW * 0.21).size(16)
+        })
+        baseView.add(nineView, layoutBlock: {
+            $0.centerX(Constants.sW * -0.19).centerY(Constants.sW * 0.14).size(16)
+        })
+        baseView.add(tenView, layoutBlock: {
+            $0.leading(-1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
+        })
+        baseView.add(elevenView, layoutBlock: {
+            $0.leading(-1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
+        })
+        baseView.add(threeteenView, layoutBlock: {
+            $0.centerX(Constants.sW * -0.19).centerY(Constants.sW * -0.14).size(16)
+        })
+        baseView.add(fourteenView, layoutBlock: {
+            $0.centerX(Constants.sW * -0.11).centerY(Constants.sW * -0.21).size(16)
+        })
+        baseView.add(daysLabel, layoutBlock: { $0.center() })
+        baseView.add(dayLabel, layoutBlock: { $0.centerX().topBottom(-14, to: daysLabel) })
+        //end circle days
+        
         view.add(questionButton, layoutBlock: { $0.topBottom(20, to: navigationView).trailing(16).size(30) })
         view.add(homeButton, layoutBlock: { $0.topBottom(15, to: navigationView).leading(16) })
         view.add(hWorkoutAndDietStackView, layoutBlock: {
