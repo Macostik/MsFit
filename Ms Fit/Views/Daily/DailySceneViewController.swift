@@ -142,67 +142,82 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     private let zeroView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let oneView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let twoView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let threeView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let fourView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let fiveView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let sixView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     
     private let sevenView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
         $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         $0.layer.borderWidth = 2
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     
     private let eightView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let nineView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let tenView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let elevenView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let twelveView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let threeteenView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
     private let fourteenView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
-        $0.circled = true
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     })
         
     override func setupUI() {
