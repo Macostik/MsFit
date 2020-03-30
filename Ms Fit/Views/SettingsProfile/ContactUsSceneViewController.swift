@@ -48,7 +48,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
                                        textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1))
     private let yourTextField = specify(UITextField(), {
         $0.borderStyle = .none
-        $0.placeholder = "yura.test@mail.com"
+        $0.placeholder = "test.user@yopmail.com"
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
     })

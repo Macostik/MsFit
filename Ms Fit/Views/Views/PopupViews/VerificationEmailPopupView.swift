@@ -39,7 +39,7 @@ class VerificationEmailPopupView: UIView {
     })
     
     private let emailTextField = specify(UITextField(), {
-        $0.placeholder = "yura.test@mail.com"
+        $0.placeholder = "test.user@yopmail.com"
         $0.textColor = .black
         $0.font = UIFont.systemFont(ofSize: Constants.sH_667 ? 16 : 14, weight: .regular)
         $0.autocorrectionType = .no
