@@ -64,4 +64,8 @@ class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
             $0.topBottom(to: navigationView).leading().trailing().bottom()
         })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }

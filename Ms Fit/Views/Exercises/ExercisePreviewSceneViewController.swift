@@ -114,4 +114,8 @@ class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewScen
             $0.bottom(Constants.sH_812 ? 25 : 10).centerX().width(Constants.sW / 2).height(34)
         })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }

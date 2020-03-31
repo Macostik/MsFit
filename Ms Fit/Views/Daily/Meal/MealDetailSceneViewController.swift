@@ -32,6 +32,15 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         $0.contentInsetAdjustmentBehavior = .never
     })
     
+    private let gradientView = specify(GradientView(), {
+        $0.topColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.3)
+        $0.bottomColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.01)
+        $0.startPointX = 0.8
+        $0.startPointY = 0.4
+        $0.endPointX = 0.8
+        $0.endPointY = 0.8
+    })
+    
     private let feedImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "food3") })
     
     private let titleSeparView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
@@ -247,6 +256,9 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     
     fileprivate func addConstraints() {
         view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).bottom() })
+        view.add(gradientView, layoutBlock: {
+            $0.top().leading().trailing().height(Constants.sH_812 ? 150 : Constants.sH_667 ? 80 : 70)
+        })
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
@@ -349,5 +361,9 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         UIView.animate(withDuration: 0.4) {
             self.addPopupView.containerView.transform = CGAffineTransform(translationX: 0, y: 0)
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 }

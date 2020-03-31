@@ -119,6 +119,10 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
             self.addPopupView.containerView.transform = .identity
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 extension MealSceneViewController: UICollectionViewDataSource {

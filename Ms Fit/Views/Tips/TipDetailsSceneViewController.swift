@@ -36,6 +36,15 @@ class TipDetailsSceneViewController: BaseViewController<TipDetailsSceneViewModel
         return collectionView
     }()
     
+    private let gradientView = specify(GradientView(), {
+        $0.topColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.3)
+        $0.bottomColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.01)
+        $0.startPointX = 0.8
+        $0.startPointY = 0.4
+        $0.endPointX = 0.8
+        $0.endPointY = 0.8
+    })
+    
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -61,9 +70,13 @@ class TipDetailsSceneViewController: BaseViewController<TipDetailsSceneViewModel
     
     fileprivate func addConstraints() {
         view.add(tipsCollectionView, layoutBlock: { $0.top().bottom().leading().trailing() })
+        view.add(gradientView, layoutBlock: {
+            $0.top().leading().trailing().height(Constants.sH_812 ? 150 : Constants.sH_667 ? 80 : 70)
+        })
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
+        
         navigationView.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })

@@ -133,6 +133,10 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
         containerForButtonView.add(clearAllMeals, layoutBlock: { $0.top(8).bottom(8).leading(16).width(100) })
         view.add(closeButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 extension MealsStorageSceneViewController: UITableViewDelegate {

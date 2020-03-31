@@ -69,7 +69,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(SettingsStorageSceneModel.self)
-            .subscribe(onNext: { [weak self] model in
+            .subscribe(onNext: { [weak self] _ in
                 self?.viewModel?.heightSceneObserver.onNext(())
             }).disposed(by: disposeBag)
     }
@@ -81,6 +81,10 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44) })
         view.add(tableView, layoutBlock: { $0.leading().trailing().topBottom(to: navigationView).bottom() })
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 }
 

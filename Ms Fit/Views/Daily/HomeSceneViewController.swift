@@ -167,6 +167,10 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         bgDayliCircleImage.add(pagerView, layoutBlock: { $0.edges() })
         pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_812 ? 40 : 10).centerX() })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 extension HomeSceneViewController: FSPagerViewDataSource {

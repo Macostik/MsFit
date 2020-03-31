@@ -79,7 +79,7 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
 
 extension SettingsSceneViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let editImage = info[.editedImage] as? UIImage {
             userView.profileImageView.image = editImage
             userView.profileImageView.contentMode = .scaleAspectFill

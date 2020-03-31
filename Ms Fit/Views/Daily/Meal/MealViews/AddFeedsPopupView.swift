@@ -75,14 +75,13 @@ class AddFeedsPopupView: UIView {
         .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(AddFeedsModel.self))
         .bind { indexPath, model in
             self.viewModel?.presentDetailFoodObserver.onNext((indexPath.row, model.rawValue))
-            print(indexPath.row, model.rawValue)
         }.disposed(by: disposeBag)
     }
     
     func addConstraints() {
         add(containerView, layoutBlock: { $0.width(Constants.sW - 32).height(Constants.sH * 0.8).center() })
         containerView.add(titleLabel, layoutBlock: {
-            $0.top().leading().trailing().height(Constants.sW / 5.5)
+            $0.top().leading().trailing().height(Constants.sW / 4.5)
         })
         containerView.add(addSupplementsButton, layoutBlock: {
             $0.leading().trailing().bottom().height(Constants.sW / 6.5)

@@ -2,7 +2,7 @@
 //  MealDetailSceneCoordinator.swift
 //  Ms Fit
 //
-//  Created by Maxim Granchenko on 27.03.2020.
+//  Created by Yura Granchenko on 27.03.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -22,11 +22,15 @@ class MealDetailSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
+        viewModel.presentDetailFoodObserver.subscribe(onNext: { _ in
+            self.presentDetailFoodStoregeScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
-//    @discardableResult private func presentDetailFoodStoregeScene() -> Observable<Void> {
-//        let storageCoordinator = MealsStorageSceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: storageCoordinator)
-//    }
+    @discardableResult private func presentDetailFoodStoregeScene() -> Observable<Void> {
+        let detailFoodCoordinator = DetailFoodSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: detailFoodCoordinator)
+    }
 }

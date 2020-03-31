@@ -111,4 +111,8 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
             $0.topBottom(60, to: navigationView).leading().trailing().height(240)
         })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }

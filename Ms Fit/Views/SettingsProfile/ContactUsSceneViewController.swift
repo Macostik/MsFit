@@ -153,4 +153,8 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
             self.view.layoutIfNeeded()
         })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }

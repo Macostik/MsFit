@@ -68,4 +68,8 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
             $0.topBottom(25, to: historyGraphView).leading().trailing().height(240)
         })
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }

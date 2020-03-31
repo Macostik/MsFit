@@ -36,7 +36,16 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
     private let chevronConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "xmark", withConfiguration: chevronConfiguration)?
-            .withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+    })
+    
+    private let gradientView = specify(GradientView(), {
+        $0.topColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.3)
+        $0.bottomColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.01)
+        $0.startPointX = 0.8
+        $0.startPointY = 0.4
+        $0.endPointX = 0.8
+        $0.endPointY = 0.8
     })
     
     private let nameExerciseLabel = specify(UILabel(), {
@@ -94,6 +103,13 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
     }
     
+    override func setupBindings() {
+        closeButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+    }
+    
     fileprivate func addConstraints() {
         previewImagePagerView.heightAnchor.constraint(equalToConstant:
             Constants.sH_812 ? 250 : 200).isActive = true
@@ -105,9 +121,8 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
         view.add(scrollView, layoutBlock: {
             $0.top(Constants.sH_812 ? -45 : -20).width(Constants.sW).bottom()
         })
-        view.add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
-        })
+        view.add(gradientView, layoutBlock: { $0.top().leading().trailing().height(80) })
+        view.add(closeButton, layoutBlock: { $0.top(16).leading(16).size(44) })
         scrollView.add(baseVStackView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
         
         nameExerciseView.add(nameExerciseLabel, layoutBlock: { $0.top(60).centerX().bottom(40) })
@@ -137,10 +152,7 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
         notesView.add(noteSeparatorView, layoutBlock: { $0.bottom().leading(16).trailing(16).height(1) })
     }
     
-    override func setupBindings() {
-        closeButton.rx.tap
-            .map({ _ in })
-            .bind(to: viewModel!.dismissObserver)
-            .disposed(by: disposeBag)
+    override var prefersStatusBarHidden: Bool {
+        true
     }
 }

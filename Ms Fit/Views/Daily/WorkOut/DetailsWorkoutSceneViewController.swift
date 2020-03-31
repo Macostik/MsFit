@@ -141,6 +141,13 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
     }
     
+    override func setupBindings() {
+        closeButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+    }
+    
     fileprivate func addConstraints() {
         let hStackView = HStackView(arrangedSubviews: [previousButton, nextButton], spacing: 0.5)
         hStackView.distribution = .fillEqually
@@ -196,10 +203,7 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         })
     }
     
-    override func setupBindings() {
-        closeButton.rx.tap
-            .map({ _ in })
-            .bind(to: viewModel!.dismissObserver)
-            .disposed(by: disposeBag)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 }
