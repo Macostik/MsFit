@@ -33,6 +33,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     })
     
     private let gradientView = specify(GradientView(), {
+        $0.isUserInteractionEnabled = false
         $0.topColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.3)
         $0.bottomColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.01)
         $0.startPointX = 0.8
@@ -257,7 +258,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     fileprivate func addConstraints() {
         view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).bottom() })
         view.add(gradientView, layoutBlock: {
-            $0.top().leading().trailing().height(Constants.sH_812 ? 150 : Constants.sH_667 ? 80 : 70)
+            $0.top().leading().trailing().height(Constants.sH_812 ? 150 : 100)
         })
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)

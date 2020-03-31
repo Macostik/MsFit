@@ -23,6 +23,7 @@ class DetailFoodSceneViewController: BaseViewController<DetailFoodSceneViewModel
     })
     
     private let gradientView = specify(GradientView(), {
+        $0.isUserInteractionEnabled = false
         $0.topColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.3)
         $0.bottomColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.01)
         $0.startPointX = 0.8
@@ -121,6 +122,12 @@ class DetailFoodSceneViewController: BaseViewController<DetailFoodSceneViewModel
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
+        
+        scrollView.rx.contentOffset
+            .subscribe(onNext: { offset in
+                self.scrollView.contentOffset.y =
+                    offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
+            }).disposed(by: disposeBag)
         
     }
     
