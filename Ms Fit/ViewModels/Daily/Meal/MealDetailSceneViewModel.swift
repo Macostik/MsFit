@@ -12,5 +12,6 @@ import RxCocoa
 
 final class MealDetailSceneViewModel: BaseViewModel<MealDetailSceneModel> {
     
+    public var presentDetailFoodObserver = PublishSubject<(Int, String)>()
     public var dismissObserver = PublishSubject<Void>()
 }

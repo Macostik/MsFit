@@ -13,7 +13,6 @@ import RxSwift
 class WorkoutSegmentView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
-    
     public var viewModel: WorkOutSceneViewModel?
     
     private let menuItems = ["Yesterday", "Today", "Tomorrow"]

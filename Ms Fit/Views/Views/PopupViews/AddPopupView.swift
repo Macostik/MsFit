@@ -84,8 +84,6 @@ class AddPopupView: UIView {
 
 class LunchCell: UITableViewCell, CellIdentifierable {
     
-    static var identifier: String = "LunchCell"
-    
     private let iconImageView = specify(UIImageView(), {
         $0.contentMode = .scaleAspectFit
     })

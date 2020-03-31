@@ -13,6 +13,9 @@ import RxCocoa
 class AddFeedsPopupView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
+    public var viewModel: MealDetailSceneViewModel?
+    
+    private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
     public let containerView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
@@ -33,8 +36,15 @@ class AddFeedsPopupView: UIView {
         $0.backgroundColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
     })
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let tableView = specify(UITableView(), {
+        $0.showsVerticalScrollIndicator = false
+        $0.separatorStyle = .none
+        $0.register(AddFeedsCell.self, forCellReuseIdentifier: AddFeedsCell.identifier)
+    })
+    
+    init(with viewModel: MealDetailSceneViewModel?) {
+        super.init(frame: .zero)
+        self.viewModel = viewModel
         setupUI()
         setupBindings()
         addConstraints()
@@ -54,6 +64,19 @@ class AddFeedsPopupView: UIView {
                     self?.removeFromSuperview()
                 })
             }).disposed(by: disposeBag)
+        
+        Observable.just(AddFeedsModel.allCases)
+            .bind(to: tableView.rx.items(cellIdentifier: AddFeedsCell.identifier,
+                                         cellType: AddFeedsCell.self)) { _, model, cell in
+                cell.setup(model)
+        }.disposed(by: disposeBag)
+        
+        Observable
+        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(AddFeedsModel.self))
+        .bind { indexPath, model in
+            self.viewModel?.presentDetailFoodObserver.onNext((indexPath.row, model.rawValue))
+            print(indexPath.row, model.rawValue)
+        }.disposed(by: disposeBag)
     }
     
     func addConstraints() {
@@ -64,6 +87,10 @@ class AddFeedsPopupView: UIView {
         containerView.add(addSupplementsButton, layoutBlock: {
             $0.leading().trailing().bottom().height(Constants.sW / 6.5)
         })
+        containerView.add(tableView, layoutBlock: {
+            $0.topBottom(to: titleLabel).leading().trailing().bottomTop(to: addSupplementsButton)
+        })
+        titleLabel.add(separatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
     }
     
     required init?(coder: NSCoder) { fatalError() }

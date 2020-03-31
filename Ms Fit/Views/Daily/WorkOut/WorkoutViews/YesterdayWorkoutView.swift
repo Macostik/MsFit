@@ -30,6 +30,7 @@ class YesterdayWorkoutView: BaseWorkOutView {
                                 forCellWithReuseIdentifier: YesterdayWorkoutCell.identifier)
         timeLabel.text = "110"
         let section = [YesterdayWorkoutSceneModel(items: YesterdayWorkoutList.allCases)]
+        
         Observable.just(section)
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -39,6 +40,7 @@ class YesterdayWorkoutView: BaseWorkOutView {
             .subscribe(onNext: {
                 // do something
             }).disposed(by: disposeBag)
+        
         Observable
         .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(YesterdayWorkoutList.self))
         .bind { [unowned self] indexPath, model in

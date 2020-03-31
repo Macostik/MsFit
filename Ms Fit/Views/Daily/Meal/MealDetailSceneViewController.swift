@@ -13,7 +13,7 @@ import RxCocoa
 class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel> {
     
     private let addPopupView = AddPopupView()
-    private let addFeedsPopupView = AddFeedsPopupView()
+    private lazy var addFeedsPopupView = AddFeedsPopupView(with: self.viewModel)
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {

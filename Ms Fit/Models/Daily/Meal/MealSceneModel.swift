@@ -20,14 +20,7 @@ final class MealSceneModel: Object {
 }
 
 enum BreakfastList: String, CaseIterable {
-    case food1
-    case food2
-    case food3
-    case food4
-    case food5
-    case food6
-    case food7
-    case food8
+    case food1, food2, food3, food4, food5, food6, food7, food8
     
     func description() -> (String, String) {
         switch self {

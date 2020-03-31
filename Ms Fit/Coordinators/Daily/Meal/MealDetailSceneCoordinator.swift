@@ -25,8 +25,8 @@ class MealDetailSceneCoordinator: BaseSceneCoordinator<Void> {
         return Observable.just(())
     }
     
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
+//    @discardableResult private func presentDetailFoodStoregeScene() -> Observable<Void> {
+//        let storageCoordinator = MealsStorageSceneCoordinator(window: window, dependencies: dependencies)
+//        return coordinate(to: storageCoordinator)
 //    }
 }
