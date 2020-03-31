@@ -88,7 +88,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
         $0.setTitle("Ver-tion", for: .normal)
         $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = (Constants.sH_812 ? 36 : 25) / 2
+        $0.layer.cornerRadius = (Constants.sH_667 ? 40 : 30) / 2
         $0.layer.shadowColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1)
         $0.layer.shadowOpacity = 0.4
         $0.layer.shadowOffset = .init(width: 0, height: 3)
@@ -264,7 +264,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     fileprivate func addConstraints() {
         verificationEmailButton.heightAnchor.constraint(equalToConstant:
-            Constants.sH_812 ? 36 : 25).isActive = true
+            Constants.sH_667 ? 40 : 30).isActive = true
         let hNavStackView = HStackView(arrangedSubviews: [verificationEmailButton, navTextLabel], spacing: 10)
         hNavStackView.distribution = .fillProportionally
         

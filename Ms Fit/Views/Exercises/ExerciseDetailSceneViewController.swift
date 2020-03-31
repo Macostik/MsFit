@@ -108,6 +108,12 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
+        
+        scrollView.rx.contentOffset
+            .subscribe(onNext: { offset in
+                self.scrollView.contentOffset.y =
+                    offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
