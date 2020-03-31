@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-typealias ProfileDataSource = RxTableViewSectionedReloadDataSource<SectionOfMeal>
-
 class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewModel> {
     
     private let caloriesView = CaloriesView()
@@ -53,21 +51,11 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
                         bgColor: .systemBackground, isCircled: true)
     })
     
-    // There is tableView should refactor and fit correct data
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(ProfileCell.self, forCellReuseIdentifier: ProfileCell.identifier)
+        tableView.separatorStyle = .none
+        tableView.register(MealsCell.self, forCellReuseIdentifier: MealsCell.identifier)
         return tableView
-    }()
-    
-    internal lazy var dataSource = {
-        return ProfileDataSource(configureCell: { _, tableView, indexPath, item in
-            guard let cell = tableView
-                .dequeueReusableCell(withIdentifier: ProfileCell.identifier,
-                                     for: indexPath) as? ProfileCell else { fatalError() }
-            cell.setup(profile: item)
-            return cell
-        })
     }()
     
     override func setupUI() {
@@ -109,12 +97,13 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     }
     
     fileprivate func handleUI() {
-        tableView.rx.setDelegate(self).disposed(by: disposeBag)
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         view.transform = CGAffineTransform(scaleX: -1, y: 1)
-        Observable.just(MealsStorageData.allCases.map({ $0.description() }))
-            .bind(to: tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
+        Observable.just(MealsStorageSceneModel.allCases)
+            .bind(to: tableView.rx.items(cellIdentifier: MealsCell.identifier,
+                                         cellType: MealsCell.self)) { _, model, cell in
+                                            cell.setup(data: model)
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
@@ -139,35 +128,43 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     }
 }
 
-extension MealsStorageSceneViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = SettingsHeaderView()
-        let title = dataSource.sectionModels[section].header
-        header.setup(title: title)
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 2 ? 10 : 20
-    }
-}
-
-class ProfileCell: UITableViewCell {
-    static let identifier = "ProfileCell"
-    
-    let profileSwitch = specify(UISwitch(), {
-        $0.onTintColor = #colorLiteral(red: 0.5098039216, green: 0.368627451, blue: 0.7137254902, alpha: 1)
+class MealsCell: UITableViewCell, CellIdentifierable {
+    let iconImageView = UIImageView()
+    let nameLabel = specify(UILabel(), {
+        $0.font = UIFont.boldSystemFont(ofSize: 12.0)
     })
-    
-    func setup(profile: MealsStorageSceneModel) {
-        textLabel?.text = profile.description().0
-        textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
-        textLabel?.textColor = #colorLiteral(red: 0.2823529412, green: 0.2431372549, blue: 0.4470588235, alpha: 1)
-        if profile.description().1 {
-            add(profileSwitch, layoutBlock: { $0.trailing(20).centerY() })
-        } else {
-            accessoryType = .disclosureIndicator
-        }
+    let addMealsButton = specify(UIButton(), {
+        $0.setTitle("+ Add meals", for: .normal)
+        $0.setTitleColor(#colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), for: .normal)
+        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
+        $0.cornerRadius = 19
+        $0.borderColor = .lightGray
+        $0.borderWidth = 1.0
+    })
+    let topView = specify(UIView(), {
+        $0.backgroundColor = .clear
+    })
+    let middleView = specify(UIView(), {
+        $0.backgroundColor = .white
+    })
+    let bottomView = specify(UIView(), {
+        $0.backgroundColor = .white
+    })
+    let separatorView = specify(UIView(), {
+        $0.backgroundColor = .lightGray
+    })
+    func setup(data: MealsStorageSceneModel) {
+        backgroundColor = .clear
+        iconImageView.image = data.getImage()
+        nameLabel.text = data.rawValue.uppercased()
+        add(topView, layoutBlock: { $0.leading().top().trailing().height(16) })
+        add(middleView, layoutBlock: { $0.leading().topBottom(to: topView).trailing().height(41) })
+        middleView.add(iconImageView, layoutBlock: { $0.leading(20).centerY() })
+        middleView.add(nameLabel, layoutBlock: { $0.leadingTrailing(10, to: iconImageView).centerY() })
+        add(separatorView, layoutBlock: { $0.leading().topBottom(to: middleView).trailing().height(1) })
+        add(bottomView, layoutBlock: {
+            $0.leading().topBottom(to: separatorView).trailing().height(50).bottom()
+        })
+        bottomView.add(addMealsButton, layoutBlock: { $0.center().width(114).height(38) })
     }
 }

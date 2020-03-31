@@ -10,61 +10,19 @@ import UIKit
 import RealmSwift
 import RxDataSources
 
-//it should be replaced to correct data
-
-enum MealsStorageData: CaseIterable {
-    case settings, support, empty
-    
-    func description() -> SectionOfMeal {
-        switch self {
-        case .settings:
-            return SectionOfMeal(header: "SETTINGS",
-                                 items: [MealsStorageSceneModel.sound, MealsStorageSceneModel.vibration])
-        case .support:
-            return SectionOfMeal(header: "SUPPORT",
-                                 items: [MealsStorageSceneModel.changeColor, MealsStorageSceneModel.support])
-        case .empty:
-            return SectionOfMeal(header: "",
-                                 items: [MealsStorageSceneModel.share,
-                                         MealsStorageSceneModel.rate,
-                                         MealsStorageSceneModel.policy])
-        }
-    }
-}
-
-struct SectionOfMeal {
-    var header: String
-    var items: [Item]
-}
-extension SectionOfMeal: SectionModelType {
-    typealias Item = MealsStorageSceneModel
-    
-    init(original: SectionOfMeal, items: [Item]) {
-        self = original
-        self.items = items
-    }
-}
-
 enum MealsStorageSceneModel: String, CaseIterable {
-    case sound, vibration, changeColor, support, share, rate, policy
+    case breakfast, lauch, snack, dinner
     
-    func description() -> (String, Bool) {
+    func getImage() -> (UIImage?) {
         switch self {
-        case .sound:
-            return ("Sound", true)
-        case .vibration:
-            return ("Vibration", true)
-        case .changeColor:
-            return ("How to Color", false)
-        case .support:
-            return ("Contact Support", false)
-        case .share:
-            return ("Share App", false)
-        case .rate:
-            return ("Rate Us", false)
-        case .policy:
-            return ("Privacy Policy", false)
-            
+        case .breakfast:
+            return UIImage(named: "Breakfast")
+        case .lauch:
+            return UIImage(named: "Lunch")
+        case .snack:
+            return UIImage(named: "snack1")
+        case .dinner:
+            return UIImage(named: "Dinner")
         }
     }
 }
