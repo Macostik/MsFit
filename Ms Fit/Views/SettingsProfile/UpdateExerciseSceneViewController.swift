@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class UpdateExerciseSceneViewController: BaseViewController<UpdateExerciseSceneViewModel> {
+    
     internal var pickerElement = UpdatePickerData.waist
     private let pickerView = UIPickerView()
 

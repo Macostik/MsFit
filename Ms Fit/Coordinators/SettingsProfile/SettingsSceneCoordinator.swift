@@ -31,6 +31,10 @@ class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewMode
             self.presentHistoryMeasureScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentHistoryExerciseObserver.subscribe(onNext: { _ in
+            self.presentHistoryMeasureScene()
+        }).disposed(by: disposeBag)
+        
         return SettingsSceneViewController.instantiate(with: viewModel)
     }
     

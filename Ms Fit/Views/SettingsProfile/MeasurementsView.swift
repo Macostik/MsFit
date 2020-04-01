@@ -13,6 +13,7 @@ import RxCocoa
 class MeasurementsView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
+    private var viewModel: SettingsSceneViewModel?
     
     private let containerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     private let topSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) })
@@ -40,8 +41,9 @@ class MeasurementsView: UIView {
         $0.layer.shadowRadius = 3
     })
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(with viewModel: SettingsSceneViewModel?) {
+        super.init(frame: .zero)
+        self.viewModel = viewModel
         handleUI()
         addConstraints()
         setupBindings()
@@ -58,11 +60,11 @@ class MeasurementsView: UIView {
                 cell.accessoryType = .disclosureIndicator
         }.disposed(by: disposeBag)
         
-//        Observable
-//        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(UpdateMeasurementModel.self))
-//        .bind { indexPath, model in
-//            self.viewModel?.presentUpdateObserver.onNext((indexPath.row, model.rawValue))
-//        }.disposed(by: disposeBag)
+        Observable
+            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(UpdateMeasurementModel.self))
+            .bind { indexPath, model in
+                self.viewModel?.presentHistoryExerciseObserver.onNext((indexPath.row, model.rawValue))
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
