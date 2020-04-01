@@ -113,6 +113,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.bounces = true
+        pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.identifier)
         pageControl.interitemSpacing = 10
         pageControl.numberOfPages = HomeImageList.allCases.count

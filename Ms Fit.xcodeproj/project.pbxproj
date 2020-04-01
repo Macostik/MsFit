@@ -185,6 +185,12 @@
 		ACBF7026242620E100FFEAC8 /* UpdateMeasurSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF7022242620E100FFEAC8 /* UpdateMeasurSceneModel.swift */; };
 		ACBF7027242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF7023242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift */; };
 		ACBF702B2426297C00FFEAC8 /* UpdateMeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */; };
+		ACCAA34F2434984200EA93B2 /* MealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA34E2434984200EA93B2 /* MealsCell.swift */; };
+		ACCAA35124349C0B00EA93B2 /* BreakfastPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA35024349C0B00EA93B2 /* BreakfastPagerCell.swift */; };
+		ACCAA3562434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA3522434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift */; };
+		ACCAA3572434B0E600EA93B2 /* UpdateWeightSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA3532434B0E600EA93B2 /* UpdateWeightSceneViewController.swift */; };
+		ACCAA3582434B0E600EA93B2 /* UpdateWeightSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA3542434B0E600EA93B2 /* UpdateWeightSceneModel.swift */; };
+		ACCAA3592434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA3552434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift */; };
 		ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39B82421068100D97A11 /* TipsMenuCell.swift */; };
 		ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
@@ -382,6 +388,12 @@
 		ACBF7022242620E100FFEAC8 /* UpdateMeasurSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeasurSceneModel.swift; sourceTree = "<group>"; };
 		ACBF7023242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeasurSceneViewModel.swift; sourceTree = "<group>"; };
 		ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeasurementCell.swift; sourceTree = "<group>"; };
+		ACCAA34E2434984200EA93B2 /* MealsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsCell.swift; sourceTree = "<group>"; };
+		ACCAA35024349C0B00EA93B2 /* BreakfastPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastPagerCell.swift; sourceTree = "<group>"; };
+		ACCAA3522434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACCAA3532434B0E600EA93B2 /* UpdateWeightSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightSceneViewController.swift; sourceTree = "<group>"; };
+		ACCAA3542434B0E600EA93B2 /* UpdateWeightSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightSceneModel.swift; sourceTree = "<group>"; };
+		ACCAA3552434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightSceneViewModel.swift; sourceTree = "<group>"; };
 		ACCD39B82421068100D97A11 /* TipsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuCell.swift; sourceTree = "<group>"; };
 		ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuView.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -813,8 +825,10 @@
 		AC57A17C24179DE2006E9144 /* MealCells */ = {
 			isa = PBXGroup;
 			children = (
-				AC57A17D2417A009006E9144 /* BreakfastCell.swift */,
 				AC07656B24332FBA00952766 /* AddFeedsCell.swift */,
+				AC57A17D2417A009006E9144 /* BreakfastCell.swift */,
+				ACCAA35024349C0B00EA93B2 /* BreakfastPagerCell.swift */,
+				ACCAA34E2434984200EA93B2 /* MealsCell.swift */,
 			);
 			path = MealCells;
 			sourceTree = "<group>";
@@ -828,6 +842,7 @@
 				AC220459242BB8DC0089C801 /* HistoryResultSceneViewController.swift */,
 				ACBF7021242620E100FFEAC8 /* UpdateMeasurSceneViewController.swift */,
 				AC220447242B5D550089C801 /* UpdateExerciseSceneViewController.swift */,
+				ACCAA3532434B0E600EA93B2 /* UpdateWeightSceneViewController.swift */,
 				AC70FFA2241F993E0064CEC5 /* SettingsSceneViewController.swift */,
 			);
 			path = SettingsProfile;
@@ -841,6 +856,7 @@
 				AC220458242BB8DC0089C801 /* HistoryResultSceneCoordinator.swift */,
 				ACBF7020242620E100FFEAC8 /* UpdateMeasurSceneCoordinator.swift */,
 				AC220446242B5D550089C801 /* UpdateExerciseSceneCoordinator.swift */,
+				ACCAA3522434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift */,
 				AC70FFA1241F993E0064CEC5 /* SettingsSceneCoordinator.swift */,
 			);
 			path = SettingsProfile;
@@ -850,10 +866,10 @@
 			isa = PBXGroup;
 			children = (
 				ACBF70152424EDFF00FFEAC8 /* Cells */,
-				AC70FFA9241F9B480064CEC5 /* UserView.swift */,
 				AC70FFAB241F9B730064CEC5 /* GraphView.swift */,
 				AC220460242BBC530089C801 /* HistoryGraphView.swift */,
 				AC70FFAD241F9B8F0064CEC5 /* MeasurementsView.swift */,
+				AC70FFA9241F9B480064CEC5 /* UserView.swift */,
 				ACBF70132424EC4500FFEAC8 /* SubjectMenuTableView.swift */,
 			);
 			name = SettingViews;
@@ -952,6 +968,7 @@
 				AC22045B242BB8DC0089C801 /* HistoryResultSceneViewModel.swift */,
 				ACBF7023242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift */,
 				AC220449242B5D550089C801 /* UpdateExerciseSceneViewModel.swift */,
+				ACCAA3552434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift */,
 				AC70FFA4241F993E0064CEC5 /* SettingsSceneViewModel.swift */,
 			);
 			path = SettingsProfile;
@@ -1063,6 +1080,7 @@
 				AC22045A242BB8DC0089C801 /* HistoryResultSceneModel.swift */,
 				ACBF7022242620E100FFEAC8 /* UpdateMeasurSceneModel.swift */,
 				AC220448242B5D550089C801 /* UpdateExerciseSceneModel.swift */,
+				ACCAA3542434B0E600EA93B2 /* UpdateWeightSceneModel.swift */,
 				AC70FFA3241F993E0064CEC5 /* SettingsSceneModel.swift */,
 			);
 			path = SettingsProfile;
@@ -1268,7 +1286,9 @@
 				AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */,
 				AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */,
 				56993C042401B78400C16CFF /* TabBarSceneCoordinator.swift in Sources */,
+				ACCAA3592434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift in Sources */,
 				AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */,
+				ACCAA35124349C0B00EA93B2 /* BreakfastPagerCell.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				AC21931A2412900400F388C1 /* MealSceneCoordinator.swift in Sources */,
 				ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */,
@@ -1327,6 +1347,7 @@
 				56993C162401BDAA00C16CFF /* ExercisesSceneModel.swift in Sources */,
 				AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */,
 				ACBF701C2425151E00FFEAC8 /* MySettingsSceneCoordinator.swift in Sources */,
+				ACCAA3562434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift in Sources */,
 				AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */,
 				AC219313241273E800F388C1 /* DetailsWorkoutSceneModel.swift in Sources */,
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,
@@ -1378,6 +1399,7 @@
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				566C2DA8240444080006108B /* SignUpSceneViewController.swift in Sources */,
 				AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */,
+				ACCAA3582434B0E600EA93B2 /* UpdateWeightSceneModel.swift in Sources */,
 				ACA3CE5224191D81001213AC /* MealsStorageSceneViewController.swift in Sources */,
 				AC07657324334F7A00952766 /* DetailFoodSceneModel.swift in Sources */,
 				AC219314241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift in Sources */,
@@ -1412,6 +1434,7 @@
 				566C2DA9240444080006108B /* NewRegistSceneViewController.swift in Sources */,
 				ACEFD7F12401CA3A00C2EED8 /* User.swift in Sources */,
 				AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */,
+				ACCAA34F2434984200EA93B2 /* MealsCell.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */,
 				ACBF701D2425151E00FFEAC8 /* MySettingsSceneViewController.swift in Sources */,
@@ -1421,6 +1444,7 @@
 				AC07657624337BB300952766 /* GradientView.swift in Sources */,
 				AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */,
 				ACBF70172424EE0F00FFEAC8 /* SubjectMenuCell.swift in Sources */,
+				ACCAA3572434B0E600EA93B2 /* UpdateWeightSceneViewController.swift in Sources */,
 				AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */,
 				560586D5242BDD8B00423832 /* PagerViewTransformer.swift in Sources */,
 				AC807116242A6898000F0BE7 /* ExerciseDetailSceneCoordinator.swift in Sources */,

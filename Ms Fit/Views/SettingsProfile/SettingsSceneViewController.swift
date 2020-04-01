@@ -14,7 +14,7 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
     
     private let userView = UserView()
     private let graphView = GraphView()
-    private let measurementsView = MeasurementsView()
+    private lazy var measurementsView = MeasurementsView(with: self.viewModel!)
     
     private let scrollView = specify(UIScrollView(), {
         $0.showsVerticalScrollIndicator = false
@@ -37,11 +37,13 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentMySettingsObserver.onNext(())
             }).disposed(by: disposeBag)
+        
         userView.editProfileImageView.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [unowned self] _ in
                 self.openGalery()
             }).disposed(by: disposeBag)
+        
         measurementsView.updateMeasureButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentUpdateMeasurementObserver.onNext(())
@@ -51,6 +53,12 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentHistoryObserver.onNext(())
             }).disposed(by: disposeBag)
+        
+        graphView.updateWeightButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentUpdateWeightObserver.onNext(())
+            }).disposed(by: disposeBag)
+        
     }
     
     fileprivate func handleUI() {
