@@ -45,16 +45,10 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
         $0.circled = true
     })
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    public func setup() {
         setupUI()
         addConstraint()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-        addConstraint()
+        setupBindings()
     }
     
     fileprivate func setupUI() {
@@ -87,15 +81,13 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
         favoriteButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
         searchButton.widthAnchor.constraint(equalToConstant: 56).isActive = true
         searchButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        
+
         let searchStackView = VStackView(arrangedSubviews: [highProteinButton, highProtein], spacing: 5)
         let dietStackView = VStackView(arrangedSubviews: [favoriteButton, favoriteLabel], spacing: 5)
         let favoriteStackView = VStackView(arrangedSubviews: [searchButton, searchLabel], spacing: 5)
         let hStackView = HStackView(arrangedSubviews: [searchStackView, dietStackView, favoriteStackView],
             spacing: 25)
-        
+
         add(hStackView, layoutBlock: { $0.centerX().top(15) })
     }
-    
-    required init?(coder: NSCoder) { fatalError() }
 }

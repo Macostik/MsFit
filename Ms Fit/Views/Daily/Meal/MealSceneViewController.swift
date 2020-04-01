@@ -9,12 +9,15 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
+
+typealias MealsDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Int>>
 
 class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let caloriesView = CaloriesView()
     private let addPopupView = AddPopupView()
-    fileprivate let mealList = Array(0...4)
+    fileprivate let mealList = SectionModel(model: "", items: Array(0...4))
     
     private var isAnimationCalories = false
     private var heightCaloriesLayout: NSLayoutConstraint?
@@ -43,6 +46,32 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         $0.customButton(shadowColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), bgColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     })
     
+    private lazy var dataSource: MealsDataSource = {
+        return MealsDataSource(configureCell: {  _, collectionView, indexPath, data in
+            guard let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: BreakfastCell.identifier,
+                                     for: indexPath) as? BreakfastCell else { fatalError() }
+            cell.setup(data)
+            cell.tapHalper = { [unowned self] in
+                self.handlePopupView()
+            }
+            cell.cellTapHalper = { [weak self] index in
+                self?.viewModel?.presentMealDetailObserver.onNext((index))
+            }
+            return cell
+        }, configureSupplementaryView: { _, collectionview, kind, indexPath  in
+            guard let headerView = collectionview
+                .dequeueReusableSupplementaryView(ofKind: kind,
+                                                  withReuseIdentifier: MealHeaderView.identifier,
+                                                  for: indexPath) as? MealHeaderView else { fatalError() }
+            headerView.setup()
+            headerView.tapPresentSearchHanper = { [unowned self] in
+                self.viewModel?.presentSearchObserver.onNext(())
+            }
+            return headerView
+        })
+    }()
+    
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -52,8 +81,6 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
-        
-        collectionView.rx.setDataSource(self).disposed(by: disposeBag)
         collectionView.register(BreakfastCell.self, forCellWithReuseIdentifier: BreakfastCell.identifier)
         collectionView.register(MealHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -90,6 +117,9 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                 self.isAnimationCalories = !self.isAnimationCalories
             }).disposed(by: disposeBag)
         
+         Observable.just([mealList])
+                   .bind(to: collectionView.rx.items(dataSource: dataSource))
+                   .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -122,46 +152,5 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
-    }
-}
-
-extension MealSceneViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mealList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: BreakfastCell.identifier,
-                                 for: indexPath) as? BreakfastCell
-            else { fatalError()}
-        let model = mealList[indexPath.row]
-        cell.setup(model)
-        cell.tapHalper = { [unowned self] in
-            self.handlePopupView()
-        }
-        cell.cellTapHalper = { [weak self] index in
-            self?.viewModel?.presentMealDetailObserver.onNext((index))
-        }
-        
-        return cell
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView
-            .dequeueReusableSupplementaryView(ofKind: kind,
-                                              withReuseIdentifier: MealHeaderView.identifier,
-                                              for: indexPath) as? MealHeaderView else { fatalError() }
-        headerView.tapPresentSearchHanper = { [unowned self] in
-            self.viewModel?.presentSearchObserver.onNext(())
-        }
-        return headerView
     }
 }
