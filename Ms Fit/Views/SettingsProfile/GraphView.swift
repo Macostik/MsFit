@@ -71,7 +71,7 @@ class GraphView: UIView {
         $0.font = .systemFont(ofSize: 12, weight: .regular)
     })
     
-    private let updateWeightButton = specify(UIButton(type: .roundedRect), {
+    public let updateWeightButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setTitle("Update Weight", for: .normal)

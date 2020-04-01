@@ -35,6 +35,10 @@ class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewMode
             self.presentHistoryMeasureScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentUpdateWeightObserver.subscribe(onNext: { _ in
+            self.presentUpdateWeightMeasureScene()
+        }).disposed(by: disposeBag)
+        
         return SettingsSceneViewController.instantiate(with: viewModel)
     }
     
@@ -56,5 +60,10 @@ class SettingsSceneCoordinator: BaseTabBarSceneCoordinator<SettingsSceneViewMode
     @discardableResult private func presentHistoryMeasureScene() -> Observable<Void> {
         let historyCoordinator = HistoryResultSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: historyCoordinator)
+    }
+    
+    @discardableResult private func presentUpdateWeightMeasureScene() -> Observable<Void> {
+        let updateWeightCoordinator = UpdateWeightSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: updateWeightCoordinator)
     }
 }
