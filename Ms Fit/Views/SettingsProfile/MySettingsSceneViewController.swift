@@ -122,6 +122,16 @@ class SettingsCell: UITableViewCell, CellIdentifierable {
             accessoryType = .disclosureIndicator
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        tosSwitch.removeFromSuperview()
+        accessoryLabel.removeFromSuperview()
+        textLabel?.text = nil
+        textLabel?.textAlignment = .left
+        accessoryType = .none
+        textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
 }
 
 class SettingsHeaderView: UIView {
