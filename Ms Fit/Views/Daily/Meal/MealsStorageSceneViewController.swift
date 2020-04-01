@@ -29,14 +29,12 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let navLabel = specify(UILabel(), {
         $0.text = "My meals"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let containerForButtonView = specify(UIView(), {
@@ -54,6 +52,7 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(MealsCell.self, forCellReuseIdentifier: MealsCell.identifier)
         return tableView
     }()
@@ -94,16 +93,17 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
                 }
                 self.isAnimationCalories = !self.isAnimationCalories
             }).disposed(by: disposeBag)
+        
+            Observable.just(MealsStorageSceneModel.allCases)
+                .bind(to: tableView.rx.items(cellIdentifier: MealsCell.identifier,
+                                             cellType: MealsCell.self)) { _, model, cell in
+                                                cell.setup(data: model)
+            }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
-        Observable.just(MealsStorageSceneModel.allCases)
-            .bind(to: tableView.rx.items(cellIdentifier: MealsCell.identifier,
-                                         cellType: MealsCell.self)) { _, model, cell in
-                                            cell.setup(data: model)
-        }.disposed(by: disposeBag)
+        caloriesView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {
@@ -116,55 +116,14 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
         navigationView.add(navLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         
         view.add(caloriesView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
-        view.add(tableView, layoutBlock: {$0.leading().trailing().topBottom(50, to: caloriesView).bottom()})
+        view.add(tableView, layoutBlock: {$0.leading().trailing().topBottom(to: caloriesView).bottom()})
         
         view.add(containerForButtonView, layoutBlock: { $0.leading().topBottom(to: caloriesView).trailing() })
-        containerForButtonView.add(clearAllMeals, layoutBlock: { $0.top(8).bottom(8).leading(16).width(100) })
-        view.add(closeButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
+        containerForButtonView.add(clearAllMeals, layoutBlock: { $0.top(8).bottom(8).trailing(16).width(100)})
+        view.add(closeButton, layoutBlock: { $0.bottom(25).trailing(25).size(56) })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
-    }
-}
-
-class MealsCell: UITableViewCell, CellIdentifierable {
-    let iconImageView = UIImageView()
-    let nameLabel = specify(UILabel(), {
-        $0.font = UIFont.boldSystemFont(ofSize: 12.0)
-    })
-    let addMealsButton = specify(UIButton(), {
-        $0.setTitle("+ Add meals", for: .normal)
-        $0.setTitleColor(#colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), for: .normal)
-        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
-        $0.cornerRadius = 19
-        $0.borderColor = .lightGray
-        $0.borderWidth = 1.0
-    })
-    let topView = specify(UIView(), {
-        $0.backgroundColor = .clear
-    })
-    let middleView = specify(UIView(), {
-        $0.backgroundColor = .white
-    })
-    let bottomView = specify(UIView(), {
-        $0.backgroundColor = .white
-    })
-    let separatorView = specify(UIView(), {
-        $0.backgroundColor = .lightGray
-    })
-    func setup(data: MealsStorageSceneModel) {
-        backgroundColor = .clear
-        iconImageView.image = data.getImage()
-        nameLabel.text = data.rawValue.uppercased()
-        add(topView, layoutBlock: { $0.leading().top().trailing().height(16) })
-        add(middleView, layoutBlock: { $0.leading().topBottom(to: topView).trailing().height(41) })
-        middleView.add(iconImageView, layoutBlock: { $0.leading(20).centerY() })
-        middleView.add(nameLabel, layoutBlock: { $0.leadingTrailing(10, to: iconImageView).centerY() })
-        add(separatorView, layoutBlock: { $0.leading().topBottom(to: middleView).trailing().height(1) })
-        add(bottomView, layoutBlock: {
-            $0.leading().topBottom(to: separatorView).trailing().height(50).bottom()
-        })
-        bottomView.add(addMealsButton, layoutBlock: { $0.center().width(114).height(38) })
     }
 }

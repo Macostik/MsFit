@@ -185,6 +185,8 @@
 		ACBF7026242620E100FFEAC8 /* UpdateMeasurSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF7022242620E100FFEAC8 /* UpdateMeasurSceneModel.swift */; };
 		ACBF7027242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF7023242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift */; };
 		ACBF702B2426297C00FFEAC8 /* UpdateMeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */; };
+		ACCAA34F2434984200EA93B2 /* MealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA34E2434984200EA93B2 /* MealsCell.swift */; };
+		ACCAA35124349C0B00EA93B2 /* BreakfastPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA35024349C0B00EA93B2 /* BreakfastPagerCell.swift */; };
 		ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39B82421068100D97A11 /* TipsMenuCell.swift */; };
 		ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */; };
 		ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCED1BF23FE8AB9000EB2DB /* TextField.swift */; };
@@ -382,6 +384,8 @@
 		ACBF7022242620E100FFEAC8 /* UpdateMeasurSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeasurSceneModel.swift; sourceTree = "<group>"; };
 		ACBF7023242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeasurSceneViewModel.swift; sourceTree = "<group>"; };
 		ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeasurementCell.swift; sourceTree = "<group>"; };
+		ACCAA34E2434984200EA93B2 /* MealsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsCell.swift; sourceTree = "<group>"; };
+		ACCAA35024349C0B00EA93B2 /* BreakfastPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastPagerCell.swift; sourceTree = "<group>"; };
 		ACCD39B82421068100D97A11 /* TipsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuCell.swift; sourceTree = "<group>"; };
 		ACCD39BA24210A2D00D97A11 /* TipsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMenuView.swift; sourceTree = "<group>"; };
 		ACCED1BF23FE8AB9000EB2DB /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -813,8 +817,10 @@
 		AC57A17C24179DE2006E9144 /* MealCells */ = {
 			isa = PBXGroup;
 			children = (
-				AC57A17D2417A009006E9144 /* BreakfastCell.swift */,
 				AC07656B24332FBA00952766 /* AddFeedsCell.swift */,
+				AC57A17D2417A009006E9144 /* BreakfastCell.swift */,
+				ACCAA35024349C0B00EA93B2 /* BreakfastPagerCell.swift */,
+				ACCAA34E2434984200EA93B2 /* MealsCell.swift */,
 			);
 			path = MealCells;
 			sourceTree = "<group>";
@@ -1269,6 +1275,7 @@
 				AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */,
 				56993C042401B78400C16CFF /* TabBarSceneCoordinator.swift in Sources */,
 				AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */,
+				ACCAA35124349C0B00EA93B2 /* BreakfastPagerCell.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				AC21931A2412900400F388C1 /* MealSceneCoordinator.swift in Sources */,
 				ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */,
@@ -1412,6 +1419,7 @@
 				566C2DA9240444080006108B /* NewRegistSceneViewController.swift in Sources */,
 				ACEFD7F12401CA3A00C2EED8 /* User.swift in Sources */,
 				AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */,
+				ACCAA34F2434984200EA93B2 /* MealsCell.swift in Sources */,
 				564A672823FC2F3400D4901A /* Dependency.swift in Sources */,
 				ACCED1C223FE8D1E000EB2DB /* BezierPath+Ext.swift in Sources */,
 				ACBF701D2425151E00FFEAC8 /* MySettingsSceneViewController.swift in Sources */,
