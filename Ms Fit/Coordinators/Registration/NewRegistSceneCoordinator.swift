@@ -21,6 +21,7 @@ class NewRegistSceneCoordinator: BaseSceneCoordinator<Void> {
         viewController.pickerElement = pickerElement
         viewController.verForButtonStackView.isHidden = isProceed
         viewController.pickerView.isHidden = !isProceed
+        viewController.showOneScene = isProceed
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         

@@ -22,16 +22,26 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
-        viewModel.heightSceneObserver.subscribe(onNext: { [weak self] in
-            self?.presentNewRegistScene()
+        viewModel.heightSceneObserver.subscribe(onNext: { [weak self] model in
+            self?.presentNewRegistScene(model: model)
         }).disposed(by: disposeBag)
         
         return Observable.just(())
     }
     
-    @discardableResult private func presentNewRegistScene() -> Observable<Void> {
+    @discardableResult private func presentNewRegistScene(model: SettingsStorageSceneModel) ->
+        Observable<Void> {
         let newRegistCoordinator = NewRegistSceneCoordinator(window: window, dependencies: dependencies)
-        newRegistCoordinator.pickerElement = .height
+        switch model {
+        case .heigth:
+            newRegistCoordinator.pickerElement = .height
+        case .startWeight:
+            newRegistCoordinator.pickerElement = .weight
+        case .dateOfBirth:
+            newRegistCoordinator.pickerElement = .age
+        default:
+            break
+        }
         newRegistCoordinator.isProceed = true
         return coordinate(to: newRegistCoordinator)
     }

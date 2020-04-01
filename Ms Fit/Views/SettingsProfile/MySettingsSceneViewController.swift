@@ -69,8 +69,8 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(SettingsStorageSceneModel.self)
-            .subscribe(onNext: { [weak self] _ in
-                self?.viewModel?.heightSceneObserver.onNext(())
+            .subscribe(onNext: { [weak self] model in
+                    self?.viewModel?.heightSceneObserver.onNext(model)
             }).disposed(by: disposeBag)
     }
     

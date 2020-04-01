@@ -13,6 +13,7 @@ import RxCocoa
 class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> {
     
     public var pickerElement = PickerData.weight
+    public var showOneScene = false
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var backButton = specify(UIButton(type: .roundedRect), {
@@ -80,7 +81,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         backButton.rx.tap
             .map({ _ in })
             .subscribe(onNext: { [unowned self] in
-                if !self.verForButtonStackView.isHidden &&
+                if self.showOneScene {
+                    self.viewModel?.dismissObservable.onNext(())
+                } else if !self.verForButtonStackView.isHidden &&
                     (self.buttonList.last?.isHidden ?? false) {
                     self.viewModel?.dismissObservable.onNext(())
                 } else {
