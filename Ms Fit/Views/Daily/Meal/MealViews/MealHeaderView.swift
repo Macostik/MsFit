@@ -17,7 +17,7 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     static var identifier: String = "MealHeaderView"
     public var tapPresentSearchHanper: (() -> Void)?
     public var tapPresentLikeMealsHanper: (() -> Void)?
-    public var tapHighProteinHanper: (() -> Void)?
+    public var tapHighProteinHanper: ((UIView) -> Void)?
     
     private let searchLabel = Label(icon: "All meals", font: .systemFont(ofSize: 12, weight: .regular),
                                     size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
@@ -73,12 +73,13 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     
     fileprivate func setupBindings() {
         highProteinButton.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                self.tapHighProteinHanper?()
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.tapHighProteinHanper?(self.checkmarkView)
             }).disposed(by: disposeBag)
         likeMealsButton.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                self.tapPresentLikeMealsHanper?()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tapPresentLikeMealsHanper?()
             }).disposed(by: disposeBag)
         searchButton.rx.tap
             .subscribe(onNext: { [weak self] _ in

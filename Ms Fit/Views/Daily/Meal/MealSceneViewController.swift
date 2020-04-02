@@ -22,6 +22,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     private var isCheckmarkItem = false
     private var isAnimationCalories = false
     private var heightCaloriesLayout: NSLayoutConstraint?
+    private var isAppearHeader = false
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
@@ -63,16 +64,20 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                 .dequeueReusableSupplementaryView(ofKind: kind,
                                                   withReuseIdentifier: MealHeaderView.identifier,
                                                   for: indexPath) as? MealHeaderView else { fatalError() }
-            headerView.setup()
-            headerView.tapPresentSearchHanper = { [unowned self] in
-                self.viewModel?.presentSearchObserver.onNext(())
-            }
-            headerView.tapPresentLikeMealsHanper = { [unowned self] in
-                self.viewModel?.presentLikeMealsObserver.onNext(())
-            }
-            headerView.tapHighProteinHanper = {
-                headerView.checkmarkView.alpha = self.isCheckmarkItem ? 0.0 : 1.0
-                self.isCheckmarkItem = !self.isCheckmarkItem
+            if !self.isAppearHeader {
+                self.isAppearHeader = true
+                headerView.setup()
+                headerView.tapPresentSearchHanper = { [weak self] in
+                    self?.viewModel?.presentSearchObserver.onNext(())
+                }
+                headerView.tapPresentLikeMealsHanper = { [weak self] in
+                    self?.viewModel?.presentLikeMealsObserver.onNext(())
+                }
+                headerView.tapHighProteinHanper = { [weak self] checkMarkView in
+                    guard let self = self else { return }
+                    checkMarkView.alpha = self.isCheckmarkItem ? 0.0 : 1.0
+                    self.isCheckmarkItem = !self.isCheckmarkItem
+                }
             }
             return headerView
         })
