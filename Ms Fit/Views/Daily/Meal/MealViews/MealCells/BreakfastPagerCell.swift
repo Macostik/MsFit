@@ -15,6 +15,7 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
     
     fileprivate let disposeBag = DisposeBag()
     public var tapHalper: (() -> Void)?
+    private var isLikeFood = false
     
     private let breakfastImageView = specify(UIImageView(), {
         $0.contentMode = .scaleAspectFill
@@ -23,10 +24,12 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
         $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     })
     
-    private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .semibold)
-    private lazy var heartImageView = specify(UIImageView(), {
-        $0.image = UIImage(systemName: "heart", withConfiguration: mediumConfiguration)?
-            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal)
+    private let heartConfiguration = UIImage.SymbolConfiguration(weight: .medium)
+    private lazy var likeButton = specify(Button(type: .roundedRect), {
+        $0.setImage(UIImage(systemName: "suit.heart.fill", withConfiguration: heartConfiguration)?
+            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+        $0.touchArea.width = 45
+        $0.touchArea.height = 45
     })
     
     private let subheadingLabel = specify(UILabel(), {
@@ -79,14 +82,20 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
             .subscribe(onNext: {
                 self.tapHalper?()
             }).disposed(by: disposeBag)
+        
+        likeButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.likeButton.setImage(self.isLikeFood ? UIImage(systemName: "suit.heart.fill")?
+                    .withTintColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), renderingMode: .alwaysOriginal) :
+                    UIImage(systemName: "suit.heart", withConfiguration: self.heartConfiguration)?
+                        .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+                self.isLikeFood = !self.isLikeFood
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
-        heartImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        heartImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        
         add(breakfastImageView, layoutBlock: { $0.leading().trailing().top() })
-        breakfastImageView.add(heartImageView, layoutBlock: { $0.leading(16).top(16) })
+        add(likeButton, layoutBlock: { $0.leading(16).top(16) })
         add(containerView, layoutBlock: { $0.bottom().leading().trailing().topBottom(to: breakfastImageView)})
         containerView.add(subheadingLabel, layoutBlock: {
             $0.leading(16).trailing(16).top(Constants.sH_667 ? 30 : 15)

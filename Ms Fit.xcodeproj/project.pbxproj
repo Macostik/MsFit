@@ -109,6 +109,10 @@
 		AC26B3F72435F6B600A84462 /* SearchFoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3F62435F6B600A84462 /* SearchFoodsCell.swift */; };
 		AC26B3F924360A3100A84462 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3F824360A3100A84462 /* SettingsCell.swift */; };
 		AC26B3FB24360A7200A84462 /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3FA24360A7200A84462 /* SettingsHeaderView.swift */; };
+		AC26B400243619A300A84462 /* LikeMealsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3FC243619A300A84462 /* LikeMealsSceneCoordinator.swift */; };
+		AC26B401243619A300A84462 /* LikeMealsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3FD243619A300A84462 /* LikeMealsSceneViewController.swift */; };
+		AC26B402243619A300A84462 /* LikeMealsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3FE243619A300A84462 /* LikeMealsSceneModel.swift */; };
+		AC26B403243619A300A84462 /* LikeMealsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC26B3FF243619A300A84462 /* LikeMealsSceneViewModel.swift */; };
 		AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4874EE24129B69007FE6A4 /* CaloriesView.swift */; };
 		AC4A00A32404247300764281 /* QuestionsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */; };
 		AC4A00A42404247300764281 /* QuestionsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */; };
@@ -317,6 +321,10 @@
 		AC26B3F62435F6B600A84462 /* SearchFoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodsCell.swift; sourceTree = "<group>"; };
 		AC26B3F824360A3100A84462 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		AC26B3FA24360A7200A84462 /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		AC26B3FC243619A300A84462 /* LikeMealsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMealsSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC26B3FD243619A300A84462 /* LikeMealsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMealsSceneViewController.swift; sourceTree = "<group>"; };
+		AC26B3FE243619A300A84462 /* LikeMealsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMealsSceneModel.swift; sourceTree = "<group>"; };
+		AC26B3FF243619A300A84462 /* LikeMealsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMealsSceneViewModel.swift; sourceTree = "<group>"; };
 		AC4874EE24129B69007FE6A4 /* CaloriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesView.swift; sourceTree = "<group>"; };
 		AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSceneViewController.swift; sourceTree = "<group>"; };
@@ -775,6 +783,7 @@
 				AC2193162412900400F388C1 /* MealSceneCoordinator.swift */,
 				AC12457B242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift */,
 				ACA3CE4D24191D81001213AC /* MealsStorageSceneCoordinator.swift */,
+				AC26B3FC243619A300A84462 /* LikeMealsSceneCoordinator.swift */,
 				ACACD457241B8C980017D4D7 /* SearchMealsSceneCoordinator.swift */,
 			);
 			path = Meal;
@@ -788,6 +797,7 @@
 				AC2193172412900400F388C1 /* MealSceneViewController.swift */,
 				AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */,
 				ACA3CE4E24191D81001213AC /* MealsStorageSceneViewController.swift */,
+				AC26B3FD243619A300A84462 /* LikeMealsSceneViewController.swift */,
 				ACACD458241B8C980017D4D7 /* SearchMealsSceneViewController.swift */,
 			);
 			path = Meal;
@@ -800,6 +810,7 @@
 				AC2193192412900400F388C1 /* MealSceneViewModel.swift */,
 				AC12457E242DFFBA00533AA0 /* MealDetailSceneViewModel.swift */,
 				ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */,
+				AC26B3FF243619A300A84462 /* LikeMealsSceneViewModel.swift */,
 				ACACD45A241B8C980017D4D7 /* SearchMealsSceneViewModel.swift */,
 			);
 			path = Meal;
@@ -812,6 +823,7 @@
 				AC2193182412900400F388C1 /* MealSceneModel.swift */,
 				AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */,
 				ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */,
+				AC26B3FE243619A300A84462 /* LikeMealsSceneModel.swift */,
 				ACACD459241B8C980017D4D7 /* SearchMealsSceneModel.swift */,
 			);
 			path = Meal;
@@ -1275,12 +1287,14 @@
 				AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */,
 				AC12E32223FEBDFE007343A5 /* NewRegistSceneModel.swift in Sources */,
 				56EE488D24153A5100FBEBEC /* ApiManager.swift in Sources */,
+				AC26B401243619A300A84462 /* LikeMealsSceneViewController.swift in Sources */,
 				AC12457F242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				AC807119242A6898000F0BE7 /* ExerciseDetailSceneViewModel.swift in Sources */,
 				566C2D97240443800006108B /* OnboardSceneViewController.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
 				AC57A18024180AFA006E9144 /* MealHeaderView.swift in Sources */,
+				AC26B403243619A300A84462 /* LikeMealsSceneViewModel.swift in Sources */,
 				56EE4893241568FE00FBEBEC /* BaseWorkOutView.swift in Sources */,
 				56993C1E2401BDF500C16CFF /* TipsSceneModel.swift in Sources */,
 				ACACD45B241B8C980017D4D7 /* SearchMealsSceneCoordinator.swift in Sources */,
@@ -1434,6 +1448,7 @@
 				AC57A17E2417A009006E9144 /* BreakfastCell.swift in Sources */,
 				AC80710C242A4CC5000F0BE7 /* ExercisePreviewSceneCoordinator.swift in Sources */,
 				56993C172401BDAA00C16CFF /* ExercisesSceneViewModel.swift in Sources */,
+				AC26B400243619A300A84462 /* LikeMealsSceneCoordinator.swift in Sources */,
 				560586D9242BEC2D00423832 /* RealmService.swift in Sources */,
 				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
 				AC807117242A6898000F0BE7 /* ExerciseDetailSceneViewController.swift in Sources */,
@@ -1443,6 +1458,7 @@
 				ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */,
 				566C2D92240443770006108B /* TabBarSceneViewController.swift in Sources */,
 				AC21930A2412423B00F388C1 /* TodayWorkoutCell.swift in Sources */,
+				AC26B402243619A300A84462 /* LikeMealsSceneModel.swift in Sources */,
 				566C2DA9240444080006108B /* NewRegistSceneViewController.swift in Sources */,
 				ACEFD7F12401CA3A00C2EED8 /* User.swift in Sources */,
 				AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */,

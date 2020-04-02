@@ -88,6 +88,10 @@ class CaloriesView: UIView {
     
     fileprivate func setupUI() {
         backgroundColor = .systemBackground
+        caloriesLabel.textAlignment = .center
+        carbsLabel.textAlignment = .center
+        fatLabel.textAlignment = .center
+        protsLabel.textAlignment = .center
     }
     
     fileprivate func setupBindings() {

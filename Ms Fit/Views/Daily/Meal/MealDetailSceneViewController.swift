@@ -15,15 +15,16 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     private let addPopupView = AddPopupView()
     private lazy var addFoodsPopupView = AddFoodsPopupView(with: self.viewModel)
     
-    private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
+    private var isLikeFood = false
+    
+    private let configuration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: configuration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let heartConfiguration = UIImage.SymbolConfiguration(weight: .medium)
-    private lazy var heartButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "suit.heart.fill", withConfiguration: heartConfiguration)?
+    private lazy var likeMealsButton = specify(Button(type: .roundedRect), {
+        $0.setImage(UIImage(systemName: "suit.heart", withConfiguration: configuration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
@@ -248,6 +249,15 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
             .subscribe(onNext: { [unowned self] _ in
             self.handleAddMealPopupView()
             }).disposed(by: disposeBag)
+        
+        likeMealsButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.likeMealsButton.setImage(self.isLikeFood ? UIImage(systemName: "suit.heart")?
+                    .withTintColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), renderingMode: .alwaysOriginal) :
+                    UIImage(systemName: "suit.heart.fill", withConfiguration: self.configuration)?
+                        .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
+                self.isLikeFood = !self.isLikeFood
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -263,7 +273,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
-        view.add(heartButton, layoutBlock: {
+        view.add(likeMealsButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
         })
         view.add(addPopupView, layoutBlock: { $0.edges() })

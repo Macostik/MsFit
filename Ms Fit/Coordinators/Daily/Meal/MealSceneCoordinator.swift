@@ -34,6 +34,10 @@ class MealSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentMealDetailScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentLikeMealsObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentLikeMealsScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -50,5 +54,10 @@ class MealSceneCoordinator: BaseSceneCoordinator<Void> {
     @discardableResult private func presentMealDetailScene() -> Observable<Void> {
         let mealDetailCoordinator = MealDetailSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: mealDetailCoordinator)
+    }
+    
+    @discardableResult private func presentLikeMealsScene() -> Observable<Void> {
+        let likeMealsCoordinator = LikeMealsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: likeMealsCoordinator)
     }
 }
