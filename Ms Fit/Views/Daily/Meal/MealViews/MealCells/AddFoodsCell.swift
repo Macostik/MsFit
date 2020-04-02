@@ -1,5 +1,5 @@
 //
-//  AddFeedsCell.swift
+//  AddFoodsCell.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 31.03.2020.
@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AddFeedsCell: UITableViewCell, CellIdentifierable {
+class AddFoodsCell: UITableViewCell, CellIdentifierable {
     
     fileprivate let disposeBag = DisposeBag()
     private var isSelectedButton = false
@@ -34,6 +34,7 @@ class AddFeedsCell: UITableViewCell, CellIdentifierable {
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
     public let checkmarkButton = specify(Button(type: .roundedRect), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = .systemBackground
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
@@ -51,7 +52,7 @@ class AddFeedsCell: UITableViewCell, CellIdentifierable {
         addConstraints()
     }
     
-    public func setup(_ entry: AddFeedsModel) {
+    public func setup(_ entry: AddFoodsModel) {
         iconImageView.image = UIImage(named: entry.rawValue)
         titleLabel.text = entry.rawValue
         kcalLabel.text = entry.description()

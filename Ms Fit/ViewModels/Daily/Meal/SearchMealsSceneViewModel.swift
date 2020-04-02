@@ -12,4 +12,7 @@ import RxCocoa
 
 final class SearchMealsSceneViewModel: BaseViewModel<SearchMealsSceneModel> {
     
+    public var dismissObserver = PublishSubject<Void>()
+    public var presentMealsStoregeObserver = PublishSubject<Void>()
+    public var presentDetailFoodObserver = PublishSubject<(Int, String)>()
 }

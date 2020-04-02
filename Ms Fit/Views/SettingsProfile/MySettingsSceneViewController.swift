@@ -33,7 +33,8 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
         return tableView
     }()
@@ -99,50 +100,5 @@ extension MySettingsSceneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 3 ? 10 : 30
-    }
-}
-
-class SettingsCell: UITableViewCell, CellIdentifierable {
-    
-    let tosSwitch = specify(UISwitch(), {
-        $0.isOn = true
-    })
-    let accessoryLabel = UILabel()
-    
-    func setup(setting: SettingsStorageSceneModel) {
-        textLabel?.text = setting.description().0
-        add(accessoryLabel, layoutBlock: { $0.centerY().trailing(40) })
-        accessoryLabel.text = setting.description().1
-        if setting == .logOut {
-            textLabel?.textAlignment = .center
-            textLabel?.textColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
-        } else if setting == .termOfUse {
-            add(tosSwitch, layoutBlock: { $0.centerY().trailing(20) })
-        } else {
-            accessoryType = .disclosureIndicator
-        }
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        tosSwitch.removeFromSuperview()
-        accessoryLabel.removeFromSuperview()
-        textLabel?.text = nil
-        textLabel?.textAlignment = .left
-        accessoryType = .none
-        textLabel?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    }
-}
-
-class SettingsHeaderView: UIView {
-    
-    let titleLabel = specify(UILabel(), {
-        $0.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        $0.font = UIFont.systemFont(ofSize: 13.0)
-    })
-    
-    public func setup(title: String) {
-        add(titleLabel, layoutBlock: { $0.leading(16).bottom(5) })
-        titleLabel.text = title
     }
 }

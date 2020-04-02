@@ -30,14 +30,12 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let navQuestionsLabel = specify(UILabel(), {
         $0.text = "Today meals"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let myMealsButton = specify(UIButton(type: .roundedRect), {
@@ -79,6 +77,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         layout.headerReferenceSize = CGSize(width: Constants.sW, height: 130)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(BreakfastCell.self, forCellWithReuseIdentifier: BreakfastCell.identifier)
@@ -124,8 +123,8 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
         addPopupView.isHidden = true
+        caloriesView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {
@@ -139,7 +138,9 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navQuestionsLabel).leading(4).size(44)})
         view.add(caloriesView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
         view.add(collectionView, layoutBlock: { $0.topBottom(to: caloriesView).leading().trailing().bottom()})
-        view.add(myMealsButton, layoutBlock: { $0.bottom(25).leading(25).size(56) })
+        view.add(myMealsButton, layoutBlock: {
+            $0.bottom(Constants.sH_812 ? 25 : 15).trailing(Constants.sH_812 ? 25 : 15).size(56)
+        })
         view.add(addPopupView, layoutBlock: { $0.edges() })
     }
     

@@ -18,11 +18,28 @@ class SearchMealsSceneCoordinator: BaseSceneCoordinator<Void> {
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
+        viewModel.dismissObserver.subscribe(onNext: { _ in
+            navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentMealsStoregeObserver.subscribe(onNext: { _ in
+            self.presentMealsStoregeScene()
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentDetailFoodObserver.subscribe(onNext: { _ in
+            self.presentDetailFoodStoregeScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
-//    }
+    @discardableResult private func presentMealsStoregeScene() -> Observable<Void> {
+        let storageCoordinator = MealsStorageSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: storageCoordinator)
+    }
+    
+    @discardableResult private func presentDetailFoodStoregeScene() -> Observable<Void> {
+        let detailFoodCoordinator = DetailFoodSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: detailFoodCoordinator)
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  AddFeedsPopupView.swift
+//  AddFoodsPopupView.swift
 //  Ms Fit
 //
 //  Created by Yura Granchenko on 27.03.2020.
@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AddFeedsPopupView: UIView {
+class AddFoodsPopupView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     public var viewModel: MealDetailSceneViewModel?
@@ -39,7 +39,7 @@ class AddFeedsPopupView: UIView {
     private let tableView = specify(UITableView(), {
         $0.showsVerticalScrollIndicator = false
         $0.separatorStyle = .none
-        $0.register(AddFeedsCell.self, forCellReuseIdentifier: AddFeedsCell.identifier)
+        $0.register(AddFoodsCell.self, forCellReuseIdentifier: AddFoodsCell.identifier)
     })
     
     init(with viewModel: MealDetailSceneViewModel?) {
@@ -65,14 +65,14 @@ class AddFeedsPopupView: UIView {
                 })
             }).disposed(by: disposeBag)
         
-        Observable.just(AddFeedsModel.allCases)
-            .bind(to: tableView.rx.items(cellIdentifier: AddFeedsCell.identifier,
-                                         cellType: AddFeedsCell.self)) { _, model, cell in
+        Observable.just(AddFoodsModel.allCases)
+            .bind(to: tableView.rx.items(cellIdentifier: AddFoodsCell.identifier,
+                                         cellType: AddFoodsCell.self)) { _, model, cell in
                 cell.setup(model)
         }.disposed(by: disposeBag)
         
         Observable
-        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(AddFeedsModel.self))
+        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(AddFoodsModel.self))
         .bind { indexPath, model in
             self.viewModel?.presentDetailFoodObserver.onNext((indexPath.row, model.rawValue))
         }.disposed(by: disposeBag)

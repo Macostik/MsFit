@@ -47,8 +47,8 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     
     public func setup() {
         setupUI()
-        addConstraint()
         setupBindings()
+        addConstraint()
     }
     
     fileprivate func setupUI() {
@@ -68,9 +68,8 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
                 print("tap favoriteButton")
             }).disposed(by: disposeBag)
         searchButton.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                print("tap searchButton")
-                self.tapPresentSearchHanper?()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tapPresentSearchHanper?()
             }).disposed(by: disposeBag)
     }
     

@@ -120,7 +120,9 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
         
         view.add(containerForButtonView, layoutBlock: { $0.leading().topBottom(to: caloriesView).trailing() })
         containerForButtonView.add(clearAllMeals, layoutBlock: { $0.top(8).bottom(8).trailing(16).width(100)})
-        view.add(closeButton, layoutBlock: { $0.bottom(25).trailing(25).size(56) })
+        view.add(closeButton, layoutBlock: {
+            $0.bottom(Constants.sH_812 ? 25 : 15).trailing(Constants.sH_812 ? 25 : 15).size(56)
+        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
