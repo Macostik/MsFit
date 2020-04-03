@@ -14,8 +14,6 @@ class AddPopupView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-//    private var isSelected = false
-    
     public let containerView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 20
@@ -32,6 +30,7 @@ class AddPopupView: UIView {
     private let tableView = specify(UITableView(), {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
+        $0.allowsMultipleSelection = true
         $0.isScrollEnabled = false
         $0.separatorStyle = .none
         $0.register(LunchCell.self, forCellReuseIdentifier: LunchCell.identifier)
@@ -76,22 +75,12 @@ class AddPopupView: UIView {
                                          cellType: LunchCell.self)) { _, data, cell in
                                             cell.setup(data)
         }.disposed(by: disposeBag)
-        
-//        Observable
-//            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(LunchList.self))
-//            .bind { [unowned self] indexPath, model in
-//                let cell = self.tableView.cellForRow(at: indexPath) as? LunchCell
-//                cell?.backgroundColor = self.isSelected ? #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        }.disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) { fatalError() }
 }
 
 class LunchCell: UITableViewCell, CellIdentifierable {
-    
-//    fileprivate let disposeBag = DisposeBag()
-//    public var tapHandle: (() -> Void)?
     
     private let iconImageView = specify(UIImageView(), {
         $0.contentMode = .scaleAspectFit
@@ -105,6 +94,7 @@ class LunchCell: UITableViewCell, CellIdentifierable {
     public let checkmarkButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = .systemBackground
+        $0.isUserInteractionEnabled = false
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 32 / 2
@@ -124,11 +114,11 @@ class LunchCell: UITableViewCell, CellIdentifierable {
     
     fileprivate func setupUI() {
         selectionStyle = .none
-//        checkmarkButton.rx.tap
-//            .subscribe(onNext: { [unowned self] _ in
-//                self.tapHandle?()
-//            }).disposed(by: disposeBag)
-//        tapHandle?()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        checkmarkButton.backgroundColor = selected ? #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
     fileprivate func addConstraints() {
