@@ -168,7 +168,7 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
             .bind(to: tableView.rx.items(cellIdentifier: SearchFoodsCell.identifier,
                                          cellType: SearchFoodsCell.self)) { _, model, cell in
                                             cell.setup(model)
-                                            cell.tapHalper = {
+                                            cell.tapHalper = { [unowned self] in
                                                 self.handlePopupView()
                                             }
         }.disposed(by: disposeBag)
