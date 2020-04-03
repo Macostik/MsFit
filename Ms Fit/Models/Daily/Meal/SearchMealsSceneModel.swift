@@ -17,3 +17,7 @@ final class SearchMealsSceneModel: Object {
         return "id"
     }
 }
+
+enum HeaderModel: String, CaseIterable {
+    case fruit, drink, sauses, snack
+}

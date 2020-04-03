@@ -39,6 +39,7 @@ class TodayWorkoutView: BaseWorkOutView {
             .subscribe(onNext: {
                 // do something
             }).disposed(by: disposeBag)
+        
         Observable
         .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(TodayWorkoutList.self))
         .bind { indexPath, model in

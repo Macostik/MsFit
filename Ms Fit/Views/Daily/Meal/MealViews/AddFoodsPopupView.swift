@@ -72,9 +72,9 @@ class AddFoodsPopupView: UIView {
         }.disposed(by: disposeBag)
         
         Observable
-        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(AddFoodsModel.self))
-        .bind { indexPath, model in
-            self.viewModel?.presentDetailFoodObserver.onNext((indexPath.row, model.rawValue))
+            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(AddFoodsModel.self))
+            .bind { indexPath, model in
+                self.viewModel?.presentDetailFoodObserver.onNext((indexPath.row, model.rawValue))
         }.disposed(by: disposeBag)
     }
     

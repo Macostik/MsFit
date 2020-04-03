@@ -22,6 +22,23 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
+    internal lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let width = Constants.sW * 0.17
+        layout.sectionInset = UIEdgeInsets(top: 0, left: width * 0.7, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: width, height: width + 11)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.isScrollEnabled = false
+        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        collectionView.register(SearchHeaderCell.self,
+                                forCellWithReuseIdentifier: SearchHeaderCell.identifier)
+        return collectionView
+    }()
+    
     private let searchBar = specify(UISearchBar(), {
         $0.placeholder = "Search for products"
         $0.searchBarStyle = .minimal
@@ -53,69 +70,6 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
         $0.add(image, layoutBlock: { $0.center().width(19).height(14) })
     })
     
-    private let fruitLabel = specify(UILabel(), {
-        $0.text = "Fruit"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.textAlignment = .center
-    })
-    private let fruitImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "grape_icon") })
-    private let fruitView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
-        $0.layer.shadowColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.layer.shadowOffset = .init(width: 0, height: -0.3)
-        $0.layer.shadowOpacity = 0.3
-    })
-    
-    private let drinkLabel = specify(UILabel(), {
-        $0.text = "Drink"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.textAlignment = .center
-    })
-    
-    private let drinkImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "smoothie_icon") })
-    private let drinkView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
-        $0.layer.shadowColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.layer.shadowOffset = .init(width: 0, height: -0.3)
-        $0.layer.shadowOpacity = 0.3
-    })
-    
-    private let saucesLabel = specify(UILabel(), {
-        $0.text = "Sauces"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.textAlignment = .center
-    })
-    
-    private let saucesImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "ketchup_icon") })
-    private let saucesView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
-        $0.layer.shadowColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.layer.shadowOffset = .init(width: 0, height: -0.3)
-        $0.layer.shadowOpacity = 0.3
-    })
-    
-    private let snackLabel = specify(UILabel(), {
-        $0.text = "Snacks"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.textAlignment = .center
-    })
-    
-    private let snackImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "snack_icon") })
-    private let snackView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
-        $0.layer.shadowColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-        $0.layer.shadowOffset = .init(width: 0, height: -0.3)
-        $0.layer.shadowOpacity = 0.3
-    })
-    
     private let tableView = specify(UITableView(frame: .zero, style: .grouped), {
         $0.showsVerticalScrollIndicator = false
         $0.separatorStyle = .none
@@ -139,31 +93,6 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
                 self.viewModel?.presentMealsStoregeObserver.onNext(())
             }).disposed(by: disposeBag)
         
-        fruitView.rx.tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { [unowned self] _ in
-                self.checkmarkView.alpha = self.isCheckmarkItem ? 0.0 : 1.0
-                self.isCheckmarkItem = !self.isCheckmarkItem
-            }).disposed(by: disposeBag)
-        
-        drinkView.rx.tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { _ in
-                
-            }).disposed(by: disposeBag)
-        
-        saucesView.rx.tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { _ in
-            
-            }).disposed(by: disposeBag)
-        
-        snackView.rx.tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { _ in
-                
-            }).disposed(by: disposeBag)
-        
         Observable.just(AddFoodsModel.allCases)
             .bind(to: tableView.rx.items(cellIdentifier: SearchFoodsCell.identifier,
                                          cellType: SearchFoodsCell.self)) { _, model, cell in
@@ -178,6 +107,12 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
         .bind { indexPath, model in
             self.viewModel?.presentDetailFoodObserver.onNext((indexPath.row, model.rawValue))
         }.disposed(by: disposeBag)
+        
+        Observable.just(HeaderModel.allCases)
+            .bind(to: collectionView.rx.items(cellIdentifier: SearchHeaderCell.identifier,
+                                              cellType: SearchHeaderCell.self)) { _, model, cell in
+                                                cell.setup(with: model)
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -187,37 +122,14 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
     }
     
     fileprivate func addConstraint() {
-        fruitView.heightAnchor.constraint(equalToConstant: Constants.sW / 6.5).isActive = true
-        fruitView.widthAnchor.constraint(equalToConstant: Constants.sW / 6.5).isActive = true
-        
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         view.add(searchBar, layoutBlock: { $0.topBottom(10, to: navigationView).leading(10).trailing(10) })
         navigationView.add(navSearchLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navSearchLabel).leading(4).size(44) })
-        
-        let hStackViewForButtons = HStackView(arrangedSubviews: [
-            VStackView(arrangedSubviews: [fruitView, fruitLabel], spacing: 5),
-            VStackView(arrangedSubviews: [drinkView, drinkLabel], spacing: 5),
-            VStackView(arrangedSubviews: [saucesView, saucesLabel], spacing: 5),
-            VStackView(arrangedSubviews: [snackView, snackLabel], spacing: 5)
-        ], spacing: 25)
-        hStackViewForButtons.distribution = .fillEqually
-        hStackViewForButtons.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        
-        fruitView.add(fruitImageView, layoutBlock: { $0.edges(10) })
-        fruitView.add(checkmarkView, layoutBlock: { $0.edges() })
-        drinkView.add(drinkImageView, layoutBlock: { $0.edges(10) })
-        saucesView.add(saucesImageView, layoutBlock: { $0.edges(10) })
-        snackView.add(snackImageView, layoutBlock: { $0.edges(10) })
-        
-        view.add(hStackViewForButtons, layoutBlock: {
-            $0.topBottom(Constants.sH_812 ? 25 : 10, to: searchBar).centerX()
-        })
-        view.add(tableView, layoutBlock: {
-            $0.topBottom(16, to: hStackViewForButtons).leading().trailing().bottom()
-        })
+        view.add(collectionView, layoutBlock: { $0.topBottom(to: searchBar).leading().trailing().height(100)})
+        view.add(tableView, layoutBlock: { $0.topBottom(to: collectionView).leading().trailing().bottom() })
         view.add(myMealsButton, layoutBlock: {
             $0.bottom(Constants.sH_812 ? 25 : 15).trailing(Constants.sH_812 ? 25 : 15).size(56)
         })
