@@ -18,7 +18,7 @@ class GraphView: UIView {
     private let lostContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     private let standartContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     private let nowContainerView = specify(UIView(), {  $0.backgroundColor = .systemBackground })
-    private let graphContainerView = specify(UIView(), { $0.backgroundColor = .systemGray2 })
+    private let graphContainerView = specify(UIView(), { $0.backgroundColor = .white })
     
     private let lostTextLabel = specify(UILabel(), {
         $0.text = "LOST"
@@ -96,10 +96,36 @@ class GraphView: UIView {
         super.init(frame: frame)
         setupUI()
         addconstraints()
+        setupGraph()
     }
     
     fileprivate func setupUI() {
         backgroundColor = .systemBackground
+    }
+    
+    private func setupGraph() {
+        let graphView = PNLineChart(frame: CGRect(x: 0, y: 0, width: Constants.sW, height: 300))
+        graphView.yLabelFormat = "%1.1f"
+        graphView.showLabel = true
+        graphView.backgroundColor = UIColor.clear
+        graphView.xLabels = ["Sep 1", "Sep 2", "Sep 3", "Sep 4", "Sep 5", "Sep 6", "Sep 7"]
+        graphView.showCoordinateAxis = true
+        
+        let dataArr = [60.1, 160.1, 126.4, 232.2, 186.2, 127.2, 176.2]
+        let data = PNLineChartData()
+        data.color = PNBule
+        data.itemCount = dataArr.count
+        data.inflexPointStyle = .None
+        data.getData = ({
+            (index: Int) -> PNLineChartDataItem in
+            let yValue = CGFloat(dataArr[index])
+            let item = PNLineChartDataItem(y: yValue)
+            return item
+        })
+        
+        graphView.chartData = [data]
+        graphView.strokeChart()
+        graphContainerView.add(graphView, layoutBlock: { $0.edges() })
     }
     
     fileprivate func addconstraints() {
@@ -139,3 +165,33 @@ class GraphView: UIView {
     
     required init?(coder: NSCoder) { fatalError() }
 }
+
+//// Build Graph
+//   [self.SELLineChart removeFromSuperview];
+//   self.SELLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.SELChartView.frame), CGRectGetHeight(self.SELChartView.frame))];
+//   [self.SELLineChart setBackgroundColor:[UIColor whiteColor]];
+//
+//   [self.SELLineChart setXLabels:self.SELWeightDateXArray];
+//   [self.SELLineChart setXLabelFont:(UIScreen.mainScreen.bounds.size.width == 320.f) ? [UIFont fontWithName:@"Rubik-Regular" size:9] : [UIFont fontWithName:@"Rubik-Regular" size:11]];
+//   [self.SELLineChart setYLabelFont:(UIScreen.mainScreen.bounds.size.width == 320.f) ? [UIFont fontWithName:@"Rubik-Regular" size:9] : [UIFont fontWithName:@"Rubik-Regular" size:11]];
+//   [self.SELLineChart setYLabelColor:cELXHColorRGB(110.0f, 110.0f, 121.0f)];
+//   [self.SELLineChart setXLabelColor:cELXHColorRGB(110.0f, 110.0f, 121.0f)];
+//   [self.SELLineChart setUnitType:@"kg"];
+//   [self.SELLineChart setShowSmoothLines:YES];
+//   [self.SELLineChart setClipsToBounds:NO];
+//
+//   PNLineChartData *chartData = [PNLineChartData new];
+//   [chartData setColor:cELXHColorRGB(143.0f, 92.0f, 232.0f)];
+//   [chartData setItemCount:[self.SELLineChart.xLabels count]];
+//   [chartData setInflexionPointColor:cELXHColorRGB(143.0f, 92.0f, 232.0f)];
+//   [chartData setInflexionPointStyle:PNLineChartPointStyleCircle];
+//   [chartData setInflexionPointWidth:10];
+//   chartData.getData = ^(NSUInteger index) {
+//       CGFloat yValue = [self.SELWeightKgYArray[index] floatValue];
+//
+//       return [PNLineChartDataItem dataItemWithY:yValue];
+//   };
+//   [self.SELLineChart setChartValues:self.SELWeightKgYArray];
+//   [self.SELLineChart setChartData:@[chartData]];
+//   [self.SELLineChart strokeChart];
+//   [self.SELChartView addSubview:self.SELLineChart];
