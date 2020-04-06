@@ -19,17 +19,18 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
+    private let message = """
+    Your General Membership subcription is valid till 23.04.2020. With new payment your subcription will be
+    prolinged from mentioned date
+    """
+    
     private let pagerView = FSPagerView()
     private let pageControl = specify(FSPageControl(), {
         $0.contentHorizontalAlignment = .center
     })
     
     private let fullProgramImage = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "buy_three_month_icon")
-    })
-    
-    private let backfullProgramImage = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "daily_back_buy_three_month_icon")
+        $0.image = UIImage(named: "fullProgramm_icon")
     })
     
     private let navigationView = specify(UIView(), {
@@ -48,28 +49,28 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     private let oneMonthLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center
-        $0.text = "1 months"
+        $0.text = "3 months"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
     private let threeMonthLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center
-        $0.text = "3 months"
+        $0.text = "Premium"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
     private let priceOneMonthLabel = specify(UILabel(), {
-        $0.font = .systemFont(ofSize: 20, weight: .medium)
+        $0.font = .systemFont(ofSize: 20, weight: .bold)
         $0.textAlignment = .center
-        $0.text = "$15 / MONTH"
+        $0.text = "21.99 USD"
         $0.textColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
     })
     
     private let priceThreeMonthLabel = specify(UILabel(), {
-        $0.font = .systemFont(ofSize: 20, weight: .medium)
+        $0.font = .systemFont(ofSize: 20, weight: .bold)
         $0.textAlignment = .center
-        $0.text = "$9.99 / MONTH"
+        $0.text = "46.99 USD"
         $0.textColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
     })
     
@@ -104,16 +105,23 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
             .disposed(by: disposeBag)
         
         buyOneMonthButton.animateWhenPressed(disposeBag: disposeBag)
+        buyOneMonthButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.createAlertController()
+            }).disposed(by: disposeBag)
+        
         buyThreeMonthButton.animateWhenPressed(disposeBag: disposeBag)
+        buyThreeMonthButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.createAlertController()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
-        view.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         view.backgroundColor = #colorLiteral(red: 0.9800000191, green: 0.9800000191, blue: 0.9800000191, alpha: 1)
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.bounces = true
-        pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.identifier)
         pageControl.interitemSpacing = 10
         pageControl.numberOfPages = HomeImageList.allCases.count
@@ -124,17 +132,16 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        buyOneMonthButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.25).isActive = true
         
         let vForButtonsStackView = VStackView(arrangedSubviews: [buyOneMonthButton, buyThreeMonthButton],
-                                              spacing: 25)
+                                              spacing: Constants.sH_812 ? 30 : 20)
         vForButtonsStackView.distribution = .fillEqually
+        vForButtonsStackView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
-        let vOneMonthStackView = VStackView(arrangedSubviews: [oneMonthLabel, priceOneMonthLabel],
-                                            spacing: 6)
+        let vOneMonthStackView = VStackView(arrangedSubviews: [oneMonthLabel, priceOneMonthLabel])
         vOneMonthStackView.isUserInteractionEnabled = false
-        
-        let vThreeMonthStackView = VStackView(arrangedSubviews: [threeMonthLabel, priceThreeMonthLabel],
-                                              spacing: 6)
+        let vThreeMonthStackView = VStackView(arrangedSubviews: [threeMonthLabel, priceThreeMonthLabel])
         vThreeMonthStackView.isUserInteractionEnabled = false
         
         view.add(navigationView, layoutBlock: {
@@ -145,28 +152,31 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         })
         view.add(bgDayliCircleImage, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing()
-                .height(Constants.sH_812 ? Constants.sW * 0.8 : Constants.sW * 0.6)
+                .height(Constants.sH_812 ? Constants.sW * 0.8 : Constants.sW * 0.7)
         })
-        buyOneMonthButton.heightAnchor.constraint(equalToConstant: Constants.sH / 9).isActive = true
-        
         view.add(vForButtonsStackView, layoutBlock: {
-            $0.bottom(Constants.sH_812 ? 80 : 50).leading(16).trailing(16)
+            $0.bottom(Constants.sH_812 ? 80 : 30).leading(16).trailing(16)
         })
         view.add(getPremiumLabel, layoutBlock: {
-            $0.bottomTop(Constants.sH_812 ? -50 : -25, to: vForButtonsStackView).leading(16).trailing(16)
+            $0.bottomTop(Constants.sW * -0.1, to: vForButtonsStackView).leading(16).trailing(16)
         })
         
         buyOneMonthButton.add(vOneMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(vThreeMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(fullProgramImage, layoutBlock: {
-            $0.leading(5).centerY().height(Constants.sH_812 ? 105 : Constants.sH_667 ? 84 : 64)
-        })
-        view.sendSubviewToBack(backfullProgramImage, layoutBlock: {
-            $0.trailing(-5, to: fullProgramImage).centerY(to: fullProgramImage)
-                .height(Constants.sH_812 ? 105 : Constants.sH_667 ? 84 : 64)
+            $0.leading(5).top(-6).bottom(-10).width(Constants.sW * 0.3)
         })
         bgDayliCircleImage.add(pagerView, layoutBlock: { $0.edges() })
-        pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_812 ? 40 : 10).centerX() })
+        pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_667 ? 40 : 10).centerX() })
+    }
+    
+    private func createAlertController() {
+        let alertController = UIAlertController(title: "Do you want to buy Premium?",
+                                                message: message,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -117,8 +117,7 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
     }
     
     fileprivate func addConstraints() {
-        previewImagePagerView.heightAnchor.constraint(equalToConstant:
-            Constants.sH_812 ? 250 : 200).isActive = true
+        previewImagePagerView.heightAnchor.constraint(equalToConstant: Constants.sW * 0.8).isActive = true
         let baseVStackView = VStackView(arrangedSubviews: [
             previewImagePagerView, nameExerciseView, musclesInvolvedView,
             performReoetitionView, notesView, readyToStartView

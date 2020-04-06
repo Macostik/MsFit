@@ -73,9 +73,4 @@ class PreviewImageCell: FSPagerViewCell {
         add(previewImageView, layoutBlock: { $0.edges() })
         previewImageView.image = UIImage(named: entry.rawValue)
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    required init?(coder aDecoder: NSCoder) { fatalError() }
 }

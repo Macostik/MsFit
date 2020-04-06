@@ -36,7 +36,7 @@ class HomeCell: FSPagerViewCell {
         
         add(topImageView, layoutBlock: { $0.top(0).centerX() })
         add(verticalStackView, layoutBlock: {
-            $0.leading(30).trailing(30).topBottom(30, to: topImageView)
+            $0.leading(16).trailing(16).topBottom(30, to: topImageView)
         })
         topImageView.image = UIImage(named: entry.rawValue)
         topLabel.text = entry.description().0.capitalized
