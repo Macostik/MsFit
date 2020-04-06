@@ -148,7 +148,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
         })
         view.add(bgDayliCircleImage, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing()
