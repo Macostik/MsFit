@@ -21,7 +21,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
         layout.scrollDirection = .vertical
         
         let size = Constants.sW
-        layout.itemSize = CGSize(width: size, height: size)
+        layout.itemSize = CGSize(width: size, height: 340)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.identifier)
