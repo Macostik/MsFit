@@ -30,8 +30,8 @@ class AddPopupView: UIView {
     private let tableView = specify(UITableView(), {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
+        $0.allowsMultipleSelection = true
         $0.isScrollEnabled = false
-        $0.allowsSelection = false
         $0.separatorStyle = .none
         $0.register(LunchCell.self, forCellReuseIdentifier: LunchCell.identifier)
     })
@@ -45,7 +45,6 @@ class AddPopupView: UIView {
     
     fileprivate func setupUI() {
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {
@@ -56,9 +55,7 @@ class AddPopupView: UIView {
         containerView.add(addButton, layoutBlock: {
             $0.bottom().leading().trailing().height(Constants.sH_812 ? 80 : 60)
         })
-        containerView.add(tableView, layoutBlock: {
-            $0.top().leading(16).trailing(16).bottomTop(to: addButton)
-        })
+        containerView.add(tableView, layoutBlock: { $0.top().leading().trailing().bottomTop(to: addButton) })
         containerView.transform = CGAffineTransform(translationX: 0, y: self.containerView.height)
     }
     
@@ -72,6 +69,7 @@ class AddPopupView: UIView {
                     self.isHidden = true
                 })
             }).disposed(by: disposeBag)
+        
         Observable.just(LunchList.allCases)
             .bind(to: tableView.rx.items(cellIdentifier: LunchCell.identifier,
                                          cellType: LunchCell.self)) { _, data, cell in
@@ -93,10 +91,10 @@ class LunchCell: UITableViewCell, CellIdentifierable {
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
-    private let checkmarkButton = specify(UIButton(type: .roundedRect), {
+    public let checkmarkButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = .systemBackground
-        $0.backgroundColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
+        $0.isUserInteractionEnabled = false
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 32 / 2
@@ -115,7 +113,12 @@ class LunchCell: UITableViewCell, CellIdentifierable {
     }
     
     fileprivate func setupUI() {
-        
+        selectionStyle = .none
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        checkmarkButton.backgroundColor = selected ? #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
     fileprivate func addConstraints() {

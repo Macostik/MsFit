@@ -34,13 +34,13 @@ class AddFoodsCell: UITableViewCell, CellIdentifierable {
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
     public let checkmarkButton = specify(Button(type: .roundedRect), {
+        $0.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = .systemBackground
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.layer.borderWidth = 1
-        $0.layer.cornerRadius = 35 / 2
-        $0.clipsToBounds = true
+        $0.circled = true
         $0.touchArea.width = 70
         $0.touchArea.height = 70
     })
@@ -60,6 +60,7 @@ class AddFoodsCell: UITableViewCell, CellIdentifierable {
     
     fileprivate func setupUI() {
         selectionStyle = .none
+        accessoryView = checkmarkButton
     }
     
     fileprivate func setupBindings() {
@@ -78,7 +79,6 @@ class AddFoodsCell: UITableViewCell, CellIdentifierable {
         ], spacing: 8)
 
         add(hStackView, layoutBlock: { $0.leading(16).top(10).bottom(10) })
-        add(checkmarkButton, layoutBlock: { $0.trailing(25).centerY().size(35) })
         add(separatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
     }
     

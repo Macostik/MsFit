@@ -20,6 +20,7 @@ class MealsView: UIView {
         $0.register(QuestionMealCell.self, forCellReuseIdentifier: QuestionMealCell.identifier)
         $0.contentInset = .init(top: 15, left: 0, bottom: 0, right: 0)
         $0.separatorInset = .zero
+        $0.isMultipleTouchEnabled = true
         $0.separatorColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9137254902, alpha: 1)
     })
     
@@ -43,7 +44,7 @@ class MealsView: UIView {
     }
     
     fileprivate func addConstraint() {
-        add(mealTableView, layoutBlock: { $0.top().leading().trailing().bottom() })
+        add(mealTableView, layoutBlock: { $0.edges() })
     }
     
     required init?(coder: NSCoder) { fatalError() }
@@ -73,12 +74,7 @@ class QuestionMealCell: UITableViewCell, CellIdentifierable {
     
     static var identifier: String = "QuestionMealCell"
     
-    private lazy var  plusImageView = specify(UIImageView(), {
-        $0.image = UIImage(systemName: "plus", withConfiguration:
-            UIImage.SymbolConfiguration(weight: .bold))?
-            .withTintColor(.systemBackground, renderingMode: .alwaysOriginal)
-        $0.tintColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-    })
+    private lazy var  plusImageView = UIImageView()
     
     private let titleLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 16, weight: .regular)
@@ -103,6 +99,14 @@ class QuestionMealCell: UITableViewCell, CellIdentifierable {
     
     fileprivate func setupUI() {
         selectionStyle = .none
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: true)
+        plusImageView.image = selected ? UIImage(systemName: "minus", withConfiguration:
+            UIImage.SymbolConfiguration(weight: .bold))?.withTintColor(#colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), renderingMode: .alwaysOriginal) :
+            UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight:
+                .regular))?.withTintColor(#colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), renderingMode: .alwaysOriginal)
     }
     
     fileprivate func addConstraint() {

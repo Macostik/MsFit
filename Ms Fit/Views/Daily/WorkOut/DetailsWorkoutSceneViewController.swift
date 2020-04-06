@@ -67,6 +67,12 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         $0.textColor = .systemBackground
     })
     
+    private lazy var allVideosButton = specify(UIButton(type: .roundedRect), {
+        $0.setTitle("Videos", for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
+        $0.setTitleColor(.systemBackground, for: .normal)
+    })
+    
     private let nameExerciseLabel = specify(UILabel(), {
         $0.text = "Crunches"
         $0.font = .systemFont(ofSize: 22, weight: .medium)
@@ -124,7 +130,7 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: true)
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
     })
-    
+
     private let readyToStartLabel = specify(UILabel(), {
         $0.text = "This is just an exercise preview. Ready to start?"
         $0.font = .systemFont(ofSize: 13, weight: .regular)
@@ -146,6 +152,16 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
+        
+        startWorkoutButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentStartWorkoutObserver.onNext(())
+            }).disposed(by: disposeBag)
+        
+        allVideosButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("tap all videos")
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
@@ -164,6 +180,7 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         })
         navigationView.add(navPreviewLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navPreviewLabel).leading(4).size(44) })
+        navigationView.add(allVideosButton, layoutBlock: { $0.centerY(5, to: navPreviewLabel).trailing(16) })
         view.add(hStackView, layoutBlock: { $0.leading().trailing().bottom().height(Constants.sW / 6.5) })
         view.add(scrollView, layoutBlock: {
             $0.topBottom(to: navigationView).width(Constants.sW).bottomTop(to: hStackView)

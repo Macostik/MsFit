@@ -147,7 +147,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.textAlignment = .center
     })
-    private let fruitImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "grape_icon") })
+    private let fruitImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "fruit") })
     private let fruitView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
@@ -163,7 +163,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         $0.textAlignment = .center
     })
     
-    private let drinkImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "smoothie_icon") })
+    private let drinkImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "drink") })
     private let drinkView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
@@ -179,7 +179,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         $0.textAlignment = .center
     })
     
-    private let saucesImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "ketchup_icon") })
+    private let saucesImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "sauses") })
     private let saucesView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
@@ -195,7 +195,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         $0.textAlignment = .center
     })
     
-    private let snackImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "snack_icon") })
+    private let snackImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "snack") })
     private let snackView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
