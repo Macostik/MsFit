@@ -12,7 +12,9 @@ import RxCocoa
 
 class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewModel> {
     
-    private let basicContainerView = ProgressTimer()
+    private let progressTimerView = ProgressTimer()
+    
+    private var isTimer = false
     
     private let startConfiguration = UIImage.SymbolConfiguration(weight: .thin)
     internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
@@ -50,8 +52,9 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
                         .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
                     self.startWorkoutButton.setTitle("Pause", for: .normal)
                 }
-                self.basicContainerView.progressTimer.add(self.basicContainerView.basicAnimation,
-                                                          forKey: "urSoBasic")
+                self.progressTimerView.toggleTimer(isOn: !self.isTimer)
+                self.isTimer.toggle()
+                
             }).disposed(by: disposeBag)
     }
     
@@ -67,7 +70,7 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
             $0.bottom(Constants.sH_812 ? 30 : 15).centerX()
                 .width(Constants.sW * 0.4).height(Constants.sW * 0.15)
         })
-        view.add(basicContainerView, layoutBlock: {
+        view.add(progressTimerView, layoutBlock: {
             $0.bottomTop(-25, to: startWorkoutButton)
                 .size(Constants.sH_812 ? Constants.sW * 0.5 : Constants.sW * 0.4).centerX()
         })
@@ -75,7 +78,7 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
         let exerciseVStackView = VStackView(arrangedSubviews: [topSeparator, exerciseLabel, bottomSeparator],
                                             spacing: 30)
         view.add(exerciseVStackView, layoutBlock: {
-            $0.bottomTop(-25, to: basicContainerView).leading(16).trailing(16).centerX()
+            $0.bottomTop(-25, to: progressTimerView).leading(16).trailing(16).centerX()
         })
     }
     
