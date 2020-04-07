@@ -13,11 +13,14 @@ import RxCocoa
 class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewModel> {
     
     private let progressTimerView = ProgressTimer()
+    private lazy var timerPopupView = TimerPopupView(with: self.viewModel)
+    private let videoPlayer = { YouTubePlayerView.shared }()
     
     private var isTimer = false
+    private let numberExercise = Array(1...20)
     
     private let startConfiguration = UIImage.SymbolConfiguration(weight: .thin)
-    internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
+    internal lazy var startWorkoutBtn = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: startConfiguration)?
             .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
@@ -32,11 +35,27 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
     private let bottomSeparator = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
     private let exerciseLabel = specify(UILabel(), {
-        $0.text = "2. Spot jogging"
-        $0.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.text = "Flutter kicks with Scissors"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.font = .systemFont(ofSize: Constants.sH_812 ? 22 : 18, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.textAlignment = .center
     })
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0.0
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 50, height: 50)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = false
+        collectionView.register(StartWorkoutCell.self,
+                                forCellWithReuseIdentifier: StartWorkoutCell.identifier)
+        
+        return collectionView
+    }()
     
     override func setupUI() {
         handleUI()
@@ -44,45 +63,70 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
     }
     
     override func setupBindings() {
-        startWorkoutButton.rx.tap
+        startWorkoutBtn.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 UIView.animate(withDuration: 0.3) {
-                    self.startWorkoutButton.setImage(UIImage(systemName: "pause.fill",
+                    self.startWorkoutBtn.setImage(UIImage(systemName: "pause.fill",
                                                              withConfiguration: self.startConfiguration)?
                         .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-                    self.startWorkoutButton.setTitle("Pause", for: .normal)
+                    self.startWorkoutBtn.setTitle("Pause", for: .normal)
                 }
+                
+                self.videoPlayer.play()
                 self.progressTimerView.toggleTimer(isOn: !self.isTimer)
                 self.isTimer.toggle()
                 
+//                self.handlePopupView()
             }).disposed(by: disposeBag)
+        
+        Observable.just(numberExercise)
+            .bind(to: collectionView.rx.items(cellIdentifier: StartWorkoutCell.identifier,
+                                              cellType: StartWorkoutCell.self)) { _, model, cell in
+                                                cell.setup(model)
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
+        timerPopupView.isHidden = true
+        videoPlayer.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+
+        guard let url = URL(string: "https://www.youtube.com/watch?v=wfRl4RfQnPM") else { return }
+        self.videoPlayer.loadVideoURL(url)
     }
     
     fileprivate func addConstraints() {
         topSeparator.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
         bottomSeparator.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
         
-        view.add(startWorkoutButton, layoutBlock: {
+        let exerciseVStackView = VStackView(arrangedSubviews: [topSeparator, exerciseLabel, bottomSeparator],
+                                            spacing: Constants.sH_812 ? 30 : 20)
+        
+        view.add(videoPlayer, layoutBlock: {
+            $0.top().leading().trailing().height(Constants.sH_812 ? Constants.sW * 0.68 : Constants.sW * 0.63)
+        })
+        view.add(collectionView, layoutBlock: {
+            $0.topBottom(Constants.sH_812 ? 25 : 10, to: videoPlayer).leading(16).trailing(16).height(50)
+        })
+        view.add(exerciseVStackView, layoutBlock: {
+            $0.topBottom(Constants.sH_812 ? 25 : 10, to: collectionView).leading(16).trailing(16).centerX()
+        })
+        view.add(startWorkoutBtn, layoutBlock: {
             $0.bottom(Constants.sH_812 ? 30 : 15).centerX()
                 .width(Constants.sW * 0.4).height(Constants.sW * 0.15)
         })
         view.add(progressTimerView, layoutBlock: {
-            $0.bottomTop(-25, to: startWorkoutButton)
-                .size(Constants.sH_812 ? Constants.sW * 0.5 : Constants.sW * 0.4).centerX()
+            $0.bottomTop(Constants.sH_812 ? Constants.sW * -0.09 : Constants.sW * -0.06, to: startWorkoutBtn)
+                .size(Constants.sH_812 ? Constants.sW * 0.6 : Constants.sH_667 ?
+                    Constants.sW * 0.5 : Constants.sW * 0.4).centerX()
         })
-        
-        let exerciseVStackView = VStackView(arrangedSubviews: [topSeparator, exerciseLabel, bottomSeparator],
-                                            spacing: 30)
-        view.add(exerciseVStackView, layoutBlock: {
-            $0.bottomTop(-25, to: progressTimerView).leading(16).trailing(16).centerX()
-        })
+        view.add(timerPopupView, layoutBlock: { $0.edges() })
     }
     
-    override var prefersStatusBarHidden: Bool {
-        true
+    fileprivate func handlePopupView() {
+        timerPopupView.isHidden = false
+        UIView.animate(withDuration: 0.4) {
+            self.timerPopupView.baseVStackView.transform = .identity
+        }
     }
 }

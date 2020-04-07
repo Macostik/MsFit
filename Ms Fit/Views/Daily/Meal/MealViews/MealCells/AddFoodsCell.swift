@@ -67,7 +67,7 @@ class AddFoodsCell: UITableViewCell, CellIdentifierable {
         checkmarkButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 self.checkmarkButton.backgroundColor = self.isSelectedButton ? .systemBackground : #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
-                self.isSelectedButton = !self.isSelectedButton
+                self.isSelectedButton.toggle()
             }).disposed(by: disposeBag)
     }
     

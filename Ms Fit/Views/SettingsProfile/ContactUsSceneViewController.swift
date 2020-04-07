@@ -104,7 +104,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
                 }
                 self.subjectMenuView.heightConstraints.isActive =
                     self.subjectMenuView.heightConstraints.isActive
-                self.isShowMenu = !self.isShowMenu
+                self.isShowMenu.toggle()
             }).disposed(by: disposeBag)
         
         RxKeyboard.instance.visibleHeight

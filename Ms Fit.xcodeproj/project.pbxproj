@@ -227,6 +227,10 @@
 		ACEFD7F12401CA3A00C2EED8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFD7F02401CA3A00C2EED8 /* User.swift */; };
 		ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */; };
 		ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */; };
+		ACFBCF0D243C89BA00E0B892 /* TimerPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBCF0C243C89BA00E0B892 /* TimerPopupView.swift */; };
+		ACFBCF0F243CA06500E0B892 /* YoutubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBCF0E243CA06500E0B892 /* YoutubePlayer.swift */; };
+		ACFBCF11243CAAA300E0B892 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = ACFBCF10243CAAA300E0B892 /* YTPlayer.html */; };
+		ACFBCF13243CB9E800E0B892 /* StartWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBCF12243CB9E800E0B892 /* StartWorkoutCell.swift */; };
 		ACFCF33324374B410007CCE9 /* SearchHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFCF33224374B410007CCE9 /* SearchHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -455,6 +459,10 @@
 		ACEFD7F02401CA3A00C2EED8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneModel.swift; path = "Ms Fit/Models/Registration/SignInSceneModel.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewModel.swift; path = "Ms Fit/ViewModels/Registration/SignInSceneViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		ACFBCF0C243C89BA00E0B892 /* TimerPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPopupView.swift; sourceTree = "<group>"; };
+		ACFBCF0E243CA06500E0B892 /* YoutubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayer.swift; sourceTree = "<group>"; };
+		ACFBCF10243CAAA300E0B892 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YTPlayer.html; sourceTree = "<group>"; };
+		ACFBCF12243CB9E800E0B892 /* StartWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutCell.swift; sourceTree = "<group>"; };
 		ACFCF33224374B410007CCE9 /* SearchHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderCell.swift; sourceTree = "<group>"; };
 		B3810A94F4EC2EA9CCCC52C6 /* Pods_Ms_Fit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ms_Fit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFF97769BFC20927A0D0BA5 /* Pods-MsFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsFit.debug.xcconfig"; path = "Target Support Files/Pods-MsFit/Pods-MsFit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -819,6 +827,7 @@
 			isa = PBXGroup;
 			children = (
 				ACACD455241A31050017D4D7 /* AddPopupView.swift */,
+				ACFBCF0C243C89BA00E0B892 /* TimerPopupView.swift */,
 				ACA3CE55241929D6001213AC /* ClearPopupView.swift */,
 				AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */,
 			);
@@ -828,10 +837,12 @@
 		AC1A7FAB240930A00058248D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				ACFBCF10243CAAA300E0B892 /* YTPlayer.html */,
 				AC1A7FAC240930B80058248D /* KeyboardManager.swift */,
 				560586D4242BDD8B00423832 /* PagerViewTransformer.swift */,
 				560586D8242BEC2D00423832 /* RealmService.swift */,
 				560586DA242BECC600423832 /* LoginService.swift */,
+				ACFBCF0E243CA06500E0B892 /* YoutubePlayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -960,6 +971,9 @@
 			isa = PBXGroup;
 			children = (
 				AC738FBF2406C18900CB7A39 /* HomeCell.swift */,
+				AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */,
+				AC2193092412423B00F388C1 /* TodayWorkoutCell.swift */,
+				AC21930B241246D800F388C1 /* TomorrowWorkoutCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -991,9 +1005,7 @@
 		AC9E1DF524112A3300417E9A /* WorkoutCells */ = {
 			isa = PBXGroup;
 			children = (
-				AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */,
-				AC2193092412423B00F388C1 /* TodayWorkoutCell.swift */,
-				AC21930B241246D800F388C1 /* TomorrowWorkoutCell.swift */,
+				ACFBCF12243CB9E800E0B892 /* StartWorkoutCell.swift */,
 			);
 			path = WorkoutCells;
 			sourceTree = "<group>";
@@ -1272,6 +1284,7 @@
 			files = (
 				564A673823FC4F0700D4901A /* Assets.xcassets in Resources */,
 				569089B7243BB33200C4DB30 /* PNChartSwift.podspec in Resources */,
+				ACFBCF11243CAAA300E0B892 /* YTPlayer.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1342,6 +1355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACFBCF0F243CA06500E0B892 /* YoutubePlayer.swift in Sources */,
 				566C2D8C2404423E0006108B /* SignUpSceneCoordinator.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
 				ACBF700F2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift in Sources */,
@@ -1446,6 +1460,7 @@
 				AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */,
 				ACBF701C2425151E00FFEAC8 /* MySettingsSceneCoordinator.swift in Sources */,
 				ACCAA3562434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift in Sources */,
+				ACFBCF0D243C89BA00E0B892 /* TimerPopupView.swift in Sources */,
 				AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */,
 				AC219313241273E800F388C1 /* DetailsWorkoutSceneModel.swift in Sources */,
 				56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */,
@@ -1552,6 +1567,7 @@
 				AC07657624337BB300952766 /* GradientView.swift in Sources */,
 				AC738FBD2406A01C00CB7A39 /* HomeSceneViewModel.swift in Sources */,
 				ACBF70172424EE0F00FFEAC8 /* SubjectMenuCell.swift in Sources */,
+				ACFBCF13243CB9E800E0B892 /* StartWorkoutCell.swift in Sources */,
 				ACCAA3572434B0E600EA93B2 /* UpdateWeightSceneViewController.swift in Sources */,
 				AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */,
 				560586D5242BDD8B00423832 /* PagerViewTransformer.swift in Sources */,

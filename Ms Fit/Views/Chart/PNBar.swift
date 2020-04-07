@@ -39,7 +39,8 @@ class PNBar: UIView {
                 self.chartLine.add(path, forKey: "strokeEndAnimation")
                 let progressLine = UIBezierPath()
                 progressLine.move(to: CGPoint(x: self.frame.size.width / 2.0, y: self.frame.size.height))
-                progressLine.addLine(to: CGPoint(x: self.frame.size.width / 2.0, y: (1 - self.grade) * self.frame.size.height))
+                progressLine.addLine(to: CGPoint(x: self.frame.size.width / 2.0,
+                                                 y: (1 - self.grade) * self.frame.size.height))
                 progressLine.lineCapStyle = .square
                 self.chartLine.path = progressLine.cgPath
                 self.chartLine.strokeColor = self.barColor.cgColor

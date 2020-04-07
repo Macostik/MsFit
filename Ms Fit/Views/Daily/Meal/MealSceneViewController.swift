@@ -76,7 +76,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                 headerView.tapHighProteinHanper = { [weak self] checkMarkView in
                     guard let self = self else { return }
                     checkMarkView.alpha = self.isCheckmarkItem ? 0.0 : 1.0
-                    self.isCheckmarkItem = !self.isCheckmarkItem
+                    self.isCheckmarkItem.toggle()
                 }
             }
             return headerView
@@ -126,7 +126,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
                         CGAffineTransform.identity : CGAffineTransform(rotationAngle: -.pi)
                     self.view.layoutIfNeeded()
                 }
-                self.isAnimationCalories = !self.isAnimationCalories
+                self.isAnimationCalories.toggle()
             }).disposed(by: disposeBag)
         
          Observable.just([mealList])

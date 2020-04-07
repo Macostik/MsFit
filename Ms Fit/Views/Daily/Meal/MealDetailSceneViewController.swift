@@ -256,7 +256,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
                     .withTintColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), renderingMode: .alwaysOriginal) :
                     UIImage(systemName: "suit.heart.fill", withConfiguration: self.configuration)?
                         .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-                self.isLikeFood = !self.isLikeFood
+                self.isLikeFood.toggle()
             }).disposed(by: disposeBag)
     }
     

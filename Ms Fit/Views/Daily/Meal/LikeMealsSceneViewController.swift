@@ -98,7 +98,7 @@ class LikeMealsSceneViewController: BaseViewController<LikeMealsSceneViewModel> 
                         CGAffineTransform.identity : CGAffineTransform(rotationAngle: -.pi)
                     self.view.layoutIfNeeded()
                 }
-                self.isAnimationCalories = !self.isAnimationCalories
+                self.isAnimationCalories.toggle()
             }).disposed(by: disposeBag)
         
          Observable.just([mealList])

@@ -18,14 +18,14 @@ class ProgressTimer: UIView {
         $0.strokeEnd = 0
         $0.fillColor = UIColor.clear.cgColor
         $0.lineCap = .round
-        $0.lineWidth = Constants.sH_812 ? 15 : 10
+        $0.lineWidth = Constants.sH_812 ? 15 : Constants.sH_667 ? 15 : 10
     })
     
     private let trackLayer = specify(CAShapeLayer(), {
         $0.strokeColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
         $0.fillColor = UIColor.clear.cgColor
         $0.lineCap = .round
-        $0.lineWidth = Constants.sH_812 ? 15 : 10
+        $0.lineWidth = Constants.sH_812 ? 15 : Constants.sH_667 ? 15 : 10
     })
     
     public lazy var basicAnimation = specify(CABasicAnimation(keyPath: "strokeEnd"), {
@@ -60,9 +60,12 @@ class ProgressTimer: UIView {
         timerLabel.text = "\(timeFormatted(totalTime))"
         
         let circularPath = UIBezierPath(arcCenter:
-            .init(x: (Constants.sH_812 ? Constants.sW * 0.5 : Constants.sW * 0.4) / 2,
-                  y: (Constants.sH_812 ? Constants.sW * 0.5 : Constants.sW * 0.4) / 2),
-                                        radius: Constants.sH_812 ? Constants.sW * 0.25 : Constants.sW * 0.2,
+            .init(x: (Constants.sH_812 ? Constants.sW * 0.6 : Constants.sH_667 ?
+                Constants.sW * 0.5 : Constants.sW * 0.4) / 2,
+                  y: (Constants.sH_812 ? Constants.sW * 0.6 : Constants.sH_667 ?
+                    Constants.sW * 0.5 : Constants.sW * 0.4) / 2),
+                                        radius: Constants.sH_812 ? Constants.sW * 0.3 : Constants.sH_667 ?
+                                            Constants.sW * 0.25 : Constants.sW * 0.2,
                                         startAngle: .pi / 2, endAngle: 2.5 * .pi, clockwise: true)
         trackLayer.path = circularPath.cgPath
         progressTimer.path = circularPath.cgPath

@@ -83,7 +83,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
                 })
             }
             self.tipsMenuView.heightConstraints.isActive = self.tipsMenuView.heightConstraints.isActive
-            self.isShowMenu = !self.isShowMenu
+            self.isShowMenu.toggle()
         }).disposed(by: disposeBag)
     }
     

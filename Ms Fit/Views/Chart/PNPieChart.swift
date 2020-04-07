@@ -95,7 +95,7 @@ class PNPieChart: PNGenericChart {
     }
     
     func loadDefault() {
-        var currentTotal: CGFloat = 0;
+        var currentTotal: CGFloat = 0
         var total: CGFloat = 0
         for index in 0..<self.items.count {
             total += self.items[index].value!
@@ -131,7 +131,10 @@ class PNPieChart: PNGenericChart {
             let endPercentage = self.endPercentageForItemAtIndex(index: index)
             let radius = self.innerCircleRadius + (self.outerCircleRadius - self.innerCircleRadius) / 2
             let borderWidth = self.outerCircleRadius - self.innerCircleRadius
-            let currentPieLayer = self.newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth, fillColor: UIColor.clear, borderColor: currentItem.color!, startPercentage: startPercentage, endPercentage: endPercentage)
+            let currentPieLayer =
+                self.newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth,
+                                               fillColor: UIColor.clear, borderColor: currentItem.color!,
+                                               startPercentage: startPercentage, endPercentage: endPercentage)
             self.pieLayer.addSublayer(currentPieLayer)
         }
         
@@ -164,14 +167,18 @@ extension PNPieChart {
     }
     
     func ratioForItemAtIndex(index: Int) -> CGFloat {
-        return self.endPercentageForItemAtIndex(index: index) - self.startPercentageForItemAtIndex(index: index)
+        return self.endPercentageForItemAtIndex(index: index) -
+            self.startPercentageForItemAtIndex(index: index)
     }
     
-    func newCircileLayerWithRadius(radius: CGFloat, borderWidth: CGFloat, fillColor: UIColor, borderColor: UIColor, startPercentage: CGFloat, endPercentage: CGFloat) -> CAShapeLayer {
+    func newCircileLayerWithRadius(radius: CGFloat, borderWidth: CGFloat, fillColor: UIColor,
+                                   borderColor: UIColor, startPercentage: CGFloat,
+                                   endPercentage: CGFloat) -> CAShapeLayer {
         let circle = CAShapeLayer(layer: self.layer)
         
         let center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: -(CGFloat)(Double.pi/2), endAngle: CGFloat(Double.pi/2) * 3, clockwise: true)
+        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: -(CGFloat)(Double.pi/2),
+                                endAngle: CGFloat(Double.pi/2) * 3, clockwise: true)
         circle.fillColor = fillColor.cgColor
         circle.strokeColor = borderColor.cgColor
         circle.strokeStart = startPercentage
@@ -184,14 +191,17 @@ extension PNPieChart {
     func maskChart() {
         let radius = self.innerCircleRadius + (self.outerCircleRadius - self.innerCircleRadius) / 2
         let borderWidth = self.outerCircleRadius - self.innerCircleRadius
-        let maskLayer = self.newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth, fillColor: UIColor.clear, borderColor: UIColor.black, startPercentage: 0, endPercentage: 1)
+        let maskLayer = self.newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth,
+                                                       fillColor: UIColor.clear, borderColor: UIColor.black,
+                                                       startPercentage: 0, endPercentage: 1)
         self.pieLayer.mask = maskLayer
     }
     
     func descriptionLabelForItemAtIndex(index: Int) -> UILabel? {
         let currentDateItem = self.items[index]
         let distance = self.innerCircleRadius + (self.outerCircleRadius - self.innerCircleRadius) / 2
-        let centerPercentage = (self.startPercentageForItemAtIndex(index: index) + self.endPercentageForItemAtIndex(index: index)) / 2
+        let centerPercentage = (self.startPercentageForItemAtIndex(index: index) +
+            self.endPercentageForItemAtIndex(index: index)) / 2
         let rad = Double(centerPercentage) * 2 * Double.pi
         let descriptionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
         let titleText = currentDateItem.text
@@ -216,10 +226,14 @@ extension PNPieChart {
             descriptionLabel.text = nil
         }
         
-        let center = CGPoint(x: self.outerCircleRadius + distance * CGFloat(sin(rad)), y: self.outerCircleRadius - distance * CGFloat(cos(rad)))
+        let center = CGPoint(x: self.outerCircleRadius + distance * CGFloat(sin(rad)),
+                             y: self.outerCircleRadius - distance * CGFloat(cos(rad)))
         descriptionLabel.font = self.descriptionTextFont
-        let labelSize = descriptionLabel.text?.size(withAttributes: [NSAttributedString.Key.font: descriptionLabel.font])
-        descriptionLabel.frame = CGRect(x: descriptionLabel.frame.origin.x, y: descriptionLabel.frame.origin.y, width: descriptionLabel.frame.size.width, height: (labelSize?.height)!)
+        let labelSize = descriptionLabel.text?.size(withAttributes: [
+            NSAttributedString.Key.font: descriptionLabel.font
+        ])
+       descriptionLabel.frame = CGRect(x: descriptionLabel.frame.origin.x, y: descriptionLabel.frame.origin.y,
+                                     width: descriptionLabel.frame.size.width, height: (labelSize?.height)!)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = self.descriptionTextColor
         descriptionLabel.textAlignment = .center
@@ -261,7 +275,8 @@ extension PNPieChart {
     }
     
     func didTouchAt(touchLocation: CGPoint) {
-        let circleCenter = CGPoint(x: self.contentView.bounds.size.width / 2.0, y: self.contentView.bounds.size.height / 2.0)
+        let circleCenter = CGPoint(x: self.contentView.bounds.size.width / 2.0,
+                                   y: self.contentView.bounds.size.height / 2.0)
         let distanceY = Float(touchLocation.y - circleCenter.y)
         let distanceX = Float(touchLocation.x - circleCenter.x)
         let distanceFromCenter = CGFloat(sqrtf(powf(distanceY, 2) + powf(distanceX, 2)))
@@ -285,7 +300,11 @@ extension PNPieChart {
                 let startPercentage = self.startPercentageForItemAtIndex(index: index)
                 let endPercentage = self.endPercentageForItemAtIndex(index: index)
                 
-                self.sectorHighlight = self.newCircileLayerWithRadius(radius: outerCircleRadius + 5, borderWidth: 10, fillColor: UIColor.clear, borderColor: newColor, startPercentage: startPercentage, endPercentage: endPercentage)
+                self.sectorHighlight =
+                    self.newCircileLayerWithRadius(radius: outerCircleRadius + 5, borderWidth: 10,
+                                                   fillColor: UIColor.clear, borderColor: newColor,
+                                                   startPercentage: startPercentage,
+                                                   endPercentage: endPercentage)
                 if self.enableMultipleSelection {
                     let dicIndex = String(index)
                     let indexShape = self.selectedItems.value(forKey: dicIndex) as? CAShapeLayer
@@ -311,4 +330,3 @@ extension PNPieChart {
         }
     }
 }
-

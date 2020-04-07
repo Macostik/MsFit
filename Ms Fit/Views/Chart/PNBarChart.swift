@@ -20,7 +20,8 @@ class PNBarChart: UIView {
     var xLabels = [String]() {
         didSet {
             if self.showLabel {
-                self.xLabelWidth = (self.frame.size.width - self.chartMargin * 2.0 - yChartLabelWidth) / CGFloat(self.xLabels.count)
+                self.xLabelWidth = (self.frame.size.width - self.chartMargin *
+                    2.0 - yChartLabelWidth) / CGFloat(self.xLabels.count)
             }
         }
     }
@@ -33,7 +34,8 @@ class PNBarChart: UIView {
             } else {
                 self.getYValueMax(yLabels: self.yValues)
             }
-            self.xLabelWidth = (self.frame.size.width - self.chartMargin * 2 - yChartLabelWidth) / CGFloat(self.yValues.count)
+            self.xLabelWidth = (self.frame.size.width - self.chartMargin *
+                2 - yChartLabelWidth) / CGFloat(self.yValues.count)
         }
     }
     var yChartLabelWidth: CGFloat = 18
@@ -82,8 +84,11 @@ class PNBarChart: UIView {
                     label.textAlignment = .center
                     label.text = labeltext
                     label.sizeToFit()
-                    let labelXPosition = (CGFloat(index) * self.xLabelWidth + yChartLabelWidth + self.chartMargin + self.xLabelWidth / 2)
-                    label.center = CGPoint(x: labelXPosition, y: self.frame.size.height - self.xLabelHeight - self.chartMargin + label.frame.size.height / 2.0 + self.labelMarginTop)
+                    let labelXPosition = (CGFloat(index) * self.xLabelWidth + yChartLabelWidth +
+                        self.chartMargin + self.xLabelWidth / 2)
+                    label.center = CGPoint(x: labelXPosition, y:
+                        self.frame.size.height - self.xLabelHeight - self.chartMargin +
+                            label.frame.size.height / 2.0 + self.labelMarginTop)
                     labelAddCount = 0
                     self.labels.append(label)
                     self.addSubview(label)
@@ -91,10 +96,14 @@ class PNBarChart: UIView {
             }
             
             // Add Y Labels
-            let yLabelSectionHeight = (self.frame.size.height - self.chartMargin * 2 - self.xLabelHeight) / CGFloat(self.yLabelSum)
+            let yLabelSectionHeight = (self.frame.size.height - self.chartMargin *
+                2 - self.xLabelHeight) / CGFloat(self.yLabelSum)
             for index in 0..<self.yLabelSum {
-                let labelText = String(describing: Int(self.yValueMax * (CGFloat(self.yLabelSum - index) / CGFloat(self.yLabelSum))))
-                let label = PNChartLabel(frame: CGRect(x: self.chartMargin / 2, y: yLabelSectionHeight * CGFloat(index) + self.chartMargin - self.yLabelHeight / 2.0, width: self.yChartLabelWidth, height: self.yLabelHeight))
+                let labelText = String(describing: Int(self.yValueMax * (CGFloat(self.yLabelSum - index) /
+                    CGFloat(self.yLabelSum))))
+                let label = PNChartLabel(frame: CGRect(x: self.chartMargin / 2, y: yLabelSectionHeight *
+                    CGFloat(index) + self.chartMargin - self.yLabelHeight / 2.0, width: self.yChartLabelWidth,
+                                                                                 height: self.yLabelHeight))
                 label.font = self.labelTextFont
                 label.textColor = self.labelTextColor
                 label.textAlignment = .right
@@ -113,9 +122,11 @@ class PNBarChart: UIView {
             let grade = value / self.yValueMax
             var barXPosition: CGFloat!
             if self.barWidth != nil && self.barWidth > 0 {
-                barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin + (self.xLabelWidth / 2) - (self.barWidth / 2)
+                barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin +
+                    (self.xLabelWidth / 2) - (self.barWidth / 2)
             } else {
-                barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin + self.xLabelWidth * 0.25
+                barXPosition = CGFloat(index) * self.xLabelWidth + self.yChartLabelWidth + self.chartMargin +
+                    self.xLabelWidth * 0.25
                 if self.showLabel {
                     self.barWidth = self.xLabelWidth * 0.5
                 } else {
@@ -123,7 +134,8 @@ class PNBarChart: UIView {
                 }
             }
             
-            let bar = PNBar(frame: CGRect(x: barXPosition, y: self.frame.size.height - chartCarvanHeight - self.xLabelHeight - self.chartMargin, width: self.barWidth, height: chartCarvanHeight))
+            let bar = PNBar(frame: CGRect(x: barXPosition, y: self.frame.size.height - chartCarvanHeight -
+                self.xLabelHeight - self.chartMargin, width: self.barWidth, height: chartCarvanHeight))
             bar.barRadius = self.barRadius
             bar.backgroundColor = self.barBackgroundColor
             if self.strokeColor != UIColor.black {
@@ -153,8 +165,10 @@ class PNBarChart: UIView {
             self.chartBottomLine.lineWidth = 1
             self.chartBottomLine.strokeEnd = 0
             let progressLine = UIBezierPath()
-            progressLine.move(to: CGPoint(x: self.chartMargin, y: self.frame.size.height - self.xLabelHeight - self.chartMargin))
-            progressLine.addLine(to: CGPoint(x: self.frame.size.width - self.chartMargin, y: self.frame.size.height - self.xLabelHeight - self.chartMargin))
+            progressLine.move(to: CGPoint(x: self.chartMargin, y: self.frame.size.height - self.xLabelHeight -
+                self.chartMargin))
+            progressLine.addLine(to: CGPoint(x: self.frame.size.width - self.chartMargin,
+                                            y: self.frame.size.height - self.xLabelHeight - self.chartMargin))
             progressLine.lineWidth = 1
             progressLine.lineCapStyle = .square
             self.chartBottomLine.path = progressLine.cgPath
@@ -173,8 +187,10 @@ class PNBarChart: UIView {
             self.chartLeftLine.lineWidth = 1
             self.chartLeftLine.strokeEnd = 0
             let progressLeftLine = UIBezierPath()
-            progressLeftLine.move(to: CGPoint(x: self.chartMargin + self.yChartLabelWidth, y: self.frame.size.height - self.xLabelHeight - self.chartMargin))
-            progressLeftLine.addLine(to: CGPoint(x: self.chartMargin + self.yChartLabelWidth, y: self.chartMargin))
+            progressLeftLine.move(to: CGPoint(x: self.chartMargin + self.yChartLabelWidth,
+                                            y: self.frame.size.height - self.xLabelHeight - self.chartMargin))
+            progressLeftLine.addLine(to: CGPoint(x: self.chartMargin + self.yChartLabelWidth,
+                                                 y: self.chartMargin))
             progressLeftLine.lineWidth = 1
             progressLeftLine.lineCapStyle = .square
             self.chartLeftLine.path = progressLeftLine.cgPath

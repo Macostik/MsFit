@@ -166,14 +166,17 @@ class GraphView: UIView {
     required init?(coder: NSCoder) { fatalError() }
 }
 
-//// Build Graph
+// Build Graph
 //   [self.SELLineChart removeFromSuperview];
-//   self.SELLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.SELChartView.frame), CGRectGetHeight(self.SELChartView.frame))];
+//   self.SELLineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0,
+// CGRectGetWidth(self.SELChartView.frame), CGRectGetHeight(self.SELChartView.frame))];
 //   [self.SELLineChart setBackgroundColor:[UIColor whiteColor]];
 //
 //   [self.SELLineChart setXLabels:self.SELWeightDateXArray];
-//   [self.SELLineChart setXLabelFont:(UIScreen.mainScreen.bounds.size.width == 320.f) ? [UIFont fontWithName:@"Rubik-Regular" size:9] : [UIFont fontWithName:@"Rubik-Regular" size:11]];
-//   [self.SELLineChart setYLabelFont:(UIScreen.mainScreen.bounds.size.width == 320.f) ? [UIFont fontWithName:@"Rubik-Regular" size:9] : [UIFont fontWithName:@"Rubik-Regular" size:11]];
+//   [self.SELLineChart setXLabelFont:(UIScreen.mainScreen.bounds.size.width == 320.f) ?
+//[UIFont fontWithName:@"Rubik-Regular" size:9] : [UIFont fontWithName:@"Rubik-Regular" size:11]];
+//   [self.SELLineChart setYLabelFont:(UIScreen.mainScreen.bounds.size.width == 320.f) ?
+//[UIFont fontWithName:@"Rubik-Regular" size:9] : [UIFont fontWithName:@"Rubik-Regular" size:11]];
 //   [self.SELLineChart setYLabelColor:cELXHColorRGB(110.0f, 110.0f, 121.0f)];
 //   [self.SELLineChart setXLabelColor:cELXHColorRGB(110.0f, 110.0f, 121.0f)];
 //   [self.SELLineChart setUnitType:@"kg"];
