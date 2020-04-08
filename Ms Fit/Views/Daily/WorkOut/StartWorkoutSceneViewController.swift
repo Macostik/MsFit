@@ -116,6 +116,9 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
         
         guard let url = URL(string: "https://www.youtube.com/watch?v=wfRl4RfQnPM") else { return }
         videoPlayer.loadVideoURL(url)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.videoPlayer.play()
+        }
     }
     
     fileprivate func addConstraints() {
