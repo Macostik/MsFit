@@ -20,7 +20,7 @@ class TimerPopupView: UIView {
     private let topSeparView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.8235294118, green: 0.3411764706, blue: 0.8745098039, alpha: 1) })
     private let middleSeparView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.8235294118, green: 0.3411764706, blue: 0.8745098039, alpha: 1) })
     
-    private let contunieButton = specify(UIButton(type: .roundedRect), {
+    public let contunieButton = specify(UIButton(type: .roundedRect), {
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.setTitle("Continue", for: .normal)
         $0.setTitleColor(.systemBackground, for: .normal)
@@ -38,7 +38,7 @@ class TimerPopupView: UIView {
         $0.setTitleColor(.systemBackground, for: .normal)
     })
     
-    private let endWorkoutButton = specify(UIButton(type: .roundedRect), {
+    public let endWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.backgroundColor = .systemBackground
         $0.setTitle("End Workout", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), for: .normal)
@@ -73,20 +73,7 @@ class TimerPopupView: UIView {
     }
     
     fileprivate func setupBindings() {
-        contunieButton.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                UIView.animate(withDuration: 0.4, delay: 0, animations: {
-                    self.baseVStackView.transform = CGAffineTransform(translationX: 0,
-                                                                      y: self.baseVStackView.height)
-                }, completion: { _ in
-                    self.isHidden = true
-                })
-            }).disposed(by: disposeBag)
         
-        endWorkoutButton.rx.tap
-            .map({ _ in })
-            .bind(to: viewModel!.dismissDailySceneObserver)
-            .disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) { fatalError() }

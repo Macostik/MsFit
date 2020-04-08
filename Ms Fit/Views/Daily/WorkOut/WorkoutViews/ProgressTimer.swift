@@ -80,7 +80,7 @@ class ProgressTimer: UIView {
     
     public func toggleTimer(isOn: Bool) {
         if isOn {
-            progressTimer.add(basicAnimation, forKey: "urSoBasic")
+            resumeAnimation()
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
                 guard let `self` = self else { return }
                 self.timerLabel.text = self.timeFormatted(self.totalTime)
@@ -91,8 +91,24 @@ class ProgressTimer: UIView {
                 }
             })
         } else {
+            pauseAnimation()
             timer.invalidate()
         }
+    }
+    
+    public func pauseAnimation() {
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+    }
+    
+    public func resumeAnimation() {
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
     }
     
     public func timeFormatted(_ totalSeconds: Int) -> String {
