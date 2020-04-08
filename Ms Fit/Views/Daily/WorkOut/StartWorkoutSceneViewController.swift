@@ -103,6 +103,11 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
                 })
             }).disposed(by: disposeBag)
         
+        timerPopupView.restartExeciseButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+        
         timerPopupView.endWorkoutButton.rx.tap
             .map({ _ in })
             .bind(to: viewModel!.dismissDailySceneObserver)
