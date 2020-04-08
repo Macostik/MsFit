@@ -26,11 +26,15 @@ class StartWorkoutSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popToRootViewController(animated: true)
         }).disposed(by: disposeBag)
         
+        viewModel.presentRestWorkoutObserver.subscribe(onNext: {
+            self.presentRestWorkoutScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
-//    @discardableResult private func presentPresentDailyScene() -> Observable<Void> {
-//        let dailyCoordinator = DailySceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: dailyCoordinator)
-//    }
+    @discardableResult private func presentRestWorkoutScene() -> Observable<Void> {
+        let restWorkoutCoordinator = RestWorkoutSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: restWorkoutCoordinator)
+    }
 }

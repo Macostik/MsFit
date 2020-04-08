@@ -12,7 +12,7 @@ import RxCocoa
 
 class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewModel> {
     
-    private let progressTimerView = ProgressTimer()
+    private lazy var progressTimerView = ProgressTimer(with: self.viewModel)
     private lazy var timerPopupView = TimerPopupView(with: self.viewModel)
     private let videoPlayer = { YouTubePlayerView.shared }()
     
@@ -27,8 +27,8 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
         $0.titleEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
         $0.setTitle("Start", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
-        $0.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
-        $0.layer.borderWidth = 1
+        $0.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
+        $0.layer.borderWidth = 1.5
         $0.circled = true
     })
     

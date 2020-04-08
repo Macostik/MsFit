@@ -12,6 +12,7 @@ import RxCocoa
 
 final class StartWorkoutSceneViewModel: BaseViewModel<StartWorkoutSceneModel> {
     
+    public var presentRestWorkoutObserver = PublishSubject<Void>()
     public var dismissDailySceneObserver = PublishSubject<Void>()
     public var dismissObserver = PublishSubject<Void>()
 }
