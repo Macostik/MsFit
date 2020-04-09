@@ -51,6 +51,12 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
             HistoryCell.identifier, cellType: HistoryCell.self)) { _, model, cell in
                 cell.setup(model)
         }.disposed(by: disposeBag)
+        
+        Observable
+            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(HistoryModel.self))
+            .bind { indexPath, model in
+                self.viewModel?.presentUpdateObserver.onNext((indexPath.row, model.rawValue))
+        }.disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

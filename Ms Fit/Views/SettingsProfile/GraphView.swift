@@ -104,18 +104,22 @@ class GraphView: UIView {
     }
     
     private func setupGraph() {
-        let graphView = PNLineChart(frame: CGRect(x: 0, y: 0, width: Constants.sW, height: 300))
+        let graphView = PNLineChart(frame: CGRect(x: 0, y: 0, width: Constants.sW, height: 250))
+        graphView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         graphView.yLabelFormat = "%1.1f"
         graphView.showLabel = true
         graphView.backgroundColor = UIColor.clear
-        graphView.xLabels = ["Sep 1", "Sep 2", "Sep 3", "Sep 4", "Sep 5", "Sep 6", "Sep 7"]
+        graphView.xLabels = ["Jun 23", "Jun 25", "July 1", "Sep 4", "Sep 10", "Nov 22"]
         graphView.showCoordinateAxis = true
-        
-        let dataArr = [60.1, 160.1, 126.4, 232.2, 186.2, 127.2, 176.2]
+        graphView.axisColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+
+        let dataArr = [60.1, 100.5, 89.4, 108, 110.6, 149.9]
         let data = PNLineChartData()
-        data.color = PNBule
+        data.color = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+        data.lineWidth = 1
         data.itemCount = dataArr.count
-        data.inflexPointStyle = .None
+        data.inflexPointStyle = .Cycle
+        data.inflexionPointWidth = 10
         data.getData = ({
             (index: Int) -> PNLineChartDataItem in
             let yValue = CGFloat(dataArr[index])
@@ -153,7 +157,7 @@ class GraphView: UIView {
         add(hBaseReusltStackView, layoutBlock: { $0.leading().trailing().height(80).top() })
         hBaseReusltStackView.add(separatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
         add(graphContainerView, layoutBlock: {
-            $0.topBottom(to: hBaseReusltStackView).leading().trailing().height(300)
+            $0.topBottom(25, to: hBaseReusltStackView).leading().trailing().height(250)
         })
         updateWeightButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         add(vForButtonsStackView, layoutBlock: {

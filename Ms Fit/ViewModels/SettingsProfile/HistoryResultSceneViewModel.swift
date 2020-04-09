@@ -12,5 +12,6 @@ import RxCocoa
 
 final class HistoryResultSceneViewModel: BaseViewModel<HistoryResultSceneModel> {
     
+    public var presentUpdateObserver = PublishSubject<(Int, String)>()
     public var dismissObserver = PublishSubject<Void>()
 }
