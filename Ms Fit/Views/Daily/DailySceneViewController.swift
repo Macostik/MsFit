@@ -265,6 +265,9 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     fileprivate func addConstraints() {
         verificationEmailButton.heightAnchor.constraint(equalToConstant:
             Constants.sH_667 ? 40 : 30).isActive = true
+        exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
+        exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
+        
         let hNavStackView = HStackView(arrangedSubviews: [verificationEmailButton, navTextLabel], spacing: 10)
         hNavStackView.distribution = .fillProportionally
         
@@ -274,9 +277,6 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         
         let vMealsStackView = VStackView(arrangedSubviews: [dayliMealsLabel, countMealsLabel])
         let vExerciseStackView = VStackView(arrangedSubviews: [dayliExerciseLabel, countExerciseLabel])
-        
-        exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
-        exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
         
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)

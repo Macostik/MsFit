@@ -180,6 +180,10 @@
 		AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */; };
 		AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */; };
 		AC9E1DF724112A4F00417E9A /* YesterdayWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */; };
+		ACA3779A243F4A25002D7C63 /* SentMessageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA37796243F4A25002D7C63 /* SentMessageSceneCoordinator.swift */; };
+		ACA3779B243F4A25002D7C63 /* SentMessageSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA37797243F4A25002D7C63 /* SentMessageSceneViewController.swift */; };
+		ACA3779C243F4A25002D7C63 /* SentMessageSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA37798243F4A25002D7C63 /* SentMessageSceneModel.swift */; };
+		ACA3779D243F4A25002D7C63 /* SentMessageSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA37799243F4A25002D7C63 /* SentMessageSceneViewModel.swift */; };
 		ACA3CE5124191D81001213AC /* MealsStorageSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4D24191D81001213AC /* MealsStorageSceneCoordinator.swift */; };
 		ACA3CE5224191D81001213AC /* MealsStorageSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4E24191D81001213AC /* MealsStorageSceneViewController.swift */; };
 		ACA3CE5324191D81001213AC /* MealsStorageSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */; };
@@ -416,6 +420,10 @@
 		AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWorkoutView.swift; sourceTree = "<group>"; };
 		AC9E1DF624112A4F00417E9A /* YesterdayWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWorkoutCell.swift; sourceTree = "<group>"; };
+		ACA37796243F4A25002D7C63 /* SentMessageSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMessageSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACA37797243F4A25002D7C63 /* SentMessageSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMessageSceneViewController.swift; sourceTree = "<group>"; };
+		ACA37798243F4A25002D7C63 /* SentMessageSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMessageSceneModel.swift; sourceTree = "<group>"; };
+		ACA37799243F4A25002D7C63 /* SentMessageSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMessageSceneViewModel.swift; sourceTree = "<group>"; };
 		ACA3CE4D24191D81001213AC /* MealsStorageSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACA3CE4E24191D81001213AC /* MealsStorageSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneViewController.swift; sourceTree = "<group>"; };
 		ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneModel.swift; sourceTree = "<group>"; };
@@ -947,6 +955,7 @@
 				AC220447242B5D550089C801 /* UpdateExerciseSceneViewController.swift */,
 				ACCAA3532434B0E600EA93B2 /* UpdateWeightSceneViewController.swift */,
 				AC70FFA2241F993E0064CEC5 /* SettingsSceneViewController.swift */,
+				ACA37797243F4A25002D7C63 /* SentMessageSceneViewController.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -961,6 +970,7 @@
 				AC220446242B5D550089C801 /* UpdateExerciseSceneCoordinator.swift */,
 				ACCAA3522434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift */,
 				AC70FFA1241F993E0064CEC5 /* SettingsSceneCoordinator.swift */,
+				ACA37796243F4A25002D7C63 /* SentMessageSceneCoordinator.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1077,6 +1087,7 @@
 				AC220449242B5D550089C801 /* UpdateExerciseSceneViewModel.swift */,
 				ACCAA3552434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift */,
 				AC70FFA4241F993E0064CEC5 /* SettingsSceneViewModel.swift */,
+				ACA37799243F4A25002D7C63 /* SentMessageSceneViewModel.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1189,6 +1200,7 @@
 				AC220448242B5D550089C801 /* UpdateExerciseSceneModel.swift */,
 				ACCAA3542434B0E600EA93B2 /* UpdateWeightSceneModel.swift */,
 				AC70FFA3241F993E0064CEC5 /* SettingsSceneModel.swift */,
+				ACA37798243F4A25002D7C63 /* SentMessageSceneModel.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1370,6 +1382,7 @@
 				ACFBCF0F243CA06500E0B892 /* YoutubePlayer.swift in Sources */,
 				566C2D8C2404423E0006108B /* SignUpSceneCoordinator.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
+				ACA3779B243F4A25002D7C63 /* SentMessageSceneViewController.swift in Sources */,
 				ACBF700F2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift in Sources */,
 				56993C1C2401BDF500C16CFF /* TipsSceneCoordinator.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
@@ -1438,6 +1451,7 @@
 				ACACD456241A31050017D4D7 /* AddPopupView.swift in Sources */,
 				AC807118242A6898000F0BE7 /* ExerciseDetailSceneModel.swift in Sources */,
 				ACD5CEC7243B58A4002384D0 /* StartWorkoutSceneModel.swift in Sources */,
+				ACA3779C243F4A25002D7C63 /* SentMessageSceneModel.swift in Sources */,
 				AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */,
 				566C2DAA240444080006108B /* LoginSceneViewController.swift in Sources */,
 				564A674E23FC6EE700D4901A /* Environment.swift in Sources */,
@@ -1498,6 +1512,7 @@
 				AC99A75B24290DE6004C75BC /* TipDetailCell.swift in Sources */,
 				569089C1243BB33200C4DB30 /* PNLineChartData.swift in Sources */,
 				AC21931D2412900400F388C1 /* MealSceneViewModel.swift in Sources */,
+				ACA3779D243F4A25002D7C63 /* SentMessageSceneViewModel.swift in Sources */,
 				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
 				AC807111242A4F04000F0BE7 /* ExercisePreviewCell.swift in Sources */,
 				AC22044C242B5D550089C801 /* UpdateExerciseSceneModel.swift in Sources */,
@@ -1542,6 +1557,7 @@
 				AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */,
 				AC07657424334F7A00952766 /* DetailFoodSceneViewModel.swift in Sources */,
 				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
+				ACA3779A243F4A25002D7C63 /* SentMessageSceneCoordinator.swift in Sources */,
 				AC1CAFC0243E057D008BE6C9 /* RestWorkoutSceneModel.swift in Sources */,
 				AC80710D242A4CC5000F0BE7 /* ExercisePreviewSceneViewController.swift in Sources */,
 				AC07656C24332FBA00952766 /* AddFoodsCell.swift in Sources */,

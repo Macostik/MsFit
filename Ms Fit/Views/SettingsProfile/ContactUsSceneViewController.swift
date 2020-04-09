@@ -79,11 +79,12 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     }
     
     override func setupBindings() {
-        subjectMenuView.rx.tapGesture()
+        view.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
             }).disposed(by: disposeBag)
+        
         closeButton.rx.tap
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
@@ -91,8 +92,8 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         
         sendEmailButton.animateWhenPressed(disposeBag: disposeBag)
         sendEmailButton.rx.tap
-            .subscribe(onNext: {
-                print("tap me")
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentSentMessageObserver.onNext(())
             }).disposed(by: disposeBag)
         
         subjectMenuView.rx.tapGesture()
@@ -103,8 +104,6 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
                 } else {
                     self.animationMenu(constant: 200)
                 }
-                self.subjectMenuView.heightConstraints.isActive =
-                    self.subjectMenuView.heightConstraints.isActive
                 self.isShowMenu.toggle()
             }).disposed(by: disposeBag)
         
