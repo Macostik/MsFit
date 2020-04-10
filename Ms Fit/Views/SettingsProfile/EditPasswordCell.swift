@@ -14,6 +14,8 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
     
     fileprivate let disposeBag = DisposeBag()
     
+    private var isShowUnshowEyes = false
+    
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
     private let titleLabel = specify(UILabel(), {
@@ -31,7 +33,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
     
     private let eyeButton = specify(Button(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-        $0.tintColor = #colorLiteral(red: 0.8235294118, green: 0.8235294118, blue: 0.8235294118, alpha: 1)
+        $0.tintColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.touchArea.width = 30
         $0.touchArea.height = 30
     })
@@ -56,6 +58,15 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
         textField.rx.controlEvent(.editingDidEndOnExit)
             .subscribe(onNext: { [unowned self] _ in
                 self.textField.becomeFirstResponder()
+            }).disposed(by: disposeBag)
+        
+        eyeButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.eyeButton.setImage( self.isShowUnshowEyes ? UIImage(systemName: "eye.fill") :
+                    UIImage(systemName: "eye.slash.fill"), for: .normal)
+                self.textField.isSecureTextEntry.toggle()
+                self.isShowUnshowEyes.toggle()
             }).disposed(by: disposeBag)
     }
 }
