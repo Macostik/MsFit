@@ -71,7 +71,38 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         
         tableView.rx.modelSelected(SettingsStorageSceneModel.self)
             .subscribe(onNext: { [weak self] model in
+                switch model {
+                case .weight:
                     self?.viewModel?.heightSceneObserver.onNext(model)
+                case .heigth:
+                    self?.viewModel?.heightSceneObserver.onNext(model)
+                case .dateOfBirthday:
+                    self?.viewModel?.heightSceneObserver.onNext(model)
+                case .goal:
+                    print("tap date")
+                case .activity:
+                    print("tap activity")
+                case .selectionLevel:
+                    print("tap workoutType")
+                case .accountSettings:
+                    print("tap accountSettings")
+                case .accountType:
+                    print("tap accountType")
+                case .contactUs:
+                    print("tap contactUs")
+                case .aboutApp:
+                    print("tap aboutApp")
+                case .privacyPolicy:
+                    print("tap privacyPolicy")
+                case .termOfUse:
+                    print("tap termOfUse")
+                case .notification:
+                    break
+                case .version:
+                    break
+                case .logOut:
+                print("tap logOut")
+                }
             }).disposed(by: disposeBag)
     }
     
