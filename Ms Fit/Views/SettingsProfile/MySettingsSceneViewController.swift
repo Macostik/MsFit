@@ -87,7 +87,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                 case .selectionLevel:
                     self?.viewModel?.presentLevelSelectionObserver.onNext(())
                 case .accountSettings:
-                    print("tap accountSettings")
+                    self?.viewModel?.presentAccountSettingsObserver.onNext(())
                 case .accountType:
                     print("tap accountType")
                 case .contactUs:

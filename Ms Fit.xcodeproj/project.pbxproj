@@ -161,6 +161,16 @@
 		AC753B90244080EC005AACFD /* LevelSelectionSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B8C244080EC005AACFD /* LevelSelectionSceneModel.swift */; };
 		AC753B91244080EC005AACFD /* LevelSelectionSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B8D244080EC005AACFD /* LevelSelectionSceneViewModel.swift */; };
 		AC753B9324408CE5005AACFD /* LevelSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B9224408CE5005AACFD /* LevelSelectionCell.swift */; };
+		AC753B982440A3FE005AACFD /* AccountSettingsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B942440A3FE005AACFD /* AccountSettingsSceneCoordinator.swift */; };
+		AC753B992440A3FE005AACFD /* AccountSettingsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B952440A3FE005AACFD /* AccountSettingsSceneViewController.swift */; };
+		AC753B9A2440A3FE005AACFD /* AccountSettingsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B962440A3FE005AACFD /* AccountSettingsSceneModel.swift */; };
+		AC753B9B2440A3FE005AACFD /* AccountSettingsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B972440A3FE005AACFD /* AccountSettingsSceneViewModel.swift */; };
+		AC753B9D2440A55D005AACFD /* AccountSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B9C2440A55D005AACFD /* AccountSettingsCell.swift */; };
+		AC753BA22440ACAA005AACFD /* EditPasswordSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B9E2440ACAA005AACFD /* EditPasswordSceneCoordinator.swift */; };
+		AC753BA32440ACAA005AACFD /* EditPasswordSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B9F2440ACAA005AACFD /* EditPasswordSceneViewController.swift */; };
+		AC753BA42440ACAA005AACFD /* EditPasswordSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753BA02440ACAA005AACFD /* EditPasswordSceneModel.swift */; };
+		AC753BA52440ACAA005AACFD /* EditPasswordSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753BA12440ACAA005AACFD /* EditPasswordSceneViewModel.swift */; };
+		AC753BA72440AF02005AACFD /* EditPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753BA62440AF02005AACFD /* EditPasswordCell.swift */; };
 		AC80710C242A4CC5000F0BE7 /* ExercisePreviewSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */; };
 		AC80710D242A4CC5000F0BE7 /* ExercisePreviewSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */; };
 		AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */; };
@@ -406,6 +416,16 @@
 		AC753B8C244080EC005AACFD /* LevelSelectionSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionSceneModel.swift; sourceTree = "<group>"; };
 		AC753B8D244080EC005AACFD /* LevelSelectionSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionSceneViewModel.swift; sourceTree = "<group>"; };
 		AC753B9224408CE5005AACFD /* LevelSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionCell.swift; sourceTree = "<group>"; };
+		AC753B942440A3FE005AACFD /* AccountSettingsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC753B952440A3FE005AACFD /* AccountSettingsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsSceneViewController.swift; sourceTree = "<group>"; };
+		AC753B962440A3FE005AACFD /* AccountSettingsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsSceneModel.swift; sourceTree = "<group>"; };
+		AC753B972440A3FE005AACFD /* AccountSettingsSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsSceneViewModel.swift; sourceTree = "<group>"; };
+		AC753B9C2440A55D005AACFD /* AccountSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsCell.swift; sourceTree = "<group>"; };
+		AC753B9E2440ACAA005AACFD /* EditPasswordSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC753B9F2440ACAA005AACFD /* EditPasswordSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordSceneViewController.swift; sourceTree = "<group>"; };
+		AC753BA02440ACAA005AACFD /* EditPasswordSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordSceneModel.swift; sourceTree = "<group>"; };
+		AC753BA12440ACAA005AACFD /* EditPasswordSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordSceneViewModel.swift; sourceTree = "<group>"; };
+		AC753BA62440AF02005AACFD /* EditPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordCell.swift; sourceTree = "<group>"; };
 		AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneViewController.swift; sourceTree = "<group>"; };
 		AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneModel.swift; sourceTree = "<group>"; };
@@ -958,7 +978,9 @@
 			isa = PBXGroup;
 			children = (
 				AC70FFAF241F9CF80064CEC5 /* SettingViews */,
+				AC753B952440A3FE005AACFD /* AccountSettingsSceneViewController.swift */,
 				ACBF700C2424C7CB00FFEAC8 /* ContactUsSceneViewController.swift */,
+				AC753B9F2440ACAA005AACFD /* EditPasswordSceneViewController.swift */,
 				AC753B8B244080EC005AACFD /* LevelSelectionSceneViewController.swift */,
 				ACBF70192425151E00FFEAC8 /* MySettingsSceneViewController.swift */,
 				AC220459242BB8DC0089C801 /* HistoryResultSceneViewController.swift */,
@@ -974,7 +996,9 @@
 		AC70FF9D241F98360064CEC5 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				AC753B942440A3FE005AACFD /* AccountSettingsSceneCoordinator.swift */,
 				ACBF700B2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift */,
+				AC753B9E2440ACAA005AACFD /* EditPasswordSceneCoordinator.swift */,
 				AC753B8A244080EC005AACFD /* LevelSelectionSceneCoordinator.swift */,
 				ACBF70182425151E00FFEAC8 /* MySettingsSceneCoordinator.swift */,
 				AC220458242BB8DC0089C801 /* HistoryResultSceneCoordinator.swift */,
@@ -1066,6 +1090,8 @@
 		ACBF70152424EDFF00FFEAC8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				AC753B9C2440A55D005AACFD /* AccountSettingsCell.swift */,
+				AC753BA62440AF02005AACFD /* EditPasswordCell.swift */,
 				AC753B9224408CE5005AACFD /* LevelSelectionCell.swift */,
 				AC4CC20A242CEFA000F7AB41 /* HistoryCell.swift */,
 				ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */,
@@ -1093,7 +1119,9 @@
 		ACEFD7F22401CABF00C2EED8 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				AC753B972440A3FE005AACFD /* AccountSettingsSceneViewModel.swift */,
 				ACBF700E2424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift */,
+				AC753BA12440ACAA005AACFD /* EditPasswordSceneViewModel.swift */,
 				AC753B8D244080EC005AACFD /* LevelSelectionSceneViewModel.swift */,
 				ACBF701B2425151E00FFEAC8 /* MySettingsSceneViewModel.swift */,
 				AC22045B242BB8DC0089C801 /* HistoryResultSceneViewModel.swift */,
@@ -1207,7 +1235,9 @@
 		ACEFD7FD2401CBCA00C2EED8 /* SettingsProfile */ = {
 			isa = PBXGroup;
 			children = (
+				AC753B962440A3FE005AACFD /* AccountSettingsSceneModel.swift */,
 				ACBF700D2424C7CB00FFEAC8 /* ContactUsSceneModel.swift */,
+				AC753BA02440ACAA005AACFD /* EditPasswordSceneModel.swift */,
 				AC753B8C244080EC005AACFD /* LevelSelectionSceneModel.swift */,
 				ACBF701A2425151E00FFEAC8 /* MySettingsSceneModel.swift */,
 				AC22045A242BB8DC0089C801 /* HistoryResultSceneModel.swift */,
@@ -1408,6 +1438,7 @@
 				AC12457F242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift in Sources */,
 				564A674423FC6E4700D4901A /* SlimLogger.swift in Sources */,
 				AC807119242A6898000F0BE7 /* ExerciseDetailSceneViewModel.swift in Sources */,
+				AC753BA72440AF02005AACFD /* EditPasswordCell.swift in Sources */,
 				ACD5CEC5243B58A3002384D0 /* StartWorkoutSceneCoordinator.swift in Sources */,
 				566C2D97240443800006108B /* OnboardSceneViewController.swift in Sources */,
 				564A675523FC701600D4901A /* SplashSceneCoordinator.swift in Sources */,
@@ -1421,6 +1452,7 @@
 				AC9E1DF02410F32F00417E9A /* YesterdayWorkoutView.swift in Sources */,
 				AC9E1DF22410F34D00417E9A /* TomorrowWorkoutView.swift in Sources */,
 				564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */,
+				AC753B9A2440A3FE005AACFD /* AccountSettingsSceneModel.swift in Sources */,
 				AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */,
 				AC22045F242BB8DC0089C801 /* HistoryResultSceneViewModel.swift in Sources */,
 				AC753B9324408CE5005AACFD /* LevelSelectionCell.swift in Sources */,
@@ -1447,6 +1479,7 @@
 				AC70FFA5241F993E0064CEC5 /* SettingsSceneCoordinator.swift in Sources */,
 				560586DB242BECC600423832 /* LoginService.swift in Sources */,
 				ACCED1C023FE8AB9000EB2DB /* TextField.swift in Sources */,
+				AC753B9D2440A55D005AACFD /* AccountSettingsCell.swift in Sources */,
 				ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */,
 				AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */,
 				AC753B90244080EC005AACFD /* LevelSelectionSceneModel.swift in Sources */,
@@ -1512,6 +1545,8 @@
 				AC70FFA8241F993E0064CEC5 /* SettingsSceneViewModel.swift in Sources */,
 				AC26B3FB24360A7200A84462 /* SettingsHeaderView.swift in Sources */,
 				ACBF70142424EC4500FFEAC8 /* SubjectMenuTableView.swift in Sources */,
+				AC753BA22440ACAA005AACFD /* EditPasswordSceneCoordinator.swift in Sources */,
+				AC753B992440A3FE005AACFD /* AccountSettingsSceneViewController.swift in Sources */,
 				AC80710F242A4CC5000F0BE7 /* ExercisePreviewSceneViewModel.swift in Sources */,
 				566C2D84240440040006108B /* SignInSceneCoordinator.swift in Sources */,
 				564A674A23FC6E9800D4901A /* BaseViewModel.swift in Sources */,
@@ -1533,11 +1568,13 @@
 				ACA3779D243F4A25002D7C63 /* SentMessageSceneViewModel.swift in Sources */,
 				AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */,
 				AC807111242A4F04000F0BE7 /* ExercisePreviewCell.swift in Sources */,
+				AC753B982440A3FE005AACFD /* AccountSettingsSceneCoordinator.swift in Sources */,
 				AC22044C242B5D550089C801 /* UpdateExerciseSceneModel.swift in Sources */,
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				569089BC243BB33200C4DB30 /* PNValue.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
 				566C2DAB240444080006108B /* ForgotPassSceneViewController.swift in Sources */,
+				AC753BA42440ACAA005AACFD /* EditPasswordSceneModel.swift in Sources */,
 				AC124581242DFFBA00533AA0 /* MealDetailSceneModel.swift in Sources */,
 				ACBF7024242620E100FFEAC8 /* UpdateMeasurSceneCoordinator.swift in Sources */,
 				ACAFEC9A2405176E00C8AEBB /* ExerciseCell.swift in Sources */,
@@ -1563,6 +1600,7 @@
 				AC1CAFC1243E057D008BE6C9 /* RestWorkoutSceneViewModel.swift in Sources */,
 				AC5515532413A4BD0093373D /* StackView.swift in Sources */,
 				ACBF70112424C7CB00FFEAC8 /* ContactUsSceneModel.swift in Sources */,
+				AC753B9B2440A3FE005AACFD /* AccountSettingsSceneViewModel.swift in Sources */,
 				564A676323FC76B100D4901A /* Path+Ext.swift in Sources */,
 				566C2DA8240444080006108B /* SignUpSceneViewController.swift in Sources */,
 				AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */,
@@ -1595,11 +1633,13 @@
 				AC80710C242A4CC5000F0BE7 /* ExercisePreviewSceneCoordinator.swift in Sources */,
 				56993C172401BDAA00C16CFF /* ExercisesSceneViewModel.swift in Sources */,
 				AC26B400243619A300A84462 /* LikeMealsSceneCoordinator.swift in Sources */,
+				AC753BA52440ACAA005AACFD /* EditPasswordSceneViewModel.swift in Sources */,
 				560586D9242BEC2D00423832 /* RealmService.swift in Sources */,
 				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
 				AC807117242A6898000F0BE7 /* ExerciseDetailSceneViewController.swift in Sources */,
 				AC4CC20B242CEFA000F7AB41 /* HistoryCell.swift in Sources */,
 				AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */,
+				AC753BA32440ACAA005AACFD /* EditPasswordSceneViewController.swift in Sources */,
 				56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */,
 				ACCED1CC23FEA713000EB2DB /* ForgotPassSceneCoordinator.swift in Sources */,
 				566C2D92240443770006108B /* TabBarSceneViewController.swift in Sources */,

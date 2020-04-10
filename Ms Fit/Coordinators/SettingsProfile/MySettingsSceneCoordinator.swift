@@ -30,6 +30,10 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentLevelSelectionScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentAccountSettingsObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentAccountSettingsScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -53,5 +57,10 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
     @discardableResult private func presentLevelSelectionScene() -> Observable<Void> {
         let levelCoordinator = LevelSelectionSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: levelCoordinator)
+    }
+    
+    @discardableResult private func presentAccountSettingsScene() -> Observable<Void> {
+        let accountCoordinator = AccountSettingsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: accountCoordinator)
     }
 }
