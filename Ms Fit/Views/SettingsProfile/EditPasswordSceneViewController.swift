@@ -53,6 +53,12 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
+        view.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [unowned self] _ in
+                self.view.endEditing(true)
+            }).disposed(by: disposeBag)
+        
         Observable.just(EditPasswordModel.allCases)
             .bind(to: tableView.rx.items(cellIdentifier: EditPasswordCell.identifier,
                                          cellType: EditPasswordCell.self)) { _, model, cell in
@@ -63,7 +69,7 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
         doneButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 self.handleAlert()
-            }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)        
     }
     
     fileprivate func handleUI() {

@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class EditPasswordCell: UITableViewCell, CellIdentifierable {
+    
+    fileprivate let disposeBag = DisposeBag()
     
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
@@ -19,6 +23,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
     
     private let textField = specify(UITextField(), {
         $0.placeholder = "Enter"
+        $0.returnKeyType = .done
         $0.borderStyle = .none
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.isSecureTextEntry = true
@@ -43,5 +48,14 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
             $0.trailingLeading(-10, to: eyeButton).centerY().leadingTrailing(10, to: titleLabel)
         })
         add(separatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
+        
+        setupBinding()
+    }
+    
+    fileprivate func setupBinding() {
+        textField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] _ in
+                self.textField.becomeFirstResponder()
+            }).disposed(by: disposeBag)
     }
 }
