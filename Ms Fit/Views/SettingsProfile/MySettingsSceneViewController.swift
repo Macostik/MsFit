@@ -34,6 +34,8 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
         tableView.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
         return tableView
@@ -73,17 +75,17 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
             .subscribe(onNext: { [weak self] model in
                 switch model {
                 case .weight:
-                    self?.viewModel?.heightSceneObserver.onNext(model)
+                    print("tap weight")
                 case .heigth:
-                    self?.viewModel?.heightSceneObserver.onNext(model)
+                    print("tap heigth")
                 case .dateOfBirthday:
-                    self?.viewModel?.heightSceneObserver.onNext(model)
+                    print("tap dateOfBirthday")
                 case .goal:
-                    print("tap date")
+                    self?.viewModel?.heightSceneObserver.onNext(model)
                 case .activity:
                     print("tap activity")
                 case .selectionLevel:
-                    print("tap workoutType")
+                    self?.viewModel?.presentLevelSelectionObserver.onNext(())
                 case .accountSettings:
                     print("tap accountSettings")
                 case .accountType:

@@ -17,3 +17,8 @@ final class LevelSelectionSceneModel: Object {
         return "id"
     }
 }
+
+
+enum ListLevelModel: String, CaseIterable {
+    case beginer_1, beginer_2, intermediate_1, intermediate_2
+}

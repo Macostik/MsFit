@@ -160,6 +160,7 @@
 		AC753B8F244080EC005AACFD /* LevelSelectionSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B8B244080EC005AACFD /* LevelSelectionSceneViewController.swift */; };
 		AC753B90244080EC005AACFD /* LevelSelectionSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B8C244080EC005AACFD /* LevelSelectionSceneModel.swift */; };
 		AC753B91244080EC005AACFD /* LevelSelectionSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B8D244080EC005AACFD /* LevelSelectionSceneViewModel.swift */; };
+		AC753B9324408CE5005AACFD /* LevelSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC753B9224408CE5005AACFD /* LevelSelectionCell.swift */; };
 		AC80710C242A4CC5000F0BE7 /* ExercisePreviewSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */; };
 		AC80710D242A4CC5000F0BE7 /* ExercisePreviewSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */; };
 		AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */; };
@@ -404,6 +405,7 @@
 		AC753B8B244080EC005AACFD /* LevelSelectionSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionSceneViewController.swift; sourceTree = "<group>"; };
 		AC753B8C244080EC005AACFD /* LevelSelectionSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionSceneModel.swift; sourceTree = "<group>"; };
 		AC753B8D244080EC005AACFD /* LevelSelectionSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionSceneViewModel.swift; sourceTree = "<group>"; };
+		AC753B9224408CE5005AACFD /* LevelSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionCell.swift; sourceTree = "<group>"; };
 		AC807108242A4CC4000F0BE7 /* ExercisePreviewSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC807109242A4CC4000F0BE7 /* ExercisePreviewSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneViewController.swift; sourceTree = "<group>"; };
 		AC80710A242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePreviewSceneModel.swift; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 		ACBF70152424EDFF00FFEAC8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				AC753B9224408CE5005AACFD /* LevelSelectionCell.swift */,
 				AC4CC20A242CEFA000F7AB41 /* HistoryCell.swift */,
 				ACBF702A2426297C00FFEAC8 /* UpdateMeasurementCell.swift */,
 				ACBF70162424EE0F00FFEAC8 /* SubjectMenuCell.swift */,
@@ -1420,6 +1423,7 @@
 				564A676123FC76B100D4901A /* GenericCollection+Ext.swift in Sources */,
 				AC61F5F723FD6D3900AFCA9A /* AppDelegate.swift in Sources */,
 				AC22045F242BB8DC0089C801 /* HistoryResultSceneViewModel.swift in Sources */,
+				AC753B9324408CE5005AACFD /* LevelSelectionCell.swift in Sources */,
 				56993C062401B78400C16CFF /* TabBarSceneModel.swift in Sources */,
 				56993C0F2401BD6D00C16CFF /* DailySceneViewModel.swift in Sources */,
 				AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */,
