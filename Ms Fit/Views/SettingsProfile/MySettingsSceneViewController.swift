@@ -89,9 +89,9 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                 case .accountSettings:
                     self?.viewModel?.presentAccountSettingsObserver.onNext(())
                 case .accountType:
-                    print("tap accountType")
+                    self?.viewModel?.presentAccountTypeObserver.onNext(())
                 case .contactUs:
-                    print("tap contactUs")
+                    self?.viewModel?.presentContactUsObserver.onNext(())
                 case .aboutApp:
                     print("tap aboutApp")
                 case .privacyPolicy:

@@ -14,6 +14,8 @@ import RealmSwift
 final class MySettingsSceneViewModel: BaseViewModel<Object> {
     
     public var dismissObserver = PublishSubject<Void>()
+    public var presentContactUsObserver = PublishSubject<Void>()
+    public var presentAccountTypeObserver = PublishSubject<Void>()
     public var presentLevelSelectionObserver = PublishSubject<Void>()
     public var presentAccountSettingsObserver = PublishSubject<Void>()
     public var heightSceneObserver = PublishSubject<SettingsStorageSceneModel>()

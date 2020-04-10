@@ -34,6 +34,14 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentAccountSettingsScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentContactUsObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentContactUsScene()
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentAccountTypeObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentAccountTypeScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -62,5 +70,15 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
     @discardableResult private func presentAccountSettingsScene() -> Observable<Void> {
         let accountCoordinator = AccountSettingsSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: accountCoordinator)
+    }
+    
+    @discardableResult private func presentContactUsScene() -> Observable<Void> {
+        let contactUsCoordinator = ContactUsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: contactUsCoordinator)
+    }
+    
+    @discardableResult private func presentAccountTypeScene() -> Observable<Void> {
+        let accountTypeCoordinator = AccountTypeSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: accountTypeCoordinator)
     }
 }
