@@ -76,6 +76,7 @@
 		56993C1D2401BDF500C16CFF /* TipsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C192401BDF500C16CFF /* TipsSceneViewController.swift */; };
 		56993C1E2401BDF500C16CFF /* TipsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C1A2401BDF500C16CFF /* TipsSceneModel.swift */; };
 		56993C1F2401BDF500C16CFF /* TipsSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56993C1B2401BDF500C16CFF /* TipsSceneViewModel.swift */; };
+		56BE918B24422FFF0072911C /* DailyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE918A24422FFF0072911C /* DailyService.swift */; };
 		56C7B4F22405C2DE00CC2C8D /* WorkOutSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7B4EE2405C2DE00CC2C8D /* WorkOutSceneCoordinator.swift */; };
 		56C7B4F32405C2DE00CC2C8D /* WorkOutSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7B4EF2405C2DE00CC2C8D /* WorkOutSceneViewController.swift */; };
 		56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C7B4F02405C2DE00CC2C8D /* WorkOutSceneModel.swift */; };
@@ -309,6 +310,7 @@
 		569FB0DE23FC09530052B796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		569FB0E323FC09530052B796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		569FB0ED23FC106B0052B796 /* Ms Fit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ms Fit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56BE918A24422FFF0072911C /* DailyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyService.swift; sourceTree = "<group>"; };
 		56C7B4EE2405C2DE00CC2C8D /* WorkOutSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutSceneCoordinator.swift; sourceTree = "<group>"; };
 		56C7B4EF2405C2DE00CC2C8D /* WorkOutSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutSceneViewController.swift; sourceTree = "<group>"; };
 		56C7B4F02405C2DE00CC2C8D /* WorkOutSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutSceneModel.swift; sourceTree = "<group>"; };
@@ -843,6 +845,7 @@
 				560586D8242BEC2D00423832 /* RealmService.swift */,
 				560586DA242BECC600423832 /* LoginService.swift */,
 				ACFBCF0E243CA06500E0B892 /* YoutubePlayer.swift */,
+				56BE918A24422FFF0072911C /* DailyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1460,6 +1463,7 @@
 				AC9E1DF42410F36000417E9A /* TodayWorkoutView.swift in Sources */,
 				ACBF701C2425151E00FFEAC8 /* MySettingsSceneCoordinator.swift in Sources */,
 				ACCAA3562434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift in Sources */,
+				56BE918B24422FFF0072911C /* DailyService.swift in Sources */,
 				ACFBCF0D243C89BA00E0B892 /* TimerPopupView.swift in Sources */,
 				AC86C2242407C6950029D33E /* SlideSegmenControl.swift in Sources */,
 				AC219313241273E800F388C1 /* DetailsWorkoutSceneModel.swift in Sources */,

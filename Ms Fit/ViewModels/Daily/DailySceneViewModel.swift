@@ -16,4 +16,8 @@ final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
     public var homePresentObserver = PublishSubject<Void>()
     public var presentWorkoutObserver = PublishSubject<Void>()
     public var presentMealObserver = PublishSubject<Void>()
+    
+    override func performAction() {
+        dependencies.dailyService.dailyScreen()
+    }
 }

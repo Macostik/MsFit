@@ -18,19 +18,17 @@ private let timeOutInterval = 30.0
 enum APIManager: URLRequestConvertible {
     
     case login([String: Any]),
-    newNews([String: Any]),
-    oldNews([String: Any])
+    daily_screen([String: Any])
     
     public func asURLRequest() throws -> URLRequest {
-    
+        
         let headers: [String: String]? = nil
         
         var method: HTTPMethod {
             switch self {
             case .login:
                 return .post
-            case .newNews,
-            .oldNews:
+            case .daily_screen:
                 return .get
                 
             }
@@ -39,8 +37,7 @@ enum APIManager: URLRequestConvertible {
         let parameters: ([String: Any]?) = {
             switch self {
             case .login(let parameters),
-                 .newNews(let parameters),
-                 .oldNews(let parameters):
+                 .daily_screen(let parameters):
                 return parameters
             }
         }()
@@ -51,10 +48,8 @@ enum APIManager: URLRequestConvertible {
             switch self {
             case .login:
                 query = "login"
-            case .newNews:
-                query = "get-updated-news"
-            case .oldNews:
-                query = "get-previous-news"
+            case .daily_screen:
+                query = "daily_screen"
             }
             
             if let query = query {
@@ -79,12 +74,7 @@ enum APIManager: URLRequestConvertible {
             }
         }
         
-        switch self {
-        case .login:
-            return try URLEncoding(arrayEncoding: .noBrackets).encode(urlRequest, with: parameters)
-        default:
-            return try URLEncoding.default.encode(urlRequest, with: parameters)
-        }
+        return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
     public func json(_ file: Any = #file,
                      function: Any = #function,
