@@ -17,14 +17,15 @@ enum SettingsStorageData: CaseIterable {
         switch self {
         case .settings:
             return SectionOfSettings(header: "PROFILE SETTINGS",
-                                     items: [.goal, .heigth, .startWeight, .dateOfBirth,
-                                             .activity, .workoutType])
+                                     items: [.weight, .heigth, .dateOfBirthday, .goal,
+                                             .activity, .selectionLevel])
         case .account:
             return SectionOfSettings(header: "ACCOUNT",
                                      items: [.accountSettings, .accountType])
         case .msFit:
             return SectionOfSettings(header: "MS FIT",
-                                     items: [.contactUs, .aboutApp, .privacyPolicy, .termOfUse, .version])
+                                     items: [.contactUs, .aboutApp, .privacyPolicy,
+                                             .termOfUse, .notification, .version])
         case .empty:
             return SectionOfSettings(header: "",
                                      items: [.logOut])
@@ -46,23 +47,23 @@ extension SectionOfSettings: SectionModelType {
 }
 
 enum SettingsStorageSceneModel: String, CaseIterable {
-    case goal, heigth, startWeight, dateOfBirth, activity, workoutType, accountSettings, accountType,
-    contactUs, aboutApp, privacyPolicy, termOfUse, version, logOut
+    case weight, heigth, dateOfBirthday, goal, activity, selectionLevel, accountSettings, accountType,
+    contactUs, aboutApp, privacyPolicy, termOfUse, version, notification, logOut
     
     func description() -> (String, String) {
         switch self {
-        case .goal:
-            return ("Goal", "Gain Weight")
+        case .weight:
+            return ("Weight", "140.9 kg")
         case .heigth:
-            return ("Height", "170 cm")
-        case .startWeight:
-            return ("Start Weight", "62 kg")
-        case .dateOfBirth:
+            return ("Height", "200 cm")
+        case .dateOfBirthday:
             return ("Date of birth", "01/11/2020")
+        case .goal:
+            return ("goal", "my goal is 130 kg")
         case .activity:
             return ("Activity", "Destop job")
-        case .workoutType:
-            return ("Workout Type", "Gym")
+        case .selectionLevel:
+            return ("Workout Type", "2 level")
         case .accountSettings:
             return ("Account Settings", "")
         case .accountType:
@@ -77,6 +78,8 @@ enum SettingsStorageSceneModel: String, CaseIterable {
             return ("Term of use", "")
         case .version:
             return ("Version", "1.0")
+        case .notification:
+            return ("Notification", "")
         case .logOut:
             return ("Log Out", "")
         }

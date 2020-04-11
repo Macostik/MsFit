@@ -14,7 +14,7 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     
     private let previewImagePagerView = PreviewImagePagerView()
     
-    private let scrollView = specify(UIScrollView(), {
+    public let scrollView = specify(UIScrollView(), {
         $0.showsHorizontalScrollIndicator = false
     })
     
@@ -156,6 +156,9 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         startWorkoutButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentStartWorkoutObserver.onNext(())
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.scrollView.setContentOffset(.zero, animated: true)
+                }
             }).disposed(by: disposeBag)
         
         allVideosButton.rx.tap

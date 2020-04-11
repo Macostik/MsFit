@@ -12,22 +12,23 @@ import RxCocoa
 
 class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewModel> {
     
-    private let progressTimerView = ProgressTimer()
+    private lazy var progressTimerView = ProgressTimer(with: self.viewModel)
     private lazy var timerPopupView = TimerPopupView(with: self.viewModel)
     private let videoPlayer = { YouTubePlayerView.shared }()
     
     private var isTimer = false
+    private var isAnimation = false
     private let numberExercise = Array(1...20)
     
-    private let startConfiguration = UIImage.SymbolConfiguration(weight: .thin)
+    private let startConfiguration = UIImage.SymbolConfiguration(weight: .regular)
     internal lazy var startWorkoutBtn = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: startConfiguration)?
             .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
+        $0.titleEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
         $0.setTitle("Start", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
-        $0.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
-        $0.layer.borderWidth = 1
+        $0.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
+        $0.layer.borderWidth = 1.5
         $0.circled = true
     })
     
@@ -63,36 +64,66 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
     }
     
     override func setupBindings() {
-        startWorkoutBtn.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                UIView.animate(withDuration: 0.3) {
-                    self.startWorkoutBtn.setImage(UIImage(systemName: "pause.fill",
-                                                             withConfiguration: self.startConfiguration)?
-                        .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-                    self.startWorkoutBtn.setTitle("Pause", for: .normal)
-                }
-                
-                self.videoPlayer.play()
-                self.progressTimerView.toggleTimer(isOn: !self.isTimer)
-                self.isTimer.toggle()
-                
-//                self.handlePopupView()
-            }).disposed(by: disposeBag)
-        
         Observable.just(numberExercise)
             .bind(to: collectionView.rx.items(cellIdentifier: StartWorkoutCell.identifier,
                                               cellType: StartWorkoutCell.self)) { _, model, cell in
                                                 cell.setup(model)
         }.disposed(by: disposeBag)
+        
+        startWorkoutBtn.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                if self.isAnimation {
+                    self.progressTimerView.toggleTimer(isOn: self.isTimer)
+                    self.handlePopupView()
+                    self.videoPlayer.pause()
+                    self.isAnimation.toggle()
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        self.startWorkoutBtn.setImage(UIImage(systemName: "pause.fill",
+                                                              withConfiguration: self.startConfiguration)?
+                            .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
+                        self.startWorkoutBtn.setTitle("Pause", for: .normal)
+                    }
+                    self.progressTimerView.progressTimer.add(self.progressTimerView.basicAnimation,
+                                                             forKey: "urSoBasic")
+                    self.progressTimerView.toggleTimer(isOn: !self.isTimer)
+                }
+                self.isAnimation.toggle()
+            }).disposed(by: disposeBag)
+        
+        timerPopupView.contunieButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.videoPlayer.play()
+                self.progressTimerView.toggleTimer(isOn: !self.isTimer)
+                UIView.animate(withDuration: 0.4, delay: 0, animations: {
+                    self.timerPopupView.baseVStackView.transform =
+                        CGAffineTransform(translationX: 0, y: self.timerPopupView.baseVStackView.height)
+                }, completion: { _ in
+                    self.timerPopupView.isHidden = true
+                })
+            }).disposed(by: disposeBag)
+        
+        timerPopupView.restartExeciseButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+        
+        timerPopupView.endWorkoutButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissDailySceneObserver)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
         timerPopupView.isHidden = true
         videoPlayer.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-
+        
         guard let url = URL(string: "https://www.youtube.com/watch?v=wfRl4RfQnPM") else { return }
-        self.videoPlayer.loadVideoURL(url)
+        videoPlayer.loadVideoURL(url)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.videoPlayer.play()
+        }
     }
     
     fileprivate func addConstraints() {

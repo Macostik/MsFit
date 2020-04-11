@@ -32,7 +32,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let scrollView = specify(UIScrollView(), {
+    private var scrollView = specify(UIScrollView(), {
         $0.showsVerticalScrollIndicator = false
         $0.contentInsetAdjustmentBehavior = .never
         $0.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
@@ -61,8 +61,9 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
                                            textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1))
     private let yourQuestionTextView = specify(UITextView(), {
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.font = .systemFont(ofSize: 18, weight: .regular)
-        $0.backgroundColor = .red
+        $0.font = .systemFont(ofSize: 14, weight: .regular)
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
@@ -83,6 +84,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
             .subscribe(onNext: { [unowned self] _ in
                 self.view.endEditing(true)
             }).disposed(by: disposeBag)
+        
         closeButton.rx.tap
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
@@ -90,8 +92,8 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         
         sendEmailButton.animateWhenPressed(disposeBag: disposeBag)
         sendEmailButton.rx.tap
-            .subscribe(onNext: {
-                print("tap me")
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentSentMessageObserver.onNext(())
             }).disposed(by: disposeBag)
         
         subjectMenuView.rx.tapGesture()
@@ -102,16 +104,26 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
                 } else {
                     self.animationMenu(constant: 200)
                 }
-                self.subjectMenuView.heightConstraints.isActive =
-                    self.subjectMenuView.heightConstraints.isActive
                 self.isShowMenu.toggle()
+            }).disposed(by: disposeBag)
+        
+        yourQuestionTextView.rx.didChange
+            .subscribe(onNext: { _ in
+                let size = CGSize(width: Constants.sW, height: .infinity)
+                let estimatedSize = self.yourQuestionTextView.sizeThatFits(size)
+                
+                self.yourQuestionTextView.constraints.forEach { (constraints) in
+                    if constraints.firstAttribute == .height {
+                        constraints.constant = estimatedSize.height
+                        self.yourQuestionTextView.layoutIfNeeded()
+                    }
+                }
             }).disposed(by: disposeBag)
         
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [scrollView] keyboardVisibleHeight in
-                scrollView.contentInset.bottom = keyboardVisibleHeight
-            })
-            .disposed(by: disposeBag)
+                scrollView.contentInset.bottom = keyboardVisibleHeight + Constants.sW * 0.1
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -119,7 +131,6 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     }
     
     fileprivate func addConstraints() {
-        yourQuestionTextView.heightAnchor.constraint(equalToConstant: 38).isActive = true
         let vBaseStackView = VStackView(arrangedSubviews: [subjectMenuView, yourEmailView, yourQuestionView])
         let vYourEmailStackView = VStackView(arrangedSubviews: [yourEmailLabel, yourTextField], spacing: 10)
         let hQuestionStackView = VStackView(arrangedSubviews: [

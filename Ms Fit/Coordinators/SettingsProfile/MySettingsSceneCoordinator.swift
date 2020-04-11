@@ -26,6 +26,22 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentNewRegistScene(model: model)
         }).disposed(by: disposeBag)
         
+        viewModel.presentLevelSelectionObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentLevelSelectionScene()
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentAccountSettingsObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentAccountSettingsScene()
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentContactUsObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentContactUsScene()
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentAccountTypeObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentAccountTypeScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -35,14 +51,34 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
         switch model {
         case .heigth:
             newRegistCoordinator.pickerElement = .height
-        case .startWeight:
+        case .dateOfBirthday:
             newRegistCoordinator.pickerElement = .weight
-        case .dateOfBirth:
+        case .goal:
             newRegistCoordinator.pickerElement = .age
         default:
             break
         }
         newRegistCoordinator.isProceed = true
         return coordinate(to: newRegistCoordinator)
+    }
+    
+    @discardableResult private func presentLevelSelectionScene() -> Observable<Void> {
+        let levelCoordinator = LevelSelectionSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: levelCoordinator)
+    }
+    
+    @discardableResult private func presentAccountSettingsScene() -> Observable<Void> {
+        let accountCoordinator = AccountSettingsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: accountCoordinator)
+    }
+    
+    @discardableResult private func presentContactUsScene() -> Observable<Void> {
+        let contactUsCoordinator = ContactUsSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: contactUsCoordinator)
+    }
+    
+    @discardableResult private func presentAccountTypeScene() -> Observable<Void> {
+        let accountTypeCoordinator = AccountTypeSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: accountTypeCoordinator)
     }
 }

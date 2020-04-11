@@ -34,6 +34,8 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 60
         tableView.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
         return tableView
@@ -71,7 +73,38 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         
         tableView.rx.modelSelected(SettingsStorageSceneModel.self)
             .subscribe(onNext: { [weak self] model in
+                switch model {
+                case .weight:
+                    print("tap weight")
+                case .heigth:
+                    print("tap heigth")
+                case .dateOfBirthday:
+                    print("tap dateOfBirthday")
+                case .goal:
                     self?.viewModel?.heightSceneObserver.onNext(model)
+                case .activity:
+                    print("tap activity")
+                case .selectionLevel:
+                    self?.viewModel?.presentLevelSelectionObserver.onNext(())
+                case .accountSettings:
+                    self?.viewModel?.presentAccountSettingsObserver.onNext(())
+                case .accountType:
+                    self?.viewModel?.presentAccountTypeObserver.onNext(())
+                case .contactUs:
+                    self?.viewModel?.presentContactUsObserver.onNext(())
+                case .aboutApp:
+                    print("tap aboutApp")
+                case .privacyPolicy:
+                    print("tap privacyPolicy")
+                case .termOfUse:
+                    print("tap termOfUse")
+                case .notification:
+                    break
+                case .version:
+                    break
+                case .logOut:
+                print("tap logOut")
+                }
             }).disposed(by: disposeBag)
     }
     

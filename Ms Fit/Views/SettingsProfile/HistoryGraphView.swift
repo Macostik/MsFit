@@ -74,6 +74,7 @@ class HistoryGraphView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        setupGraph()
         addconstraints()
     }
     
@@ -113,6 +114,35 @@ class HistoryGraphView: UIView {
         })
         add(topSeparatorView, layoutBlock: { $0.top().leading().trailing().height(1) })
         add(bottomSeparatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
+    }
+    
+    private func setupGraph() {
+        let graphView = PNLineChart(frame: CGRect(x: 0, y: 0, width: Constants.sW, height: 250))
+        graphView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        graphView.yLabelFormat = "%1.1f"
+        graphView.showLabel = true
+        graphView.backgroundColor = UIColor.clear
+        graphView.xLabels = ["Jun 23", "Jun 25", "July 1", "Sep 4", "Sep 10", "Nov 22"]
+        graphView.showCoordinateAxis = true
+        graphView.axisColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+
+        let dataArr = [145, 110.4, 108.2, 80.2, 60.6, 70.9]
+        let data = PNLineChartData()
+        data.color = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+        data.lineWidth = 1
+        data.itemCount = dataArr.count
+        data.inflexPointStyle = .Cycle
+        data.inflexionPointWidth = 10
+        data.getData = ({
+            (index: Int) -> PNLineChartDataItem in
+            let yValue = CGFloat(dataArr[index])
+            let item = PNLineChartDataItem(y: yValue)
+            return item
+        })
+        
+        graphView.chartData = [data]
+        graphView.strokeChart()
+        graphContainerView.add(graphView, layoutBlock: { $0.top(25).leading().trailing().bottom() })
     }
     
     required init?(coder: NSCoder) { fatalError() }

@@ -12,5 +12,6 @@ import RxCocoa
 
 final class ContactUsSceneViewModel: BaseViewModel<ContactUsSceneModel> {
     
+    public var presentSentMessageObserver = PublishSubject<Void>()
     public var dismissObserver = PublishSubject<Void>()
 }

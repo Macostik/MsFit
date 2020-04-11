@@ -10,8 +10,9 @@ import UIKit
 
 class ProgressTimer: UIView {
     
+    private var viewModel: StartWorkoutSceneViewModel?
     public var timer: Timer!
-    public var totalTime = 60
+    public var totalTime = 30
     
     public let progressTimer = specify(CAShapeLayer(), {
         $0.strokeColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
@@ -22,7 +23,7 @@ class ProgressTimer: UIView {
     })
     
     private let trackLayer = specify(CAShapeLayer(), {
-        $0.strokeColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
+        $0.strokeColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         $0.fillColor = UIColor.clear.cgColor
         $0.lineCap = .round
         $0.lineWidth = Constants.sH_812 ? 15 : Constants.sH_667 ? 15 : 10
@@ -47,8 +48,9 @@ class ProgressTimer: UIView {
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 16 : 13, weight: .medium)
     })
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(with viewModel: StartWorkoutSceneViewModel? = nil) {
+        super.init(frame: .zero)
+        self.viewModel = viewModel
         setupUI()
         addConstraints()
     }
@@ -80,7 +82,7 @@ class ProgressTimer: UIView {
     
     public func toggleTimer(isOn: Bool) {
         if isOn {
-            progressTimer.add(basicAnimation, forKey: "urSoBasic")
+            resumeAnimation()
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
                 guard let `self` = self else { return }
                 self.timerLabel.text = self.timeFormatted(self.totalTime)
@@ -88,11 +90,28 @@ class ProgressTimer: UIView {
                     self.totalTime -= 1
                 } else {
                     self.timer.invalidate()
+                    self.viewModel?.presentRestWorkoutObserver.onNext(())
                 }
             })
         } else {
+            pauseAnimation()
             timer.invalidate()
         }
+    }
+    
+    public func pauseAnimation() {
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pausedTime
+    }
+    
+    public func resumeAnimation() {
+        let pausedTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        layer.beginTime = timeSincePause
     }
     
     public func timeFormatted(_ totalSeconds: Int) -> String {
