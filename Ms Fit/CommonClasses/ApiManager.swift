@@ -18,6 +18,7 @@ private let timeOutInterval = 30.0
 enum APIManager: URLRequestConvertible {
     
     case login([String: Any]),
+    register([String: Any]),
     daily_screen([String: Any])
     
     public func asURLRequest() throws -> URLRequest {
@@ -26,7 +27,7 @@ enum APIManager: URLRequestConvertible {
         
         var method: HTTPMethod {
             switch self {
-            case .login:
+            case .login, .register:
                 return .post
             case .daily_screen:
                 return .get
@@ -37,17 +38,20 @@ enum APIManager: URLRequestConvertible {
         let parameters: ([String: Any]?) = {
             switch self {
             case .login(let parameters),
+                 .register(let parameters),
                  .daily_screen(let parameters):
                 return parameters
             }
         }()
-
+        
         let url: URL = {
             var URL = Foundation.URL(string: Constants.baseURL)!
             let query: String?
             switch self {
             case .login:
                 query = "login"
+            case .register:
+                query = "register/email"
             case .daily_screen:
                 query = "user/daily_screen"
             }

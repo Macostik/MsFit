@@ -106,9 +106,14 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 }
             }).disposed(by: disposeBag)
         
-        Observable.merge(buttonList.map({ $0.rx.tap.asObservable() }))
-            .map({ _ in false })
-            .subscribe(onNext: { [weak self] flag in
+        var type = "goal"
+        let buttonTapIndex = buttonList.enumerated().map { ($0.0, $0.1.rx.tap) }
+        let indexTap = buttonTapIndex.map { index, obs in obs.map { index } }
+         Observable.merge(indexTap)
+            .map({ index in (index, false) })
+            .subscribe(onNext: { [weak self] index, flag in
+                self?.viewModel?.parameters[type] = "\(index + 1)"
+                type = "activity"
                 if self?.pickerElement == .completed {
                     self?.viewModel?.presentSignUpObserver.onNext(())
                     return
@@ -138,6 +143,30 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 self.nextButton.isHidden = isEnd
                 self.pickerView.isHidden = isEnd
                 let item = self.pickerElement.nextElement()
+                var selectedElement = ""
+                switch self.pickerElement {
+                case .height:
+                    let selectedFirstIndex = self.pickerView.selectedRow(inComponent: 0)
+                    selectedElement = self.pickerElement.dataList().first?[selectedFirstIndex] ?? ""
+                case .weight:
+                    let selectedFirstIndex = self.pickerView.selectedRow(inComponent: 0)
+                    let selectedSecondIndex = self.pickerView.selectedRow(inComponent: 1)
+                    selectedElement = "\(self.pickerElement.dataList()[0][selectedFirstIndex])" +
+                    "\(self.pickerElement.dataList()[1][selectedSecondIndex])"
+                case .age:
+                    let selectedFirstIndex = self.pickerView.selectedRow(inComponent: 0)
+                    let selectedSecondIndex = self.pickerView.selectedRow(inComponent: 1)
+                    let selectedThirdIndex = self.pickerView.selectedRow(inComponent: 2)
+                    let monthString = "\(self.pickerElement.dataList()[1][selectedSecondIndex])"
+                    let month = Calendar.current.monthSymbols.firstIndex(of: monthString) ?? 0
+                    let monthValue = month < 10 ? "0" + "\(month)" : "\(month)"
+                    let dateString = "\(self.pickerElement.dataList()[2][selectedThirdIndex])"
+                    let dateValue = dateString.count < 2 ? "0" + dateString : dateString
+                    selectedElement = "\(self.pickerElement.dataList()[0][selectedFirstIndex])-" +
+                    monthValue + "-" + dateValue
+                default: break
+                }
+                self.viewModel?.parameters[self.pickerElement.rawValue] = selectedElement
                 self.pickerElement = item.0
                 self.pickerView.reloadAllComponents()
                 self.goalImageView.transform = CGAffineTransform(translationX: 100, y: 0)
@@ -215,7 +244,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
 typealias PickerListEntryType = [[String]]
 typealias PickerCollectionType = (PickerData, UIImage, String)
 
-enum PickerData: CaseIterable {
+enum PickerData: String, CaseIterable {
     case weight
     case height
     case age

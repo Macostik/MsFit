@@ -12,6 +12,8 @@ import RxCocoa
 
 class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
+    public var userParams = [String: String]()
+    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -22,6 +24,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     private let containerView = UIView()
     private let rectangelImage = UIImageView(image: #imageLiteral(resourceName: "StartGiftRamadan"))
     private let giftImage = UIImageView(image: #imageLiteral(resourceName: "startGift_icon"))
+    private var textFieldList = [UITextField]()
     
     private let congratulationsLabel = specify(UILabel(), {
         $0.text = "CONGRATULATIONS!"
@@ -94,7 +97,12 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             .bind(to: viewModel!.dismissObservable)
             .disposed(by: disposeBag)
         signUpButton.rx.tap
-            .map({ _ in })
+            .map({[unowned self] _ in
+                self.userParams["name"] = self.textFieldList[0].text
+                self.userParams["email"] = self.textFieldList[1].text
+                self.userParams["password"] = self.textFieldList[2].text
+                return self.userParams
+            })
             .bind(to: viewModel!.signUpObservable)
             .disposed(by: disposeBag)
     }
@@ -151,25 +159,26 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     fileprivate func createTFView(title: String) -> UIView {
         let view = UIView()
-        let textView = UITextField()
-        textView.textColor = .systemBackground
-        textView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        textView.font = UIFont.systemFont(ofSize: 17, weight: .light)
-        textView.autocorrectionType = .no
-        textView.returnKeyType = .done
-        textView.autocapitalizationType = .none
-        textView.borderStyle = .roundedRect
-        textView.layer.cornerRadius = 7
-        textView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7446222175)
-        textView.backgroundColor = .clear
-        textView.layer.borderWidth = 0.7
+        let textField = UITextField()
+        textField.textColor = .systemBackground
+        textField.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        textField.font = UIFont.systemFont(ofSize: 17, weight: .light)
+        textField.autocorrectionType = .no
+        textField.returnKeyType = .done
+        textField.autocapitalizationType = .none
+        textField.borderStyle = .roundedRect
+        textField.layer.cornerRadius = 7
+        textField.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7446222175)
+        textField.backgroundColor = .clear
+        textField.layer.borderWidth = 0.7
         let label = UILabel()
         label.text = title
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.textColor = .systemBackground
         view.backgroundColor = .clear
         view.add(label, layoutBlock: { $0.leading().top() })
-        view.add(textView, layoutBlock: { $0.leading().bottom().trailing().topBottom(4, to: label) })
+        view.add(textField, layoutBlock: { $0.leading().bottom().trailing().topBottom(4, to: label) })
+        textFieldList.append(textField)
         view.heightAnchor.constraint(equalToConstant: Constants.sH * 0.09).isActive = true
         return view
     }

@@ -12,9 +12,12 @@ import RxCocoa
 
 class SignUpSceneCoordinator: BaseSceneCoordinator<Void> {
     
+    public var userParams = [String: String]()
+    
     override func start() -> Observable<Void> {
         let viewModel = SignUpSceneViewModel(dependencies: dependencies)
         let viewController = SignUpSceneViewController.instantiate(with: viewModel)
+        viewController.userParams = userParams
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         
@@ -22,7 +25,7 @@ class SignUpSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
-        viewModel.signUpObservable.subscribe(onNext: { [weak self] _ in
+        viewModel.presentMainSceneObservale.subscribe(onNext: { [weak self] _ in
             self?.presentMainScene()
         }).disposed(by: disposeBag)
         

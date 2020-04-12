@@ -16,13 +16,13 @@ final class User: Object {
     @objc dynamic public var is_verified = 0
     @objc dynamic public var name = ""
     @objc dynamic public var email = ""
-    @objc dynamic public var avatar = ""
-    @objc dynamic public var client = ""
-    @objc dynamic public var updated_at = ""
-    @objc dynamic public var created_at = ""
-    @objc dynamic public var last_activity = ""
+    @objc dynamic public var avatar: String?
+    @objc dynamic public var client: String?
+    @objc dynamic public var updated_at: String?
+    @objc dynamic public var created_at: String?
+    @objc dynamic public var last_activity: String?
     
-    @objc dynamic public var version = ""
+    @objc dynamic public var version: String?
     @objc dynamic public var api_token = ""
     
     override static func primaryKey() -> String? {
