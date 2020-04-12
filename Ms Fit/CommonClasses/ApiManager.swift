@@ -49,7 +49,7 @@ enum APIManager: URLRequestConvertible {
             case .login:
                 query = "login"
             case .daily_screen:
-                query = "daily_screen"
+                query = "user/daily_screen"
             }
             
             if let query = query {
