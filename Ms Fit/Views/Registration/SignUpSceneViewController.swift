@@ -20,30 +20,76 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let baseContainerView = UIView()
+    private let baseImageView = specify(UIImageView(), {
+        $0.image = UIImage(named: "start_Ramadan_Image")
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    })
+    
+    private let userView = specify(UIView(), { $0.backgroundColor = .clear })
+    private let emailView = specify(UIView(), { $0.backgroundColor = .clear })
+    private let passwordView = specify(UIView(), { $0.backgroundColor = .clear })
+    
+    private let userLabel = Label(icon: "User", font: .systemFont(ofSize: 13, weight: .regular),
+                                  textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    private let emailLabel = Label(icon: "Email", font: .systemFont(ofSize: 13, weight: .regular),
+                                   textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    private let passLabel = Label(icon: "Password", font: .systemFont(ofSize: 13, weight: .regular),
+                                  textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    
+    private let userTF = specify(UITextField(), {
+        $0.font = .systemFont(ofSize: Constants.sH_812 ? 17 : Constants.sH_667 ? 16 : 14, weight: .light)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = .systemBackground
+        $0.autocorrectionType = .no
+        $0.returnKeyType = .next
+        $0.autocapitalizationType = .none
+        $0.borderStyle = .roundedRect
+        $0.layer.cornerRadius = 7
+        $0.layer.borderColor = #colorLiteral(red: 0.6196078431, green: 0.4588235294, blue: 0.9333333333, alpha: 1)
+        $0.backgroundColor = .clear
+        $0.layer.borderWidth = 1
+    })
+    
+    private let emailTF = specify(UITextField(), {
+        $0.font = .systemFont(ofSize: Constants.sH_812 ? 17 : Constants.sH_667 ? 16 : 14, weight: .light)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = .systemBackground
+        $0.autocorrectionType = .no
+        $0.returnKeyType = .next
+        $0.autocapitalizationType = .none
+        $0.keyboardType = .emailAddress
+        $0.borderStyle = .roundedRect
+        $0.layer.cornerRadius = 7
+        $0.layer.borderColor = #colorLiteral(red: 0.6196078431, green: 0.4588235294, blue: 0.9333333333, alpha: 1)
+        $0.backgroundColor = .clear
+        $0.layer.borderWidth = 1
+    })
+    
+    private let passwordTF = specify(UITextField(), {
+        $0.font = .systemFont(ofSize: Constants.sH_812 ? 18 : Constants.sH_667 ? 16 : 14, weight: .light)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = .systemBackground
+        $0.autocorrectionType = .no
+        $0.returnKeyType = .go
+        $0.autocapitalizationType = .none
+        $0.borderStyle = .roundedRect
+        $0.layer.cornerRadius = 7
+        $0.layer.borderColor = #colorLiteral(red: 0.6196078431, green: 0.4588235294, blue: 0.9333333333, alpha: 1)
+        $0.backgroundColor = .clear
+        $0.layer.borderWidth = 1
+    })
+    
+    private let contarForButtonsView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1) })
     private let containerView = UIView()
     private let rectangelImage = UIImageView(image: #imageLiteral(resourceName: "StartGiftRamadan"))
-    private let giftImage = UIImageView(image: #imageLiteral(resourceName: "startGift_icon"))
     private var textFieldList = [UITextField]()
     
-    private let congratulationsLabel = specify(UILabel(), {
-        $0.text = "CONGRATULATIONS!"
-        $0.textColor = #colorLiteral(red: 0.9843137255, green: 0.8509803922, blue: 0.4431372549, alpha: 1)
-        $0.font = .systemFont(ofSize: 13, weight: .bold)
-        $0.textAlignment = .center
-    })
-    
-    private let memberShipLabel = specify(UILabel(), {
-        $0.text = "Sign up and get free General \nMembership for 3 days"
-        $0.font = .systemFont(ofSize: Constants.sH_812 ? 22 : 18, weight: .regular)
-        $0.textColor = .systemBackground
-        $0.textAlignment = .center
-        $0.numberOfLines = 0
-    })
-    
-    private let vTFStackView = specify(UIStackView(), {
-        $0.axis = .vertical
-        $0.spacing = 10
+    private let scrollView = specify(UIScrollView(), {
+        $0.showsVerticalScrollIndicator = false
+        $0.contentInsetAdjustmentBehavior = .never
     })
     
     private let TFContainerView = specify(UIView(), {
@@ -53,6 +99,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     })
     
     private let twitterButton = specify(UIButton(type: .roundedRect), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(UIImage(named: "twitter"), for: .normal)
         $0.layer.shadowOffset = .init(width: 0, height: 4)
         $0.tintColor = .systemBackground
@@ -64,6 +111,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     })
     
     private let instagramButton = specify(UIButton(type: .roundedRect), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(UIImage(named: "instagram"), for: .normal)
         $0.layer.shadowOffset = .init(width: 0, height: 4)
         $0.tintColor = .systemBackground
@@ -96,90 +144,102 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             .map({ _ in })
             .bind(to: viewModel!.dismissObservable)
             .disposed(by: disposeBag)
+        
+        passwordTF.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] _ in
+                self.passwordTF.resignFirstResponder()
+            }).disposed(by: disposeBag)
+        
+        userTF.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] _ in
+                self.emailTF.becomeFirstResponder()
+            }).disposed(by: disposeBag)
+        
+        emailTF.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] _ in
+                self.passwordTF.becomeFirstResponder()
+            }).disposed(by: disposeBag)
+        
         signUpButton.rx.tap
             .map({[unowned self] _ in
-                self.userParams["name"] = self.textFieldList[0].text
-                self.userParams["email"] = self.textFieldList[1].text
-                self.userParams["password"] = self.textFieldList[2].text
+                self.userParams["name"] = self.userTF.text
+                self.userParams["email"] = self.emailTF.text
+                self.userParams["password"] = self.passwordTF.text
                 return self.userParams
             })
             .bind(to: viewModel!.signUpObservable)
             .disposed(by: disposeBag)
+        
+        instagramButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("tap instagram")
+            }).disposed(by: disposeBag)
+        
+        twitterButton.rx.tap
+            .subscribe(onNext: { _ in
+                print("tap twitter")
+            }).disposed(by: disposeBag)
+        
+        RxKeyboard.instance.visibleHeight
+            .drive(onNext: { [scrollView] keyboardVisibleHeight in
+                scrollView.contentInset.bottom = keyboardVisibleHeight
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-        baseContainerView.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.3215686275, blue: 0.8509803922, alpha: 1)
-        twitterButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        instagramButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        
-        let textFieldList = titleList.map({ [unowned self] title in self.createTFView(title: title) })
-        textFieldList.forEach({ [unowned self] tf in self.vTFStackView.addArrangedSubview(tf) })
     }
     
     fileprivate func addConstraints() {
+        instagramButton.heightAnchor.constraint(equalToConstant:
+            Constants.sH_812 ? Constants.sW / 6.5 : Constants.sW / 8).isActive = true
+        
         let hForButtonStackView = HStackView(arrangedSubviews: [instagramButton, twitterButton], spacing: 15)
         hForButtonStackView.distribution = .fillEqually
         
         let vStackView = VStackView(arrangedSubviews: [textLabel, hForButtonStackView], spacing: 15)
-        let vTopStackView = VStackView(arrangedSubviews: [congratulationsLabel, memberShipLabel],
-                                       spacing: Constants.sH_812 ? 10 : 7)
+        let textFieldVStackView = VStackView(arrangedSubviews: [userView, emailView, passwordView],
+                                             spacing: 10)
+        textFieldVStackView.distribution = .fillEqually
         
-        instagramButton.heightAnchor.constraint(equalToConstant:
-            Constants.sH_812 ? Constants.sW / 6.5 : Constants.sW / 8 ).isActive = true
-        view.add(vStackView, layoutBlock: { $0.bottom(Constants.sH_812 ? 18 : 8).leading(16).trailing(16) })
-        view.add(baseContainerView, layoutBlock: {
-            $0.top().trailing().leading().bottomTop(-10, to: vStackView)
+        view.add(baseImageView, layoutBlock: {
+            $0.top().leading().trailing().height(Constants.sH * 0.83)
         })
-        baseContainerView.add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
+        view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).centerX().bottom() })
+        
+        userView.add(userLabel, layoutBlock: { $0.top().leading() })
+        userView.add(userTF, layoutBlock: { $0.leading().bottom().trailing().topBottom(4, to: userLabel) })
+        emailView.add(emailLabel, layoutBlock: { $0.top().leading() })
+        emailView.add(emailTF, layoutBlock: { $0.leading().bottom().trailing().topBottom(4, to: emailLabel) })
+        passwordView.add(passLabel, layoutBlock: { $0.top().leading() })
+        passwordView.add(passwordTF, layoutBlock: {
+            $0.leading().bottom().trailing().topBottom(4, to: passLabel)
         })
-        baseContainerView.add(signUpButton, layoutBlock: {
-            $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 30 : 20).height(Constants.sW / 5.5)
+        
+        passwordView.heightAnchor.constraint(equalToConstant: Constants.sH * 0.09).isActive = true
+        
+        contarForButtonsView.add(vStackView, layoutBlock: {
+            $0.width(Constants.sW - 32).centerX().bottom(16).top(20)
         })
-        baseContainerView.add(containerView, layoutBlock: {
-            $0.bottomTop(-15, to: signUpButton).leading(16).trailing(16)
+        scrollView.add(contarForButtonsView, layoutBlock: { $0.width(Constants.sW).centerX().bottom() })
+        scrollView.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).size(44).leading(6, to: view)
+        })
+        scrollView.add(signUpButton, layoutBlock: {
+            $0.width(Constants.sW - 32).bottomTop(-20, to: contarForButtonsView)
+                .height(Constants.sW / 5.5).centerX()
+        })
+        scrollView.add(containerView, layoutBlock: {
+            $0.bottomTop(-15, to: signUpButton).width(Constants.sW - 32).centerX()
+                .topBottom(Constants.sH_812 ? Constants.sH * 0.2 : Constants.sH_667 ?
+                    Constants.sH * 0.16 : Constants.sH * 0.1, to: closeButton)
         })
         containerView.add(rectangelImage, layoutBlock: { $0.top().centerX().width(52).height(14) })
         containerView.add(TFContainerView, layoutBlock: {
             $0.topBottom(to: rectangelImage).leading().trailing().bottom()
         })
-        baseContainerView.add(giftImage, layoutBlock: {
-            $0.top(Constants.sH_812 ? 50 : 30).centerX()
-                .width(Constants.sH_812 ? Constants.sH * 0.1 : Constants.sH * 0.07)
-                .height(Constants.sH_812 ? Constants.sH * 0.1 : Constants.sH * 0.07)
+        TFContainerView.add(textFieldVStackView, layoutBlock: {
+            $0.leading(24).trailing(24).bottom(16).top(30)
         })
-        baseContainerView.add(vTopStackView, layoutBlock: {
-            $0.topBottom(Constants.sH_812 ? 30 : 15, to: giftImage).leading(16).trailing(16)
-        })
-        TFContainerView.add(vTFStackView, layoutBlock: { $0.leading(24).trailing(24).bottom(16).top(30) })
-    }
-    
-    private let titleList = ["User", "Email", "Password"]
-    
-    fileprivate func createTFView(title: String) -> UIView {
-        let view = UIView()
-        let textField = UITextField()
-        textField.textColor = .systemBackground
-        textField.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        textField.font = UIFont.systemFont(ofSize: 17, weight: .light)
-        textField.autocorrectionType = .no
-        textField.returnKeyType = .done
-        textField.autocapitalizationType = .none
-        textField.borderStyle = .roundedRect
-        textField.layer.cornerRadius = 7
-        textField.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7446222175)
-        textField.backgroundColor = .clear
-        textField.layer.borderWidth = 0.7
-        let label = UILabel()
-        label.text = title
-        label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.textColor = .systemBackground
-        view.backgroundColor = .clear
-        view.add(label, layoutBlock: { $0.leading().top() })
-        view.add(textField, layoutBlock: { $0.leading().bottom().trailing().topBottom(4, to: label) })
-        textFieldList.append(textField)
-        view.heightAnchor.constraint(equalToConstant: Constants.sH * 0.09).isActive = true
-        return view
     }
 }

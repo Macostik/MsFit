@@ -63,7 +63,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
         eyeButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                self.eyeButton.setImage( self.isShowUnshowEyes ? UIImage(systemName: "eye.fill") :
+                self.eyeButton.setImage(self.isShowUnshowEyes ? UIImage(systemName: "eye.fill") :
                     UIImage(systemName: "eye.slash.fill"), for: .normal)
                 self.textField.isSecureTextEntry.toggle()
                 self.isShowUnshowEyes.toggle()
