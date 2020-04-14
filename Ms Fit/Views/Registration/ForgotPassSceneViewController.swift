@@ -12,21 +12,34 @@ import RxCocoa
 
 class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel> {
     
+    private var loginCenterYConstr: NSLayoutConstraint!
     private let emailImageView = UIImageView(image: #imageLiteral(resourceName: "login_email"))
+
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .semibold)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "xmark", withConfiguration: mediumConfiguration)?
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
+    private let contLoginView = specify(UIView(), {
+        $0.backgroundColor = .clear
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    })
+    
     private let sendRecoverInfoButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Send Recover Info", font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+        $0.customButton(text: "استعادة كلمة المرور", font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+    })
+    
+    private let emailLabel = specify(UILabel(), {
+        $0.text = "البريد الإلكتروني"
+        $0.textAlignment = .right
+        $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
     })
     
     private let emailTextField = specify(TextField(), {
-        $0.placeholder = "Email "
         $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.keyboardType = .emailAddress
@@ -53,26 +66,58 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
             .subscribe(onNext: { _ in
                 //do something
             }).disposed(by: disposeBag)
+        
+        emailTextField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: { [unowned self] _ in
+                self.isAnimationPlaceholder(isAnimation: true, nameLabel: self.emailLabel,
+                                            constr: self.loginCenterYConstr, view: self.contLoginView)
+            }).disposed(by: disposeBag)
+        
+        emailTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] _ in
+                self.emailTextField.becomeFirstResponder()
+                self.isAnimationPlaceholder(isAnimation: false, nameLabel: self.emailLabel,
+                                            constr: self.loginCenterYConstr, view: self.contLoginView)
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {
-        let verStackView = VStackView(arrangedSubviews: [emailTextField, sendRecoverInfoButton],
-                                      spacing: Constants.sH_812 ? 80 : Constants.sH_667 ? 50 : 40)
+        contLoginView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        let verStackView = VStackView(arrangedSubviews: [contLoginView, sendRecoverInfoButton],
+                                      spacing: Constants.sW * 0.2)
         verStackView.distribution = .fillEqually
         
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(6).size(44)
         })
         view.add(emailImageView, layoutBlock: {
-            $0.top(Constants.sH * 0.13).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
+            $0.top(Constants.sH * 0.15).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })
         sendRecoverInfoButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         view.add(verStackView, layoutBlock: {
-            $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 350 : 250)
+            $0.topBottom(Constants.sW * 0.1, to: emailImageView).leading(16).trailing(20)
         })
+        
+        contLoginView.add(emailTextField, layoutBlock: { $0.top(20).leading().trailing().bottom() })
+        contLoginView.add(emailLabel, layoutBlock: { $0.trailing(5).width(120) })
+        
+        loginCenterYConstr = emailLabel.centerYAnchor.constraint(equalTo: contLoginView.centerYAnchor)
+        loginCenterYConstr.isActive = true
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+    }
+    
+    fileprivate func isAnimationPlaceholder(isAnimation: Bool, nameLabel: UILabel,
+                                            constr: NSLayoutConstraint, view: UIView) {
+        UIView.animate(withDuration: 0.3) {
+            nameLabel.textColor = isAnimation ? #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1) : #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+            constr.constant = isAnimation ? -20 : 0
+            constr.isActive = !isAnimation
+            nameLabel.font = isAnimation ? .systemFont(ofSize: 16, weight: .regular) :
+                .systemFont(ofSize: 18, weight: .regular)
+            view.layoutIfNeeded()
+        }
     }
 }

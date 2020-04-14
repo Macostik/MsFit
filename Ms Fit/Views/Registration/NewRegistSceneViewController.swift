@@ -39,12 +39,15 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private let quetionLabel = specify(UILabel(), {
         $0.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-        $0.text = "What is your goal?"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .center
+        $0.text = "هدفك ؟"
     })
     
     private let nextButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Next Step", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "التالي", font: 20, weight: .black, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let bottomLabel = specify(UILabel(), {
@@ -63,12 +66,12 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         $0.subviews[1].clipsToBounds = true
     })
     
-    private let buttonsTitle = ["Lose Weight", "Maintain Weight", "Gain Weight", "I am a student"]
+    private let buttonsTitle = ["خسارة وزن", "لياقة مع ثبات وزن", "زيادة وزن", "طالبة"]
     private var buttonList = [UIButton]()
     
     private let nextStepButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        $0.customButton(text: "next step", font: 17, weight: .regular, shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: #colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1))
+        $0.customButton(text: "التالي", font: 17, weight: .regular, shadowColor: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1), bgColor: #colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1))
     })
     
     override func setupUI() {
@@ -127,7 +130,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                 UIView.animate(withDuration: 0.5, animations: {
                     self?.goalImageView.image = #imageLiteral(resourceName: "start_weight_icon")
                     self?.goalImageView.transform = .identity
-                    self?.quetionLabel.text = "What`s you weight?"
+                    self?.quetionLabel.text = "وزنك ؟"
                     self?.goalImageView.isHidden = flag
                     self?.progressView.setProgress(0.4, animated: true)
                 })
@@ -184,6 +187,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private func createButton(with title: String) -> UIButton {
         let button = UIButton(type: .roundedRect)
+        button.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         button.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
         button.customButton(text: title , font: 20, weight: .regular,
                             shadowColor: #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1), bgColor: .systemBackground)
@@ -222,8 +226,9 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
             $0.top(Constants.sH_812 ? 100 : 30).centerX()
                 .width(Constants.sW / 4.7).height(Constants.sW / 4)
         })
+        
         progressView.heightAnchor.constraint(equalToConstant: 8).isActive = true
-        progressView.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        progressView.widthAnchor.constraint(equalToConstant: 210).isActive = true
         
         buttonList.forEach({[weak self] in self?.verForButtonStackView.addArrangedSubview($0) })
         
@@ -268,21 +273,21 @@ enum PickerData: String, CaseIterable {
     func nextElement() -> PickerCollectionType {
         switch self {
         case .weight:
-            return (.height, #imageLiteral(resourceName: "start_height_icon"), "What is your height?")
+            return (.height, #imageLiteral(resourceName: "start_height_icon"), "طولك ؟")
         case .height:
-            return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "Your birthday date?")
+            return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "تاريخ ميلادك ؟")
         case .age, .completed:
-            return (.completed, #imageLiteral(resourceName: "start_activity_icon"), "You activity")
+            return (.completed, #imageLiteral(resourceName: "start_activity_icon"), "مستوى نشاطك اليومي ؟")
         }
     }
     func previousElement() -> PickerCollectionType {
         switch self {
         case .weight, .height:
-            return (.weight, #imageLiteral(resourceName: "start_weight_icon"), "What`s you weight?")
+            return (.weight, #imageLiteral(resourceName: "start_weight_icon"), "وزنك ؟")
         case .age:
-            return (.height, #imageLiteral(resourceName: "start_height_icon"), "What is your height?")
+            return (.height, #imageLiteral(resourceName: "start_height_icon"), "طولك ؟")
         case .completed:
-            return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "Your birthday date?")
+            return (.age, #imageLiteral(resourceName: "start_birthday_icon"), "تاريخ ميلادك ؟")
         }
     }
 }

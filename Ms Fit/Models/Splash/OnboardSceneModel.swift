@@ -10,18 +10,18 @@ import UIKit
 import RealmSwift
 
 enum ImageList: String, CaseIterable {
-    case splash_1
-    case splash_2
     case splash_3
+    case splash_2
+    case splash_1
     
-    func description() -> String {
+    func description() -> (String, String) {
         switch self {
-        case .splash_1:
-            return ("Coach for You")
-        case .splash_2:
-            return ("Activity Program")
         case .splash_3:
-            return ("Personal Diet")
+            return ("جدول رياضي", "تمارين رياضية مناسبة للمنزل أو الجيمتساعدك في الوصول للجسم المثالي بسهوله")
+        case .splash_2:
+            return ("جدول غذائي", "وجبات صحية شهية ومتجددةمصممة لتناسب احتياجك اليومي من السعرات")
+        case .splash_1:
+            return ("متابعة الأداء", "سجل قياسات شامل وسهليساعدك في قياس نتائجك ومتابعة تغير جسمك")
         }
     }
 }

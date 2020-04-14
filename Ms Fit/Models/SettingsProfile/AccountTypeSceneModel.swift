@@ -24,9 +24,9 @@ enum AccountTypeModel: String, CaseIterable {
     func discription() -> String {
         switch self {
         case .accountType:
-            return "General Membership"
+            return "العضوية"
         case .active:
-            return "Until 23/04/2020"
+            return "حتى %@ 20"
         }
     }
 }

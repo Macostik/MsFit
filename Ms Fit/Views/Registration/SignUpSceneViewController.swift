@@ -29,12 +29,26 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     private let emailView = specify(UIView(), { $0.backgroundColor = .clear })
     private let passwordView = specify(UIView(), { $0.backgroundColor = .clear })
     
-    private let userLabel = Label(icon: "User", font: .systemFont(ofSize: 13, weight: .regular),
-                                  textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-    private let emailLabel = Label(icon: "Email", font: .systemFont(ofSize: 13, weight: .regular),
-                                   textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
-    private let passLabel = Label(icon: "Password", font: .systemFont(ofSize: 13, weight: .regular),
-                                  textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    private let userLabel = specify(UILabel(), {
+        $0.text = "الاسم"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
+        $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    })
+    
+    private let emailLabel = specify(UILabel(), {
+        $0.text = "البريد الإلكتروني:"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
+        $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    })
+    
+    private let passLabel = specify(UILabel(), {
+        $0.text = "كلمة المرور"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
+        $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    })
     
     private let userTF = specify(UITextField(), {
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 17 : Constants.sH_667 ? 16 : 14, weight: .light)
@@ -129,7 +143,8 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     })
     
     private let textLabel = specify(UILabel(), {
-        $0.text = "Or use social media"
+        $0.text = "التسجيل باستخدام :"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 19, weight: .regular)
         $0.textAlignment = .center
     })

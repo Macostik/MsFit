@@ -14,6 +14,7 @@ class SplashSceneViewController: BaseViewController<SplashSceneViewModel> {
     
     private let splashIconImageView = specify(UIImageView()) {
         $0.image = UIImage(named: "splash_icon")
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     override func setupUI() {

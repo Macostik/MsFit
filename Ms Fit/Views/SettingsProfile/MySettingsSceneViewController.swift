@@ -20,7 +20,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Settings"
+        $0.text = "الإعدادات"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -95,9 +95,9 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                 case .aboutApp:
                     print("tap aboutApp")
                 case .privacyPolicy:
-                    print("tap privacyPolicy")
+                    self?.viewModel?.presentPrivacyPolicyObserver.onNext(())
                 case .termOfUse:
-                    print("tap termOfUse")
+                    self?.viewModel?.presentTermOfUseObserver.onNext(())
                 case .notification:
                     break
                 case .version:

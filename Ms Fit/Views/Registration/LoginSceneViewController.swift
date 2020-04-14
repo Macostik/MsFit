@@ -23,24 +23,25 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private var passCenterYConstr: NSLayoutConstraint!
     
     private let contLoginView = specify(UIView(), {
-        $0.backgroundColor = .clear
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.backgroundColor = .clear
     })
     
     private let contPasswordView = specify(UIView(), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = .clear
     })
     
     private let loginLabel = specify(UILabel(), {
-        $0.text = "Login"
+        $0.text = "البريد الإلكتروني"
         $0.textAlignment = .right
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
     })
     
     private let passwordLabel = specify(UILabel(), {
-        $0.text = "Password"
-        $0.textAlignment = .left
+        $0.text = "كلمة المرور"
+        $0.textAlignment = .right
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
     })
@@ -48,6 +49,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private let loginTextField = specify(TextField(), {
         $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.keyboardType = .emailAddress
+        $0.textAlignment = .right
         $0.autocorrectionType = .no
         $0.autocapitalizationType = .none
         $0.returnKeyType = .next
@@ -58,6 +60,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private let passwordTextField = specify(TextField(), {
         $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         $0.autocorrectionType = .no
+        $0.textAlignment = .right
         $0.returnKeyType = .done
         $0.autocapitalizationType = .none
         $0.isSecureTextEntry.toggle()
@@ -67,14 +70,16 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     
     private let startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .regular, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+        $0.customButton(text: "دخول", font: 20, weight: .black, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let forgotPasswordButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        $0.setTitle("Forgot your password?", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.setTitle("نسيت كلمة المرور", for: .normal)
+        $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
     })
     
     override func setupUI() {
@@ -154,9 +159,9 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             $0.top(Constants.sH_812 ? 100 : 40).centerX().width(Constants.sH / 7).height(Constants.sH / 9)
         })
         contLoginView.add(loginTextField, layoutBlock: { $0.top(20).leading().trailing().bottom() })
-        contLoginView.add(loginLabel, layoutBlock: { $0.trailing(5).width(100) })
+        contLoginView.add(loginLabel, layoutBlock: { $0.trailing(5).leading(5) })
         contPasswordView.add(passwordTextField, layoutBlock: { $0.top(20).leading().trailing().bottom() })
-        contPasswordView.add(passwordLabel, layoutBlock: { $0.leading(5).width(100) })
+        contPasswordView.add(passwordLabel, layoutBlock: { $0.trailing(5).leading(5) })
         view.add(verTFStackView, layoutBlock: {
             $0.topBottom(Constants.sH_812 ? 25 : Constants.sH_667 ? 20 : 0, to: emailImageView)
                 .leading(16).trailing(20)

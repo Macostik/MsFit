@@ -32,7 +32,7 @@ class MeasurementsView: UIView {
     public let updateMeasureButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.setTitle("Update Measurements", for: .normal)
+        $0.setTitle("تسجيل القياسات", for: .normal)
         $0.layer.shadowColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.layer.cornerRadius = (Constants.sW / 5.5) / 2

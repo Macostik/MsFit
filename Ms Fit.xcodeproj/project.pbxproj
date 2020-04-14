@@ -97,6 +97,14 @@
 		AC12E32023FEBDFE007343A5 /* NewRegistSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */; };
 		AC12E32223FEBDFE007343A5 /* RegisterParamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31E23FEBDFE007343A5 /* RegisterParamsModel.swift */; };
 		AC12E32323FEBDFE007343A5 /* NewRegistSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */; };
+		AC177C1B24459C9400C29688 /* PrivacyPolicySceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C1724459C9400C29688 /* PrivacyPolicySceneCoordinator.swift */; };
+		AC177C1C24459C9400C29688 /* PrivacyPolicySceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C1824459C9400C29688 /* PrivacyPolicySceneViewController.swift */; };
+		AC177C1D24459C9400C29688 /* PrivacyPolicySceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C1924459C9400C29688 /* PrivacyPolicySceneModel.swift */; };
+		AC177C1E24459C9400C29688 /* PrivacyPolicySceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C1A24459C9400C29688 /* PrivacyPolicySceneViewModel.swift */; };
+		AC177C2324459E4E00C29688 /* TermOfUseSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C1F24459E4E00C29688 /* TermOfUseSceneCoordinator.swift */; };
+		AC177C2424459E4E00C29688 /* TermOfUseSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C2024459E4E00C29688 /* TermOfUseSceneViewController.swift */; };
+		AC177C2524459E4E00C29688 /* TermOfUseSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C2124459E4E00C29688 /* TermOfUseSceneModel.swift */; };
+		AC177C2624459E4E00C29688 /* TermOfUseSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC177C2224459E4E00C29688 /* TermOfUseSceneViewModel.swift */; };
 		AC1A7FAA2409044E0058248D /* VerificationEmailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */; };
 		AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1A7FAC240930B80058248D /* KeyboardManager.swift */; };
 		AC1CAFBE243E057D008BE6C9 /* RestWorkoutSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1CAFBA243E057D008BE6C9 /* RestWorkoutSceneCoordinator.swift */; };
@@ -360,6 +368,14 @@
 		AC12E31C23FEBDFE007343A5 /* NewRegistSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC12E31E23FEBDFE007343A5 /* RegisterParamsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParamsModel.swift; sourceTree = "<group>"; };
 		AC12E31F23FEBDFE007343A5 /* NewRegistSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistSceneViewModel.swift; sourceTree = "<group>"; };
+		AC177C1724459C9400C29688 /* PrivacyPolicySceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicySceneCoordinator.swift; sourceTree = "<group>"; };
+		AC177C1824459C9400C29688 /* PrivacyPolicySceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicySceneViewController.swift; sourceTree = "<group>"; };
+		AC177C1924459C9400C29688 /* PrivacyPolicySceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicySceneModel.swift; sourceTree = "<group>"; };
+		AC177C1A24459C9400C29688 /* PrivacyPolicySceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicySceneViewModel.swift; sourceTree = "<group>"; };
+		AC177C1F24459E4E00C29688 /* TermOfUseSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC177C2024459E4E00C29688 /* TermOfUseSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseSceneViewController.swift; sourceTree = "<group>"; };
+		AC177C2124459E4E00C29688 /* TermOfUseSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseSceneModel.swift; sourceTree = "<group>"; };
+		AC177C2224459E4E00C29688 /* TermOfUseSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseSceneViewModel.swift; sourceTree = "<group>"; };
 		AC1A7FA92409044E0058248D /* VerificationEmailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationEmailPopupView.swift; sourceTree = "<group>"; };
 		AC1A7FAC240930B80058248D /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		AC1CAFBA243E057D008BE6C9 /* RestWorkoutSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestWorkoutSceneCoordinator.swift; sourceTree = "<group>"; };
@@ -997,12 +1013,14 @@
 				AC753B9F2440ACAA005AACFD /* EditPasswordSceneViewController.swift */,
 				AC753B8B244080EC005AACFD /* LevelSelectionSceneViewController.swift */,
 				ACBF70192425151E00FFEAC8 /* MySettingsSceneViewController.swift */,
+				AC177C1824459C9400C29688 /* PrivacyPolicySceneViewController.swift */,
 				AC220459242BB8DC0089C801 /* HistoryResultSceneViewController.swift */,
 				ACBF7021242620E100FFEAC8 /* UpdateMeasurSceneViewController.swift */,
 				AC220447242B5D550089C801 /* UpdateExerciseSceneViewController.swift */,
 				ACCAA3532434B0E600EA93B2 /* UpdateWeightSceneViewController.swift */,
 				AC70FFA2241F993E0064CEC5 /* SettingsSceneViewController.swift */,
 				ACA37797243F4A25002D7C63 /* SentMessageSceneViewController.swift */,
+				AC177C2024459E4E00C29688 /* TermOfUseSceneViewController.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1016,12 +1034,14 @@
 				AC753B9E2440ACAA005AACFD /* EditPasswordSceneCoordinator.swift */,
 				AC753B8A244080EC005AACFD /* LevelSelectionSceneCoordinator.swift */,
 				ACBF70182425151E00FFEAC8 /* MySettingsSceneCoordinator.swift */,
+				AC177C1724459C9400C29688 /* PrivacyPolicySceneCoordinator.swift */,
 				AC220458242BB8DC0089C801 /* HistoryResultSceneCoordinator.swift */,
 				ACBF7020242620E100FFEAC8 /* UpdateMeasurSceneCoordinator.swift */,
 				AC220446242B5D550089C801 /* UpdateExerciseSceneCoordinator.swift */,
 				ACCAA3522434B0E600EA93B2 /* UpdateWeightSceneCoordinator.swift */,
 				AC70FFA1241F993E0064CEC5 /* SettingsSceneCoordinator.swift */,
 				ACA37796243F4A25002D7C63 /* SentMessageSceneCoordinator.swift */,
+				AC177C1F24459E4E00C29688 /* TermOfUseSceneCoordinator.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1141,12 +1161,14 @@
 				AC753BA12440ACAA005AACFD /* EditPasswordSceneViewModel.swift */,
 				AC753B8D244080EC005AACFD /* LevelSelectionSceneViewModel.swift */,
 				ACBF701B2425151E00FFEAC8 /* MySettingsSceneViewModel.swift */,
+				AC177C1A24459C9400C29688 /* PrivacyPolicySceneViewModel.swift */,
 				AC22045B242BB8DC0089C801 /* HistoryResultSceneViewModel.swift */,
 				ACBF7023242620E100FFEAC8 /* UpdateMeasurSceneViewModel.swift */,
 				AC220449242B5D550089C801 /* UpdateExerciseSceneViewModel.swift */,
 				ACCAA3552434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift */,
 				AC70FFA4241F993E0064CEC5 /* SettingsSceneViewModel.swift */,
 				ACA37799243F4A25002D7C63 /* SentMessageSceneViewModel.swift */,
+				AC177C2224459E4E00C29688 /* TermOfUseSceneViewModel.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1258,12 +1280,14 @@
 				AC753BA02440ACAA005AACFD /* EditPasswordSceneModel.swift */,
 				AC753B8C244080EC005AACFD /* LevelSelectionSceneModel.swift */,
 				ACBF701A2425151E00FFEAC8 /* MySettingsSceneModel.swift */,
+				AC177C1924459C9400C29688 /* PrivacyPolicySceneModel.swift */,
 				AC22045A242BB8DC0089C801 /* HistoryResultSceneModel.swift */,
 				ACBF7022242620E100FFEAC8 /* UpdateMeasurSceneModel.swift */,
 				AC220448242B5D550089C801 /* UpdateExerciseSceneModel.swift */,
 				ACCAA3542434B0E600EA93B2 /* UpdateWeightSceneModel.swift */,
 				AC70FFA3241F993E0064CEC5 /* SettingsSceneModel.swift */,
 				ACA37798243F4A25002D7C63 /* SentMessageSceneModel.swift */,
+				AC177C2124459E4E00C29688 /* TermOfUseSceneModel.swift */,
 			);
 			path = SettingsProfile;
 			sourceTree = "<group>";
@@ -1446,6 +1470,7 @@
 				566C2D8C2404423E0006108B /* SignUpSceneCoordinator.swift in Sources */,
 				ACCED1CF23FEA713000EB2DB /* ForgotPassSceneViewModel.swift in Sources */,
 				ACA3779B243F4A25002D7C63 /* SentMessageSceneViewController.swift in Sources */,
+				AC177C1C24459C9400C29688 /* PrivacyPolicySceneViewController.swift in Sources */,
 				ACBF700F2424C7CB00FFEAC8 /* ContactUsSceneCoordinator.swift in Sources */,
 				56993C1C2401BDF500C16CFF /* TipsSceneCoordinator.swift in Sources */,
 				564A676C23FC821F00D4901A /* OnboardSceneModel.swift in Sources */,
@@ -1493,6 +1518,7 @@
 				AC219312241273E800F388C1 /* DetailsWorkoutSceneViewController.swift in Sources */,
 				ACD5CEC8243B58A4002384D0 /* StartWorkoutSceneViewModel.swift in Sources */,
 				564A676423FC76B100D4901A /* String+Ext.swift in Sources */,
+				AC177C2424459E4E00C29688 /* TermOfUseSceneViewController.swift in Sources */,
 				AC21931C2412900400F388C1 /* MealSceneModel.swift in Sources */,
 				569089BE243BB33200C4DB30 /* PNGenericChart.swift in Sources */,
 				AC70FFA5241F993E0064CEC5 /* SettingsSceneCoordinator.swift in Sources */,
@@ -1504,6 +1530,7 @@
 				AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */,
 				AC753B90244080EC005AACFD /* LevelSelectionSceneModel.swift in Sources */,
 				566C2DAC240444080006108B /* SignInSceneViewController.swift in Sources */,
+				AC177C2624459E4E00C29688 /* TermOfUseSceneViewModel.swift in Sources */,
 				ACBF70122424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift in Sources */,
 				ACCD39B92421068100D97A11 /* TipsMenuCell.swift in Sources */,
 				AC4A783B23FE7412003DD917 /* LoginSceneViewModel.swift in Sources */,
@@ -1595,6 +1622,8 @@
 				564A676223FC76B100D4901A /* NSLayoutConstraint+Ext.swift in Sources */,
 				569089BC243BB33200C4DB30 /* PNValue.swift in Sources */,
 				564A676D23FC821F00D4901A /* OnboardSceneViewModel.swift in Sources */,
+				AC177C2324459E4E00C29688 /* TermOfUseSceneCoordinator.swift in Sources */,
+				AC177C1B24459C9400C29688 /* PrivacyPolicySceneCoordinator.swift in Sources */,
 				566C2DAB240444080006108B /* ForgotPassSceneViewController.swift in Sources */,
 				AC753BA42440ACAA005AACFD /* EditPasswordSceneModel.swift in Sources */,
 				AC124581242DFFBA00533AA0 /* MealDetailSceneModel.swift in Sources */,
@@ -1621,6 +1650,7 @@
 				ACACD460241BB41B0017D4D7 /* PreviewImagePagerView.swift in Sources */,
 				564A674523FC6E4700D4901A /* SlimLoggerConfig.swift in Sources */,
 				AC1CAFC1243E057D008BE6C9 /* RestWorkoutSceneViewModel.swift in Sources */,
+				AC177C1D24459C9400C29688 /* PrivacyPolicySceneModel.swift in Sources */,
 				AC5515532413A4BD0093373D /* StackView.swift in Sources */,
 				ACBF70112424C7CB00FFEAC8 /* ContactUsSceneModel.swift in Sources */,
 				AC753B9B2440A3FE005AACFD /* AccountSettingsSceneViewModel.swift in Sources */,
@@ -1637,6 +1667,7 @@
 				AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */,
 				AC07657424334F7A00952766 /* DetailFoodSceneViewModel.swift in Sources */,
 				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
+				AC177C1E24459C9400C29688 /* PrivacyPolicySceneViewModel.swift in Sources */,
 				AC753B91244080EC005AACFD /* LevelSelectionSceneViewModel.swift in Sources */,
 				ACA3779A243F4A25002D7C63 /* SentMessageSceneCoordinator.swift in Sources */,
 				AC1CAFC0243E057D008BE6C9 /* RestWorkoutSceneModel.swift in Sources */,
@@ -1687,6 +1718,7 @@
 				ACCAA3572434B0E600EA93B2 /* UpdateWeightSceneViewController.swift in Sources */,
 				AC1A7FAD240930B80058248D /* KeyboardManager.swift in Sources */,
 				560586D5242BDD8B00423832 /* PagerViewTransformer.swift in Sources */,
+				AC177C2524459E4E00C29688 /* TermOfUseSceneModel.swift in Sources */,
 				AC807116242A6898000F0BE7 /* ExerciseDetailSceneCoordinator.swift in Sources */,
 				AC70FFAE241F9B8F0064CEC5 /* MeasurementsView.swift in Sources */,
 				AC220461242BBC530089C801 /* HistoryGraphView.swift in Sources */,

@@ -36,7 +36,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Tips"
+        $0.text = "نصائح"
         $0.textAlignment = .center
         $0.font = .systemFont(ofSize: 18, weight: .medium)
         $0.textColor = .systemBackground

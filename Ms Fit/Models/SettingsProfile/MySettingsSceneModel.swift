@@ -16,11 +16,11 @@ enum SettingsStorageData: CaseIterable {
     func description() -> SectionOfSettings {
         switch self {
         case .settings:
-            return SectionOfSettings(header: "PROFILE SETTINGS",
+            return SectionOfSettings(header: "الإعدادات",
                                      items: [.weight, .heigth, .dateOfBirthday, .goal,
                                              .activity, .selectionLevel])
         case .account:
-            return SectionOfSettings(header: "ACCOUNT",
+            return SectionOfSettings(header: "الحساب",
                                      items: [.accountSettings, .accountType])
         case .msFit:
             return SectionOfSettings(header: "MS FIT",
@@ -55,33 +55,33 @@ enum SettingsStorageSceneModel: String, CaseIterable {
         case .weight:
             return ("Weight", "140.9 kg")
         case .heigth:
-            return ("Height", "200 cm")
+            return ("الطول", "cm 200")
         case .dateOfBirthday:
-            return ("Date of birth", "01/11/2020")
+            return ("تاريخ الميلاد", "01/11/2020")
         case .goal:
-            return ("goal", "my goal is 130 kg")
+            return ("الهدف", "my goal is 130 kg")
         case .activity:
-            return ("Activity", "Destop job")
+            return ("النشاط اليومي", "وظيفة مكتبية")
         case .selectionLevel:
             return ("Workout Type", "2 level")
         case .accountSettings:
-            return ("Account Settings", "")
+            return ("إعدادات الحساب", "")
         case .accountType:
-            return ("Account Type", "General Membership")
+            return ("العضوية", "General Membership")
         case .contactUs:
-            return ("Contact Us", "")
+            return ("الاتصال بنا", "")
         case .aboutApp:
-            return ("About app", "")
+            return ("عن التطبيق", "")
         case .privacyPolicy:
-            return ("Private Policy", "")
+            return ("سياسة الخصوصية", "")
         case .termOfUse:
-            return ("Term of use", "")
+            return ("شروط الاستخدام", "")
         case .version:
-            return ("Version", "1.0")
+            return ("الإصدار" , "1.0")
         case .notification:
             return ("Notification", "")
         case .logOut:
-            return ("Log Out", "")
+            return ("تسجيل خروج", "")
         }
     }
 }

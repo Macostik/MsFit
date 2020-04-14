@@ -35,7 +35,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
     })
     
     private let navQuestionsLabel = specify(UILabel(), {
-        $0.text = "Today meals"
+        $0.text = "وجباتي"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })

@@ -24,7 +24,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
     })
     
     private let textField = specify(UITextField(), {
-        $0.placeholder = "Enter"
+        $0.placeholder = "حفظ"
         $0.returnKeyType = .done
         $0.borderStyle = .none
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)

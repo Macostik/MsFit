@@ -47,7 +47,7 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     
     private let updateButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Update", font: 20, weight: .medium,
+        $0.customButton(text: "حفظ", font: 20, weight: .medium,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), isCircled: true)
     })
     

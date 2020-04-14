@@ -21,7 +21,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Contact Us"
+        $0.text = "الاتصال بنا"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -56,7 +56,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     private let validLabel = Label(icon: "Check if email is valid",
                                    font: .systemFont(ofSize: 15, weight: .regular),
                                    textColor: #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1))
-    private let yourQuestionsLabel = Label(icon: "Your Question",
+    private let yourQuestionsLabel = Label(icon: "الأسئلة",
                                            font: .systemFont(ofSize: 13, weight: .regular),
                                            textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1))
     private let yourQuestionTextView = specify(UITextView(), {

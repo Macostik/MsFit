@@ -22,7 +22,7 @@ class TimerPopupView: UIView {
     
     public let contunieButton = specify(UIButton(type: .roundedRect), {
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        $0.setTitle("Continue", for: .normal)
+        $0.setTitle("متابعة", for: .normal)
         $0.setTitleColor(.systemBackground, for: .normal)
     })
     

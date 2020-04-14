@@ -20,9 +20,10 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     })
     
     private var startButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .black)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.setTitle("Start", for: .normal)
+        $0.setTitle("ابدئي", for: .normal)
         $0.layer.shadowColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.layer.cornerRadius = (Constants.sW / 5.5) / 2
@@ -32,8 +33,9 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     })
     
     private let signInButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        $0.setTitle("Login", for: .normal)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        $0.setTitle("دخول الأعضاء", for: .normal)
         $0.setTitleColor(.black, for: .normal)
     })
     
@@ -60,7 +62,6 @@ extension OnboardSceneViewController {
     
     fileprivate func addPagerVeiw() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-        pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
@@ -74,7 +75,7 @@ extension OnboardSceneViewController {
     }
     
     fileprivate func addConstraints() {
-        let verticalStackView = VStackView(arrangedSubviews: [startButton, signInButton])
+        let verticalStackView = VStackView(arrangedSubviews: [startButton, signInButton], spacing: 10)
         
         startButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
         signInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
@@ -121,15 +122,16 @@ class ImageCell: FSPagerViewCell {
     })
     
     private let topLabel = specify(UILabel(), {
-        $0.text = "Activity Program"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textColor = UIColor.systemBackground
-        $0.font = UIFont.boldSystemFont(ofSize: 34)
+        $0.font = .boldSystemFont(ofSize: 22)
     })
     
     private let bottomLabel = specify(UILabel(), {
-        $0.setLineHeight("Be the girl who decided decided \ndecided to go for it!", lineHeight: 5.0)
+        $0.setLineHeight("", lineHeight: 5.0)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textColor = UIColor.systemBackground
-        $0.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center
         $0.numberOfLines = 0
     })
@@ -146,7 +148,8 @@ class ImageCell: FSPagerViewCell {
             $0.leading(50).trailing(50).bottom(Constants.sH_812 ? 80 : 50)
         })
         splashImageView.image = UIImage(named: entry.rawValue)
-        topLabel.text = entry.description()
+        topLabel.text = entry.description().0
+        bottomLabel.text = entry.description().1
     }
     
     override init(frame: CGRect) {
