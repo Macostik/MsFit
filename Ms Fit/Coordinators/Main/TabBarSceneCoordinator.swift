@@ -15,10 +15,12 @@ class TabBarSceneCoordinator: BaseSceneCoordinator<UIViewController> {
     override func start() -> Observable<UIViewController> {
         let viewModel = TabBarSceneViewModel(dependencies: dependencies)
         let viewController = TabBarSceneViewController.instantiate(with: viewModel)
+        
         Observable.combineLatest(configure())
             .subscribe(onNext: { viewControllers in
                 viewController.viewControllers = viewControllers
             }).disposed(by: disposeBag)
+        
         return Observable.just(viewController)
     }
 }
@@ -34,19 +36,19 @@ extension TabBarSceneModel {
     
     func coordinator(window: UIWindow, dependencies: Dependency) -> BaseCoordinator<UINavigationController> {
            switch self {
-           case .daily:
+           case .جدولي:
                let coordinator = DailySceneCoordinator(window: window, dependencies: dependencies)
                coordinator.tabBarIcon = rawValue
                return coordinator
-           case .exercises:
+           case .التمارين:
                let coordinator = ExercisesSceneCoordinator(window: window, dependencies: dependencies)
                coordinator.tabBarIcon = rawValue
                return coordinator
-           case .tips:
+           case .نصائح:
                let coordinator = TipsSceneCoordinator(window: window, dependencies: dependencies)
                coordinator.tabBarIcon = rawValue
                return coordinator
-           case .profile:
+           case .ملفي:
                let coordinator = SettingsSceneCoordinator(window: window, dependencies: dependencies)
                coordinator.tabBarIcon = rawValue
                return coordinator

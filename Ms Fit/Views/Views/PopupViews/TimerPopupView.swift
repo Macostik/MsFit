@@ -28,19 +28,19 @@ class TimerPopupView: UIView {
     
     public let skipExerciseButton = specify(UIButton(type: .roundedRect), {
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        $0.setTitle("Skip Exercise", for: .normal)
+        $0.setTitle("تجاوز التمرين", for: .normal)
         $0.setTitleColor(.systemBackground, for: .normal)
     })
     
     public let restartExeciseButton = specify(UIButton(type: .roundedRect), {
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        $0.setTitle("Restart Exercise", for: .normal)
+        $0.setTitle("إعادة التمرين", for: .normal)
         $0.setTitleColor(.systemBackground, for: .normal)
     })
     
     public let endWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.backgroundColor = .systemBackground
-        $0.setTitle("End Workout", for: .normal)
+        $0.setTitle("إنهاء التمرين", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), for: .normal)
     })
     

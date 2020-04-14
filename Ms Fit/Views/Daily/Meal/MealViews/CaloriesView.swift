@@ -48,16 +48,16 @@ class CaloriesView: UIView {
     private let countLeftLabel = Label(icon: "760 kCal", font: .systemFont(ofSize: 12, weight: .bold),
                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
     
-    private let caloriesLabel = Label(icon: "CALORIES", font: .systemFont(ofSize: 12, weight: .regular),
+    private let caloriesLabel = Label(icon: "السعرات", font: .systemFont(ofSize: 12, weight: .regular),
                                       size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     
-    private let carbsLabel = Label(icon: "CARBS", font: .systemFont(ofSize: 12, weight: .regular),
+    private let carbsLabel = Label(icon: "الكارب", font: .systemFont(ofSize: 12, weight: .regular),
                                    size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     
-    private let fatLabel = Label(icon: "FAT", font: .systemFont(ofSize: 12, weight: .regular),
+    private let fatLabel = Label(icon: "الدهون", font: .systemFont(ofSize: 12, weight: .regular),
                                  size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     
-    private let protsLabel = Label(icon: "PROTS", font: .systemFont(ofSize: 12, weight: .regular),
+    private let protsLabel = Label(icon: "البروتين", font: .systemFont(ofSize: 12, weight: .regular),
                                    size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .regular)

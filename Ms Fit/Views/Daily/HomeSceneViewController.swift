@@ -75,7 +75,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     })
     
     private let getPremiumLabel = specify(UILabel(), {
-        $0.text = "Get Premium Membership"
+        $0.text = "عرض خاص بمناسبة الإطلاق"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 20 : 17, weight: .regular)
         $0.textAlignment = .center

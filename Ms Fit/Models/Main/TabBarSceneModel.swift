@@ -10,5 +10,5 @@ import UIKit
 import RealmSwift
 
 enum TabBarSceneModel: String, CaseIterable {
-    case daily, exercises, tips, profile
+    case جدولي, التمارين, نصائح, ملفي
 }

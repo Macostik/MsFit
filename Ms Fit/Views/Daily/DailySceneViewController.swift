@@ -49,35 +49,36 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let middletextLabel = specify(UILabel(), {
-        $0.text = "It's not a great day \nuntil you workout!"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.text = "اعرفي مستواك باختبار مدته 3 دقائقأو اختاري المستوى المبتدئ إذا أول مرة تمارسين الرياضة"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 18 : 16, weight: .regular)
         $0.textAlignment = .center
-        $0.numberOfLines = 2
+        $0.numberOfLines = 0
     })
     
     private let dayliMealsLabel = specify(UILabel(), {
-        $0.text = "Diet"
+        $0.text = "وجباتي"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 22 : 18, weight: .bold)
         $0.textColor = .systemBackground
         $0.textAlignment = .center
     })
     
     private let dayliExerciseLabel = specify(UILabel(), {
-        $0.text = "Workout"
+        $0.text = "تماريني"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 22 : 18, weight: .bold)
         $0.textColor = .systemBackground
         $0.textAlignment = .center
     })
     
     private let countMealsLabel = specify(UILabel(), {
-        $0.text = "3 meals"
+        $0.text = "0 وجبات"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 14 : 12, weight: .regular)
         $0.textColor = .systemBackground
         $0.textAlignment = .center
     })
     
     private let countExerciseLabel = specify(UILabel(), {
-        $0.text = "6 exercises"
+        $0.text = "0 تمارين"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 14 : 12, weight: .regular)
         $0.textColor = .systemBackground
         $0.textAlignment = .center
@@ -109,7 +110,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     private let homeButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Home", font: 16, weight: .bold)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "الاشتراك", font: 16, weight: .bold)
     })
     
     private let exerciseWorkoutButton = specify(UIButton(type: .roundedRect), {
@@ -131,10 +133,25 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let baseView = specify(UIView(), { $0.backgroundColor = .clear })
-    private let daysLabel = Label(icon: "8", font: UIFont.systemFont(ofSize: 80, weight: .bold),
-                                  textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+    
+    private let daysLabel = specify(UILabel(), {
+        $0.font = UIFont.systemFont(ofSize: 80, weight: .bold)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        $0.text = "6"
+    })
+    
     private let dayLabel = specify(UILabel(), {
-        $0.text = "Day"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.text = "يوم"
+        $0.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.textAlignment = .center
+        $0.textColor = #colorLiteral(red: 0.7254901961, green: 0.6823529412, blue: 1, alpha: 1)
+    })
+    
+    private let leftLabel = specify(UILabel(), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.text = "باقي"
         $0.font = .systemFont(ofSize: 22, weight: .medium)
         $0.textAlignment = .center
         $0.textColor = #colorLiteral(red: 0.7254901961, green: 0.6823529412, blue: 1, alpha: 1)
@@ -334,6 +351,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         })
         baseView.add(daysLabel, layoutBlock: { $0.center() })
         baseView.add(dayLabel, layoutBlock: { $0.centerX().topBottom(-14, to: daysLabel) })
+        baseView.add(leftLabel, layoutBlock: { $0.centerX().bottomTop(4, to: daysLabel) })
         //end circle days
         
         view.add(questionButton, layoutBlock: { $0.topBottom(20, to: navigationView).trailing(16).size(30) })

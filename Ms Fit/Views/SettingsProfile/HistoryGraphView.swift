@@ -21,7 +21,7 @@ class HistoryGraphView: UIView {
     private let graphContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     
     private let lostTextLabel = specify(UILabel(), {
-        $0.text = "LOST"
+        $0.text = "خسر"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
         $0.textAlignment = .center
@@ -38,7 +38,7 @@ class HistoryGraphView: UIView {
     })
     
     private let nowTextLabel = specify(UILabel(), {
-        $0.text = "NOW"
+        $0.text = "الان"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.textAlignment = .center
@@ -55,7 +55,7 @@ class HistoryGraphView: UIView {
     })
     
     private let standartTextLabel = specify(UILabel(), {
-        $0.text = "STANDART"
+        $0.text = "المعيار"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.textAlignment = .center

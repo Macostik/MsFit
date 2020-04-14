@@ -45,7 +45,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     private let allCatigoriesButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setImage(#imageLiteral(resourceName: "navigation_ArrowDown"), for: .normal)
-        $0.customButton(text: "All catigories", font: 13, weight: .regular, shadowColor: .clear)
+        $0.customButton(text: "كل المقالات", font: 13, weight: .regular, shadowColor: .clear)
     })
     
     override func setupUI() {

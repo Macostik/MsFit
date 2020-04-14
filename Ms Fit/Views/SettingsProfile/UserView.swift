@@ -22,7 +22,8 @@ class UserView: UIView {
     public let mySettingsButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "settings_icon"), for: .normal)
         $0.tintColor = #colorLiteral(red: 0.5333333333, green: 0.3490196078, blue: 0.8901960784, alpha: 1)
-        $0.setTitle("Settings", for: .normal)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.setTitle("الإعدادات", for: .normal)
         $0.titleEdgeInsets = .init(top: 0, left: 5, bottom: 0, right: 0)
     })
     
@@ -33,11 +34,14 @@ class UserView: UIView {
         $0.layer.borderWidth = 5
         $0.clipsToBounds = true
     })
-        
+    
     public let contactUsButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(#colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), for: .normal)
-        $0.customButton(text: "Contact Us", font: 15, weight: .regular, shadowColor: .clear, isCircled: false)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "الاتصال بنا", font: 15, weight: .regular, shadowColor: .clear,
+                        isCircled: false)
     })
+    
     private let fullNameLabel = Label(icon: "User Test", font: .systemFont(ofSize: 22, weight: .bold),
                                       size: 22, textColor: #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1))
     

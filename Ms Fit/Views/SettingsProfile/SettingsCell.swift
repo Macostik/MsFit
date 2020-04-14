@@ -20,12 +20,15 @@ class SettingsCell: UITableViewCell, CellIdentifierable {
     public func setup(setting: SettingsStorageSceneModel) {
         selectionStyle = .none
         textLabel?.text = setting.description().0
+        textLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        textLabel?.textAlignment = .right
         
         add(separatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
         add(accessoryLabel, layoutBlock: { $0.centerY().trailing(40) })
         
         accessoryLabel.text = setting.description().1
         accessoryLabel.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+        accessoryLabel.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         if setting == .logOut {
             textLabel?.textAlignment = .center
             textLabel?.textColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)

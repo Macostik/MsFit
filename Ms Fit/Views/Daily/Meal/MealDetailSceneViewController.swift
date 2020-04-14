@@ -80,19 +80,30 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     private let gramsProtsLabel = Label(icon: "g", font: .systemFont(ofSize: 12, weight: .regular),
                                         size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
     
-    private let caloriesLabel = Label(icon: "CALORIES", font: .systemFont(ofSize: 12, weight: .regular),
+    private let caloriesLabel = Label(icon: "السعرات", font: .systemFont(ofSize: 12, weight: .regular),
                                       size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
-    private let carbsLabel = Label(icon: "CARBS", font: .systemFont(ofSize: 12, weight: .regular),
+    private let carbsLabel = Label(icon: "الكارب", font: .systemFont(ofSize: 12, weight: .regular),
                                    size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
-    private let fatLabel = Label(icon: "FAT", font: .systemFont(ofSize: 12, weight: .regular),
+    private let fatLabel = Label(icon: "الدهون", font: .systemFont(ofSize: 12, weight: .regular),
                                  size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
-    private let protsLabel = Label(icon: "PROTS", font: .systemFont(ofSize: 12, weight: .regular),
+    private let protsLabel = Label(icon: "البروتين", font: .systemFont(ofSize: 12, weight: .regular),
                                    size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     
-    private let ingredientsLabel = Label(icon: "Ingredients", font: .systemFont(ofSize: 16, weight: .bold),
-                                         textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
-    private let directionLabel = Label(icon: "Directions", font: .systemFont(ofSize: 16, weight: .bold),
-                                       textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let ingredientsLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.textAlignment = .right
+        $0.text = "الكميّـة"
+    })
+    
+    private let directionLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.text = "ملاحظات"
+    })
     
     private let ingrediDiscripLabel = specify(UILabel(), {
         $0.text = """

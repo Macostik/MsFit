@@ -30,6 +30,7 @@ class MeasurementsView: UIView {
     })
     
     public let updateMeasureButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setTitle("تسجيل القياسات", for: .normal)

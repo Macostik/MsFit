@@ -24,13 +24,13 @@ enum UpdateMeasurementModel: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .chest:
-            return ("Chest", "67.0 cm")
+            return ("الصدر", "67.0 cm")
         case .waist:
-            return ("Waist", "25.0 cm")
+            return ("الخصر", "25.0 cm")
         case .legs:
-            return ("Thigh", "60.0 cm")
+            return ("الفخذ", "60.0 cm")
         case .arm:
-            return ("Arms", "40.0 cm")
+            return ("اليد", "40.0 cm")
         }
     }
 }

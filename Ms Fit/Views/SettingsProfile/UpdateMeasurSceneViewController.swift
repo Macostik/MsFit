@@ -19,7 +19,8 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Update Results"
+        $0.text = "تسجيل القياسات"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -30,12 +31,18 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let resultLabel = Label(icon: "RESULT", font: .systemFont(ofSize: 13, weight: .regular),
-                                    textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
+    private let resultLabel = specify(UILabel(), {
+        $0.text = "القياسات الجديدة"
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+    })
     
     private let clearResultButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(#colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), for: .normal)
-        $0.setTitle("Clear Result", for: .normal)
+        $0.setTitle("نتيجة واضحة", for: .normal)
     })
     
     private let tableView = specify(UITableView(), {
@@ -46,8 +53,9 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     })
     
     private let updateButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "حفظ", font: 20, weight: .medium,
+        $0.customButton(text: "حفظ", font: 20, weight: .black,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), isCircled: true)
     })
     

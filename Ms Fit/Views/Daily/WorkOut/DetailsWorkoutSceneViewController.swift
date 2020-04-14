@@ -41,8 +41,9 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     private let previousButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "previous_icon.pdf"), for: .normal)
         $0.tintColor = .systemBackground
-        $0.customButton(text: "Previous", font: 20, weight: .medium,
+        $0.customButton(text: "السابق", font: 20, weight: .bold,
                         shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
     })
@@ -50,8 +51,9 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     private let nextButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(#imageLiteral(resourceName: "next_icon.pdf"), for: .normal)
         $0.tintColor = .systemBackground
-        $0.customButton(text: "Next", font: 20, weight: .medium,
+        $0.customButton(text: "التالي", font: 20, weight: .bold,
                         shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.semanticContentAttribute = .forceRightToLeft
         $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
@@ -84,16 +86,26 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     
     private let nameSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let musclesInvolvedLabel = Label(icon: "Muscles involved", font:
-        .systemFont(ofSize: 16, weight: .medium), size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let musclesInvolvedLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 16, weight: .medium)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.text = "العضلات المستخدمة"
+    })
+    
+    private let performLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 16, weight: .medium)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.text = "طريقة أداء التمرين"
+    })
     
     private let shouldersLabel = Label(icon: "Shoulders", font:
         .systemFont(ofSize: 16, weight: .regular), size: 16, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
     
     private let musclesSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
-    
-    private let performLabel = Label(icon: "This is how to perform one reoetition", font:
-        .systemFont(ofSize: 16, weight: .medium), size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
     
     private let discriptionLabel = specify(UILabel(), {
         $0.text = """
@@ -111,8 +123,13 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     
     private let performSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let noteLabel = Label(icon: "Note", font:
-           .systemFont(ofSize: 16, weight: .medium), size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let noteLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 16, weight: .medium)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.text = "ملاحظات"
+    })
     
     private let noteOneLabel = Label(icon: "- Stand up straight1", font:
         .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
@@ -126,13 +143,15 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: startConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .bold,
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "ابدئي التمرين", font: 20, weight: .black,
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: true)
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
     })
 
     private let readyToStartLabel = specify(UILabel(), {
-        $0.text = "This is just an exercise preview. Ready to start?"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.text = "هذه نظرة عامة للتمرين ، مستعدة للبدء ؟"
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.textAlignment = .center

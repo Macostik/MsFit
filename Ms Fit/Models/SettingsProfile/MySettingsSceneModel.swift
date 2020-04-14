@@ -53,7 +53,7 @@ enum SettingsStorageSceneModel: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .weight:
-            return ("Weight", "140.9 kg")
+            return ("الوزن", "140.9 kg")
         case .heigth:
             return ("الطول", "cm 200")
         case .dateOfBirthday:
@@ -63,7 +63,7 @@ enum SettingsStorageSceneModel: String, CaseIterable {
         case .activity:
             return ("النشاط اليومي", "وظيفة مكتبية")
         case .selectionLevel:
-            return ("Workout Type", "2 level")
+            return ("المستوى", "متوسط 1")
         case .accountSettings:
             return ("إعدادات الحساب", "")
         case .accountType:

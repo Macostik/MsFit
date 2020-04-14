@@ -21,7 +21,7 @@ class GraphView: UIView {
     private let graphContainerView = specify(UIView(), { $0.backgroundColor = .white })
     
     private let lostTextLabel = specify(UILabel(), {
-        $0.text = "LOST"
+        $0.text = "خسر"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
         $0.textAlignment = .center
@@ -38,7 +38,7 @@ class GraphView: UIView {
     })
     
     private let nowTextLabel = specify(UILabel(), {
-        $0.text = "NOW"
+        $0.text = "الان"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.textAlignment = .center
@@ -55,7 +55,7 @@ class GraphView: UIView {
     })
     
     private let standartTextLabel = specify(UILabel(), {
-        $0.text = "STANDART"
+        $0.text = "المعيار"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.textAlignment = .center
@@ -72,6 +72,7 @@ class GraphView: UIView {
     })
     
     public let updateWeightButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setTitle("تحديث الوزن", for: .normal)
@@ -84,11 +85,12 @@ class GraphView: UIView {
     })
     
     public let historyButton = specify(UIButton(type: .roundedRect), {
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(#colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), for: .normal)
         $0.semanticContentAttribute = .forceRightToLeft
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight:
             .medium))?.withTintColor(#colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "History", font: 16, weight: .regular, shadowColor: .clear)
+        $0.customButton(text: "التاريخ", font: 16, weight: .regular, shadowColor: .clear)
         $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
     })
     

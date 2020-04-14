@@ -36,15 +36,17 @@ class BaseWorkOutView: UIView {
     internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "Start Workout", font: 20, weight: .bold,
+        $0.customButton(text: "ابدئي التمرين", font: 20, weight: .black,
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: false)
-        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.imageEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
     })
     
     private let minutesLabel = specify(UILabel(), {
-        $0.text = "minutes"
+        $0.text = "دقيقة"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
+        $0.font = .systemFont(ofSize: 12, weight: .medium)
     })
     
     internal let timeLabel = specify(UILabel(), {

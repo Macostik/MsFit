@@ -16,8 +16,13 @@ class SettingUpdateCell: UITableViewCell, CellIdentifierable {
         $0.contentMode = .scaleAspectFit
     })
     
-    private let exercisesLabel = Label(icon: "Chest", font: .systemFont(ofSize: 16, weight: .regular),
-                                       textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let exercisesLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 16, weight: .regular)
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.textAlignment = .right
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+    })
+    
     private let resultLabel = Label(icon: "60.0", font: .systemFont(ofSize: 16, weight: .regular),
                                     textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1) })

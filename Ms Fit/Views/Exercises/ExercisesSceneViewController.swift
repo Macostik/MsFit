@@ -46,7 +46,7 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Exercises"
+        $0.text = "التمارين"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
