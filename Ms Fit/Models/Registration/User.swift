@@ -29,3 +29,28 @@ final class User: Object {
         return "id"
     }
 }
+
+final class Program: Object {
+    
+    @objc dynamic public var id = 0
+    @objc dynamic public var name = ""
+    @objc dynamic public var type = 0
+    @objc dynamic public var is_active = 0
+    let program_levels = List<ProgramLevels>()
+        
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+final class ProgramLevels: Object {
+    
+    @objc dynamic public var id = 0
+    @objc dynamic public var level = 0
+    @objc dynamic public var duration = 0
+    @objc dynamic public var rest = 0
+        
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}

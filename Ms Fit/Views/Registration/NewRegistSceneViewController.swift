@@ -262,7 +262,7 @@ enum PickerData: String, CaseIterable {
         case .height:
             return [Array(130...200).map({"\($0) cm"})]
         case .age:
-            return [Array(1900...2200).map({"\($0)"}),
+            return [Array(1960...2200).map({"\($0)"}),
                     Calendar.current.monthSymbols,
                     Array(1...31).map({"\($0)"})]
         case .completed:
