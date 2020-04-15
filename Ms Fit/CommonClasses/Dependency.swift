@@ -11,4 +11,5 @@ import Foundation
 class Dependency {
     let loginService = LoginService()
     let dailyService = DailyService()
+    let programService = ProgramService()
 }

@@ -16,14 +16,16 @@ class ProgramService: RealmService<Program> {
           APIManager.programList(["api_token": api_token]).json()
               .subscribe(onNext: { json in
                   do {
-                      let realm = RealmProvider.shared.realm
-                      try realm.write {
-                          let data = json["data"]
-                          if !data.isEmpty {
-                              realm.create(ProgramList.self, value: data.object, update: .modified)
-                              Logger.info("ProgramList was create successfully")
-                          }
-                      }
+                    let realm = RealmProvider.shared.realm
+                    try realm.write {
+                        let data = json["data"].arrayValue
+                        if !data.isEmpty {
+                            for program in data {
+                                realm.create(ProgramList.self, value: program.object, update: .modified)
+                            }
+                            Logger.info("ProgramList was create successfully")
+                        }
+                    }
                       completion?()
                   } catch let error {
                       Logger.error("DataBase of Realm was changed \(error)")
