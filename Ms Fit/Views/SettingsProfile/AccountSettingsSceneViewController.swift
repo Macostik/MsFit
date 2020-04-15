@@ -17,7 +17,7 @@ class AccountSettingsSceneViewController: BaseViewController<AccountSettingsScen
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Account Settings"
+        $0.text = "إعدادات الحساب"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })

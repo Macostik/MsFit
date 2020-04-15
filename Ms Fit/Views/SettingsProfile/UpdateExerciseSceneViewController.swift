@@ -25,7 +25,7 @@ class UpdateExerciseSceneViewController: BaseViewController<UpdateExerciseSceneV
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Update Results"
+        $0.text = "نتائج التحديث"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })

@@ -17,7 +17,7 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Edit Password"
+        $0.text = "تحرير كلمة المرور"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -39,7 +39,7 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
         
     private let doneButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Done", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: true)
+        $0.customButton(text: "حفظ", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: true)
     })
     
     override func setupUI() {

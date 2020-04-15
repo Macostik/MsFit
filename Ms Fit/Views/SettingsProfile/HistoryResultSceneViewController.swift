@@ -19,7 +19,7 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "History Results"
+        $0.text = "نتائج التاريخ"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })

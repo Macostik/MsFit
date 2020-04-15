@@ -17,7 +17,7 @@ class LevelSelectionSceneViewController: BaseViewController<LevelSelectionSceneV
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Level Selection"
+        $0.text = "المستوى"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })

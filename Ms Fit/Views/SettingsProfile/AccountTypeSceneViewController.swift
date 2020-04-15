@@ -17,7 +17,7 @@ class AccountTypeSceneViewController: BaseViewController<AccountTypeSceneViewMod
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Account Type"
+        $0.text = "العضوية"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })

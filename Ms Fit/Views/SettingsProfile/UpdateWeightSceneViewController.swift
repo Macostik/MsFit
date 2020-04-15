@@ -20,7 +20,7 @@ class UpdateWeightSceneViewController: BaseViewController<UpdateWeightSceneViewM
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Update Weight"
+        $0.text = "تحديث الوزن"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
