@@ -19,6 +19,7 @@ class TabBarSceneCoordinator: BaseSceneCoordinator<UIViewController> {
         Observable.combineLatest(configure())
             .subscribe(onNext: { viewControllers in
                 viewController.viewControllers = viewControllers
+                viewController.selectedIndex = TabBarSceneModel.allCases.count - 1
             }).disposed(by: disposeBag)
         
         return Observable.just(viewController)

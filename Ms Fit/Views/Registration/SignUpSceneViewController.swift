@@ -9,10 +9,12 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SafariServices
 
 class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     public var userParams = [String: String]()
+    var safariVC: SFSafariViewController?
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
@@ -152,6 +154,18 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     override func setupUI() {
         handleUI()
         addConstraints()
+       
+        //        NotificationCenter.default.addObserver(self, selector: #selector(safariLogin(_:)),
+        //                                               name: kSafariViewControllerCloseNotification,
+        //                                               object: nil)
+    }
+    
+    func safariLogin(notification: NSNotification) {
+        print("Safari Login call")
+        // get the url form the auth callback
+        let url = notification.object as! NSURL
+        print(url)
+        self.safariVC!.dismiss(animated: true, completion: nil)
     }
     
     override func setupBindings() {
@@ -192,7 +206,10 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         
         twitterButton.rx.tap
             .subscribe(onNext: { _ in
-                print("tap twitter")
+                guard let twitterURL = URL(string: "http://msfit-sa.com/login/twitter") else { return }
+                self.safariVC = SFSafariViewController(url: twitterURL)
+                self.safariVC?.delegate = self
+                self.present(self.safariVC!, animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
         RxKeyboard.instance.visibleHeight
@@ -257,4 +274,19 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             $0.leading(24).trailing(24).bottom(16).top(30)
         })
     }
+}
+
+extension SignUpSceneViewController: SFSafariViewControllerDelegate {
+    
+    private func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismiss(animated: true) { () -> Void in
+               print("You just dismissed the login view.")
+           }
+       }
+
+    private func safariViewController(controller: SFSafariViewController,
+                                      didCompleteInitialLoad didLoadSuccessfully: Bool) {
+           print("didLoadSuccessfully: \(didLoadSuccessfully)")
+
+       }
 }

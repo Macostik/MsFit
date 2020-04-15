@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SafariServices
+
+let kSafariViewControllerCloseNotification = "kSafariViewControllerCloseNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,4 +29,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {}
+    
+//    optional func application(_ app: UIApplication,
+//                              open url: URL,
+//                              options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        print("app: \(app)")
+//        // print OAuth response URL
+//        print("url: \(url)")
+//        print("options: \(options)")
+//
+//        if let sourceApplication = options["UIApplicationOpenURLOptionsSourceApplicationKey"] as? String {
+//            if (sourceApplication == "com.testApp.Incognito") {
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: kSafariViewControllerCloseNotification), object: url)
+//                return true
+//            }
+//        }
+//        return true
+//    }
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        print("app: \(app)")
+               print("url: \(url)")
+               print("options: \(options)")
+        return true
+    }
 }
