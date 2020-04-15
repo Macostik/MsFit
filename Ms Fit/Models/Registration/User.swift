@@ -33,6 +33,20 @@ final class User: Object {
 final class Program: Object {
     
     @objc dynamic public var id = 0
+    @objc dynamic public var start = ""
+    @objc dynamic public var finish = ""
+    @objc dynamic public var stopped_at: String?
+    @objc dynamic public var is_active = 0
+    let program_level = List<ProgramLevels>()
+        
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+final class ProgramList: Object {
+    
+    @objc dynamic public var id = 0
     @objc dynamic public var name = ""
     @objc dynamic public var type = 0
     @objc dynamic public var is_active = 0
