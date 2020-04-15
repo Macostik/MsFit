@@ -43,9 +43,10 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         $0.tintColor = .systemBackground
         $0.customButton(text: "السابق", font: 20, weight: .bold,
                         shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
-        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
     })
     
     private let nextButton = specify(UIButton(type: .roundedRect), {
@@ -53,10 +54,10 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         $0.tintColor = .systemBackground
         $0.customButton(text: "التالي", font: 20, weight: .bold,
                         shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
-        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.semanticContentAttribute = .forceRightToLeft
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        $0.semanticContentAttribute = .forceLeftToRight
+        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
     })
     
     private let navigationView = specify(UIView(), {
@@ -64,13 +65,13 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     })
     
     private let navPreviewLabel = specify(UILabel(), {
-        $0.text = "Preview"
+        $0.text = "معاينة"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
     
     private lazy var allVideosButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Videos", for: .normal)
+        $0.setTitle("أشرطة فيديو", for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
         $0.setTitleColor(.systemBackground, for: .normal)
     })
@@ -82,13 +83,12 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     })
     
     private let sets_repsLabel = Label(icon: "5 sets/20 reps", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
+        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: true)
     
     private let nameSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
     private let musclesInvolvedLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 16, weight: .medium)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.text = "العضلات المستخدمة"
@@ -96,14 +96,13 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     
     private let performLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 16, weight: .medium)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.text = "طريقة أداء التمرين"
     })
     
-    private let shouldersLabel = Label(icon: "Shoulders", font:
-        .systemFont(ofSize: 16, weight: .regular), size: 16, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
+    private let shouldersLabel = Label(icon: "أكتاف", font:
+        .systemFont(ofSize: 16, weight: .regular), size: 16, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
     
     private let musclesSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
@@ -119,23 +118,22 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     })
     
     private let sevenLabel = Label(icon: "- Stand up straight7", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
+        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
     
     private let performSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
     private let noteLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 16, weight: .medium)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.text = "ملاحظات"
     })
     
     private let noteOneLabel = Label(icon: "- Stand up straight1", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
+        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
     
     private let noteTwoLabel = Label(icon: "- Stand up straight2", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1))
+        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
     
     private let noteSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
@@ -143,14 +141,13 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
     internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: startConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.customButton(text: "ابدئي التمرين", font: 20, weight: .black,
+        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.customButton(text: "ابدئي التمرين", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: true)
-        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 16)
+        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: -16)
     })
 
     private let readyToStartLabel = specify(UILabel(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.text = "هذه نظرة عامة للتمرين ، مستعدة للبدء ؟"
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)

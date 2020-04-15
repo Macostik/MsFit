@@ -11,7 +11,7 @@ import RealmSwift
 import RxDataSources
 
 enum ExercisesList: String, CaseIterable {
-    case arm, abs, cardio, back, legs, chest, shoulder, body
+    case abs, arm, back, cardio, chest, legs, body, shoulder
 }
 
 struct ExercisesSceneModel {

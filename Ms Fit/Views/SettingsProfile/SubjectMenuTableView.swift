@@ -13,14 +13,15 @@ import RxSwift
 class SubjectMenuTableView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
-    private let menuItems = ["1- Sign In / Sign Up ", "2- Payments" ,"3- Workout", "4- Acount", "5 - Other"]
+    private let menuItems =
+              ["5 - أخرى" ,"4 - الحساب" ,"3 - تجريب" ,"2 - المدفوعات", "1 - تسجيل الدخول / الاشتراك"]
     public var heightConstraints: NSLayoutConstraint!
     
-    private let selectSubjectLabel = Label(icon: "Select a Subject",
+    private let selectSubjectLabel = Label(icon: "اختر موضوعا",
                                            font: .systemFont(ofSize: 13, weight: .regular),
-                                           textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1))
-    private let selectedItemLabel = Label(icon: "Payments", font: .systemFont(ofSize: 18, weight: .regular),
-                                          textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                           textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), isTranform: false, textAlignment: .right)
+    private let selectedItemLabel = Label(icon: "المدفوعات", font: .systemFont(ofSize: 18, weight: .regular),
+                                          textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false)
     
     private let dropDownImage = specify(UIImageView(), {
         $0.image = UIImage(systemName: "chevron.down")
@@ -52,7 +53,6 @@ class SubjectMenuTableView: UIView {
         Observable.just(menuItems).bind(to: menuTableView.rx.items(cellIdentifier:
             SubjectMenuCell.identifier, cellType: SubjectMenuCell.self)) { _, model, cell in
                 cell.setup(model)
-                self.selectedItemLabel.text = model
         }.disposed(by: disposeBag)
         
     }

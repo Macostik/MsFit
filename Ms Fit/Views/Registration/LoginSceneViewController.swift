@@ -72,7 +72,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "دخول", font: 20, weight: .black, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+        $0.customButton(text: "دخول", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let forgotPasswordButton = specify(UIButton(type: .roundedRect), {

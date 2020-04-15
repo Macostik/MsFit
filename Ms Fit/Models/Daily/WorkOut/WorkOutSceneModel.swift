@@ -16,21 +16,21 @@ enum YesterdayWorkoutList: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .arm_rotations:
-            return ("1. Arm rotations", "15min")
+            return ("1. Arm rotations", "15 دقيقة")
         case .push_ups:
-            return ("2. Push-ups", "20 repeats/5 sets")
+            return ("2. Push-ups", "20 تكرار / 5 مجموعات")
         case .crunches:
-            return ("3. Crunches", "30 sec/4 sets")
+            return ("3. Crunches", "30 ثانية / 4 مجموعات")
         case .arm_circles:
-            return ("4. Arm circles", "15 min")
+            return ("4. Arm circles", "15 دقيقة")
         case .burpees:
-            return ("5. Burpees", "5 sets/20 repeats")
+            return ("5. Burpees", "5 مجموعات / 20 تكرار")
         case .wall_sit:
-            return ("6. Wall Sit", "15 min")
+            return ("6. Wall Sit", "15 دقيقة")
         case .jumping_jacks:
-            return ("7. Jumping Jacks", "15 min")
+            return ("7. Jumping Jacks", "15 دقيقة")
         case .squats:
-            return ("8. Squats", "5 sets/20 repeats")
+            return ("8. Squats", "5 مجموعات / 20 تكرار")
         }
     }
 }
@@ -54,9 +54,9 @@ enum TodayWorkoutList: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .crunches:
-            return ("3. Crunches", "30 sec/4 sets")
+            return ("3. Crunches", "30 ثانية / 4 مجموعات")
         case .arm_circles:
-            return ("4. Arm circles", "15 min")
+            return ("4. Arm circles", "15 دقيقة")
         }
     }
 }
@@ -80,17 +80,17 @@ enum TomorrowWorkoutList: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .burpees:
-            return ("5. Burpees", "5 sets/20 repeats")
+            return ("5. Burpees", "5 مجموعات / 20 تكرار")
         case .wall_sit:
-            return ("6. Wall Sit", "15 min")
+            return ("6. Wall Sit", "15 دقيقة")
         case .crunches:
-            return ("3. Crunches", "30 sec/4 sets")
+            return ("3. Crunches", "30 ثانية / 4 مجموعات")
         case .arm_circles:
-            return ("4. Arm circles", "15 min")
+            return ("4. Arm circles", "15 دقيقة")
         case .arm_rotations:
-            return ("1. Arm rotations", "15min")
+            return ("1. Arm rotations", "15 دقيقة")
         case .push_ups:
-            return ("2. Push-ups", "20 repeats/5 sets")
+            return ("2. Push-ups", "20 تكرار / 5 مجموعات")
         }
     }
 }

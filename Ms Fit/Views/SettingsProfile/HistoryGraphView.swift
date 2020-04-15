@@ -20,56 +20,26 @@ class HistoryGraphView: UIView {
     private let nowContainerView = specify(UIView(), {  $0.backgroundColor = .systemBackground })
     private let graphContainerView = specify(UIView(), { $0.backgroundColor = .systemBackground })
     
-    private let lostTextLabel = specify(UILabel(), {
-        $0.text = "خسر"
-        $0.font = .systemFont(ofSize: 12, weight: .medium)
-        $0.textColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
-        $0.textAlignment = .center
-    })
+    private let lostTextLabel = Label(icon: "خسر", font: .systemFont(ofSize: 12, weight: .medium),
+                                      textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isTranform: true, textAlignment: .center)
+    private let lostResultLabel = Label(icon: "-6.3", font: .systemFont(ofSize: 24, weight: .regular),
+                                        isTranform: true)
+    private let lostKGLabel = Label(icon: "kg", font: .systemFont(ofSize: 12, weight: .regular),
+                                    isTranform: true)
     
-    private let lostResultLabel = specify(UILabel(), {
-        $0.text = "-4.3"
-        $0.font = .systemFont(ofSize: 24, weight: .regular)
-    })
+    private let nowTextLabel = Label(icon: "الان", font: .systemFont(ofSize: 12, weight: .medium),
+                                     textColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isTranform: true, textAlignment: .center)
+    private let nowResultLabel = Label(icon: "44.3", font: .systemFont(ofSize: 24, weight: .regular),
+                                       isTranform: true)
+    private let nowKGLabel = Label(icon: "kg", font: .systemFont(ofSize: 12, weight: .regular),
+                                   isTranform: true)
     
-    private let lostKGLabel = specify(UILabel(), {
-        $0.text = "kg"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-    })
-    
-    private let nowTextLabel = specify(UILabel(), {
-        $0.text = "الان"
-        $0.font = .systemFont(ofSize: 12, weight: .medium)
-        $0.textColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        $0.textAlignment = .center
-    })
-    
-    private let nowResultLabel = specify(UILabel(), {
-        $0.text = "84.3"
-        $0.font = .systemFont(ofSize: 24, weight: .regular)
-    })
-    
-    private let nowKGLabel = specify(UILabel(), {
-        $0.text = "kg"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-    })
-    
-    private let standartTextLabel = specify(UILabel(), {
-        $0.text = "المعيار"
-        $0.font = .systemFont(ofSize: 12, weight: .medium)
-        $0.textColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
-        $0.textAlignment = .center
-    })
-    
-    private let standartResultLabel = specify(UILabel(), {
-        $0.text = "2120.1"
-        $0.font = .systemFont(ofSize: 24, weight: .regular)
-    })
-    
-    private let standartKGLabel = specify(UILabel(), {
-        $0.text = "kg"
-        $0.font = .systemFont(ofSize: 12, weight: .regular)
-    })
+    private let standartTextLabel = Label(icon: "المعيار", font: .systemFont(ofSize: 12, weight: .medium),
+                                          textColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), isTranform: true, textAlignment: .center)
+    private let standartResultLabel = Label(icon: "30.1", font: .systemFont(ofSize: 24, weight: .regular),
+                                            isTranform: true)
+    private let standartKGLabel = Label(icon: "kg", font: .systemFont(ofSize: 12, weight: .regular),
+                                        isTranform: true)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,6 +50,7 @@ class HistoryGraphView: UIView {
     
     fileprivate func setupUI() {
         backgroundColor = .systemBackground
+        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addconstraints() {
@@ -90,7 +61,6 @@ class HistoryGraphView: UIView {
         let hBaseReusltStackView =
             HStackView(arrangedSubviews: [lostContainerView, nowContainerView, standartContainerView])
         hBaseReusltStackView.distribution = .fillEqually
-        hBaseReusltStackView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
         lostContainerView.add(vLostStackView, layoutBlock: { $0.center() })
         lostContainerView.add(lostKGLabel, layoutBlock: {

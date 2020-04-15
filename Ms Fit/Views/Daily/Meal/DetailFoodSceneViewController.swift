@@ -42,49 +42,50 @@ class DetailFoodSceneViewController: BaseViewController<DetailFoodSceneViewModel
     private let ingridientSeparView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     private let directionSeparView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let titleLabel = Label(icon: "Chicken breast with rice",
-                                   font: .systemFont(ofSize: 22, weight: .bold), textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let titleLabel = Label(icon: "صدر دجاج مع الرز",
+                                   font: .systemFont(ofSize: 22, weight: .bold), textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1),
+                                   isTranform: true)
     
-    private let eatenLabel = Label(icon: "Eaten", font: .systemFont(ofSize: 12, weight: .regular),
-                                   size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
-    private let leftLabel = Label(icon: "Left", font: .systemFont(ofSize: 12, weight: .regular),
-                                  size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let eatenLabel = Label(icon: "تؤكل", font: .systemFont(ofSize: 12, weight: .regular),
+                                   size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
+    private let leftLabel = Label(icon: "اليسار", font: .systemFont(ofSize: 12, weight: .regular),
+                                  size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     
     private let countCaloriesLabel = Label(icon: "373", font: .systemFont(ofSize: 16, weight: .medium),
-                                           size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                           size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let countCarbsLabel = Label(icon: "57.3", font: .systemFont(ofSize: 16, weight: .medium),
-                                        size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                        size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let countFatLabel = Label(icon: "20.6", font: .systemFont(ofSize: 16, weight: .medium),
-                                      size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                      size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let countProtsLabel = Label(icon: "20.5", font: .systemFont(ofSize: 16, weight: .medium),
-                                        size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                        size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let countEatenLabel = Label(icon: "440 kCal", font: .systemFont(ofSize: 12, weight: .bold),
-                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let countLeftLabel = Label(icon: "760 kCal", font: .systemFont(ofSize: 12, weight: .bold),
-                                       size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                       size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     
     private let kCalCaloriesLabel = Label(icon: "kCal", font: .systemFont(ofSize: 12, weight: .regular),
-                                          size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                          size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let gramsCarbsLabel = Label(icon: "g", font: .systemFont(ofSize: 12, weight: .regular),
-                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let gramsFatLabel = Label(icon: "g", font: .systemFont(ofSize: 12, weight: .regular),
-                                      size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                      size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let gramsProtsLabel = Label(icon: "g", font: .systemFont(ofSize: 12, weight: .regular),
-                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                        size: 12, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     
-    private let caloriesLabel = Label(icon: "CALORIES", font: .systemFont(ofSize: 12, weight: .regular),
-                                      size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
-    private let carbsLabel = Label(icon: "CARBS", font: .systemFont(ofSize: 12, weight: .regular),
-                                   size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
-    private let fatLabel = Label(icon: "FAT", font: .systemFont(ofSize: 12, weight: .regular),
-                                 size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
-    private let protsLabel = Label(icon: "PROTS", font: .systemFont(ofSize: 12, weight: .regular),
-                                   size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
+    private let caloriesLabel = Label(icon: "السعرات", font: .systemFont(ofSize: 12, weight: .regular),
+                                      size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isTranform: true, textAlignment: .center)
+    private let carbsLabel = Label(icon: "الكارب", font: .systemFont(ofSize: 12, weight: .regular),
+                                   size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isTranform: true, textAlignment: .center)
+    private let fatLabel = Label(icon: "الدهون", font: .systemFont(ofSize: 12, weight: .regular),
+                                 size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isTranform: true, textAlignment: .center)
+    private let protsLabel = Label(icon: "البروتين", font: .systemFont(ofSize: 12, weight: .regular),
+                                   size: 12, textColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isTranform: true, textAlignment: .center)
     
-    private let ingredientsLabel = Label(icon: "Ingredients", font: .systemFont(ofSize: 16, weight: .bold),
-                                         textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
-    private let directionLabel = Label(icon: "Directions", font: .systemFont(ofSize: 16, weight: .bold),
-                                       textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+    private let ingredientsLabel = Label(icon: "الكميّـة", font: .systemFont(ofSize: 16, weight: .bold),
+                                         textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false, textAlignment: .right)
+    private let directionLabel = Label(icon: "ملاحظات", font: .systemFont(ofSize: 16, weight: .bold),
+                                       textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false, textAlignment: .right)
     
     private let ingrediDiscripLabel = specify(UILabel(), {
         $0.text = """
@@ -108,7 +109,7 @@ class DetailFoodSceneViewController: BaseViewController<DetailFoodSceneViewModel
     
     private let addMealButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Add", font: 14, weight: .bold, shadowColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1),
+        $0.customButton(text: "أضف", font: 14, weight: .bold, shadowColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1),
                         bgColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isCircled: true)
     })
     
@@ -119,6 +120,11 @@ class DetailFoodSceneViewController: BaseViewController<DetailFoodSceneViewModel
     
     override func setupBindings() {
         closeButton.rx.tap
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
+        
+        addMealButton.rx.tap
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)

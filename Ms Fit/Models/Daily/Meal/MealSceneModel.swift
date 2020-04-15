@@ -25,21 +25,21 @@ enum BreakfastList: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .food1:
-            return ("Chicken breast with rice", "195 kcal")
+            return ("صدر دجاج مع الرز", "195 kcal")
         case .food2:
-            return ("Chicken breast with rice", "233  kcal")
+            return ("صدر دجاج مع الرز", "233  kcal")
         case .food3:
-            return ("Chicken breast with rice", "145  kcal")
+            return ("صدر دجاج مع الرز", "145  kcal")
         case .food4:
-            return ("Chicken breast with rice", "153  kcal")
+            return ("صدر دجاج مع الرز", "153  kcal")
         case .food5:
-            return ("Chicken breast with rice", "167  kcal")
+            return ("صدر دجاج مع الرز", "167  kcal")
         case .food6:
-            return ("Chicken breast with rice", "243  kcal")
+            return ("صدر دجاج مع الرز", "243  kcal")
         case .food7:
-            return ("Chicken breast with rice", "400  kcal")
+            return ("صدر دجاج مع الرز", "400  kcal")
         case .food8:
-            return ("Chicken breast with rice", "321  kcal")
+            return ("صدر دجاج مع الرز", "321  kcal")
         }
     }
 }
@@ -54,15 +54,15 @@ enum LunchList: String, CaseIterable {
     func description() -> (String) {
         switch self {
         case .breakfast:
-            return ("Breakfast")
+            return ("وجبة افطار")
         case .snack1:
-            return ("Snack1")
+            return ("وجبة خفيفة 1")
         case .lunch:
-            return ("Lunch")
+            return ("غداء")
         case .snack2:
-            return ("Snack2")
+            return ("وجبة خفيفة 2")
         case .dinner:
-            return ("Dinner")
+            return ("وجبة عشاء")
         }
     }
 }

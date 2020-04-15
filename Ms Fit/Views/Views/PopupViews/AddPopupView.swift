@@ -23,7 +23,7 @@ class AddPopupView: UIView {
     
     public let addButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Add", font: 20, weight: .medium,
+        $0.customButton(text: "أضف", font: 20, weight: .bold,
                         shadowColor: .clear, bgColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), isCircled: false)
     })
     

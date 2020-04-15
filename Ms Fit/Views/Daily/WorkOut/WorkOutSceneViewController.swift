@@ -26,7 +26,7 @@ class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     })
     
     private let navWorkoutLabel = specify(UILabel(), {
-        $0.text = "Workout"
+        $0.text = "اكتشف - حل"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)

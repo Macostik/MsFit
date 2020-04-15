@@ -42,7 +42,7 @@ class ProgressTimer: UIView {
     })
     
     private let setLabel = specify(UILabel(), {
-        $0.text = "Set 1/1"
+        $0.text = "تعيين 1/1"
         $0.textAlignment = .center
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 16 : 13, weight: .medium)
@@ -57,7 +57,6 @@ class ProgressTimer: UIView {
     
     fileprivate func setupUI() {
         backgroundColor = .clear
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         basicAnimation.duration = CFTimeInterval(totalTime)
         timerLabel.text = "\(timeFormatted(totalTime))"
         

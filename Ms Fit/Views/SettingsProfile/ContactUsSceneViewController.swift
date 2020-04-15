@@ -22,7 +22,6 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     
     private let navTextLabel = specify(UILabel(), {
         $0.text = "الاتصال بنا"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -41,25 +40,26 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     
     private let yourEmailView = specify(UIView(), { $0.backgroundColor = .clear })
     private let yourQuestionView = specify(UIView(), { $0.backgroundColor = .clear })
-    
     private let emailSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
     private let questSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1) })
     
-    private let yourEmailLabel = Label(icon: "Your Email", font: .systemFont(ofSize: 13, weight: .regular),
-                                       textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1))
+    private let yourEmailLabel = Label(icon: "بريدك الالكتروني",
+                                       font: .systemFont(ofSize: 13, weight: .regular),
+                                       textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), isTranform: false, textAlignment: .right)
+    
     private let yourTextField = specify(UITextField(), {
         $0.borderStyle = .none
         $0.placeholder = "test.user@yopmail.com"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
     })
     
-    private let validLabel = Label(icon: "Check if email is valid",
+    private let validLabel = Label(icon: "تفقد البريد الإلكتروني",
                                    font: .systemFont(ofSize: 15, weight: .regular),
-                                   textColor: #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1))
+                                   textColor: #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), isTranform: false, textAlignment: .right)
     private let yourQuestionsLabel = Label(icon: "الأسئلة",
                                            font: .systemFont(ofSize: 13, weight: .regular),
-                                           textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1))
+                                           textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), isTranform: false, textAlignment: .right)
+    
     private let yourQuestionTextView = specify(UITextView(), {
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 14, weight: .regular)
@@ -70,7 +70,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     
     private let sendEmailButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "Send Email", font: 20, weight: .medium,
+        $0.customButton(text: "إرسال", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: true)
     })
     

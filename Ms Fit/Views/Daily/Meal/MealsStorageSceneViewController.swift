@@ -32,7 +32,7 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
     })
     
     private let navLabel = specify(UILabel(), {
-        $0.text = "My meals"
+        $0.text = "وجباتي"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -45,7 +45,7 @@ class MealsStorageSceneViewController: BaseViewController<MealsStorageSceneViewM
         $0.layer.borderColor = #colorLiteral(red: 0.4309999943, green: 0.4309999943, blue: 0.474999994, alpha: 1)
         $0.layer.borderWidth = 0.3
         $0.setTitleColor(#colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), for: .normal)
-        $0.customButton(text: "Clear All", font: 14, weight: .bold, shadowColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1),
+        $0.customButton(text: "امسح الكل", font: 14, weight: .bold, shadowColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1),
                         bgColor: .systemBackground, isCircled: true)
     })
     

@@ -20,8 +20,8 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     })
     
     private let message = """
-    Your General Membership subcription is valid till 23.04.2020. With new payment your subcription will be
-    prolinged from mentioned date
+    اشتراكك العام في العضوية صالح حتى 23.04.2020. مع الدفع الجديد سيكون اشتراكك
+    تطول من التاريخ المذكور
     """
     
     private let pagerView = FSPagerView()
@@ -35,7 +35,6 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5568627451, green: 0.3607843137, blue: 0.9098039216, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let bgDayliCircleImage = specify(UIImageView(image: #imageLiteral(resourceName: "dailyCircle")), {
@@ -49,14 +48,14 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
     private let oneMonthLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center
-        $0.text = "3 months"
+        $0.text = "3 اشهر"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
     private let threeMonthLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center
-        $0.text = "Premium"
+        $0.text = "الممتازة"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
     
@@ -122,6 +121,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         pagerView.dataSource = self
         pagerView.delegate = self
         pagerView.bounces = true
+        pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.identifier)
         pageControl.interitemSpacing = 10
         pageControl.numberOfPages = HomeImageList.allCases.count
@@ -137,7 +137,6 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         let vForButtonsStackView = VStackView(arrangedSubviews: [buyOneMonthButton, buyThreeMonthButton],
                                               spacing: Constants.sH_812 ? 30 : 20)
         vForButtonsStackView.distribution = .fillEqually
-        vForButtonsStackView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
         let vOneMonthStackView = VStackView(arrangedSubviews: [oneMonthLabel, priceOneMonthLabel])
         vOneMonthStackView.isUserInteractionEnabled = false
@@ -148,7 +147,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         navigationView.add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
         view.add(bgDayliCircleImage, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing()
@@ -164,18 +163,18 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         buyOneMonthButton.add(vOneMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(vThreeMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(fullProgramImage, layoutBlock: {
-            $0.leading(5).top(-6).bottom(-10).width(Constants.sW * 0.3)
+            $0.trailing(5).top(-6).bottom(-10).width(Constants.sW * 0.3)
         })
         bgDayliCircleImage.add(pagerView, layoutBlock: { $0.edges() })
         pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_667 ? 40 : 10).centerX() })
     }
     
     private func createAlertController() {
-        let alertController = UIAlertController(title: "Do you want to buy Premium?",
+        let alertController = UIAlertController(title: "هل تريد شراء Premium؟",
                                                 message: message,
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "إلغاء", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "حسنا", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
     

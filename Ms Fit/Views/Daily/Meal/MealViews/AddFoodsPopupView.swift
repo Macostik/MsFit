@@ -24,13 +24,13 @@ class AddFoodsPopupView: UIView {
     })
 
     private let titleLabel = specify(UILabel(), {
-        $0.text = "Fruits"
+        $0.text = "الفاكهة"
         $0.font = .systemFont(ofSize: 22, weight: .semibold)
         $0.textAlignment = .center
     })
 
     private let addSupplementsButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Add supplements", for: .normal)
+        $0.setTitle("أضف المكملات الغذائية", for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)

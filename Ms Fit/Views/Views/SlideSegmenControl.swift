@@ -96,7 +96,7 @@ class SlideSegmentControl: UIView {
             .subscribe(onNext: { [weak self] offset in
                 guard let self = self else { return }
                 let offsetX = offset.x/CGFloat(self.menuItems.count)
-                self.slideView.transform = CGAffineTransform(translationX: offsetX, y: 0)
+                self.slideView.transform = CGAffineTransform(translationX: -offsetX, y: 0)
             }).disposed(by: disposeBag)
     }
     

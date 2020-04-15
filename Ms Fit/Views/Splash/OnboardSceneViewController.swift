@@ -21,7 +21,7 @@ class OnboardSceneViewController: BaseViewController<OnboardSceneViewModel> {
     
     private var startButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .black)
+        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setTitle("ابدئي", for: .normal)
         $0.layer.shadowColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)

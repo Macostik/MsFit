@@ -36,29 +36,24 @@ class BaseWorkOutView: UIView {
     internal lazy var startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
-        $0.customButton(text: "ابدئي التمرين", font: 20, weight: .black,
+        $0.customButton(text: "ابدئي التمرين", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: false)
-        $0.semanticContentAttribute = .forceRightToLeft
         $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.semanticContentAttribute = .forceRightToLeft
         $0.imageEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
     })
     
-    private let minutesLabel = specify(UILabel(), {
-        $0.text = "دقيقة"
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.font = .systemFont(ofSize: 12, weight: .medium)
-    })
+    private let minutesLabel = Label(icon: "دقيقة", font: .systemFont(ofSize: 12, weight: .medium),
+                                     textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false)
     
-    internal let timeLabel = specify(UILabel(), {
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-        $0.font = .systemFont(ofSize: 20, weight: .semibold)
-    })
+    internal let timeLabel = Label(icon: "", font: .systemFont(ofSize: 20, weight: .semibold),
+                                   textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false)
     
     private let clockImageView = specify(UIImageView(), {
         $0.image = UIImage(systemName: "clock",
                            withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
-        $0.tintColor = #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1)
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.tintColor = #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1)
     })
     
     internal lazy var collectionView: UICollectionView = {
@@ -71,7 +66,6 @@ class BaseWorkOutView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
-        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         collectionView.scrollIndicatorInsets = .init(top: 15, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
@@ -85,7 +79,7 @@ class BaseWorkOutView: UIView {
     internal func setupUI() {}
     
     fileprivate func addConstraint() {
-        let hExercisesStackView = HStackView(arrangedSubviews: [minutesLabel, timeLabel, clockImageView],
+        let hExercisesStackView = HStackView(arrangedSubviews: [clockImageView, timeLabel, minutesLabel],
                                              spacing: 5)
         
         clockImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true

@@ -23,7 +23,6 @@ class ExerciseCell: UICollectionViewCell, CellIdentifierable {
         $0.layer.shadowOpacity = 0.2
         $0.layer.shadowOffset = .init(width: 0, height: 2)
         $0.layer.cornerRadius = 5
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     })
     

@@ -33,7 +33,7 @@ class UpdateWeightSceneViewController: BaseViewController<UpdateWeightSceneViewM
     
     private let updateButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "حفظ", font: 20, weight: .medium,
+        $0.customButton(text: "حفظ", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), isCircled: true)
     })
     
@@ -63,7 +63,6 @@ class UpdateWeightSceneViewController: BaseViewController<UpdateWeightSceneViewM
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {

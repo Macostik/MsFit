@@ -17,27 +17,16 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
     })
-    
-    private let navTextLabel = specify(UILabel(), {
-        $0.text = "تسجيل القياسات"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.font = .systemFont(ofSize: 20, weight: .medium)
-        $0.textColor = .systemBackground
-    })
+    private let navTextLabel = Label(icon: "تسجيل القياسات", font: .systemFont(ofSize: 20, weight: .medium),
+                                     textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), isTranform: false)
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
-    
-    private let resultLabel = specify(UILabel(), {
-        $0.text = "القياسات الجديدة"
-        $0.font = .systemFont(ofSize: 13, weight: .regular)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.textAlignment = .right
-        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-    })
+    private let resultLabel = Label(icon: "القياسات الجديدة", font: .systemFont(ofSize: 13, weight: .regular),
+                                    textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: false, textAlignment: .right)
     
     private let clearResultButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -53,9 +42,8 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     })
     
     private let updateButton = specify(UIButton(type: .roundedRect), {
-        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "حفظ", font: 20, weight: .black,
+        $0.customButton(text: "حفظ", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), isCircled: true)
     })
     

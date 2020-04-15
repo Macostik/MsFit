@@ -10,10 +10,8 @@ import UIKit
 
 class SubjectMenuCell: UITableViewCell, CellIdentifierable {
     
-    public let subjectNameLabel = specify(UILabel(), {
-        $0.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-    })
+    public let subjectNameLabel = Label(icon: "", font: .systemFont(ofSize: 15, weight: .regular),
+                                        textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false, textAlignment: .right)
     
     public func setup(_ entry: String) {
         backgroundColor = .clear

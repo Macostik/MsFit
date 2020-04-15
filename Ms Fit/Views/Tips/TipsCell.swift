@@ -27,11 +27,8 @@ class TipsCell: UICollectionViewCell, CellIdentifierable {
         $0.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     })
     
-    private let tipText = specify(UILabel(), {
-        $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        $0.textAlignment = .center
-    })
+    private let tipText = Label(icon: "", font: .systemFont(ofSize: 16, weight: .regular), textColor: #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1),
+                                isTranform: false, textAlignment: .right)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

@@ -26,30 +26,26 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let exerciseContainerView = specify(UIView(), {
         $0.isUserInteractionEnabled = false
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = .clear
     })
     
     private let mealsContainerView = specify(UIView(), {
         $0.isUserInteractionEnabled = false
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = .clear
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Daily workout today?"
+        $0.text = "تجريب يومي اليوم؟"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 17 : 16, weight: .regular)
         $0.textColor = .systemBackground
         $0.textAlignment = .center
     })
     
     private let middletextLabel = specify(UILabel(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.text = "اعرفي مستواك باختبار مدته 3 دقائقأو اختاري المستوى المبتدئ إذا أول مرة تمارسين الرياضة"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 18 : 16, weight: .regular)
         $0.textAlignment = .center
@@ -87,7 +83,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     private let verificationEmailButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
-        $0.setTitle("Ver-tion", for: .normal)
+        $0.setTitle("التحقق", for: .normal)
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sH_667 ? 40 : 30) / 2
         $0.layer.shadowColor = #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1)
@@ -98,6 +94,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     private let questionButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
+        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
         $0.setTitle("?", for: .normal)
         $0.backgroundColor = .systemBackground
@@ -110,7 +107,6 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     private let homeButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.customButton(text: "الاشتراك", font: 16, weight: .bold)
     })
     
@@ -136,13 +132,11 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     private let daysLabel = specify(UILabel(), {
         $0.font = UIFont.systemFont(ofSize: 80, weight: .bold)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         $0.text = "6"
     })
     
     private let dayLabel = specify(UILabel(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.text = "يوم"
         $0.font = .systemFont(ofSize: 22, weight: .medium)
         $0.textAlignment = .center
@@ -150,7 +144,6 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let leftLabel = specify(UILabel(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.text = "باقي"
         $0.font = .systemFont(ofSize: 22, weight: .medium)
         $0.textAlignment = .center
@@ -163,12 +156,12 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.clipsToBounds = true
     })
     private let oneView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
     private let twoView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
@@ -183,12 +176,12 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.clipsToBounds = true
     })
     private let fiveView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
     private let sixView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
@@ -202,12 +195,12 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let eightView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
     private let nineView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
@@ -227,12 +220,12 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.clipsToBounds = true
     })
     private let threeteenView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
     private let fourteenView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     })
@@ -276,7 +269,6 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9800000191, green: 0.9800000191, blue: 0.9800000191, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
     
     fileprivate func addConstraints() {
@@ -285,7 +277,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
         exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
         
-        let hNavStackView = HStackView(arrangedSubviews: [verificationEmailButton, navTextLabel], spacing: 10)
+        let hNavStackView = HStackView(arrangedSubviews: [navTextLabel, verificationEmailButton], spacing: 10)
         hNavStackView.distribution = .fillProportionally
         
         let hWorkoutAndDietStackView = HStackView(arrangedSubviews: [mealsDietButton, exerciseWorkoutButton],

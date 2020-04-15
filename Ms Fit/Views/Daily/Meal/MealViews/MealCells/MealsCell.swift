@@ -16,17 +16,17 @@ class MealsCell: UITableViewCell, CellIdentifierable {
     public var tapHalper: (() -> Void)?
     
     private let iconImageView = UIImageView()
+    
     private let nameLabel = specify(UILabel(), {
         $0.font = UIFont.boldSystemFont(ofSize: 12.0)
     })
     
-    public let addMealsButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("+ Add meals", for: .normal)
-        $0.setTitleColor(#colorLiteral(red: 0.968627451, green: 0.1843137255, blue: 0.4117647059, alpha: 1), for: .normal)
-        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
-        $0.cornerRadius = 19
-        $0.borderColor = .lightGray
-        $0.borderWidth = 1.0
+    private let addMealsButton = specify(UIButton(type: .roundedRect), {
+        $0.layer.borderColor = #colorLiteral(red: 0.4309999943, green: 0.4309999943, blue: 0.474999994, alpha: 1)
+        $0.layer.borderWidth = 0.3
+        $0.setTitleColor(#colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), for: .normal)
+        $0.customButton(text: "أضف وجبات +", font: 14, weight: .regular, shadowColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1),
+                        bgColor: .systemBackground, isCircled: true)
     })
     
     private let topView = specify(UIView(), { $0.backgroundColor = .clear })
@@ -67,7 +67,7 @@ class MealsCell: UITableViewCell, CellIdentifierable {
         add(bottomView, layoutBlock: {
             $0.leading().topBottom(to: separatorView).trailing().height(60).bottom()
         })
-        bottomView.add(addMealsButton, layoutBlock: { $0.center().width(114).height(38) })
+        bottomView.add(addMealsButton, layoutBlock: { $0.center().width(114).height(34) })
     }
     
     required init?(coder: NSCoder) { fatalError() }

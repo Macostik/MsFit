@@ -20,11 +20,19 @@ public class Label: UILabel {
     convenience init(icon: String,
                      font: UIFont = UIFont.systemFont(ofSize: 17.0),
                      size: CGFloat = UIFont.systemFontSize,
-                     textColor: UIColor = UIColor.black) {
+                     textColor: UIColor = UIColor.black,
+                     isTranform: Bool,
+                     textAlignment: NSTextAlignment = .left) {
         self.init()
         self.font = font
         self.text = icon
         self.textColor = textColor
+        self.textAlignment = textAlignment
+        if isTranform {
+            self.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        } else {
+            self.transform = .identity
+        }
     }
     
     @IBInspectable var isUpperCased: Bool = false {

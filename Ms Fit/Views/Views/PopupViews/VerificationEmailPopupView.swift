@@ -31,10 +31,11 @@ class VerificationEmailPopupView: UIView {
     })
 
     private let topLabel = specify(UILabel(), {
-        $0.setLineHeight("Hi, Elsa! Increasing prosperity in our lives can be.",
+        $0.setLineHeight("مرحبًا إلسا! زيادة الرخاء في حياتنا يمكن أن يكون.",
                          lineHeight: Constants.sH_667 ? 5 : 3)
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 20 : Constants.sH_667 ? 17 : 15, weight: .regular)
         $0.textAlignment = .center
+        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.numberOfLines = 2
     })
     
@@ -54,15 +55,16 @@ class VerificationEmailPopupView: UIView {
     })
     
     private let bottomLabel = specify(UILabel(), {
-        $0.setLineHeight("Increasing prosperity in our lives can be accomplished.",
+        $0.setLineHeight("يمكن تحقيق الرخاء المتزايد في حياتنا.",
                          lineHeight: Constants.sH_667 ? 4 : 2)
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 17 : Constants.sH_667 ? 14 : 12, weight: .regular)
         $0.textAlignment = .center
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.numberOfLines = 2
     })
     
     private let verificationButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Verification Email", for: .normal)
+        $0.setTitle("رسالة التحقق", for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.titleLabel?.font = .systemFont(ofSize: Constants.sH_812 ? 30 : Constants.sH_667 ? 26 : 22,
                                           weight: .bold)
@@ -77,7 +79,6 @@ class VerificationEmailPopupView: UIView {
     
     func setupUI() {
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
         closeButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
@@ -100,16 +101,15 @@ class VerificationEmailPopupView: UIView {
             }).disposed(by: disposeBag)
         
 //        RxKeyboard.instance.visibleHeight
-//            .drive(onNext: { [weak centerXContainerView, weak self] _ in
-//                self?.centerYContainerView?.constant -= 110
-//                self?.layoutIfNeeded()
+//            .drive(onNext: { [centerYContainerView] keyboardVisibleHeight in
+//                centerYContainerView?.isActive = false
+//                centerYContainerView?.constant = 110
 //            }).disposed(by: disposeBag)
-//
-//        emailTextField.rx.controlEvent(.editingDidEndOnExit)
-//            .subscribe(onNext: { [weak self] _ in
-//                self?.centerYContainerView.constant += 110
-//                self?.layoutIfNeeded()
-//            }).disposed(by: disposeBag)
+
+        emailTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [weak self] _ in
+                self?.emailTextField.becomeFirstResponder()
+            }).disposed(by: disposeBag)
     }
 
     func addConstraints() {
@@ -117,7 +117,7 @@ class VerificationEmailPopupView: UIView {
                                              spacing: Constants.sH_667 ? 15 : 10)
          
         add(closeButton, layoutBlock: {
-            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).trailing(4).size(44)
+            $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(4).size(44)
         })
         add(containerView, layoutBlock: { $0.centerX().width(Constants.sW - 40) })
         centerYContainerView = containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)

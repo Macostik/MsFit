@@ -24,9 +24,9 @@ enum TipsDetailModel: String, CaseIterable {
     func description() -> String {
         switch self {
         case .food1:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food2:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         }
     }
 }

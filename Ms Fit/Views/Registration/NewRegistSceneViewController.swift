@@ -47,7 +47,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     private let nextButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.customButton(text: "التالي", font: 20, weight: .black, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
+        $0.customButton(text: "التالي", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let bottomLabel = specify(UILabel(), {

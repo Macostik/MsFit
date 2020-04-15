@@ -19,10 +19,15 @@ class MeasurementsView: UIView {
     private let topSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) })
     private let bottomSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) })
     
-    private let measurementLabel = Label(icon: "Measurements",font: .systemFont(ofSize: 13, weight: .regular),
-                                         size: 13, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
+    private let measurementLabel = specify(UILabel(), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.text = "قياسات"
+        $0.font = .systemFont(ofSize: 13, weight: .regular)
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+    })
     
     private let tableView = specify(UITableView(), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.isScrollEnabled = false
         $0.separatorStyle = .none
         $0.backgroundColor = .clear
@@ -69,7 +74,7 @@ class MeasurementsView: UIView {
     }
     
     fileprivate func addConstraints() {
-        add(measurementLabel, layoutBlock: { $0.leading(16).top(30) })
+        add(measurementLabel, layoutBlock: { $0.trailing(16).top(30) })
         add(tableView, layoutBlock: { $0.top(60).leading().trailing().height(237.33) })
         add(topSeparatorView, layoutBlock: {$0.bottomTop(to: tableView).leading().trailing().height(1) })
         add(containerView, layoutBlock: { $0.topBottom(to: tableView).leading().trailing() })

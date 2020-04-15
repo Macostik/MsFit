@@ -21,7 +21,6 @@ class StartWorkoutCell: UICollectionViewCell, CellIdentifierable {
     private let numberLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 16, weight: .medium)
         $0.textColor = .systemBackground
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .center
     })
     

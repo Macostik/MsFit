@@ -18,12 +18,12 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, FSPagerViewDel
     public var cellTapHalper: ((Int) -> Void)?
     
     private let iconImageView = specify(UIImageView(), {
-        $0.image = UIImage(named: "Breakfast")
+        $0.image = UIImage(named: "breakfast")
         $0.contentMode = .scaleAspectFit
     })
     
     private let breakfastLabel = specify(UILabel(), {
-        $0.text = "Breakfast"
+        $0.text = "وجبة افطار"
         $0.font = UIFont.systemFont(ofSize: 22, weight: .bold)
     })
     
@@ -50,7 +50,7 @@ class BreakfastCell: UICollectionViewCell, FSPagerViewDataSource, FSPagerViewDel
         iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         let hStackView = HStackView(arrangedSubviews: [iconImageView, breakfastLabel], spacing: 10)
         
-        add(hStackView, layoutBlock: { $0.top().centerX(-10) })
+        add(hStackView, layoutBlock: { $0.top().centerX() })
         add(pagerView, layoutBlock: { $0.topBottom(to: hStackView).leading().bottom().trailing() })
     }
     

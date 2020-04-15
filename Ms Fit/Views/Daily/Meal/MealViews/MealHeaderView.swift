@@ -19,12 +19,12 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     public var tapPresentLikeMealsHanper: (() -> Void)?
     public var tapHighProteinHanper: ((UIView) -> Void)?
     
-    private let searchLabel = Label(icon: "All meals", font: .systemFont(ofSize: 12, weight: .regular),
-                                    size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
-    private let highProtein = Label(icon: "High protein", font: .systemFont(ofSize: 12, weight: .regular),
-                                  size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
-    private let favoriteLabel = Label(icon: "Favorites", font: .systemFont(ofSize: 12, weight: .regular),
-                                      size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
+    private let searchLabel = Label(icon: "بحث", font: .systemFont(ofSize: 12, weight: .regular),
+                                    size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: true)
+    private let highProtein = Label(icon: "بروتين", font: .systemFont(ofSize: 12, weight: .regular),
+                                  size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: true)
+    private let favoriteLabel = Label(icon: "المفضلة", font: .systemFont(ofSize: 12, weight: .regular),
+                                      size: 12, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: true)
     
     private let configuration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var searchButton = specify(Button(type: .roundedRect), {

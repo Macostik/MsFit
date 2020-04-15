@@ -11,19 +11,19 @@ import RealmSwift
 import RxDataSources
 
 enum MealsStorageSceneModel: String, CaseIterable {
-    case breakfast, snack1, lauch, snack2, dinner
+    case وجبةافطار, وجبةخفيفة1, لاوش, وجبةخفيفة2, وجبةعشاء
     
     func getImage() -> (UIImage?) {
         switch self {
-        case .breakfast:
+        case .وجبةافطار:
             return UIImage(named: "breakfast")
-        case .snack1:
+        case . وجبةخفيفة1:
             return UIImage(named: "snack1")
-        case .lauch:
+        case .لاوش:
             return UIImage(named: "lunch")
-        case .snack2:
+        case .وجبةخفيفة2:
             return UIImage(named: "snack2")
-        case .dinner:
+        case .وجبةعشاء:
             return UIImage(named: "dinner")
         }
     }

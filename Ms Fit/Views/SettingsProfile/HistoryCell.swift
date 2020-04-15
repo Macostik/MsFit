@@ -23,9 +23,9 @@ class HistoryCell: UITableViewCell, CellIdentifierable {
     })
     
     private let dateLabel = Label(icon: "Dec 31, 2016", font: .systemFont(ofSize: 16, weight: .regular),
-                                  textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1))
+                                  textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
     private let resultLabel = Label(icon: "125.0 kg", font: .systemFont(ofSize: 16, weight: .regular),
-                                    textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1))
+                                    textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: true)
     private let bottomSeparatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1) })
     
     public func setup(_ entry: HistoryModel) {

@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
             let dependencies = Dependency()
             appCoordinator = AppCoordinator(window: window, dependencies: dependencies)
             appCoordinator?.start().subscribe().disposed(by: disposeBag)

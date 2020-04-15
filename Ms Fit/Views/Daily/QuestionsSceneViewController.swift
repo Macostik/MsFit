@@ -22,14 +22,12 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let navQuestionsLabel = specify(UILabel(), {
-        $0.text = "Questions"
+        $0.text = "الأسئلة"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     override func setupUI() {
@@ -46,7 +44,6 @@ class QuestionsSceneViewController: BaseViewController<QuestionsSceneViewModel> 
     
     fileprivate func handleUI() {
         view.backgroundColor = .systemBackground
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
     
     fileprivate func addConstraints() {

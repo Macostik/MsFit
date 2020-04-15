@@ -46,7 +46,7 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.setTitleColor(#colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), for: .normal)
-        $0.customButton(text: "Add", font: 13, weight: .medium, shadowColor: .clear, isCircled: true)
+        $0.customButton(text: "أضف", font: 13, weight: .medium, shadowColor: .clear, isCircled: true)
     })
     
     private let containerView = specify(UIView(), {

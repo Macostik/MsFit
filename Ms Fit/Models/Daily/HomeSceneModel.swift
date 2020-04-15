@@ -17,13 +17,13 @@ enum HomeImageList: String, CaseIterable {
     func description() -> (String, String) {
         switch self {
         case .everydayExercise:
-            return ("everyday Exercises", "Committing to a longer subscription increases your success rate")
+            return ("تمارين يومية", "الالتزام باشتراك أطول يزيد من معدل نجاحك")
         case .measurements:
-            return ("measurements", "Committing to a longer subscription ")
+            return ("قياسات", "الالتزام باشتراك أطول")
         case .meals:
-            return ("meals", "Committing to a longer subscription")
+            return ("وجبات", "الالتزام باشتراك أطول")
         case .motivation:
-            return ("motivation", "Committing to a longer subscription increases your success rate")
+            return ("التحفيز", "الالتزام بزيادة الاشتراك أطول")
         }
     }
 }

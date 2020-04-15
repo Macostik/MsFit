@@ -32,7 +32,6 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let navTextLabel = specify(UILabel(), {
@@ -45,6 +44,8 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     private let allCatigoriesButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.setImage(#imageLiteral(resourceName: "navigation_ArrowDown"), for: .normal)
+        $0.semanticContentAttribute = .forceLeftToRight
+        $0.imageEdgeInsets = .init(top: 0, left: -10, bottom: 0, right: 0)
         $0.customButton(text: "كل المقالات", font: 13, weight: .regular, shadowColor: .clear)
     })
     
@@ -89,7 +90,6 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
     
     fileprivate func addConstraints() {

@@ -24,7 +24,7 @@ enum WeightPickerData: String, CaseIterable {
     func dataList() -> PickerListEntryType {
         switch self {
         case .weight:
-            return [Array(40...140).map({"\($0)"}), Array(0...9).map({".\($0) kg"})]
+            return [Array(0...9).map({".\($0) kg"}), Array(40...140).map({"\($0)"})]
         }
     }
 }

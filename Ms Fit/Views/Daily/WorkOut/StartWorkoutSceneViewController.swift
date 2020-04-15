@@ -24,8 +24,9 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
     internal lazy var startWorkoutBtn = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "play.fill", withConfiguration: startConfiguration)?
             .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-        $0.titleEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
-        $0.setTitle("Start", for: .normal)
+        $0.titleEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
+        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        $0.setTitle("بداية", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
         $0.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         $0.layer.borderWidth = 1.5
@@ -51,7 +52,7 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.isScrollEnabled = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(StartWorkoutCell.self,
                                 forCellWithReuseIdentifier: StartWorkoutCell.identifier)
         
@@ -82,7 +83,7 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
                         self.startWorkoutBtn.setImage(UIImage(systemName: "pause.fill",
                                                               withConfiguration: self.startConfiguration)?
                             .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
-                        self.startWorkoutBtn.setTitle("Pause", for: .normal)
+                        self.startWorkoutBtn.setTitle("وقفة", for: .normal)
                     }
                     self.progressTimerView.progressTimer.add(self.progressTimerView.basicAnimation,
                                                              forKey: "urSoBasic")

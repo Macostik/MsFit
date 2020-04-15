@@ -16,6 +16,5 @@ class TabBarSceneViewController<T>: UITabBarController, ViewModelBased, BaseInst
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
 }

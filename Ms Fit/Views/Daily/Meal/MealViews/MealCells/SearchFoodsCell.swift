@@ -34,7 +34,7 @@ class SearchFoodsCell: UITableViewCell, CellIdentifierable {
     private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1) })
     
     public let addFoodButton = specify(Button(type: .roundedRect), {
-        $0.setTitle("Add", for: .normal)
+        $0.setTitle("أضف", for: .normal)
         $0.tintColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)
         $0.layer.borderWidth = 1

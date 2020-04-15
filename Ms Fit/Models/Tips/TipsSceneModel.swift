@@ -19,7 +19,7 @@ final class TipsSceneModel: Object {
 }
 
 enum TipsMenuModel: String, CaseIterable {
-    case AllCategories, Favorites, Health, Food, Recipes
+    case التصنيفات, المفضلة, الصحة, طعام, وصفات
 }
 
 enum TipsModel: String, CaseIterable {
@@ -28,21 +28,21 @@ enum TipsModel: String, CaseIterable {
     func description() -> String {
         switch self {
         case .food1:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food2:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food3:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food4:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food5:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food6:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food7:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         case .food8:
-            return ("Committing to a longer subscription")
+            return ("الالتزام باشتراك أطول")
         }
     }
 }

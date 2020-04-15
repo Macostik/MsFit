@@ -15,7 +15,7 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
     private let imageView = UIImageView(image: #imageLiteral(resourceName: "food2"))
     
     private let titleLabel = specify(UILabel(), {
-        $0.text = "Committing to a longer subscription"
+        $0.text = "الالتزام باشتراك أطول"
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 22, weight: .bold)
@@ -23,7 +23,7 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
     
     private let healthLabel = specify(UILabel(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
-        $0.text = "Health"
+        $0.text = "الصحة"
         $0.textAlignment = .center
         $0.font = .systemFont(ofSize: 10, weight: .regular)
         $0.textColor = .systemBackground

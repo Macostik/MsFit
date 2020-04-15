@@ -15,7 +15,7 @@ class RestWorkoutSceneViewController: BaseViewController<RestWorkoutSceneViewMod
     private let progressTimerView = ProgressTimer()
     
     private let restLabel = specify(UILabel(), {
-        $0.text = "Rest 😅"
+        $0.text = "راحة 😅"
         $0.font = .systemFont(ofSize: 40, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
@@ -28,7 +28,7 @@ class RestWorkoutSceneViewController: BaseViewController<RestWorkoutSceneViewMod
         $0.setImage(UIImage(systemName: "pause.fill", withConfiguration: pauseConfiguration)?
             .withTintColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
         $0.titleEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
-        $0.setTitle("Pause", for: .normal)
+        $0.setTitle("وقفة", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
         $0.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         $0.layer.borderWidth = 1.5
@@ -36,7 +36,7 @@ class RestWorkoutSceneViewController: BaseViewController<RestWorkoutSceneViewMod
     })
     
     private let nextWorkoutBtn = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Next", for: .normal)
+        $0.setTitle("التالى", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
         $0.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         $0.layer.borderWidth = 1.5
@@ -44,14 +44,14 @@ class RestWorkoutSceneViewController: BaseViewController<RestWorkoutSceneViewMod
     })
     
     private let nextLabel = specify(UILabel(), {
-        $0.text = "NEXT EXERCISE"
+        $0.text = "التمرين التالي"
         $0.font = .systemFont(ofSize: 12, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.textAlignment = .center
     })
     
     private let nextExerciseLabel = specify(UILabel(), {
-        $0.text = "Arm rotations"
+        $0.text = "دوران الذراع"
         $0.font = .systemFont(ofSize: 22, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.textAlignment = .center
