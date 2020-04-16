@@ -47,6 +47,7 @@
 		566C2DAB240444080006108B /* ForgotPassSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C2DA6240444080006108B /* ForgotPassSceneViewController.swift */; };
 		566C2DAC240444080006108B /* SignInSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C2DA7240444080006108B /* SignInSceneViewController.swift */; };
 		568928192447A65E00AE84A4 /* ProgramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568928182447A65E00AE84A4 /* ProgramService.swift */; };
+		5689281B2448F9B800AE84A4 /* MealsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689281A2448F9B800AE84A4 /* MealsService.swift */; };
 		569089B7243BB33200C4DB30 /* PNChartSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 569089AB243BB33100C4DB30 /* PNChartSwift.podspec */; };
 		569089B8243BB33200C4DB30 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569089AC243BB33100C4DB30 /* PNBarChart.swift */; };
 		569089B9243BB33200C4DB30 /* PNPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569089AD243BB33100C4DB30 /* PNPieChart.swift */; };
@@ -317,6 +318,7 @@
 		566C2DA6240444080006108B /* ForgotPassSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassSceneViewController.swift; sourceTree = "<group>"; };
 		566C2DA7240444080006108B /* SignInSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInSceneViewController.swift; sourceTree = "<group>"; };
 		568928182447A65E00AE84A4 /* ProgramService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramService.swift; sourceTree = "<group>"; };
+		5689281A2448F9B800AE84A4 /* MealsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsService.swift; sourceTree = "<group>"; };
 		569089AB243BB33100C4DB30 /* PNChartSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PNChartSwift.podspec; sourceTree = "<group>"; };
 		569089AC243BB33100C4DB30 /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
 		569089AD243BB33100C4DB30 /* PNPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPieChart.swift; sourceTree = "<group>"; };
@@ -937,6 +939,7 @@
 				ACFBCF0E243CA06500E0B892 /* YoutubePlayer.swift */,
 				56BE918A24422FFF0072911C /* DailyService.swift */,
 				568928182447A65E00AE84A4 /* ProgramService.swift */,
+				5689281A2448F9B800AE84A4 /* MealsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1569,6 +1572,7 @@
 				AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */,
 				566C2DAA240444080006108B /* LoginSceneViewController.swift in Sources */,
 				564A674E23FC6EE700D4901A /* Environment.swift in Sources */,
+				5689281B2448F9B800AE84A4 /* MealsService.swift in Sources */,
 				ACACD45E241B8C980017D4D7 /* SearchMealsSceneViewModel.swift in Sources */,
 				569089BA243BB33200C4DB30 /* PNBar.swift in Sources */,
 				564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */,

@@ -12,7 +12,25 @@ import RealmSwift
 
 final class MealSceneModel: Object {
     
+    @objc dynamic public var id = UUID().uuidString
+    @objc dynamic public var type = ""
+    @objc dynamic public var titlle = ""
+    let items = List<MealsItem>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+final class MealsItem: Object {
+    
     @objc dynamic public var id = 0
+    @objc dynamic public var type = ""
+    @objc dynamic public var picture = ""
+    @objc dynamic public var calories = 0
+    @objc dynamic public var carbs = ""
+    @objc dynamic public var fats = ""
+    @objc dynamic public var favorite: String?
     
     override static func primaryKey() -> String? {
         return "id"

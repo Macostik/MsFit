@@ -11,9 +11,15 @@ import RealmSwift
 
 final class DailySceneModel: Object {
     
-    @objc dynamic public var id = 0
+    @objc dynamic public var id = UUID().uuidString
+    @objc dynamic public var day_number = 0
+    @objc dynamic public var exercises_amount: String?
+    @objc dynamic public var meals_amount: String?
+    @objc dynamic public var show_month_rate = false
+    @objc dynamic public var verified = false
     
     override static func primaryKey() -> String? {
         return "id"
     }
 }
+

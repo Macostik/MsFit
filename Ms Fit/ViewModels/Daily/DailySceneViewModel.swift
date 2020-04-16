@@ -18,6 +18,8 @@ final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
     public var presentMealObserver = PublishSubject<Void>()
     
     override func performAction() {
-        dependencies.dailyService.dailyScreen()
+        dependencies.dailyService.dailyScreen(completion: { [weak self] in
+            self?.dependencies.mealsService.getMealsList()
+        })
     }
 }
