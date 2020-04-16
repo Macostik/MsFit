@@ -152,12 +152,12 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
                     let selectedSecondIndex = self.pickerView.selectedRow(inComponent: 1)
                     let selectedThirdIndex = self.pickerView.selectedRow(inComponent: 2)
                     let monthString = "\(self.pickerElement.dataList()[1][selectedSecondIndex])"
-                    let month = Calendar.current.monthSymbols.firstIndex(of: monthString) ?? 0
+                    let month = (Calendar.current.monthSymbols.firstIndex(of: monthString) ?? 0) + 1
                     let monthValue = month < 10 ? "0" + "\(month)" : "\(month)"
-                    let dateString = "\(self.pickerElement.dataList()[2][selectedThirdIndex])"
+                    let dateString = "\(self.pickerElement.dataList()[0][selectedFirstIndex])"
                     let dateValue = dateString.count < 2 ? "0" + dateString : dateString
-                    selectedElement = "\(self.pickerElement.dataList()[0][selectedFirstIndex])-" +
-                    monthValue + "-" + dateValue
+                    let yearValue = self.pickerElement.dataList()[2][selectedThirdIndex]
+                    selectedElement = yearValue + "-" + monthValue + "-" + dateValue
                 default: break
                 }
                 self.viewModel?.parameters[self.pickerElement.rawValue] = selectedElement

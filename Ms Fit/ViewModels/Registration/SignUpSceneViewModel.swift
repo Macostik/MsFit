@@ -29,11 +29,11 @@ final class SignUpSceneViewModel: BaseViewModel<SignUpSceneModel> {
                                            password: params["password"] ?? "",
                                            name: params["name"] ?? "",
                                            ios_device_token: deviceToken, completion: { [weak self] in
-//                                            self?.dependencies.programService.getProgramList(completion: {
-//                                                self?.dependencies.programService.chooseProgram(completion: {
+                                            self?.dependencies.programService.getProgramList(completion: {
+                                                self?.dependencies.programService.chooseProgram(completion: {
                                                     self?.presentMainSceneObservale.onNext(())
-//                                                })
-//                                            })
+                                                })
+                                            })
                     })
             }).disposed(by: disposeBag)
     }
