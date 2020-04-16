@@ -1,8 +1,8 @@
 //  
-//  DetailsWorkoutSceneViewController.swift
+//  PreviewStartSceneViewController.swift
 //  Ms Fit
 //
-//  Created by Yura Granchenko on 06.03.2020.
+//  Created by Yura Granchenko on 16.04.2020.
 //  Copyright © 2020 Selecto. All rights reserved.
 //
 
@@ -10,12 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneViewModel> {
+class PreviewStartSceneViewController: BaseViewController<PreviewStartSceneViewModel> {
     
     private let previewImagePagerView = PreviewImagePagerView()
     
     public let scrollView = specify(UIScrollView(), {
+        $0.contentInset = .init(top: 0, left: 0, bottom: Constants.sW / 3, right: 0)
         $0.showsHorizontalScrollIndicator = false
+        $0.contentInsetAdjustmentBehavior = .never
     })
     
     private let nameExerciseView = specify(UIView(), {
@@ -38,42 +40,12 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let previousButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(#imageLiteral(resourceName: "previous_icon.pdf"), for: .normal)
-        $0.tintColor = .systemBackground
-        $0.customButton(text: "السابق", font: 20, weight: .bold,
-                        shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
-        $0.semanticContentAttribute = .forceRightToLeft
-        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-    })
-    
-    private let nextButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(#imageLiteral(resourceName: "next_icon.pdf"), for: .normal)
-        $0.tintColor = .systemBackground
-        $0.customButton(text: "التالي", font: 20, weight: .bold,
-                        shadowColor: .clear, bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: false)
-        $0.semanticContentAttribute = .forceLeftToRight
-        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-    })
-    
-    private let navigationView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-    })
+    private let navigationView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1) })
     
     private let navPreviewLabel = specify(UILabel(), {
         $0.text = "معاينة"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
-    })
-    
-    private lazy var allVideosButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("أشرطة فيديو", for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
-        $0.setTitleColor(.systemBackground, for: .normal)
     })
     
     private let nameExerciseLabel = Label(icon: "Crunches", font: .systemFont(ofSize: 22, weight: .medium),
@@ -163,10 +135,6 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         addConstraints()
     }
     
-    fileprivate func handleUI() {
-        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
-    }
-    
     override func setupBindings() {
         closeButton.rx.tap
             .map({ _ in })
@@ -174,23 +142,16 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
             .disposed(by: disposeBag)
         
         startWorkoutButton.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                self.viewModel?.presentPreviewStartObserver.onNext(())
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.scrollView.setContentOffset(.zero, animated: true)
-                }
-            }).disposed(by: disposeBag)
-        
-        allVideosButton.rx.tap
-            .subscribe(onNext: { _ in
-                print("tap all videos")
-            }).disposed(by: disposeBag)
+        .subscribe(onNext: { [unowned self] _ in
+            self.viewModel?.presentStartWorkoutObserver.onNext(())
+        }).disposed(by: disposeBag)
+    }
+    
+    fileprivate func handleUI() {
+        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
     }
     
     fileprivate func addConstraints() {
-        let hStackView = HStackView(arrangedSubviews: [previousButton, nextButton], spacing: 0.5)
-        hStackView.distribution = .fillEqually
-        
         previewImagePagerView.heightAnchor.constraint(equalToConstant:
             Constants.sH_812 ? 250 : 200).isActive = true
         let baseVStackView = VStackView(arrangedSubviews: [
@@ -203,10 +164,8 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         })
         navigationView.add(navPreviewLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navPreviewLabel).leading(4).size(44) })
-        navigationView.add(allVideosButton, layoutBlock: { $0.centerY(5, to: navPreviewLabel).trailing(16) })
-        view.add(hStackView, layoutBlock: { $0.leading().trailing().bottom().height(Constants.sW / 6.5) })
         view.add(scrollView, layoutBlock: {
-            $0.topBottom(to: navigationView).width(Constants.sW).bottomTop(to: hStackView)
+            $0.topBottom(to: navigationView).width(Constants.sW).bottom()
         })
         scrollView.add(baseVStackView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
         nameExerciseView.add(nameExerciseLabel, layoutBlock: { $0.top(60).centerX().bottom(40) })
@@ -235,11 +194,8 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
         notesView.add(noteVStackView, layoutBlock: { $0.leading(16).trailing(16).top(12).bottom(40) })
         notesView.add(noteSeparatorView, layoutBlock: { $0.bottom().leading(16).trailing(16).height(1) })
         
-        startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 6.5).isActive = true
-        let readyStartStackView = VStackView(arrangedSubviews: [readyToStartLabel, startWorkoutButton],
-                                             spacing: 10)
-        readyToStartView.add(readyStartStackView, layoutBlock: {
-            $0.top(25).leading(16).trailing(16).bottom(16)
+        view.add(startWorkoutButton, layoutBlock: {
+            $0.bottom(25).leading(16).trailing(16).height(Constants.sW / 6.5 )
         })
     }
     

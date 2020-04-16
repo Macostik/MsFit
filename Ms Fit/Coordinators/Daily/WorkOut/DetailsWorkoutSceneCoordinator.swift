@@ -22,15 +22,14 @@ class DetailsWorkoutSceneCoordinator: BaseSceneCoordinator<Void> {
             navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
-        viewModel.presentStartWorkoutObserver.subscribe(onNext: { [weak self] _ in
-            self?.presentStartWorkoutScene()
+        viewModel.presentPreviewStartObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentPreviewStartWorkoutScene()
         }).disposed(by: disposeBag)
-        
+                
         return Observable.just(())
     }
-    
-    @discardableResult private func presentStartWorkoutScene() -> Observable<Void> {
-        let startWorkoutCoordinator = StartWorkoutSceneCoordinator(window: window, dependencies: dependencies)
-        return coordinate(to: startWorkoutCoordinator)
+    @discardableResult private func presentPreviewStartWorkoutScene() -> Observable<Void> {
+        let previewStartCoordinator = PreviewStartSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: previewStartCoordinator)
     }
 }

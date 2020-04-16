@@ -78,7 +78,7 @@ class BaseWorkOutView: UIView {
         
         startWorkoutButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
-                self.viewModel?.presentStartWorkoutObserver.onNext(())
+                self.viewModel?.presentPreviewStartObserver.onNext(())
             }).disposed(by: disposeBag)
     }
     

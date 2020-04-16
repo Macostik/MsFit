@@ -26,8 +26,8 @@ class WorkOutSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentDetailsScene()
         }).disposed(by: disposeBag)
         
-        viewModel.presentStartWorkoutObserver.subscribe(onNext: { [weak self] _ in
-            self?.presentStartWorkoutScene()
+        viewModel.presentPreviewStartObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentPreviewStartScene()
         }).disposed(by: disposeBag)
         
         return Observable.just(())
@@ -38,8 +38,8 @@ class WorkOutSceneCoordinator: BaseSceneCoordinator<Void> {
         return coordinate(to: detailCoordinator)
     }
     
-    @discardableResult private func presentStartWorkoutScene() -> Observable<Void> {
-        let startCoordinator = StartWorkoutSceneCoordinator(window: window, dependencies: dependencies)
+    @discardableResult private func presentPreviewStartScene() -> Observable<Void> {
+        let startCoordinator = PreviewStartSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: startCoordinator)
     }
 }
