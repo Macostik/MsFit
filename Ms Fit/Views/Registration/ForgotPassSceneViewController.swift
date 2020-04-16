@@ -23,7 +23,6 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     
     private let contLoginView = specify(UIView(), {
         $0.backgroundColor = .clear
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let sendRecoverInfoButton = specify(UIButton(type: .roundedRect), {
@@ -43,6 +42,7 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
         $0.placeholderTextColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         $0.keyboardType = .emailAddress
+        $0.textAlignment = .right
         $0.autocorrectionType = .no
         $0.autocapitalizationType = .none
         $0.returnKeyType = .done
@@ -82,7 +82,7 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     }
     
     fileprivate func addConstraints() {
-        contLoginView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+//        contLoginView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         let verStackView = VStackView(arrangedSubviews: [contLoginView, sendRecoverInfoButton],
                                       spacing: Constants.sW * 0.2)
         verStackView.distribution = .fillEqually
@@ -99,7 +99,7 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
         })
         
         contLoginView.add(emailTextField, layoutBlock: { $0.top(20).leading().trailing().bottom() })
-        contLoginView.add(emailLabel, layoutBlock: { $0.trailing(5).width(120) })
+        contLoginView.add(emailLabel, layoutBlock: { $0.leading(5).trailing(5) })
         
         loginCenterYConstr = emailLabel.centerYAnchor.constraint(equalTo: contLoginView.centerYAnchor)
         loginCenterYConstr.isActive = true

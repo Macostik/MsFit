@@ -17,19 +17,12 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var backButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(UIColor(named: "closeButton")!, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    public let pickerView = specify(UIPickerView(), {
-        $0.transform = CGAffineTransform(scaleX: -1, y: 1)
-        $0.isHidden = true
-    })
-    
-    private let goalImageView = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "start_goal_icon")
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-    })
+    public let pickerView = specify(UIPickerView(), { $0.isHidden = true })
+    private let goalImageView = UIImageView(image: #imageLiteral(resourceName: "start_goal_icon"))
     
     public let verForButtonStackView = specify(UIStackView(), {
         $0.axis = .vertical
@@ -39,14 +32,12 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private let quetionLabel = specify(UILabel(), {
         $0.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .center
         $0.text = "هدفك ؟"
     })
     
     private let nextButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.customButton(text: "التالي", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
@@ -187,7 +178,6 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
     
     private func createButton(with title: String) -> UIButton {
         let button = UIButton(type: .roundedRect)
-        button.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         button.setTitleColor(#colorLiteral(red: 0.4670000076, green: 0.3219999969, blue: 0.851000011, alpha: 1), for: .normal)
         button.customButton(text: title , font: 20, weight: .regular,
                             shadowColor: #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1), bgColor: .systemBackground)
@@ -258,13 +248,14 @@ enum PickerData: String, CaseIterable {
     func dataList() -> PickerListEntryType {
         switch self {
         case .weight:
-            return [Array(35...140).map({"\($0)"}), Array(0...9).map({".\($0) kg"})]
+            return [Array(0...9).map({".\($0) kg"}), Array(35...140).map({"\($0)"})]
         case .height:
             return [Array(130...200).map({"\($0) cm"})]
         case .age:
-            return [Array(1960...2200).map({"\($0)"}),
+            return [Array(1...31).map({"\($0)"}),
                     Calendar.current.monthSymbols,
-                    Array(1...31).map({"\($0)"})]
+                    Array(1960...2200).map({"\($0)"})
+            ]
         case .completed:
             return [[""]]
         }

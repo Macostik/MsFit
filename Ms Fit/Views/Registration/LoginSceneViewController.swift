@@ -23,12 +23,10 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private var passCenterYConstr: NSLayoutConstraint!
     
     private let contLoginView = specify(UIView(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = .clear
     })
     
     private let contPasswordView = specify(UIView(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = .clear
     })
     
@@ -70,14 +68,12 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     
     private let startWorkoutButton = specify(UIButton(type: .roundedRect), {
         $0.imageEdgeInsets = .init(top: 0, left: -16, bottom: 0, right: 0)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.customButton(text: "دخول", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1), bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
     private let forgotPasswordButton = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setTitle("نسيت كلمة المرور", for: .normal)
         $0.setTitleColor(#colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), for: .normal)
     })

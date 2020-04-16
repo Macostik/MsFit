@@ -64,6 +64,7 @@ extension OnboardSceneViewController {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         pagerView.dataSource = self
         pagerView.delegate = self
+        pagerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         pagerView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.identifier)
         pageControl.interitemSpacing = 15
         pagerView.bounces = false
@@ -122,14 +123,12 @@ class ImageCell: FSPagerViewCell {
     })
     
     private let topLabel = specify(UILabel(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textColor = UIColor.systemBackground
         $0.font = .boldSystemFont(ofSize: 22)
     })
     
     private let bottomLabel = specify(UILabel(), {
         $0.setLineHeight("", lineHeight: 5.0)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textColor = UIColor.systemBackground
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textAlignment = .center

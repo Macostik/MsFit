@@ -20,37 +20,36 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     })
     
     private let topLabel = specify(UILabel(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.text = "أهلا فيك"
         $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
     })
     
     private let instagramButton = specify(UIButton(type: .roundedRect), {
-        $0.imageEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
-        $0.titleEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
-        $0.semanticContentAttribute = .forceLeftToRight
-        $0.contentHorizontalAlignment = .left
+        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 10)
+        $0.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 20)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.contentHorizontalAlignment = .right
         $0.setImage(UIImage(named: "instagram"), for: .normal)
         $0.customButton(text: "تسجيل الدخول بـ الانستقرام", font: 20, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1))
     })
     
     private let twitterButton = specify(UIButton(type: .roundedRect), {
-        $0.imageEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
-        $0.titleEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
-        $0.semanticContentAttribute = .forceLeftToRight
-        $0.contentHorizontalAlignment = .left
+        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 10)
+        $0.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 20)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.contentHorizontalAlignment = .right
         $0.setImage(UIImage(named: "twitter"), for: .normal)
         $0.customButton(text: "تسجيل الدخول بـ تويتر",font: 20, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.1568627451, green: 0.6823529412, blue: 0.9568627451, alpha: 1), bgColor: #colorLiteral(red: 0.1568627451, green: 0.6823529412, blue: 0.9568627451, alpha: 1))
     })
     
     private let emailButton = specify(UIButton(type: .roundedRect), {
-        $0.imageEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
-        $0.titleEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
-        $0.semanticContentAttribute = .forceLeftToRight
-        $0.contentHorizontalAlignment = .left
+        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 10)
+        $0.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 20)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.contentHorizontalAlignment = .right
         $0.setImage(UIImage(named: "email"), for: .normal)
         $0.customButton(text: "تسجيل الدخول بـ البريد الإلكتروني", font: 20, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1),  bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))

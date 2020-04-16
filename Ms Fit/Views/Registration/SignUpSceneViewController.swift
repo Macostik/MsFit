@@ -22,39 +22,31 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
-    private let baseImageView = specify(UIImageView(), {
-        $0.image = UIImage(named: "start_Ramadan_Image")
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-    })
-    
+    private let baseImageView = UIImageView(image: #imageLiteral(resourceName: "start_Ramadan_Image.png"))
     private let userView = specify(UIView(), { $0.backgroundColor = .clear })
     private let emailView = specify(UIView(), { $0.backgroundColor = .clear })
     private let passwordView = specify(UIView(), { $0.backgroundColor = .clear })
     
     private let userLabel = specify(UILabel(), {
         $0.text = "الاسم"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     })
     
     private let emailLabel = specify(UILabel(), {
         $0.text = "البريد الإلكتروني:"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     })
     
     private let passLabel = specify(UILabel(), {
         $0.text = "كلمة المرور"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 13, weight: .regular)
         $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     })
     
     private let userTF = specify(UITextField(), {
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 17 : Constants.sH_667 ? 16 : 14, weight: .light)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
         $0.textColor = .systemBackground
         $0.autocorrectionType = .no
@@ -69,7 +61,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     private let emailTF = specify(UITextField(), {
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 17 : Constants.sH_667 ? 16 : 14, weight: .light)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
         $0.textColor = .systemBackground
         $0.autocorrectionType = .no
@@ -85,7 +76,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     private let passwordTF = specify(UITextField(), {
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 18 : Constants.sH_667 ? 16 : 14, weight: .light)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textAlignment = .right
         $0.textColor = .systemBackground
         $0.autocorrectionType = .no
@@ -115,7 +105,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     })
     
     private let twitterButton = specify(UIButton(type: .roundedRect), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(UIImage(named: "twitter"), for: .normal)
         $0.layer.shadowOffset = .init(width: 0, height: 4)
         $0.tintColor = .systemBackground
@@ -127,7 +116,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     })
     
     private let instagramButton = specify(UIButton(type: .roundedRect), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(UIImage(named: "instagram"), for: .normal)
         $0.layer.shadowOffset = .init(width: 0, height: 4)
         $0.tintColor = .systemBackground
@@ -140,13 +128,12 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     private let signUpButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.black, for: .normal)
-        $0.customButton(text: "Sign Up", font: 20, weight: .medium,
+        $0.customButton(text: "سجل", font: 20, weight: .medium,
                         shadowColor: .clear, bgColor: .systemBackground)
     })
     
     private let textLabel = specify(UILabel(), {
         $0.text = "التسجيل باستخدام :"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 19, weight: .regular)
         $0.textAlignment = .center
     })
@@ -154,10 +141,6 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     override func setupUI() {
         handleUI()
         addConstraints()
-       
-        //        NotificationCenter.default.addObserver(self, selector: #selector(safariLogin(_:)),
-        //                                               name: kSafariViewControllerCloseNotification,
-        //                                               object: nil)
     }
     
     func safariLogin(notification: NSNotification) {
