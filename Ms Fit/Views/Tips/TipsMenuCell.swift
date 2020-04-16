@@ -10,8 +10,6 @@ import UIKit
 
 class TipsMenuCell: UITableViewCell, CellIdentifierable {
     
-    static var identifier: String = "TipsMenuCell"
-    
     public let nameLabel = specify(UILabel(), {
         $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         $0.textColor = .systemBackground
@@ -20,7 +18,6 @@ class TipsMenuCell: UITableViewCell, CellIdentifierable {
     private let checkImageView = specify(UIImageView(), {
         $0.image = UIImage(systemName: "checkmark")
         $0.tintColor = .systemBackground
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let separatorView = specify(UIView(), {
@@ -34,9 +31,16 @@ class TipsMenuCell: UITableViewCell, CellIdentifierable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+        selectionStyle = .none
+        
         add(separatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
         add(nameLabel, layoutBlock: { $0.leading(16).centerY() })
         add(checkImageView, layoutBlock: { $0.trailing(16).width(25).centerY() })
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        checkImageView.tintColor = selected ? .systemBackground : #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
     }
     
     required init?(coder: NSCoder) { fatalError() }

@@ -30,6 +30,7 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     private lazy var searchButton = specify(Button(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "magnifyingglass", withConfiguration: configuration)?
             .withTintColor(#colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), renderingMode: .alwaysOriginal), for: .normal)
+        $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = .systemBackground
         $0.circled = true
     })

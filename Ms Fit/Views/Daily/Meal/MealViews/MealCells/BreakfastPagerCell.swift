@@ -32,6 +32,17 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
         $0.touchArea.height = 45
     })
     
+    private let gradientView = specify(GradientView(), {
+        $0.topColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.4)
+        $0.bottomColor = .clear
+        $0.startPointX = 1
+        $0.startPointY = 0.1
+        $0.endPointX = 1
+        $0.endPointY = 1
+        $0.layer.cornerRadius = 5
+        $0.clipsToBounds = true
+    })
+    
     private let subheadingLabel = specify(UILabel(), {
         $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
@@ -95,6 +106,7 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
     
     fileprivate func addConstraints() {
         add(breakfastImageView, layoutBlock: { $0.leading().trailing().top() })
+        add(gradientView, layoutBlock: { $0.top().leading().trailing().height(Constants.sW * 0.15) })
         add(likeButton, layoutBlock: { $0.leading(16).top(16) })
         add(containerView, layoutBlock: { $0.bottom().leading().trailing().topBottom(to: breakfastImageView)})
         containerView.add(subheadingLabel, layoutBlock: {

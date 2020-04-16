@@ -18,16 +18,14 @@ class HomeCell: FSPagerViewCell {
         $0.contentMode = .scaleToFill
     })
     
-    private let topLabel = specify(UILabel(), {
-        $0.textColor = UIColor.systemBackground
-        $0.font = .systemFont(ofSize: 22, weight: .medium)
-        $0.textAlignment = .center
-    })
+    private let topLabel = Label(icon: "", font: .systemFont(ofSize: 22, weight: .medium), textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+                                 isTranform: true, textAlignment: .center)
     
     private let bottomLabel = specify(UILabel(), {
         $0.textColor = UIColor.systemBackground
         $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         $0.textAlignment = .center
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.numberOfLines = 0
     })
     

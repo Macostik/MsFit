@@ -46,6 +46,16 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
         $0.customButton(shadowColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), bgColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
     })
     
+    private let countMealsLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 10, weight: .bold)
+        $0.backgroundColor = .systemBackground
+        $0.text = "4"
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+        $0.textAlignment = .center
+        $0.textColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
+    })
+    
     private lazy var dataSource: MealsDataSource = {
         return MealsDataSource(configureCell: {  _, collectionView, indexPath, data in
             guard let cell = collectionView
@@ -155,6 +165,7 @@ class MealSceneViewController: BaseViewController<MealSceneViewModel> {
             $0.bottom(Constants.sH_812 ? 25 : 15).trailing(Constants.sH_812 ? 25 : 15).size(56)
         })
         view.add(addPopupView, layoutBlock: { $0.edges() })
+        myMealsButton.add(countMealsLabel, layoutBlock: { $0.top(1).trailing(1).size(16) })
     }
     
     fileprivate func handlePopupView() {

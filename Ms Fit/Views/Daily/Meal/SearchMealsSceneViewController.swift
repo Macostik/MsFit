@@ -18,7 +18,7 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
@@ -33,14 +33,17 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
         collectionView.isScrollEnabled = false
-        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         collectionView.register(SearchHeaderCell.self,
                                 forCellWithReuseIdentifier: SearchHeaderCell.identifier)
         return collectionView
     }()
     
     private let searchBar = specify(UISearchBar(), {
-        $0.placeholder = "Search for products"
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.searchTextField.textAlignment = .right
+        $0.searchTextField.layer.cornerRadius = 36/2
+        $0.searchTextField.clipsToBounds = true
+        $0.placeholder = "بحث"
         $0.searchBarStyle = .minimal
     })
     
@@ -49,7 +52,7 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
     })
     
     private let navSearchLabel = specify(UILabel(), {
-        $0.text = "Search meals"
+        $0.text = "ابحث عن وجبات الطعام"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -58,6 +61,16 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
         $0.setImage(#imageLiteral(resourceName: "my_meal_image.pdf"), for: .normal)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.customButton(shadowColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1), bgColor: #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1))
+    })
+    
+    private let countMealsLabel = specify(UILabel(), {
+        $0.font = .systemFont(ofSize: 10, weight: .bold)
+        $0.backgroundColor = .systemBackground
+        $0.text = "4"
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+        $0.textAlignment = .center
+        $0.textColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
     })
     
     private let checkmarkView = specify(UIView(), {
@@ -113,6 +126,11 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
                                               cellType: SearchHeaderCell.self)) { _, model, cell in
                                                 cell.setup(with: model)
         }.disposed(by: disposeBag)
+        
+        searchBar.rx.searchButtonClicked
+            .subscribe(onNext: { [unowned self] _ in
+                self.searchBar.searchTextField.resignFirstResponder()
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -134,6 +152,7 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
             $0.bottom(Constants.sH_812 ? 25 : 15).trailing(Constants.sH_812 ? 25 : 15).size(56)
         })
         view.add(addFoodPopupView, layoutBlock: { $0.edges() })
+        myMealsButton.add(countMealsLabel, layoutBlock: { $0.top(1).trailing(1).size(16) })
     }
     
     fileprivate func handlePopupView() {
@@ -153,9 +172,8 @@ extension SearchMealsSceneViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         let titleLabel = UILabel()
-        titleLabel.text = "Results Found 234"
+        titleLabel.text = "تم العثور على 234"
         titleLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        titleLabel.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         view.backgroundColor = #colorLiteral(red: 0.9369999766, green: 0.9369999766, blue: 0.9369999766, alpha: 1)
         view.add(titleLabel, layoutBlock: { $0.leading(16).bottom(5) })
         return view

@@ -105,7 +105,7 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
             separatorView, discriptionLabel
             ], spacing: 16)
         
-        add(imageView, layoutBlock: { $0.top().leading().trailing().height(Constants.sW * 0.7) })
+        add(imageView, layoutBlock: { $0.top().leading().trailing().height(Constants.sW * 0.9) })
         add(titleVStackView, layoutBlock: {
             $0.topBottom(16, to: imageView).leading(16).trailing(16).bottom(50)
         })

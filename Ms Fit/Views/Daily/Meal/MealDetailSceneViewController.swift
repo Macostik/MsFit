@@ -125,6 +125,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     
     private let countMealsLabel = specify(UILabel(), {
         $0.text = "4"
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
         $0.textAlignment = .center
@@ -146,7 +147,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     private let fruitLabel = Label(icon: "فاكهة", font: .systemFont(ofSize: 12, weight: .regular),
                                    textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true, textAlignment: .center)
     
-    private let fruitImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "fruit") })
+    private let fruitImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "فاكهة") })
     private let fruitView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
@@ -158,7 +159,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     private let drinkLabel = Label(icon: "يشرب", font: .systemFont(ofSize: 12, weight: .regular),
                                    textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true, textAlignment: .center)
     
-    private let drinkImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "drink") })
+    private let drinkImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "يشرب") })
     private let drinkView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
@@ -170,7 +171,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     private let saucesLabel = Label(icon: "الصلصات", font: .systemFont(ofSize: 12, weight: .regular),
                                     textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true, textAlignment: .center)
     
-    private let saucesImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "sauses") })
+    private let saucesImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "الصلصات") })
     private let saucesView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2
@@ -182,7 +183,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
     private let snackLabel = Label(icon: "وجبات خفيفة", font: .systemFont(ofSize: 12, weight: .regular),
                                    textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true, textAlignment: .center)
     
-    private let snackImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "snack") })
+    private let snackImageView = specify(UIImageView(), { $0.image = #imageLiteral(resourceName: "وجباتخفيفة") })
     private let snackView = specify(UIView(), {
         $0.backgroundColor = .systemBackground
         $0.layer.cornerRadius = (Constants.sW / 6.5) / 2

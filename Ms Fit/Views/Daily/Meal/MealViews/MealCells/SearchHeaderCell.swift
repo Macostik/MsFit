@@ -31,7 +31,7 @@ class SearchHeaderCell: UICollectionViewCell, CellIdentifierable {
     
     private let nameLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 12, weight: .regular)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.textColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
         $0.textAlignment = .center
     })
     

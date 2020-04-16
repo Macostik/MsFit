@@ -45,12 +45,8 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         $0.isUserInteractionEnabled = true
     })
     
-    private let oneMonthLabel = specify(UILabel(), {
-        $0.font = .systemFont(ofSize: 13, weight: .regular)
-        $0.textAlignment = .center
-        $0.text = "3 اشهر"
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-    })
+    private let oneMonthLabel = Label(icon: "ثلاثة اشهر", font: .systemFont(ofSize: 13, weight: .regular),
+                                      textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1),  isTranform: false, textAlignment: .center)
     
     private let threeMonthLabel = specify(UILabel(), {
         $0.font = .systemFont(ofSize: 13, weight: .regular)

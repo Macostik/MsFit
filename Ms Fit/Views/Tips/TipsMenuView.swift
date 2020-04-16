@@ -19,9 +19,7 @@ class TipsMenuView: UIView {
     public let menuTableView = specify(UITableView(), {
         $0.backgroundColor = .systemBackground
         $0.rowHeight = Constants.sW * 0.9 / 5
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.isScrollEnabled = false
-        $0.allowsSelection = false
         $0.separatorStyle = .none
         $0.register(TipsMenuCell.self, forCellReuseIdentifier: TipsMenuCell.identifier)
     })
@@ -35,7 +33,6 @@ class TipsMenuView: UIView {
     
     func setupUI() {
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     func setupBindings() {

@@ -19,5 +19,5 @@ final class SearchMealsSceneModel: Object {
 }
 
 enum HeaderModel: String, CaseIterable {
-    case fruit, drink, sauses, snack
+    case فاكهة, يشرب, الصلصات, وجباتخفيفة
 }
