@@ -38,7 +38,6 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
     
     private let exerciseLabel = specify(UILabel(), {
         $0.text = "Flutter kicks with Scissors"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: Constants.sH_812 ? 22 : 18, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.textAlignment = .center
@@ -118,7 +117,6 @@ class StartWorkoutSceneViewController: BaseViewController<StartWorkoutSceneViewM
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
         timerPopupView.isHidden = true
-        videoPlayer.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         
         guard let url = URL(string: "https://www.youtube.com/watch?v=wfRl4RfQnPM") else { return }
         videoPlayer.loadVideoURL(url)

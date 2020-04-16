@@ -21,13 +21,17 @@ class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewScen
                 .dequeueReusableCell(withReuseIdentifier: ExercisePreviewCell.identifier,
                                      for: indexPath) as? ExercisePreviewCell else { fatalError() }
             cell.setup(exercise: data)
+            if indexPath.row > 3 {
+                cell.lockContainerView.isHidden = false
+                cell.isUserInteractionEnabled = false
+            }
             return cell
         })
     }()
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
@@ -43,24 +47,22 @@ class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewScen
         collectionView.register(ExercisePreviewCell.self,
                                 forCellWithReuseIdentifier: ExercisePreviewCell.identifier)
         collectionView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
-        collectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         return collectionView
     }()
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let navTextLabel = specify(UILabel(), {
-        $0.text = "Cardio"
+        $0.text = "أمراض القلب"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
     
     private let presentExerciseButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.setTitle("Exercises", for: .normal)
+        $0.setTitle("تمارين", for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
         $0.layer.cornerRadius = 17
         $0.clipsToBounds = true
@@ -98,7 +100,6 @@ class ExercisePreviewSceneViewController: BaseViewController<ExercisePreviewScen
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
     
     fileprivate func addConstraints() {

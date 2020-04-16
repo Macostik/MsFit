@@ -163,7 +163,7 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
         buyOneMonthButton.add(vOneMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(vThreeMonthStackView, layoutBlock: { $0.center() })
         buyThreeMonthButton.add(fullProgramImage, layoutBlock: {
-            $0.trailing(5).top(-6).bottom(-10).width(Constants.sW * 0.3)
+            $0.trailing(5).top(-8).bottom(-10).width(Constants.sW * 0.3)
         })
         bgDayliCircleImage.add(pagerView, layoutBlock: { $0.edges() })
         pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_667 ? 40 : 10).centerX() })

@@ -38,6 +38,7 @@ class BaseWorkOutView: UIView {
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
         $0.customButton(text: "ابدئي التمرين", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), bgColor: #colorLiteral(red: 0.5019999743, green: 0.3330000043, blue: 0.8709999919, alpha: 1), isCircled: false)
+        $0.layer.cornerRadius = (Constants.sW / 6.5)/2
         $0.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.semanticContentAttribute = .forceRightToLeft
         $0.imageEdgeInsets = .init(top: 0, left: 16, bottom: 0, right: 0)
@@ -74,6 +75,11 @@ class BaseWorkOutView: UIView {
         super.init(frame: .zero)
         setupUI()
         addConstraint()
+        
+        startWorkoutButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentStartWorkoutObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
     
     internal func setupUI() {}
@@ -102,7 +108,6 @@ class BaseWorkOutView: UIView {
         add(separatorView, layoutBlock: {
             $0.leading().trailing().height(10).topBottom(to: containerForExercisesView)
         })
-        startWorkoutButton.cornerRadius = (Constants.sW / 6.5)/2
     }
     
     required init?(coder: NSCoder) { fatalError() }

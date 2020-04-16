@@ -22,14 +22,12 @@ class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     
     private let navigationView = specify(UIView(), {
         $0.backgroundColor = #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     private let navWorkoutLabel = specify(UILabel(), {
         $0.text = "اكتشف - حل"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     override func setupUI() {
@@ -51,7 +49,6 @@ class WorkOutSceneViewController: BaseViewController<WorkOutSceneViewModel> {
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
-        view.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
     
     fileprivate func addConstraints() {

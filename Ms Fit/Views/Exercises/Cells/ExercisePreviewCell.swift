@@ -10,6 +10,13 @@ import UIKit
 
 class ExercisePreviewCell: UICollectionViewCell, CellIdentifierable {
     
+    private let lockImageView = UIImageView(image: UIImage(named: "lock"))
+    
+    public let lockContainerView = specify(UIView(), {
+        $0.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.1450980392, blue: 0.4862745098, alpha: 0.6020173373)
+        $0.isHidden = true
+    })
+    
     private let exercisesImageView = specify(UIImageView(), {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 5
@@ -27,11 +34,10 @@ class ExercisePreviewCell: UICollectionViewCell, CellIdentifierable {
         $0.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     })
     
-    private let exerciseText = specify(UILabel(), {
-        $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
-        $0.textAlignment = .center
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-    })
+    private let onlyGeneralLabel = Label(icon: "فقط عام", font: .systemFont(ofSize: 15, weight: .medium),
+                                         textColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), isTranform: false, textAlignment: .center)
+    private let exerciseText = Label(icon: "", font: .systemFont(ofSize: 14, weight: .regular),
+                                     textColor: #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1), isTranform: true, textAlignment: .center)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -45,6 +51,9 @@ class ExercisePreviewCell: UICollectionViewCell, CellIdentifierable {
             $0.leading(16).trailing(16).top(16).bottom(16).height(20)
         })
         add(vContainerStackView, layoutBlock: { $0.edges() })
+        exercisesImageView.add(lockContainerView, layoutBlock: { $0.edges() })
+        lockContainerView.add(lockImageView, layoutBlock: { $0.centerY(-15).centerX() })
+        lockContainerView.add(onlyGeneralLabel, layoutBlock: { $0.centerY(15).centerX() })
     }
     
     public func setup(exercise: ExercisePreviewList) {

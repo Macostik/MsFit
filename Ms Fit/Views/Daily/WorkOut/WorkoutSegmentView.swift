@@ -65,8 +65,6 @@ class WorkoutSegmentView: UIView {
         self.viewModel = viewModel
         handleUI()
         addConstraints()
-        
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func handleUI() {

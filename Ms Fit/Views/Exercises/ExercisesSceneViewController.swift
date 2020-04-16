@@ -21,6 +21,10 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
                 .dequeueReusableCell(withReuseIdentifier: ExerciseCell.identifier,
                                      for: indexPath) as? ExerciseCell else { fatalError() }
             cell.setup(exercise: data)
+            if indexPath.row > 3 {
+                cell.lockContainerView.isHidden = false
+                cell.isUserInteractionEnabled = false
+            }
             return cell
         })
     }()

@@ -13,6 +13,7 @@ import RealmSwift
 
 final class WorkOutSceneViewModel: BaseViewModel<Object> {
     
+    public var presentStartWorkoutObserver = PublishSubject<Void>()
     public var dismissObserver = PublishSubject<Void>()
     public var presentObserver = PublishSubject<(Int, String)>()
 }

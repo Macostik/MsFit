@@ -48,49 +48,56 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
         $0.endPointY = 0.8
     })
     
-    private let nameExerciseLabel = specify(UILabel(), {
-        $0.text = "Crunches"
-        $0.font = .systemFont(ofSize: 22, weight: .medium)
-        $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
-    })
+    private let nameExerciseLabel = Label(icon: "Crunches", font: .systemFont(ofSize: 22, weight: .medium),
+                                     textColor: #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1), isTranform: true, textAlignment: .center)
     
-    private let sets_repsLabel = Label(icon: "5 sets/20 reps", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: true)
+    private let sets_repsLabel = Label(icon: "5 مجموعات / 20 ممثلاً", font:
+        .systemFont(ofSize: 14, weight: .regular), textColor: #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1), isTranform: false, textAlignment: .right)
     
     private let nameSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let musclesInvolvedLabel = Label(icon: "Muscles involved", font:
-        .systemFont(ofSize: 16, weight: .medium), size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
+    private let musclesInvolvedLabel = Label(icon: "العضلات المعنية", font:
+        .systemFont(ofSize: 16, weight: .medium), textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false, textAlignment: .right)
     
-    private let shouldersLabel = Label(icon: "Shoulders", font:
-        .systemFont(ofSize: 16, weight: .regular), size: 16, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
+    private let shouldersLabel = Label(icon: "أكتاف", font:
+        .systemFont(ofSize: 16, weight: .regular), textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: false, textAlignment: .right)
     
     private let musclesSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let performLabel = Label(icon: "This is how to perform one reoetition", font:
-        .systemFont(ofSize: 16, weight: .medium), size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
+    private let performLabel = Label(icon: "هذه هي طريقة إجراء إعادة اختبار واحدة", font:
+        .systemFont(ofSize: 16, weight: .medium), textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false, textAlignment: .right)
     
     private let discriptionLabel = specify(UILabel(), {
         $0.text = """
-        - Stand up straight1 \n\n- Stand up straight2 \n\n- Stand up straight3 \n\n- Stand up straight4
-        \n- Stand up straight5 \n\n- Stand up straight6 \n\n- Stand up straight7 \n\n- Stand up straight8
-        \n- Stand up straight9
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1
         """
         $0.numberOfLines = 0
         $0.font = .systemFont(ofSize: 14, weight: .regular)
         $0.textColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1)
+        $0.textAlignment = .right
     })
     
     private let performSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
-    private let noteLabel = Label(icon: "Note", font:
-           .systemFont(ofSize: 16, weight: .medium), size: 16, textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: true)
+    private let noteLabel = Label(icon: "ملحوظة", font: .systemFont(ofSize: 16, weight: .medium),
+                                  textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false, textAlignment: .right)
     
-    private let noteOneLabel = Label(icon: "- Stand up straight1", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
-    
-    private let noteTwoLabel = Label(icon: "- Stand up straight2", font:
-        .systemFont(ofSize: 14, weight: .regular), size: 14, textColor: #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1), isTranform: true)
+    private let noteDiscriptionLabel = specify(UILabel(), {
+        $0.text = """
+        - قف بشكل مستقيم 1\n
+        - قف بشكل مستقيم 1
+        """
+        $0.numberOfLines = 0
+        $0.font = .systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1)
+        $0.textAlignment = .right
+    })
     
     private let noteSeparatorView = specify(UILabel(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9529411765, alpha: 1) })
     
@@ -151,7 +158,7 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
         })
         
         let noteVStackView = VStackView(arrangedSubviews: [
-            noteLabel, VStackView(arrangedSubviews: [noteOneLabel, noteTwoLabel], spacing: 10)
+            noteLabel, VStackView(arrangedSubviews: [noteDiscriptionLabel])
         ], spacing: 15)
         notesView.add(noteVStackView, layoutBlock: { $0.leading(16).trailing(16).top(12).bottom(40) })
         notesView.add(noteSeparatorView, layoutBlock: { $0.bottom().leading(16).trailing(16).height(1) })
