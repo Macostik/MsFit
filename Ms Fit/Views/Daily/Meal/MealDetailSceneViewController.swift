@@ -313,7 +313,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         saucesView.add(saucesImageView, layoutBlock: { $0.edges(10) })
         snackView.add(snackImageView, layoutBlock: { $0.edges(10) })
         
-        scrollView.add(feedImageView, layoutBlock: { $0.top().width(Constants.sW).height(Constants.sW * 0.7)})
+        scrollView.add(feedImageView, layoutBlock: { $0.top().width(Constants.sW).height(Constants.sW * 0.8)})
         scrollView.add(titleVStackView, layoutBlock: {
             $0.topBottom(20, to: feedImageView).width(Constants.sW - 32).centerX()
         })

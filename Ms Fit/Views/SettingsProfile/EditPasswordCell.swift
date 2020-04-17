@@ -27,7 +27,6 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
         $0.placeholder = "حفظ"
         $0.returnKeyType = .done
         $0.borderStyle = .none
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.isSecureTextEntry = true
     })
     
@@ -47,7 +46,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
         add(titleLabel, layoutBlock: { $0.leading(16).centerY() })
         add(eyeButton, layoutBlock: { $0.trailing(16).centerY().height(16).width(24) })
         add(textField, layoutBlock: {
-            $0.trailingLeading(-10, to: eyeButton).centerY().leadingTrailing(10, to: titleLabel)
+            $0.trailingLeading(-10, to: eyeButton).centerY().width(200)
         })
         add(separatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
         
@@ -65,6 +64,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
                 guard let self = self else { return }
                 self.eyeButton.setImage(self.isShowUnshowEyes ? UIImage(systemName: "eye.fill") :
                     UIImage(systemName: "eye.slash.fill"), for: .normal)
+                self.textField.textAlignment = .left
                 self.textField.isSecureTextEntry.toggle()
                 self.isShowUnshowEyes.toggle()
             }).disposed(by: disposeBag)

@@ -19,5 +19,5 @@ final class EditPasswordSceneModel: Object {
 }
 
 enum EditPasswordModel: String, CaseIterable {
-    case oldPassword, newPassword
+    case كلمةسرقديمة, كلمةسرجديدة
 }

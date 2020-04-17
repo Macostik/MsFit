@@ -26,12 +26,11 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
     private let tableView = specify(UITableView(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.separatorStyle = .none
         $0.register(HistoryCell.self, forCellReuseIdentifier: HistoryCell.identifier)
     })

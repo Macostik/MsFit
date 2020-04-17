@@ -24,7 +24,7 @@ class AccountTypeSceneViewController: BaseViewController<AccountTypeSceneViewMod
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     

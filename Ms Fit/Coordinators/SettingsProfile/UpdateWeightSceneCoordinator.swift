@@ -24,9 +24,4 @@ class UpdateWeightSceneCoordinator: BaseSceneCoordinator<Void> {
         
         return Observable.just(())
     }
-    
-//    @discardableResult private func present<#Class#>Scene() -> Observable<Void> {
-//        let <#Class#>Coordinator = <#Class#>SceneCoordinator(window: window, dependencies: dependencies)
-//        return coordinate(to: <#Class#>Coordinator)
-//    }
 }

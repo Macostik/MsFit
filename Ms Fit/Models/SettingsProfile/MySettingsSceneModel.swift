@@ -55,11 +55,11 @@ enum SettingsStorageSceneModel: String, CaseIterable {
         case .weight:
             return ("الوزن", "140.9 kg")
         case .heigth:
-            return ("الطول", "cm 200")
+            return ("الطول", " 200cm")
         case .dateOfBirthday:
             return ("تاريخ الميلاد", "01/11/2020")
         case .goal:
-            return ("الهدف", "my goal is 130 kg")
+            return ("الهدف", "هدفي 130 كجم")
         case .activity:
             return ("النشاط اليومي", "وظيفة مكتبية")
         case .selectionLevel:
@@ -67,7 +67,7 @@ enum SettingsStorageSceneModel: String, CaseIterable {
         case .accountSettings:
             return ("إعدادات الحساب", "")
         case .accountType:
-            return ("العضوية", "General Membership")
+            return ("العضوية", "عضوية عامة")
         case .contactUs:
             return ("الاتصال بنا", "")
         case .aboutApp:
@@ -79,7 +79,7 @@ enum SettingsStorageSceneModel: String, CaseIterable {
         case .version:
             return ("الإصدار" , "1.0")
         case .notification:
-            return ("Notification", "")
+            return ("تنبيه", "")
         case .logOut:
             return ("تسجيل خروج", "")
         }

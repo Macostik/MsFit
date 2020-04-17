@@ -24,13 +24,13 @@ enum AccountModel: String, CaseIterable {
     func discription() -> (String, String) {
         switch self {
         case .email:
-            return ("Email", "yura.test@mail.com")
+            return ("البريد الإلكتروني", "yura.test@mail.com")
         case .name:
-            return ("User Name", "Yura IOS Test")
+            return ("اسم المستخدم", "Yura IOS Test")
         case .location:
-            return ("Location", "Kharkiv")
+            return ("موقعك", "Kharkiv")
         case .editPassword:
-            return ("Edit Password", "")
+            return ("تحرير كلمة المرور", "")
         }
     }
 }

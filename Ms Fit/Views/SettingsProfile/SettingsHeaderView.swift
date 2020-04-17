@@ -18,6 +18,5 @@ class SettingsHeaderView: UIView {
     public func setup(title: String) {
         add(titleLabel, layoutBlock: { $0.leading(16).bottom(5) })
         titleLabel.text = title
-        titleLabel.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
 }

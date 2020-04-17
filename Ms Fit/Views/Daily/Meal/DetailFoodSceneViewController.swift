@@ -180,7 +180,7 @@ class DetailFoodSceneViewController: BaseViewController<DetailFoodSceneViewModel
             ingridVStackView, directionVStackView
         ], spacing: 20)
         
-        scrollView.add(imageView, layoutBlock: { $0.top().width(Constants.sW).height(Constants.sW * 0.7) })
+        scrollView.add(imageView, layoutBlock: { $0.top().width(Constants.sW).height(Constants.sW * 0.8) })
         scrollView.add(titleVStackView, layoutBlock: {
             $0.topBottom(20, to: imageView).width(Constants.sW - 32).centerX()
         })

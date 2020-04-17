@@ -63,7 +63,6 @@ class UpdateExerciseSceneViewController: BaseViewController<UpdateExerciseSceneV
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1)
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     fileprivate func addConstraints() {

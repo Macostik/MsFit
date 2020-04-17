@@ -24,7 +24,7 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
@@ -39,7 +39,7 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
         
     private let doneButton = specify(UIButton(type: .roundedRect), {
         $0.setTitleColor(.systemBackground, for: .normal)
-        $0.customButton(text: "حفظ", font: 20, weight: .bold, shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: true)
+        $0.customButton(text: "حفظ", font: 20, weight: .black, shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: true)
     })
     
     override func setupUI() {
@@ -89,10 +89,10 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
     }
     
     fileprivate func handleAlert() {
-        let alertController = UIAlertController(title: "Error",
-                                                message: "Please enter a valid password",
+        let alertController = UIAlertController(title: "خطأ",
+                                                message: "الرجاء إدخال كلمة السر الصحيحة",
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "حسنا", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
     

@@ -27,13 +27,13 @@ enum UpdatePickerData: String, CaseIterable {
     func dataList() -> PickerListEntryType {
         switch self {
         case .chest:
-            return [Array(60...140).map({"\($0)"}), Array(0...9).map({".\($0) cm"})]
+            return [Array(0...9).map({".\($0) cm"}), Array(60...140).map({"\($0)"})]
         case .waist:
-            return [Array(20...150).map({"\($0)"}), Array(0...9).map({".\($0) cm"})]
+            return [Array(0...9).map({".\($0) cm"}), Array(20...150).map({"\($0)"})]
         case .thigh:
-            return [Array(25...250).map({"\($0)"}), Array(0...9).map({".\($0) cm"})]
+            return [Array(0...9).map({".\($0) cm"}), Array(25...250).map({"\($0)"})]
         case .arms:
-            return [Array(10...60).map({"\($0)"}), Array(0...9).map({".\($0) cm"})]
+            return [Array(0...9).map({".\($0) cm"}), Array(10...60).map({"\($0)"})]
         }
     }
 }

@@ -19,14 +19,15 @@ final class AccountTypeSceneModel: Object {
 }
 
 enum AccountTypeModel: String, CaseIterable {
-    case accountType, active
-    
+    case نوعالحساب, نشيط
+
     func discription() -> String {
         switch self {
-        case .accountType:
+        case .نوعالحساب:
             return "العضوية"
-        case .active:
-            return "حتى %@ 20"
+        case .نشيط
+:
+            return "حتى 23/04/2020"
         }
     }
 }

@@ -61,7 +61,6 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
                                            textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), isTranform: false, textAlignment: .right)
     
     private let yourQuestionTextView = specify(UITextView(), {
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 14, weight: .regular)
         $0.backgroundColor = .clear
         $0.isScrollEnabled = false

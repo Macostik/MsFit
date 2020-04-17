@@ -14,7 +14,6 @@ class AccountSettingsCell: UITableViewCell, CellIdentifierable {
     
     private let textField = specify(UITextField(), {
         $0.borderStyle = .none
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     public func setup(with model: AccountModel) {
