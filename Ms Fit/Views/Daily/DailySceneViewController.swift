@@ -52,6 +52,13 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.numberOfLines = 0
     })
     
+    private let getTextLabel = specify(UILabel(), {
+        $0.text = "اعرفي مستواك باختبار مدته 3 دقائقأو اختاري المستوى المبتدئ إذا أول مرة تمارسين الرياضة"
+        $0.font = .systemFont(ofSize: Constants.sH_667 ? 18 : 16, weight: .regular)
+        $0.textAlignment = .center
+        $0.numberOfLines = 0
+    })
+    
     private let dayliMealsLabel = specify(UILabel(), {
         $0.text = "وجباتي"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 22 : 18, weight: .bold)
@@ -126,6 +133,23 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.layer.shadowOpacity = 0.4
         $0.layer.shadowRadius = 8
         $0.layer.shadowOffset = CGSize(width: 0, height: 6)
+    })
+    
+    private let generalProgramButton = specify(UIButton(type: .roundedRect), {
+        $0.setTitle("Start 3 days trial", for: .normal)
+        $0.layer.cornerRadius = (Constants.sW * 0.15) / 2
+        $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        $0.layer.shadowOffset = CGSize(width: 0, height: 2)
+        $0.tintColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.layer.shadowColor = #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+        $0.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        $0.layer.shadowOpacity = 0.2
+        $0.layer.shadowRadius = 2
+    })
+    
+    private let testMeButton = specify(UIButton(type: .roundedRect), {
+        $0.customButton(text: "Test me", font: 20, weight: .bold,
+                        shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: true)
     })
     
     private let baseView = specify(UIView(), { $0.backgroundColor = .clear })
@@ -265,6 +289,16 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         mealsDietButton.rx.tap
             .bind(to: viewModel!.presentMealObserver)
             .disposed(by: disposeBag)
+        
+        testMeButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentPreviewStartObserver.onNext(())
+            }).disposed(by: disposeBag)
+        
+        generalProgramButton.rx.tap
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentGeneralProgramObserver.onNext(())
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
@@ -276,6 +310,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
             Constants.sH_667 ? 40 : 30).isActive = true
         exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
         exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
+        testMeButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.15).isActive = true
+        generalProgramButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.15).isActive = true
         
         let hNavStackView = HStackView(arrangedSubviews: [navTextLabel, verificationEmailButton], spacing: 10)
         hNavStackView.distribution = .fillProportionally
@@ -283,6 +319,16 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         let hWorkoutAndDietStackView = HStackView(arrangedSubviews: [mealsDietButton, exerciseWorkoutButton],
                                                   spacing: 25)
         hWorkoutAndDietStackView.distribution = .fillEqually
+        
+        let vWorkoutAndDietStackView = VStackView(arrangedSubviews: [
+            middletextLabel, hWorkoutAndDietStackView
+        ], spacing: 60)
+        vWorkoutAndDietStackView.isHidden = false
+        
+        let vFreeDaysVStackView = VStackView(arrangedSubviews: [
+            getTextLabel, VStackView(arrangedSubviews: [testMeButton, generalProgramButton], spacing: 25)
+        ], spacing: 60)
+        vFreeDaysVStackView.isHidden = true
         
         let vMealsStackView = VStackView(arrangedSubviews: [dayliMealsLabel, countMealsLabel])
         let vExerciseStackView = VStackView(arrangedSubviews: [dayliExerciseLabel, countExerciseLabel])
@@ -348,12 +394,14 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         
         view.add(questionButton, layoutBlock: { $0.topBottom(20, to: navigationView).trailing(16).size(30) })
         view.add(homeButton, layoutBlock: { $0.topBottom(15, to: navigationView).leading(16) })
-        view.add(hWorkoutAndDietStackView, layoutBlock: {
+        view.add(vWorkoutAndDietStackView, layoutBlock: {
             $0.bottom(tabBarHeight + (Constants.sH_812 ? 50 : 30)).centerX()
         })
-        view.add(middletextLabel, layoutBlock: {
-            $0.bottomTop(Constants.sH_667 ? -50 : -20 , to: hWorkoutAndDietStackView).leading(20).trailing(20)
+        
+        view.add(vFreeDaysVStackView, layoutBlock: {
+            $0.bottom(tabBarHeight + (Constants.sH_812 ? 60 : 30)).trailing(20).leading(20)
         })
+        
         exerciseContainerView.add(exerciseImage, layoutBlock: { $0.top().centerX().height(34).width(40) })
         exerciseContainerView.add(vExerciseStackView, layoutBlock: {
             $0.topBottom(8, to: exerciseImage).leading().trailing().bottom()

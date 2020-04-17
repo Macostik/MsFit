@@ -12,6 +12,8 @@ import RxCocoa
 
 final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
     
+    public var presentGeneralProgramObserver = PublishSubject<Void>()
+    public var presentPreviewStartObserver = PublishSubject<Void>()
     public var questionPresentObserver = PublishSubject<Void>()
     public var homePresentObserver = PublishSubject<Void>()
     public var presentWorkoutObserver = PublishSubject<Void>()

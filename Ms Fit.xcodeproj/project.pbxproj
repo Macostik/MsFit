@@ -224,6 +224,10 @@
 		ACA3CE5324191D81001213AC /* MealsStorageSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */; };
 		ACA3CE5424191D81001213AC /* MealsStorageSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */; };
 		ACA3CE56241929D6001213AC /* ClearPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CE55241929D6001213AC /* ClearPopupView.swift */; };
+		ACABB9542449E6E9005EEE82 /* GeneralProgramSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABB9502449E6E9005EEE82 /* GeneralProgramSceneCoordinator.swift */; };
+		ACABB9552449E6E9005EEE82 /* GeneralProgramSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABB9512449E6E9005EEE82 /* GeneralProgramSceneViewController.swift */; };
+		ACABB9562449E6E9005EEE82 /* GeneralProgramSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABB9522449E6E9005EEE82 /* GeneralProgramSceneModel.swift */; };
+		ACABB9572449E6E9005EEE82 /* GeneralProgramSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABB9532449E6E9005EEE82 /* GeneralProgramSceneViewModel.swift */; };
 		ACACD456241A31050017D4D7 /* AddPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACD455241A31050017D4D7 /* AddPopupView.swift */; };
 		ACACD45B241B8C980017D4D7 /* SearchMealsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACD457241B8C980017D4D7 /* SearchMealsSceneCoordinator.swift */; };
 		ACACD45C241B8C980017D4D7 /* SearchMealsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACD458241B8C980017D4D7 /* SearchMealsSceneViewController.swift */; };
@@ -499,6 +503,10 @@
 		ACA3CE4F24191D81001213AC /* MealsStorageSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneModel.swift; sourceTree = "<group>"; };
 		ACA3CE5024191D81001213AC /* MealsStorageSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsStorageSceneViewModel.swift; sourceTree = "<group>"; };
 		ACA3CE55241929D6001213AC /* ClearPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearPopupView.swift; sourceTree = "<group>"; };
+		ACABB9502449E6E9005EEE82 /* GeneralProgramSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralProgramSceneCoordinator.swift; sourceTree = "<group>"; };
+		ACABB9512449E6E9005EEE82 /* GeneralProgramSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralProgramSceneViewController.swift; sourceTree = "<group>"; };
+		ACABB9522449E6E9005EEE82 /* GeneralProgramSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralProgramSceneModel.swift; sourceTree = "<group>"; };
+		ACABB9532449E6E9005EEE82 /* GeneralProgramSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralProgramSceneViewModel.swift; sourceTree = "<group>"; };
 		ACACD455241A31050017D4D7 /* AddPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopupView.swift; sourceTree = "<group>"; };
 		ACACD457241B8C980017D4D7 /* SearchMealsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMealsSceneCoordinator.swift; sourceTree = "<group>"; };
 		ACACD458241B8C980017D4D7 /* SearchMealsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMealsSceneViewController.swift; sourceTree = "<group>"; };
@@ -1240,6 +1248,7 @@
 				56C7B4F82405C32C00CC2C8D /* WorkOut */,
 				AC738FBE2406C16600CB7A39 /* Cells */,
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
+				ACABB9512449E6E9005EEE82 /* GeneralProgramSceneViewController.swift */,
 				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
 				AC4A00A02404247300764281 /* QuestionsSceneViewController.swift */,
 			);
@@ -1252,6 +1261,7 @@
 				AC21931F2412902D00F388C1 /* Meal */,
 				56C7B4F92405C34B00CC2C8D /* WorkOut */,
 				56993C0B2401BD6D00C16CFF /* DailySceneViewModel.swift */,
+				ACABB9532449E6E9005EEE82 /* GeneralProgramSceneViewModel.swift */,
 				AC738FB92406A01B00CB7A39 /* HomeSceneViewModel.swift */,
 				AC4A00A22404247300764281 /* QuestionsSceneViewModel.swift */,
 			);
@@ -1264,6 +1274,7 @@
 				AC2193202412904400F388C1 /* Meal */,
 				56C7B4F72405C31400CC2C8D /* WorkOut */,
 				56993C0A2401BD6D00C16CFF /* DailySceneModel.swift */,
+				ACABB9522449E6E9005EEE82 /* GeneralProgramSceneModel.swift */,
 				AC738FB82406A01B00CB7A39 /* HomeSceneModel.swift */,
 				AC4A00A12404247300764281 /* QuestionsSceneModel.swift */,
 			);
@@ -1316,6 +1327,7 @@
 				AC21931524128FDA00F388C1 /* Meal */,
 				56C7B4F62405C2F100CC2C8D /* WorkOut */,
 				56993C082401BD6D00C16CFF /* DailySceneCoordinator.swift */,
+				ACABB9502449E6E9005EEE82 /* GeneralProgramSceneCoordinator.swift */,
 				AC738FB62406A01B00CB7A39 /* HomeSceneCoordinator.swift */,
 				AC4A009F2404247300764281 /* QuestionsSceneCoordinator.swift */,
 			);
@@ -1527,6 +1539,7 @@
 				ACCAA3592434B0E600EA93B2 /* UpdateWeightSceneViewModel.swift in Sources */,
 				AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */,
 				ACCAA35124349C0B00EA93B2 /* BreakfastPagerCell.swift in Sources */,
+				ACABB9542449E6E9005EEE82 /* GeneralProgramSceneCoordinator.swift in Sources */,
 				564A674323FC6E4700D4901A /* SlimLogglyDestinationConfig.swift in Sources */,
 				AC21931A2412900400F388C1 /* MealSceneCoordinator.swift in Sources */,
 				ACCD39BB24210A2D00D97A11 /* TipsMenuView.swift in Sources */,
@@ -1660,8 +1673,10 @@
 				AC124582242DFFBA00533AA0 /* MealDetailSceneViewModel.swift in Sources */,
 				AC70FFA7241F993E0064CEC5 /* SettingsSceneModel.swift in Sources */,
 				AC753BAF2440BC55005AACFD /* AccountTypeSceneViewModel.swift in Sources */,
+				ACABB9552449E6E9005EEE82 /* GeneralProgramSceneViewController.swift in Sources */,
 				ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */,
 				564A674623FC6E4700D4901A /* Logger.swift in Sources */,
+				ACABB9562449E6E9005EEE82 /* GeneralProgramSceneModel.swift in Sources */,
 				ACA3CE5324191D81001213AC /* MealsStorageSceneModel.swift in Sources */,
 				AC99A7592428C0AE004C75BC /* TipDetailsView.swift in Sources */,
 				564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */,
@@ -1690,6 +1705,7 @@
 				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
 				AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */,
 				AC07657424334F7A00952766 /* DetailFoodSceneViewModel.swift in Sources */,
+				ACABB9572449E6E9005EEE82 /* GeneralProgramSceneViewModel.swift in Sources */,
 				AC738FC02406C18900CB7A39 /* HomeCell.swift in Sources */,
 				AC177C1E24459C9400C29688 /* PrivacyPolicySceneViewModel.swift in Sources */,
 				AC753B91244080EC005AACFD /* LevelSelectionSceneViewModel.swift in Sources */,

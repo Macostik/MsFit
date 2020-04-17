@@ -31,6 +31,14 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
             self?.presentMealScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentPreviewStartObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentPreviewStartScene()
+        }).disposed(by: disposeBag)
+        
+        viewModel.presentGeneralProgramObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentGeneralProgramScene()
+        }).disposed(by: disposeBag)
+        
         return DailySceneViewController.instantiate(with: viewModel)
     }
     
@@ -52,5 +60,15 @@ class DailySceneCoordinator: BaseTabBarSceneCoordinator<DailySceneViewModel> {
     @discardableResult private func presentMealScene() -> Observable<Void> {
         let mealCoordinator = MealSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: mealCoordinator)
+    }
+    
+    @discardableResult private func presentPreviewStartScene() -> Observable<Void> {
+        let startCoordinator = PreviewStartSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: startCoordinator)
+    }
+    
+    @discardableResult private func presentGeneralProgramScene() -> Observable<Void> {
+        let generalCoordinator = GeneralProgramSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: generalCoordinator)
     }
 }
