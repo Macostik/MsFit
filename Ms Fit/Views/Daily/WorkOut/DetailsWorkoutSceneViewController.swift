@@ -182,8 +182,8 @@ class DetailsWorkoutSceneViewController: BaseViewController<DetailsWorkoutSceneV
             }).disposed(by: disposeBag)
         
         allVideosButton.rx.tap
-            .subscribe(onNext: { _ in
-                print("tap all videos")
+            .subscribe(onNext: { [unowned self] _ in
+                self.viewModel?.presentAllVideosObserver.onNext(())
             }).disposed(by: disposeBag)
     }
     

@@ -95,6 +95,11 @@
 		AC0A52FC244873480006EAB2 /* PreviewStartSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A52F8244873480006EAB2 /* PreviewStartSceneViewController.swift */; };
 		AC0A52FD244873480006EAB2 /* PreviewStartSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A52F9244873480006EAB2 /* PreviewStartSceneModel.swift */; };
 		AC0A52FE244873480006EAB2 /* PreviewStartSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A52FA244873480006EAB2 /* PreviewStartSceneViewModel.swift */; };
+		AC0BDA2A244DA1B500DB5DF6 /* AllVideosSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BDA26244DA1B500DB5DF6 /* AllVideosSceneCoordinator.swift */; };
+		AC0BDA2B244DA1B500DB5DF6 /* AllVideosSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BDA27244DA1B500DB5DF6 /* AllVideosSceneViewController.swift */; };
+		AC0BDA2C244DA1B500DB5DF6 /* AllVideosSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BDA28244DA1B500DB5DF6 /* AllVideosSceneModel.swift */; };
+		AC0BDA2D244DA1B500DB5DF6 /* AllVideosSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BDA29244DA1B500DB5DF6 /* AllVideosSceneViewModel.swift */; };
+		AC0BDA2F244DA64700DB5DF6 /* VideosSlideSegmentControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0BDA2E244DA64700DB5DF6 /* VideosSlideSegmentControll.swift */; };
 		AC12457F242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457B242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift */; };
 		AC124580242DFFBA00533AA0 /* MealDetailSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */; };
 		AC124581242DFFBA00533AA0 /* MealDetailSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */; };
@@ -376,6 +381,11 @@
 		AC0A52F8244873480006EAB2 /* PreviewStartSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStartSceneViewController.swift; sourceTree = "<group>"; };
 		AC0A52F9244873480006EAB2 /* PreviewStartSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStartSceneModel.swift; sourceTree = "<group>"; };
 		AC0A52FA244873480006EAB2 /* PreviewStartSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStartSceneViewModel.swift; sourceTree = "<group>"; };
+		AC0BDA26244DA1B500DB5DF6 /* AllVideosSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVideosSceneCoordinator.swift; sourceTree = "<group>"; };
+		AC0BDA27244DA1B500DB5DF6 /* AllVideosSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVideosSceneViewController.swift; sourceTree = "<group>"; };
+		AC0BDA28244DA1B500DB5DF6 /* AllVideosSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVideosSceneModel.swift; sourceTree = "<group>"; };
+		AC0BDA29244DA1B500DB5DF6 /* AllVideosSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVideosSceneViewModel.swift; sourceTree = "<group>"; };
+		AC0BDA2E244DA64700DB5DF6 /* VideosSlideSegmentControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosSlideSegmentControll.swift; sourceTree = "<group>"; };
 		AC12457B242DFFBA00533AA0 /* MealDetailSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC12457C242DFFBA00533AA0 /* MealDetailSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneViewController.swift; sourceTree = "<group>"; };
 		AC12457D242DFFBA00533AA0 /* MealDetailSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSceneModel.swift; sourceTree = "<group>"; };
@@ -617,7 +627,6 @@
 		564A673923FC6DAD00D4901A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				569089AA243BB30200C4DB30 /* Chart */,
 				564A674723FC6E6E00D4901A /* BaseViewController.swift */,
 				ACEFD7F82401CB6D00C2EED8 /* Daily */,
 				ACEFD7F52401CB1A00C2EED8 /* Exercises */,
@@ -828,6 +837,7 @@
 		56C7B4F62405C2F100CC2C8D /* WorkOut */ = {
 			isa = PBXGroup;
 			children = (
+				AC0BDA26244DA1B500DB5DF6 /* AllVideosSceneCoordinator.swift */,
 				AC21930D241273E800F388C1 /* DetailsWorkoutSceneCoordinator.swift */,
 				AC0A52F7244873480006EAB2 /* PreviewStartSceneCoordinator.swift */,
 				AC1CAFBA243E057D008BE6C9 /* RestWorkoutSceneCoordinator.swift */,
@@ -840,6 +850,7 @@
 		56C7B4F72405C31400CC2C8D /* WorkOut */ = {
 			isa = PBXGroup;
 			children = (
+				AC0BDA28244DA1B500DB5DF6 /* AllVideosSceneModel.swift */,
 				AC21930F241273E800F388C1 /* DetailsWorkoutSceneModel.swift */,
 				AC0A52F9244873480006EAB2 /* PreviewStartSceneModel.swift */,
 				AC1CAFBC243E057D008BE6C9 /* RestWorkoutSceneModel.swift */,
@@ -866,6 +877,7 @@
 		56C7B4F92405C34B00CC2C8D /* WorkOut */ = {
 			isa = PBXGroup;
 			children = (
+				AC0BDA29244DA1B500DB5DF6 /* AllVideosSceneViewModel.swift */,
 				AC219310241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift */,
 				AC0A52FA244873480006EAB2 /* PreviewStartSceneViewModel.swift */,
 				AC1CAFBD243E057D008BE6C9 /* RestWorkoutSceneViewModel.swift */,
@@ -1111,12 +1123,13 @@
 			isa = PBXGroup;
 			children = (
 				AC9E1DF524112A3300417E9A /* WorkoutCells */,
+				AC0BDA27244DA1B500DB5DF6 /* AllVideosSceneViewController.swift */,
+				56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */,
 				ACACD45F241BB41B0017D4D7 /* PreviewImagePagerView.swift */,
 				ACD5CEC9243B7D14002384D0 /* ProgressTimer.swift */,
 				AC9E1DEF2410F32F00417E9A /* YesterdayWorkoutView.swift */,
 				AC9E1DF32410F36000417E9A /* TodayWorkoutView.swift */,
 				AC9E1DF12410F34D00417E9A /* TomorrowWorkoutView.swift */,
-				56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */,
 			);
 			path = WorkoutViews;
 			sourceTree = "<group>";
@@ -1167,6 +1180,7 @@
 		ACCED1C323FE8D2E000EB2DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				569089AA243BB30200C4DB30 /* Chart */,
 				AC1A7FA8240904070058248D /* PopupViews */,
 				AC86C2252407CBDA0029D33E /* QuestionViews */,
 				ACCED1C523FE8DA3000EB2DB /* Button.swift */,
@@ -1174,6 +1188,7 @@
 				ACCED1C423FE8DA2000EB2DB /* Label.swift */,
 				ACCED1BF23FE8AB9000EB2DB /* TextField.swift */,
 				AC86C2232407C6950029D33E /* SlideSegmenControl.swift */,
+				AC0BDA2E244DA64700DB5DF6 /* VideosSlideSegmentControll.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1244,9 +1259,9 @@
 		ACEFD7F82401CB6D00C2EED8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				AC738FBE2406C16600CB7A39 /* Cells */,
 				AC21931E2412902000F388C1 /* Meal */,
 				56C7B4F82405C32C00CC2C8D /* WorkOut */,
-				AC738FBE2406C16600CB7A39 /* Cells */,
 				56993C092401BD6D00C16CFF /* DailySceneViewController.swift */,
 				ACABB9512449E6E9005EEE82 /* GeneralProgramSceneViewController.swift */,
 				AC738FB72406A01B00CB7A39 /* HomeSceneViewController.swift */,
@@ -1561,6 +1576,7 @@
 				ACAFEC9D24051FC200C8AEBB /* TipsCell.swift in Sources */,
 				AC21931B2412900400F388C1 /* MealSceneViewController.swift in Sources */,
 				AC753B90244080EC005AACFD /* LevelSelectionSceneModel.swift in Sources */,
+				AC0BDA2C244DA1B500DB5DF6 /* AllVideosSceneModel.swift in Sources */,
 				566C2DAC240444080006108B /* SignInSceneViewController.swift in Sources */,
 				AC177C2624459E4E00C29688 /* TermOfUseSceneViewModel.swift in Sources */,
 				ACBF70122424C7CB00FFEAC8 /* ContactUsSceneViewModel.swift in Sources */,
@@ -1580,6 +1596,7 @@
 				568928192447A65E00AE84A4 /* ProgramService.swift in Sources */,
 				ACACD456241A31050017D4D7 /* AddPopupView.swift in Sources */,
 				AC807118242A6898000F0BE7 /* ExerciseDetailSceneModel.swift in Sources */,
+				AC0BDA2D244DA1B500DB5DF6 /* AllVideosSceneViewModel.swift in Sources */,
 				ACD5CEC7243B58A4002384D0 /* StartWorkoutSceneModel.swift in Sources */,
 				ACA3779C243F4A25002D7C63 /* SentMessageSceneModel.swift in Sources */,
 				AC738FBC2406A01B00CB7A39 /* HomeSceneModel.swift in Sources */,
@@ -1682,6 +1699,7 @@
 				564A676A23FC821F00D4901A /* OnboardSceneCoordinator.swift in Sources */,
 				AC1CAFBE243E057D008BE6C9 /* RestWorkoutSceneCoordinator.swift in Sources */,
 				AC53618724003F7300E5204A /* SignUpSceneViewModel.swift in Sources */,
+				AC0BDA2F244DA64700DB5DF6 /* VideosSlideSegmentControll.swift in Sources */,
 				56993C152401BDAA00C16CFF /* ExercisesSceneViewController.swift in Sources */,
 				566C2D96240443800006108B /* SplashSceneViewController.swift in Sources */,
 				ACACD45C241B8C980017D4D7 /* SearchMealsSceneViewController.swift in Sources */,
@@ -1721,6 +1739,7 @@
 				AC99A7562428B347004C75BC /* TipDetailsSceneModel.swift in Sources */,
 				AC22044F242BB4740089C801 /* SettingUpdateCell.swift in Sources */,
 				56993BFE2401A84900C16CFF /* MainSceneModel.swift in Sources */,
+				AC0BDA2B244DA1B500DB5DF6 /* AllVideosSceneViewController.swift in Sources */,
 				AC738FBA2406A01B00CB7A39 /* HomeSceneCoordinator.swift in Sources */,
 				AC753BAC2440BC55005AACFD /* AccountTypeSceneCoordinator.swift in Sources */,
 				AC57A17E2417A009006E9144 /* BreakfastCell.swift in Sources */,
@@ -1733,6 +1752,7 @@
 				AC738FBB2406A01B00CB7A39 /* HomeSceneViewController.swift in Sources */,
 				AC807117242A6898000F0BE7 /* ExerciseDetailSceneViewController.swift in Sources */,
 				AC4CC20B242CEFA000F7AB41 /* HistoryCell.swift in Sources */,
+				AC0BDA2A244DA1B500DB5DF6 /* AllVideosSceneCoordinator.swift in Sources */,
 				AC80710E242A4CC5000F0BE7 /* ExercisePreviewSceneModel.swift in Sources */,
 				AC753BA32440ACAA005AACFD /* EditPasswordSceneViewController.swift in Sources */,
 				56C7B4F42405C2DE00CC2C8D /* WorkOutSceneModel.swift in Sources */,
