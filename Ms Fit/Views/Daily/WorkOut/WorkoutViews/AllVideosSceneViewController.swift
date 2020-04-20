@@ -25,7 +25,7 @@ class AllVideosSceneViewController: BaseViewController<AllVideosSceneViewModel> 
     })
     
     private let navVideosLabel = specify(UILabel(), {
-        $0.text = "All Videos"
+        $0.text = "جميع التمارين"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
@@ -55,5 +55,9 @@ class AllVideosSceneViewController: BaseViewController<AllVideosSceneViewModel> 
         view.add(videoSlideSegmentControl, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom()
         })
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
 }

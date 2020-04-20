@@ -16,8 +16,8 @@ class VideosSlideSegmentControll: UIView {
     
     private let menuItems = ["كتف", "نتوء", "القرفصاء", "اسفلالظهر", "اقفز", "صحافة", "ذراع", "عودة"]
     private let slideItems = [
-        MealsView(), ExerciseView(), SubscriptionView(), MealsView(),
-        ExerciseView(), SubscriptionView(), MealsView(), ExerciseView()
+        ArmView(), ArmView(), ArmView(), ArmView(),
+        ArmView(), ArmView(), ArmView(), ArmView()
     ]
     
     private var slideView = specify(UIView(), {
