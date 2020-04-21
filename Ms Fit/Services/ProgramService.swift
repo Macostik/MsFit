@@ -10,8 +10,6 @@ import Foundation
 
 class ProgramService: RealmService<Program> {
     
-    private lazy var api_token = RealmProvider.shared.realm.objects(User.self).first?.api_token ?? ""
-    
     public func getProgramList( completion: (() -> Void)? = nil) {
           APIManager.programList(["api_token": api_token]).json()
               .subscribe(onNext: { json in

@@ -13,4 +13,5 @@ class Dependency {
     let dailyService = DailyService()
     let programService = ProgramService()
     let mealsService = MealsService()
+    let exercisesService = ExercisesService()
 }

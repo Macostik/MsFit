@@ -10,8 +10,6 @@ import Foundation
 
 class MealsService: RealmService<MealSceneModel> {
     
-    private lazy var api_token = RealmProvider.shared.realm.objects(User.self).first?.api_token ?? ""
-    
     public func getMealsList( completion: (() -> Void)? = nil) {
         APIManager.mealsList(["api_token": api_token]).json()
             .subscribe(onNext: { json in
@@ -23,7 +21,7 @@ class MealsService: RealmService<MealSceneModel> {
                             for program in data {
                                 realm.create(T.self, value: program.object, update: .modified)
                             }
-                            Logger.info("ProgramList was create successfully")
+                            Logger.info("MealsList was create successfully")
                         }
                     }
                     completion?()

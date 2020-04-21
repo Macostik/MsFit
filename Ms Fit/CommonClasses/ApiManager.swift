@@ -22,7 +22,9 @@ enum APIManager: URLRequestConvertible {
     daily_screen([String: Any]),
     programList([String: Any]),
     chooseProgram([String: Any]),
-    mealsList([String: Any])
+    mealsList([String: Any]),
+    exerciseList([String: Any])
+    
     
     public func asURLRequest() throws -> URLRequest {
         
@@ -32,7 +34,7 @@ enum APIManager: URLRequestConvertible {
             switch self {
             case .login, .register, .chooseProgram:
                 return .post
-            case .daily_screen, .programList, .mealsList:
+            case .daily_screen, .programList, .mealsList, .exerciseList:
                 return .get
                 
             }
@@ -45,7 +47,8 @@ enum APIManager: URLRequestConvertible {
                  .daily_screen(let parameters),
                  .programList(let parameters),
                  .chooseProgram(let parameters),
-                 .mealsList(let parameters):
+                 .mealsList(let parameters),
+                 .exerciseList(let parameters):
                 return parameters
             }
         }()
@@ -66,6 +69,8 @@ enum APIManager: URLRequestConvertible {
                 query = "user/choose_program"
             case .mealsList:
                 query = "user/meals"
+                case .exerciseList:
+                query = "user/exercises"
             }
             
             if let query = query {

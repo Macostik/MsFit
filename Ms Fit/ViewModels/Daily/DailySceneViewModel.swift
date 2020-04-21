@@ -21,7 +21,9 @@ final class DailySceneViewModel: BaseViewModel<DailySceneModel> {
     
     override func performAction() {
         dependencies.dailyService.dailyScreen(completion: { [weak self] in
-            self?.dependencies.mealsService.getMealsList()
+            self?.dependencies.mealsService.getMealsList(completion: {
+                self?.dependencies.exercisesService.getExerciseList()
+            })
         })
     }
 }

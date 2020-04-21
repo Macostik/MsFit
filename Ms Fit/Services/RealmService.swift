@@ -29,7 +29,7 @@ protocol RealmServiceType {
 
 public class RealmService<T>: RealmServiceType {
     internal let disposeBag = DisposeBag()
-    
+    internal lazy var api_token = RealmProvider.shared.realm.objects(User.self).first?.api_token ?? ""
     func observeEntries<T: Object>() -> Observable<(RealmObservable<T>)>? {
         let realm = RealmProvider.shared.realm
         let entries = realm.objects(T.self)

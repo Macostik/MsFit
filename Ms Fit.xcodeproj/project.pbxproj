@@ -11,6 +11,7 @@
 		560586D5242BDD8B00423832 /* PagerViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560586D4242BDD8B00423832 /* PagerViewTransformer.swift */; };
 		560586D9242BEC2D00423832 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560586D8242BEC2D00423832 /* RealmService.swift */; };
 		560586DB242BECC600423832 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560586DA242BECC600423832 /* LoginService.swift */; };
+		5638F94B244F8BCB0001C04A /* ExersicesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5638F94A244F8BCB0001C04A /* ExersicesService.swift */; };
 		564A672823FC2F3400D4901A /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672723FC2F3400D4901A /* Dependency.swift */; };
 		564A672B23FC2FB000D4901A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672A23FC2FB000D4901A /* AppCoordinator.swift */; };
 		564A672D23FC2FD000D4901A /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A672C23FC2FD000D4901A /* BaseCoordinator.swift */; };
@@ -295,6 +296,7 @@
 		560586D4242BDD8B00423832 /* PagerViewTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerViewTransformer.swift; sourceTree = "<group>"; };
 		560586D8242BEC2D00423832 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		560586DA242BECC600423832 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		5638F94A244F8BCB0001C04A /* ExersicesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExersicesService.swift; sourceTree = "<group>"; };
 		564A672723FC2F3400D4901A /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		564A672A23FC2FB000D4901A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		564A672C23FC2FD000D4901A /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -984,6 +986,7 @@
 				56BE918A24422FFF0072911C /* DailyService.swift */,
 				568928182447A65E00AE84A4 /* ProgramService.swift */,
 				5689281A2448F9B800AE84A4 /* MealsService.swift */,
+				5638F94A244F8BCB0001C04A /* ExersicesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1637,6 +1640,7 @@
 				AC22045C242BB8DC0089C801 /* HistoryResultSceneCoordinator.swift in Sources */,
 				AC26B3F924360A3100A84462 /* SettingsCell.swift in Sources */,
 				ACBF702B2426297C00FFEAC8 /* UpdateMeasurementCell.swift in Sources */,
+				5638F94B244F8BCB0001C04A /* ExersicesService.swift in Sources */,
 				AC70FFA6241F993E0064CEC5 /* SettingsSceneViewController.swift in Sources */,
 				AC99A7542428B347004C75BC /* TipDetailsSceneCoordinator.swift in Sources */,
 				569089C2243BB33200C4DB30 /* PNColor.swift in Sources */,
