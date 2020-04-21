@@ -184,14 +184,15 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         
         instagramButton.rx.tap
             .subscribe(onNext: { _ in
-                print("tap instagram")
+                guard let twitterURL = URL(string: "http://msfit-sa.com/login/instagram") else { return }
+                self.safariVC = SFSafariViewController(url: twitterURL)
+                self.present(self.safariVC!, animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
         twitterButton.rx.tap
             .subscribe(onNext: { _ in
                 guard let twitterURL = URL(string: "http://msfit-sa.com/login/twitter") else { return }
                 self.safariVC = SFSafariViewController(url: twitterURL)
-                self.safariVC?.delegate = self
                 self.present(self.safariVC!, animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
@@ -203,6 +204,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        safariVC?.delegate = self
     }
     
     fileprivate func addConstraints() {
@@ -263,13 +265,13 @@ extension SignUpSceneViewController: SFSafariViewControllerDelegate {
     
     private func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismiss(animated: true) { () -> Void in
-               print("You just dismissed the login view.")
-           }
-       }
-
+            print("You just dismissed the login view.")
+        }
+    }
+    
     private func safariViewController(controller: SFSafariViewController,
                                       didCompleteInitialLoad didLoadSuccessfully: Bool) {
-           print("didLoadSuccessfully: \(didLoadSuccessfully)")
-
-       }
+        print("didLoadSuccessfully: \(didLoadSuccessfully)")
+        
+    }
 }
