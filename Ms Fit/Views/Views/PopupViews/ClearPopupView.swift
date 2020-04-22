@@ -28,14 +28,14 @@ class ClearPopupView: UIView {
     })
     
     private let clearButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Clear", for: .normal)
+        $0.setTitle("واضح", for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1)
     })
     
     private let cancelButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Cancel", for: .normal)
+        $0.setTitle("إلغاء", for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.setTitleColor(.systemBackground, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
@@ -66,7 +66,6 @@ class ClearPopupView: UIView {
     }
     
     func addConstraints() {
-        
         clearButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         let hStackView = HStackView(arrangedSubviews: [clearButton, cancelButton])
         hStackView.distribution = .fillEqually
