@@ -11,7 +11,6 @@ import RealmSwift
 import RxDataSources
 
 final class ExercisesModel: Object {
-    @objc dynamic public var ID = UUID().uuidString
     @objc dynamic public var id = 0
     @objc dynamic public var order = 0
     @objc dynamic public var created_at = ""
@@ -19,7 +18,7 @@ final class ExercisesModel: Object {
     let exercises = List<ExerciseItem>()
     
     override static func primaryKey() -> String? {
-        return "ID"
+        return "id"
     }
 }
 
