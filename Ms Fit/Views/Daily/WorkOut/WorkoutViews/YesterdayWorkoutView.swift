@@ -11,29 +11,20 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 
-typealias YesterdayWorkoutDataSource = RxCollectionViewSectionedReloadDataSource<YesterdayWorkoutSceneModel>
-
 class YesterdayWorkoutView: BaseWorkOutView {
-    
-    private lazy var dataSource: YesterdayWorkoutDataSource = {
-            return YesterdayWorkoutDataSource(configureCell: {  _, collectionView, indexPath, data in
-                guard let cell = collectionView
-                    .dequeueReusableCell(withReuseIdentifier: YesterdayWorkoutCell.identifier,
-                                         for: indexPath) as? YesterdayWorkoutCell else { fatalError() }
-                cell.setup(exercise: data)
-                return cell
-            })
-        }()
-    
+
     override func setupUI() {
         collectionView.register(YesterdayWorkoutCell.self,
                                 forCellWithReuseIdentifier: YesterdayWorkoutCell.identifier)
         timeLabel.text = "110"
-        let section = [YesterdayWorkoutSceneModel(items: YesterdayWorkoutList.allCases)]
-        
-        Observable.just(section)
-            .bind(to: collectionView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
+        if let exercises = RealmProvider.shared.realm.objects(ExercisesModel.self)
+            .first?.exercises.toArray() {
+            Observable.just(exercises)
+                .bind(to: collectionView.rx.items(cellIdentifier: YesterdayWorkoutCell.identifier,
+                cellType: YesterdayWorkoutCell.self)) { _, model, cell in
+                  cell.setup(exercise: model)
+            }.disposed(by: disposeBag)
+        }
         
         startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
         startWorkoutButton.rx.tap
@@ -42,9 +33,9 @@ class YesterdayWorkoutView: BaseWorkOutView {
             }).disposed(by: disposeBag)
         
         Observable
-        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(YesterdayWorkoutList.self))
+        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExerciseItem.self))
         .bind { [unowned self] indexPath, model in
-            self.viewModel?.presentObserver.onNext((indexPath.row, model.rawValue))
+//            self.viewModel?.presentObserver.onNext((indexPath.row, model))
         }.disposed(by: disposeBag)
     }
 }

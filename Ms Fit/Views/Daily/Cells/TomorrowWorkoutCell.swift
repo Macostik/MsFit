@@ -52,10 +52,11 @@ class TomorrowWorkoutCell: UICollectionViewCell, CellIdentifierable {
         add(vContainerStackView, layoutBlock: { $0.edges() })
     }
     
-    public func setup(exercise: TomorrowWorkoutList) {
-        exercisesImageView.image =  UIImage(named: exercise.rawValue)
-        exerciseTextLabel.text = exercise.description().0
-        sets_RepsTextLabel.text = exercise.description().1
+    public func setup(exercise: ExerciseItem) {
+        print (">>self - \(exercise.pictures.first)<<")
+        exercisesImageView.sd_setImage(with: URL(string: exercise.pictures.first ?? ""))
+        exerciseTextLabel.text = exercise.title
+        //        descriptionText.text = exercise.description().1
     }
     
     required init?(coder: NSCoder) { fatalError() }

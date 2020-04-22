@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
@@ -52,10 +53,11 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
         add(vContainerStackView, layoutBlock: { $0.edges() })
     }
     
-    public func setup(exercise: YesterdayWorkoutList) {
-        exercisesImageView.image =  UIImage(named: exercise.rawValue)
-        exerciseText.text = exercise.description().0
-        descriptionText.text = exercise.description().1
+    public func setup(exercise: ExerciseItem) {
+        print (">>self - \(exercise.pictures.first)<<")
+        exercisesImageView.sd_setImage(with: URL(string: exercise.pictures.first ?? ""))
+        exerciseText.text = exercise.title
+//        descriptionText.text = exercise.description().1
     }
     
     required init?(coder: NSCoder) { fatalError() }
