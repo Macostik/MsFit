@@ -134,7 +134,9 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
             $0.top(Constants.sH_812 ? -45 : -20).width(Constants.sW).bottom()
         })
         view.add(gradientView, layoutBlock: { $0.top().leading().trailing().height(80) })
-        view.add(closeButton, layoutBlock: { $0.top(16).leading(16).size(44) })
+        view.add(closeButton, layoutBlock: {
+            $0.top(Constants.sH_812 ? 16 : 6).leading(Constants.sH_812 ? 16 : 6).size(44)
+        })
         scrollView.add(baseVStackView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
         
         nameExerciseView.add(nameExerciseLabel, layoutBlock: { $0.top(60).centerX().bottom(40) })

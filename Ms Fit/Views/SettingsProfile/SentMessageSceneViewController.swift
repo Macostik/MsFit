@@ -19,13 +19,11 @@ class SentMessageSceneViewController: BaseViewController<SentMessageSceneViewMod
     
     private let sentImageView = specify(UIImageView(), {
         $0.image = UIImage(named: "sentMessage_icon")
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.contentMode = .scaleAspectFit
     })
     
     private let thankYouLabel = specify(UILabel(), {
         $0.text = "شكرًا"
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.font = .systemFont(ofSize: 40, weight: .medium)
         $0.textColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.textAlignment = .center
@@ -42,7 +40,6 @@ class SentMessageSceneViewController: BaseViewController<SentMessageSceneViewMod
     private let yourEmailLabel = specify(UILabel(), {
         $0.text = "test.user@yopmail.com"
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 20 : 17, weight: .regular)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.textColor = #colorLiteral(red: 0.431372549, green: 0.431372549, blue: 0.4745098039, alpha: 1)
         $0.textAlignment = .center
     })

@@ -162,7 +162,9 @@ class HomeSceneViewController: BaseViewController<HomeSceneViewModel> {
             $0.trailing(5).top(-8).bottom(-10).width(Constants.sW * 0.3)
         })
         bgDayliCircleImage.add(pagerView, layoutBlock: { $0.edges() })
-        pagerView.add(pageControl, layoutBlock: { $0.bottom(Constants.sH_667 ? 40 : 10).centerX() })
+        pagerView.add(pageControl, layoutBlock: {
+            $0.bottom(Constants.sH_812 ? 40 : Constants.sH_667 ? 20 : 15).centerX()
+        })
     }
     
     private func createAlertController() {

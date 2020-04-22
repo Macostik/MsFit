@@ -26,6 +26,10 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         $0.textColor = .systemBackground
     })
     
+    private let warningImageView = specify(UIImageView(), {
+        $0.image = UIImage(named: "warning")
+    })
+    
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -49,7 +53,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     
     private let yourTextField = specify(UITextField(), {
         $0.borderStyle = .none
-        $0.placeholder = "test.user@yopmail.com"
+        $0.placeholder = "yura.test@mail.com"
         $0.textAlignment = .right
     })
     
@@ -93,7 +97,18 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         sendEmailButton.animateWhenPressed(disposeBag: disposeBag)
         sendEmailButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
-                self.viewModel?.presentSentMessageObserver.onNext(())
+                if self.yourQuestionTextView.text.isEmpty {
+                    UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: [.repeat], animations: {
+                        UIView.modifyAnimations(withRepeatCount: 4, autoreverses: false) {
+                            self.warningImageView.isHidden = false
+                            self.warningImageView.transform = CGAffineTransform(scaleX: 2.2, y: 2.2)
+                        }
+                    }, completion: { _ in
+                        self.warningImageView.isHidden = true
+                    })
+                } else {
+                    self.viewModel?.presentSentMessageObserver.onNext(())
+                }
             }).disposed(by: disposeBag)
         
         subjectMenuView.rx.tapGesture()
@@ -128,6 +143,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+        warningImageView.isHidden = true
     }
     
     fileprivate func addConstraints() {
@@ -140,7 +156,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
         view.add(scrollView, layoutBlock: {
             $0.topBottom(to: navigationView).width(Constants.sW).bottom()
@@ -155,6 +171,9 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         scrollView.add(vBaseStackView, layoutBlock: { $0.top(15).width(Constants.sW - 32).centerX() })
         scrollView.add(sendEmailButton, layoutBlock: {
             $0.topBottom(20, to: vBaseStackView).width(Constants.sW - 32).centerX().height(50).bottom()
+        })
+        view.add(warningImageView, layoutBlock: {
+            $0.centerY(to: yourQuestionTextView).leading(10)
         })
     }
     

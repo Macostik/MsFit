@@ -21,7 +21,7 @@ class ClearPopupView: UIView {
     })
     
     private let textLabel = specify(UILabel(), {
-        $0.setLineHeight("Are you sure that you want to clear all?", lineHeight: 6.0)
+        $0.setLineHeight("هل أنت متأكد أنك تريد مسح الكل؟", lineHeight: 6.0)
         $0.font = .systemFont(ofSize: Constants.sH_667 ? 22 : 18, weight: .medium)
         $0.textAlignment = .center
         $0.numberOfLines = 2
@@ -50,7 +50,6 @@ class ClearPopupView: UIView {
     
     func setupUI() {
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
-        transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
     func setupBindings() {
@@ -67,7 +66,7 @@ class ClearPopupView: UIView {
     
     func addConstraints() {
         clearButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        let hStackView = HStackView(arrangedSubviews: [clearButton, cancelButton])
+        let hStackView = HStackView(arrangedSubviews: [cancelButton, clearButton])
         hStackView.distribution = .fillEqually
         
         add(containerView, layoutBlock: { $0.center().width(Constants.sW - 40) })

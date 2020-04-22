@@ -95,7 +95,7 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
         view.add(clearResultButton, layoutBlock: { $0.topBottom(16, to: navigationView).trailing(16) })
         view.add(resultLabel, layoutBlock: { $0.topBottom(25, to: navigationView).leading(16) })

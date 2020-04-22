@@ -20,7 +20,7 @@ class SubjectMenuTableView: UIView {
     private let selectSubjectLabel = Label(icon: "اختر موضوعا",
                                            font: .systemFont(ofSize: 13, weight: .regular),
                                            textColor: #colorLiteral(red: 0.4079999924, green: 0.2980000079, blue: 0.8159999847, alpha: 1), isTranform: false, textAlignment: .right)
-    private let selectedItemLabel = Label(icon: "المدفوعات", font: .systemFont(ofSize: 18, weight: .regular),
+    public let selectedItemLabel = Label(icon: "المدفوعات", font: .systemFont(ofSize: 18, weight: .regular),
                                           textColor: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1), isTranform: false)
     
     private let dropDownImage = specify(UIImageView(), {

@@ -46,11 +46,24 @@ class WarningPopupView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         handleUI()
+        setupBindings()
         addConstraints()
     }
     
     fileprivate func handleUI() {
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
+    }
+    
+    fileprivate func setupBindings() {
+        doneButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                UIView.animate(withDuration: 0.2, delay: 0.0, animations: {
+                    self?.containerView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                    self?.alpha = 0
+                }, completion: { _ in
+                    self?.removeFromSuperview()
+                })
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func addConstraints() {

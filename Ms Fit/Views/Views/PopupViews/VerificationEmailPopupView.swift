@@ -40,7 +40,7 @@ class VerificationEmailPopupView: UIView {
     })
     
     private let emailTextField = specify(UITextField(), {
-        $0.placeholder = "test.user@yopmail.com"
+        $0.placeholder = "yura.text@mail.com"
         $0.textColor = .black
         $0.font = UIFont.systemFont(ofSize: Constants.sH_667 ? 16 : 14, weight: .regular)
         $0.autocorrectionType = .no
@@ -74,12 +74,15 @@ class VerificationEmailPopupView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupUI()
+        setupBindings()
         addConstraints()
     }
     
     func setupUI() {
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
-        
+    }
+    
+    fileprivate func setupBindings() {
         closeButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 UIView.animate(withDuration: 0.2, delay: 0.0, animations: {
@@ -110,6 +113,7 @@ class VerificationEmailPopupView: UIView {
             .subscribe(onNext: { [weak self] _ in
                 self?.emailTextField.becomeFirstResponder()
             }).disposed(by: disposeBag)
+        
     }
 
     func addConstraints() {

@@ -119,7 +119,7 @@ class LikeMealsSceneViewController: BaseViewController<LikeMealsSceneViewModel> 
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(navLikeLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navLikeLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navLikeLabel).leading(4).size(44) })
         view.add(caloriesView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
         view.add(collectionView, layoutBlock: { $0.topBottom(to: caloriesView).leading().trailing().bottom()})

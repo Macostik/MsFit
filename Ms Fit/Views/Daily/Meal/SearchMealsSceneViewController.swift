@@ -144,7 +144,7 @@ class SearchMealsSceneViewController: BaseViewController<SearchMealsSceneViewMod
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
         view.add(searchBar, layoutBlock: { $0.topBottom(10, to: navigationView).leading(10).trailing(10) })
-        navigationView.add(navSearchLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navSearchLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navSearchLabel).leading(4).size(44) })
         view.add(collectionView, layoutBlock: { $0.topBottom(to: searchBar).leading().trailing().height(100)})
         view.add(tableView, layoutBlock: { $0.topBottom(to: collectionView).leading().trailing().bottom() })

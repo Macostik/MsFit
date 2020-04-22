@@ -94,7 +94,7 @@ class ExercisesSceneViewController: BaseViewController<ExercisesSceneViewModel> 
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         view.add(collectionView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom(tabBarHeight)
         })

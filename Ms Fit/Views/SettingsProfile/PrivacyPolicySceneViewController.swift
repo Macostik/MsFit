@@ -99,7 +99,7 @@ class PrivacyPolicySceneViewController: BaseViewController<PrivacyPolicySceneVie
         view.add(navigationView, layoutBlock: {
             $0.leading().trailing().top().height(Constants.sH_812 ? 100 : Constants.sH_667 ? 80 : 70)
         })
-        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44) })
         view.add(pravicyTextTextView, layoutBlock: {
             $0.topBottom(to: navigationView).leading().trailing().bottom()

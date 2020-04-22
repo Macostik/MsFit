@@ -77,7 +77,7 @@ class UpdateWeightSceneViewController: BaseViewController<UpdateWeightSceneViewM
                 .width(Constants.sW * 0.4).height(Constants.sW * 0.5)
         })
         view.add(pickerView, layoutBlock: { $0.centerY(100).centerX() })
-        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 5) })
+        navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
     }
 }
