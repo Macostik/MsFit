@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AuthenticationServices
 
 class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     
@@ -23,6 +24,14 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.text = "أهلا فيك"
         $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+    })
+    
+    private let appleButton = specify(ASAuthorizationAppleIDButton(), {
+        $0.layer.shadowColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
+        $0.layer.shadowRadius = 4
+        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOffset = CGSize(width: 0, height: 3)
+        $0.circled = true
     })
     
     private let instagramButton = specify(UIButton(type: .roundedRect), {
@@ -57,6 +66,7 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     
     override func setupUI() {
         handleUI()
+        setupAppleButton()
         addConstraints()
     }
     
@@ -91,8 +101,11 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
     }
     
     fileprivate func addConstraints() {
-        let verStackView = VStackView(arrangedSubviews: [instagramButton, twitterButton, emailButton],
-                                      spacing: 35)
+        instagramButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
+        
+        let verStackView = VStackView(arrangedSubviews: [
+            instagramButton, twitterButton, emailButton, appleButton
+        ], spacing: 35)
         verStackView.distribution = .fillEqually
         
         let horStackView = HStackView(arrangedSubviews: [smileImage, topLabel], spacing: 6)
@@ -100,8 +113,108 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 51 : 20).leading(6).size(44)
         })
-        view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(16).trailing(16) })
+        view.add(verStackView, layoutBlock: { $0.centerX().centerY(15).leading(20).trailing(20) })
         view.add(horStackView, layoutBlock: { $0.centerX().bottomTop(-35, to: verStackView) })
-        instagramButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
+    }
+}
+
+extension SignInSceneViewController {
+    
+    fileprivate func setupAppleButton() {
+        appleButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButton), for: .touchUpInside)
+    }
+    
+    @objc func handleAuthorizationAppleIDButton() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+}
+
+extension SignInSceneViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
+        func authorizationController(controller: ASAuthorizationController,
+                                     didCompleteWithAuthorization authorization: ASAuthorization) {
+            switch authorization.credential {
+            case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                
+                let userIdentifier = appleIDCredential.user
+                let fullName = appleIDCredential.fullName
+                let email = appleIDCredential.email
+                
+//                self.saveUserInKeychain(userIdentifier)
+//                self.showResultViewController(userIdentifier: userIdentifier,
+//                                              fullName: fullName, email: email)
+                
+                viewModel?.presentMainSceneObserver.onNext(())
+            
+            case let passwordCredential as ASPasswordCredential:
+            
+                let username = passwordCredential.user
+                let password = passwordCredential.password
+                
+                DispatchQueue.main.async {
+                    self.showPasswordCredentialAlert(username: username, password: password)
+                }
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+//    private func saveUserInKeychain(_ userIdentifier: String) {
+//        do {
+//            try KeychainItem(service: "com.example.apple-samplecode.juice",
+//                             account: "userIdentifier").saveItem(userIdentifier)
+//        } catch {
+//            print("Unable to save userIdentifier to keychain.")
+//        }
+//    }
+    
+//    private func showResultViewController(userIdentifier: String,
+//                                          fullName: PersonNameComponents?,
+//                                          email: String?) {
+//        guard let viewController = self.presentingViewController as? DailySceneViewController
+//            else { return }
+//
+//        DispatchQueue.main.async {
+//            viewController.userIdentifierLabel.text = userIdentifier
+//            if let givenName = fullName?.givenName {
+//                viewController.givenNameLabel.text = givenName
+//            }
+//            if let familyName = fullName?.familyName {
+//                viewController.familyNameLabel.text = familyName
+//            }
+//            if let email = email {
+//                viewController.emailLabel.text = email
+//            }
+//            self.dismiss(animated: true, completion: nil)
+//        }
+//    }
+    
+    private func showPasswordCredentialAlert(username: String, password: String) {
+        let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
+        let alertController = UIAlertController(title: "Keychain Credential Received",
+                                                message: message,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension SignInSceneViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
     }
 }

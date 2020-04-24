@@ -282,6 +282,7 @@
 		ACD5CECA243B7D14002384D0 /* ProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5CEC9243B7D14002384D0 /* ProgressTimer.swift */; };
 		ACE4606D245056CE00684B20 /* WarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4606C245056CE00684B20 /* WarningPopupView.swift */; };
 		ACE9B3C42452DC9800C3FD9B /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9B3C32452DC9800C3FD9B /* Int+Ext.swift */; };
+		ACE9B3C72452FA3900C3FD9B /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9B3C62452FA3900C3FD9B /* KeychainItem.swift */; };
 		ACEFD7F12401CA3A00C2EED8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFD7F02401CA3A00C2EED8 /* User.swift */; };
 		ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */; };
 		ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */; };
@@ -572,6 +573,8 @@
 		ACD5CEC9243B7D14002384D0 /* ProgressTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimer.swift; sourceTree = "<group>"; };
 		ACE4606C245056CE00684B20 /* WarningPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningPopupView.swift; sourceTree = "<group>"; };
 		ACE9B3C32452DC9800C3FD9B /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		ACE9B3C52452EF5000C3FD9B /* Ms Fit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ms Fit.entitlements"; sourceTree = "<group>"; };
+		ACE9B3C62452FA3900C3FD9B /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		ACEFD7F02401CA3A00C2EED8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneModel.swift; path = "Ms Fit/Models/Registration/SignInSceneModel.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewModel.swift; path = "Ms Fit/ViewModels/Registration/SignInSceneViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -832,6 +835,7 @@
 		569FB0D423FC09500052B796 /* Ms Fit */ = {
 			isa = PBXGroup;
 			children = (
+				ACE9B3C52452EF5000C3FD9B /* Ms Fit.entitlements */,
 				569FB0D523FC09500052B796 /* AppDelegate.swift */,
 				569FB0D723FC09500052B796 /* SceneDelegate.swift */,
 				564A672923FC2F9500D4901A /* Coordinators */,
@@ -993,6 +997,7 @@
 				568928182447A65E00AE84A4 /* ProgramService.swift */,
 				5689281A2448F9B800AE84A4 /* MealsService.swift */,
 				5638F94A244F8BCB0001C04A /* ExersicesService.swift */,
+				ACE9B3C62452FA3900C3FD9B /* KeychainItem.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1657,6 +1662,7 @@
 				AC61F5F623FD6D3500AFCA9A /* SceneDelegate.swift in Sources */,
 				564A674223FC6E4700D4901A /* SlimLogglyDestination.swift in Sources */,
 				56993BFF2401A84900C16CFF /* MainSceneViewModel.swift in Sources */,
+				ACE9B3C72452FA3900C3FD9B /* KeychainItem.swift in Sources */,
 				ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */,
 				569089BD243BB33200C4DB30 /* PNLineChartDataItem.swift in Sources */,
 				AC07657224334F7A00952766 /* DetailFoodSceneViewController.swift in Sources */,
@@ -1889,6 +1895,7 @@
 			baseConfigurationReference = FC96423BC9095C9F1B61E56C /* Pods-Ms Fit.prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ms Fit/Ms Fit.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;
@@ -2026,6 +2033,7 @@
 			baseConfigurationReference = 0246DC5AC07BDDF4EDE91CC9 /* Pods-Ms Fit.dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ms Fit/Ms Fit.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;
@@ -2049,6 +2057,7 @@
 			baseConfigurationReference = 446EC7B18DD8760A775FF0E1 /* Pods-Ms Fit.stg.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ms Fit/Ms Fit.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Yuriy Granchenko (FNALJ4TFWP)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S777YSR9BW;

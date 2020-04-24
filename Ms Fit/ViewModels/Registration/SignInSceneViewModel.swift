@@ -14,5 +14,6 @@ final class SignInSceneViewModel: BaseViewModel<SignInSceneModel> {
     
     public var presentInstagramObserver = PublishSubject<Void>()
     public var presentLoginScreenObserver = PublishSubject<Void>()
+    public var presentMainSceneObserver = PublishSubject<Void>()
     public var dismissObserver = PublishSubject<Void>()
 }

@@ -26,11 +26,20 @@ class SignInSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentEmailScene()
         }).disposed(by: disposeBag)
         
+        viewModel.presentMainSceneObserver.subscribe(onNext: { [weak self] _ in
+            self?.presentMainScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
     @discardableResult private func presentEmailScene() -> Observable<Void> {
         let emailCoordinator = LoginSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: emailCoordinator)
+    }
+    
+    @discardableResult private func presentMainScene() -> Observable<Void> {
+        let mailCoordinator = MainSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: mailCoordinator)
     }
 }
