@@ -12,7 +12,7 @@ import RxSwift
 import RxDataSources
 
 class YesterdayWorkoutView: BaseWorkOutView {
-
+    
     override func setupUI() {
         collectionView.register(YesterdayWorkoutCell.self,
                                 forCellWithReuseIdentifier: YesterdayWorkoutCell.identifier)
@@ -21,8 +21,8 @@ class YesterdayWorkoutView: BaseWorkOutView {
             .first?.exercises.toArray() {
             Observable.just(exercises)
                 .bind(to: collectionView.rx.items(cellIdentifier: YesterdayWorkoutCell.identifier,
-                cellType: YesterdayWorkoutCell.self)) { _, model, cell in
-                  cell.setup(exercise: model)
+                                                  cellType: YesterdayWorkoutCell.self)) { _, model, cell in
+                                                    cell.setup(exercise: model)
             }.disposed(by: disposeBag)
         }
         
@@ -33,9 +33,9 @@ class YesterdayWorkoutView: BaseWorkOutView {
             }).disposed(by: disposeBag)
         
         Observable
-        .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExerciseItem.self))
-        .bind { [unowned self] indexPath, model in
-//            self.viewModel?.presentObserver.onNext((indexPath.row, model))
+            .zip(collectionView.rx.itemSelected, collectionView.rx.modelSelected(ExerciseItem.self))
+            .bind { [unowned self] indexPath, model in
+//                self.viewModel?.presentObserver.onNext((indexPath.row, model))
         }.disposed(by: disposeBag)
     }
 }

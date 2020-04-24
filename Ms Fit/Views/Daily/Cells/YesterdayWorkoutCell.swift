@@ -14,6 +14,7 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     static var identifier: String = "YesterdayWorkoutCell"
     
     private let exercisesImageView = specify(UIImageView(), {
+        $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 5
         $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -32,7 +33,8 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     
     private let exerciseText = specify(UILabel(), {
         $0.textColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.168627451, alpha: 1)
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textAlignment = .center
+        $0.font = UIFont.systemFont(ofSize: Constants.sH_812 ? 11 : 10, weight: .regular)
     })
     
     private let descriptionText = specify(UILabel(), {
@@ -46,18 +48,21 @@ class YesterdayWorkoutCell: UICollectionViewCell, CellIdentifierable {
     }
     
     private func handleUI() {
-        let vContainerStackView = VStackView(arrangedSubviews: [exercisesImageView, containerForTextView])
         let vForTextStackView = VStackView(arrangedSubviews: [exerciseText, descriptionText])
         
+        add(exercisesImageView, layoutBlock: { $0.top().leading().trailing().height(90) })
+        add(containerForTextView, layoutBlock: {
+            $0.leading().bottom().trailing().topBottom(to: exercisesImageView)
+        })
         containerForTextView.add(vForTextStackView, layoutBlock: { $0.leading(10).trailing(10).centerY() })
-        add(vContainerStackView, layoutBlock: { $0.edges() })
     }
     
     public func setup(exercise: ExerciseItem) {
-        print (">>self - \(exercise.pictures.first)<<")
         exercisesImageView.sd_setImage(with: URL(string: exercise.pictures.first ?? ""))
-        exerciseText.text = exercise.title
-//        descriptionText.text = exercise.description().1
+        exerciseText.text = "\(exercise.title.count). \(exercise.title)"
+        descriptionText.text =
+            "\(exercise.sets)" + "\(exercise.sets.applyToCount()) | " +
+            "\(exercise.reps.value ?? Int())" + "\(exercise.reps.value?.applyToCount() ?? "")"
     }
     
     required init?(coder: NSCoder) { fatalError() }

@@ -281,6 +281,7 @@
 		ACD5CEC8243B58A4002384D0 /* StartWorkoutSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5CEC4243B58A3002384D0 /* StartWorkoutSceneViewModel.swift */; };
 		ACD5CECA243B7D14002384D0 /* ProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5CEC9243B7D14002384D0 /* ProgressTimer.swift */; };
 		ACE4606D245056CE00684B20 /* WarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4606C245056CE00684B20 /* WarningPopupView.swift */; };
+		ACE9B3C42452DC9800C3FD9B /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9B3C32452DC9800C3FD9B /* Int+Ext.swift */; };
 		ACEFD7F12401CA3A00C2EED8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFD7F02401CA3A00C2EED8 /* User.swift */; };
 		ACEFE8D223FD798C0049960B /* SignInSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */; };
 		ACEFE8D323FD798C0049960B /* SignInSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */; };
@@ -570,6 +571,7 @@
 		ACD5CEC4243B58A3002384D0 /* StartWorkoutSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutSceneViewModel.swift; sourceTree = "<group>"; };
 		ACD5CEC9243B7D14002384D0 /* ProgressTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimer.swift; sourceTree = "<group>"; };
 		ACE4606C245056CE00684B20 /* WarningPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningPopupView.swift; sourceTree = "<group>"; };
+		ACE9B3C32452DC9800C3FD9B /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		ACEFD7F02401CA3A00C2EED8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACEFE8CE23FD798C0049960B /* SignInSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneModel.swift; path = "Ms Fit/Models/Registration/SignInSceneModel.swift"; sourceTree = SOURCE_ROOT; };
 		ACEFE8CF23FD798C0049960B /* SignInSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInSceneViewModel.swift; path = "Ms Fit/ViewModels/Registration/SignInSceneViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -702,6 +704,7 @@
 				564A675E23FC76B100D4901A /* String+Ext.swift */,
 				564A675A23FC76B100D4901A /* UIView+Ext.swift */,
 				AC5515522413A4BD0093373D /* StackView.swift */,
+				ACE9B3C32452DC9800C3FD9B /* Int+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1754,6 +1757,7 @@
 				AC219314241273E800F388C1 /* DetailsWorkoutSceneViewModel.swift in Sources */,
 				ACE4606D245056CE00684B20 /* WarningPopupView.swift in Sources */,
 				AC99A7552428B347004C75BC /* TipDetailsSceneViewController.swift in Sources */,
+				ACE9B3C42452DC9800C3FD9B /* Int+Ext.swift in Sources */,
 				ACBF7025242620E100FFEAC8 /* UpdateMeasurSceneViewController.swift in Sources */,
 				ACCED1CE23FEA713000EB2DB /* ForgotPassSceneModel.swift in Sources */,
 				AC4874EF24129B69007FE6A4 /* CaloriesView.swift in Sources */,
