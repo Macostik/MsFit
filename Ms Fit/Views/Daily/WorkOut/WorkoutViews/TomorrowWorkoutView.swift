@@ -16,7 +16,7 @@ class TomorrowWorkoutView: BaseWorkOutView {
     override func setupUI() {
         collectionView.register(TomorrowWorkoutCell.self,
         forCellWithReuseIdentifier: TomorrowWorkoutCell.identifier)
-        timeLabel.text = "60"
+        timeLabel.text = "0"
        if let exercises = RealmProvider.shared.realm.objects(ExercisesModel.self)
            .last?.exercises.toArray() {
            Observable.just(exercises)

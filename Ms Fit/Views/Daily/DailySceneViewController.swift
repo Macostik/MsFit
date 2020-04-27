@@ -187,86 +187,14 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.textColor = #colorLiteral(red: 0.7254901961, green: 0.6823529412, blue: 1, alpha: 1)
     })
     
-    private let zeroView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let oneView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let twoView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let threeView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let fourView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let fiveView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let sixView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    
-    private let sevenView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        $0.layer.borderWidth = 2
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    
-    private let eightView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let nineView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let tenView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let elevenView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let twelveView = specify(UIView(), {
-        $0.backgroundColor = .systemBackground
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let threeteenView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-    private let fourteenView = specify(UIView(), {
-        $0.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
-        $0.layer.cornerRadius = 8
-        $0.clipsToBounds = true
-    })
-        
+    private func createDailyTimeView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1058823529, blue: 0.1529411765, alpha: 0.2972495719)
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
+    }
+
     override func setupUI() {
         handleUI()
         addConstraints()
@@ -324,6 +252,8 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     }
     
     fileprivate func addConstraints() {
+        let listView = (0...14).compactMap({ [weak self] _ in self?.createDailyTimeView() })
+        
         verificationEmailButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         exerciseWorkoutButton.widthAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
         exerciseWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW * 0.4).isActive = true
@@ -366,44 +296,44 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         // start circle days
         bgDayliCircleImage.add(baseView, layoutBlock: { $0.centerX().centerY().size(Constants.sW / 1.9) })
         
-        baseView.add(zeroView, layoutBlock: { $0.centerX().top().size(16) })
-        baseView.add(oneView, layoutBlock: {
+        baseView.add(listView[0], layoutBlock: { $0.centerX().top().size(16) })
+        baseView.add(listView[1], layoutBlock: {
             $0.centerX(Constants.sW * 0.11).centerY(Constants.sW * -0.21).size(16)
         })
-        baseView.add(twoView, layoutBlock: {
+        baseView.add(listView[2], layoutBlock: {
             $0.centerX(Constants.sW * 0.19).centerY(Constants.sW * -0.14).size(16)
         })
-        baseView.add(threeView, layoutBlock: {
+        baseView.add(listView[3], layoutBlock: {
             $0.trailing(1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
         })
-        baseView.add(fourView, layoutBlock: {
+        baseView.add(listView[4], layoutBlock: {
             $0.trailing(1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
         })
-        baseView.add(fiveView, layoutBlock: {
+        baseView.add(listView[5], layoutBlock: {
             $0.centerX(Constants.sW * 0.19).centerY(Constants.sW * 0.14).size(16)
         })
-        baseView.add(sixView, layoutBlock: {
+        baseView.add(listView[6], layoutBlock: {
             $0.centerX(Constants.sW * 0.11).centerY(Constants.sW * 0.21).size(16)
         })
         //----- middle
-        baseView.add(sevenView, layoutBlock: { $0.centerX().bottom().size(16) })
+        baseView.add(listView[7], layoutBlock: { $0.centerX().bottom().size(16) })
         //----- middle
-        baseView.add(eightView, layoutBlock: {
+        baseView.add(listView[8], layoutBlock: {
             $0.centerX(Constants.sW * -0.11).centerY(Constants.sW * 0.21).size(16)
         })
-        baseView.add(nineView, layoutBlock: {
+        baseView.add(listView[9], layoutBlock: {
             $0.centerX(Constants.sW * -0.19).centerY(Constants.sW * 0.14).size(16)
         })
-        baseView.add(tenView, layoutBlock: {
+        baseView.add(listView[10], layoutBlock: {
             $0.leading(-1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
         })
-        baseView.add(elevenView, layoutBlock: {
+        baseView.add(listView[11], layoutBlock: {
             $0.leading(-1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
         })
-        baseView.add(threeteenView, layoutBlock: {
+        baseView.add(listView[12], layoutBlock: {
             $0.centerX(Constants.sW * -0.19).centerY(Constants.sW * -0.14).size(16)
         })
-        baseView.add(fourteenView, layoutBlock: {
+        baseView.add(listView[13], layoutBlock: {
             $0.centerX(Constants.sW * -0.11).centerY(Constants.sW * -0.21).size(16)
         })
         baseView.add(daysLabel, layoutBlock: { $0.center() })
