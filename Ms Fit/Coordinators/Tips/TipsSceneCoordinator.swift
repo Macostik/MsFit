@@ -15,15 +15,16 @@ class TipsSceneCoordinator: BaseTabBarSceneCoordinator<TipsSceneViewModel> {
     override func controller() -> BaseViewController<TipsSceneViewModel> {
         let viewModel = TipsSceneViewModel(dependencies: dependencies)
         
-        viewModel.presentDetailsObserver.subscribe(onNext: { _ in
-            self.presentDetailsUsScene()
+        viewModel.presentDetailsObserver.subscribe(onNext: { arg in
+            self.presentDetailsUsScene(tipsID: arg.1)
         }).disposed(by: disposeBag)
         
         return TipsSceneViewController.instantiate(with: viewModel)
     }
     
-    @discardableResult private func presentDetailsUsScene() -> Observable<Void> {
+    @discardableResult private func presentDetailsUsScene(tipsID: String) -> Observable<Void> {
         let tipDetailsCoordinator = TipDetailsSceneCoordinator(window: window, dependencies: dependencies)
+        tipDetailsCoordinator.tipsID = tipsID
         return coordinate(to: tipDetailsCoordinator)
     }
 }

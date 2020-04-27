@@ -11,10 +11,12 @@ import RxSwift
 import RxCocoa
 
 class TipDetailsSceneCoordinator: BaseSceneCoordinator<Void> {
+    public var tipsID = ""
     
     override func start() -> Observable<Void> {
         let viewModel = TipDetailsSceneViewModel(dependencies: dependencies)
         let viewController = TipDetailsSceneViewController.instantiate(with: viewModel)
+        viewController.tipsID = tipsID
         let navigationController = window.rootViewController as? UINavigationController
         navigationController?.pushViewController(viewController, animated: true)
         

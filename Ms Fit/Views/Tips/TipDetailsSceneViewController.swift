@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class TipDetailsSceneViewController: BaseViewController<TipDetailsSceneViewModel> {
-    
+    public var tipsID = ""
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
         $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
@@ -48,6 +48,7 @@ class TipDetailsSceneViewController: BaseViewController<TipDetailsSceneViewModel
     override func setupUI() {
         handleUI()
         addConstraints()
+        let tip = RealmProvider.shared.realm.objects(TipsPost.self).filter({ $0.id == self.tipsID }).first
     }
     
     override func setupBindings() {
