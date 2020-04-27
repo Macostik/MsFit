@@ -35,7 +35,6 @@ class AddFoodsCell: UITableViewCell, CellIdentifierable {
     
     public let checkmarkButton = specify(Button(type: .roundedRect), {
         $0.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = .systemBackground
         $0.layer.borderColor = #colorLiteral(red: 0.8549019608, green: 0.8549019608, blue: 0.8549019608, alpha: 1)

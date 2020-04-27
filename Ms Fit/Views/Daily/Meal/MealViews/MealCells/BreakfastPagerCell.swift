@@ -39,8 +39,7 @@ class BreakfastPagerCell: FSPagerViewCell, CellIdentifierable {
         $0.startPointY = 0.1
         $0.endPointX = 1
         $0.endPointY = 1
-        $0.layer.cornerRadius = 5
-        $0.clipsToBounds = true
+        $0.cornerRad = 5
     })
     
     private let subheadingLabel = specify(UILabel(), {

@@ -51,6 +51,7 @@ class MealHeaderView: UICollectionReusableView, CellIdentifierable {
     
     public let checkmarkView = specify(UIView(), {
         let image = UIImageView(image: UIImage(named: "chackmark_icon"))
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = #colorLiteral(red: 0.9689999819, green: 0.1840000004, blue: 0.4120000005, alpha: 1).withAlphaComponent(0.8)
         $0.layer.cornerRadius = (Constants.sW / 7.5) / 2
         $0.clipsToBounds = true

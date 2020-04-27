@@ -92,6 +92,7 @@
 		AC07657324334F7A00952766 /* DetailFoodSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07656F24334F7A00952766 /* DetailFoodSceneModel.swift */; };
 		AC07657424334F7A00952766 /* DetailFoodSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07657024334F7A00952766 /* DetailFoodSceneViewModel.swift */; };
 		AC07657624337BB300952766 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07657524337BB300952766 /* GradientView.swift */; };
+		AC0A50652457403B00751976 /* DaysOfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A50642457403B00751976 /* DaysOfCircleView.swift */; };
 		AC0A52FB244873480006EAB2 /* PreviewStartSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A52F7244873480006EAB2 /* PreviewStartSceneCoordinator.swift */; };
 		AC0A52FC244873480006EAB2 /* PreviewStartSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A52F8244873480006EAB2 /* PreviewStartSceneViewController.swift */; };
 		AC0A52FD244873480006EAB2 /* PreviewStartSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A52F9244873480006EAB2 /* PreviewStartSceneModel.swift */; };
@@ -385,6 +386,7 @@
 		AC07656F24334F7A00952766 /* DetailFoodSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFoodSceneModel.swift; sourceTree = "<group>"; };
 		AC07657024334F7A00952766 /* DetailFoodSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFoodSceneViewModel.swift; sourceTree = "<group>"; };
 		AC07657524337BB300952766 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		AC0A50642457403B00751976 /* DaysOfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfCircleView.swift; sourceTree = "<group>"; };
 		AC0A52F7244873480006EAB2 /* PreviewStartSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStartSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC0A52F8244873480006EAB2 /* PreviewStartSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStartSceneViewController.swift; sourceTree = "<group>"; };
 		AC0A52F9244873480006EAB2 /* PreviewStartSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStartSceneModel.swift; sourceTree = "<group>"; };
@@ -1163,6 +1165,7 @@
 				AC0BDA30244DAE2300DB5DF6 /* BaseAllVideo */,
 				AC9E1DF524112A3300417E9A /* WorkoutCells */,
 				AC0BDA27244DA1B500DB5DF6 /* AllVideosSceneViewController.swift */,
+				AC0A50642457403B00751976 /* DaysOfCircleView.swift */,
 				56EE4892241568FE00FBEBEC /* BaseWorkOutView.swift */,
 				ACACD45F241BB41B0017D4D7 /* PreviewImagePagerView.swift */,
 				ACD5CEC9243B7D14002384D0 /* ProgressTimer.swift */,
@@ -1635,6 +1638,7 @@
 				568928192447A65E00AE84A4 /* ProgramService.swift in Sources */,
 				ACACD456241A31050017D4D7 /* AddPopupView.swift in Sources */,
 				AC807118242A6898000F0BE7 /* ExerciseDetailSceneModel.swift in Sources */,
+				AC0A50652457403B00751976 /* DaysOfCircleView.swift in Sources */,
 				AC0BDA2D244DA1B500DB5DF6 /* AllVideosSceneViewModel.swift in Sources */,
 				ACD5CEC7243B58A4002384D0 /* StartWorkoutSceneModel.swift in Sources */,
 				ACA3779C243F4A25002D7C63 /* SentMessageSceneModel.swift in Sources */,

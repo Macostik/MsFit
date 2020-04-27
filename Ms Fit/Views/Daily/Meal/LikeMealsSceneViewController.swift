@@ -26,12 +26,12 @@ class LikeMealsSceneViewController: BaseViewController<LikeMealsSceneViewModel> 
     
     private let mediumConfiguration = UIImage.SymbolConfiguration(weight: .medium)
     private lazy var closeButton = specify(UIButton(type: .roundedRect), {
-        $0.setImage(UIImage(systemName: "chevron.left", withConfiguration: mediumConfiguration)?
+        $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: mediumConfiguration)?
             .withTintColor(.systemBackground, renderingMode: .alwaysOriginal), for: .normal)
     })
     
     private let navLikeLabel = specify(UILabel(), {
-        $0.text = "Like meals"
+        $0.text = "مثل الوجبات"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
         $0.textColor = .systemBackground
     })
