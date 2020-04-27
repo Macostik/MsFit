@@ -23,8 +23,8 @@ enum APIManager: URLRequestConvertible {
     programList([String: Any]),
     chooseProgram([String: Any]),
     mealsList([String: Any]),
-    exerciseList([String: Any])
-    
+    exerciseList([String: Any]),
+    getTipsPost([String: Any])
     
     public func asURLRequest() throws -> URLRequest {
         
@@ -34,7 +34,7 @@ enum APIManager: URLRequestConvertible {
             switch self {
             case .login, .register, .chooseProgram:
                 return .post
-            case .daily_screen, .programList, .mealsList, .exerciseList:
+            case .daily_screen, .programList, .mealsList, .exerciseList, .getTipsPost:
                 return .get
                 
             }
@@ -48,7 +48,8 @@ enum APIManager: URLRequestConvertible {
                  .programList(let parameters),
                  .chooseProgram(let parameters),
                  .mealsList(let parameters),
-                 .exerciseList(let parameters):
+                 .exerciseList(let parameters),
+                 .getTipsPost(let parameters):
                 return parameters
             }
         }()
@@ -69,8 +70,11 @@ enum APIManager: URLRequestConvertible {
                 query = "user/choose_program"
             case .mealsList:
                 query = "user/meals"
-                case .exerciseList:
+            case .exerciseList:
                 query = "user/exercises"
+            case .getTipsPost:
+                URL = Foundation.URL(string: "http://tips.msfit-sa.com/wp-json/wp/v2/posts?_embed=")!
+                return URL
             }
             
             if let query = query {

@@ -34,4 +34,27 @@ class DailyService: RealmService<DailySceneModel> {
                 }
             }).disposed(by: disposeBag)
     }
+    
+    public func tipsPostList() {
+        let realm = RealmProvider.shared.realm
+        guard let user = realm.objects(User.self).first else { return }
+        APIManager.getTipsPost(["": ""]).json()
+            .subscribe(onNext: { json in
+                do {
+                    print (">>self - \(json)<<")
+//                    try realm.write {
+//                        let data = json["data"]
+//                        if !data.isEmpty {
+//                            let dailyList = realm.objects(T.self)
+//                            realm.delete(dailyList)
+//                            realm.create(T.self, value: data.object, update: .modified)
+//                            Logger.info("DailyScreen was create successfully")
+//                            completion?()
+//                        }
+//                    }
+                } catch let error {
+                    Logger.error("DataBase of Realm was changed \(error)")
+                }
+            }).disposed(by: disposeBag)
+    }
 }
