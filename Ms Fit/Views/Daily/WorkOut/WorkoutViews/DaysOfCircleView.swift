@@ -52,6 +52,11 @@ class DaysOfCircleView: UIView {
     
     fileprivate func addConstraints() {
         let listView = (0...14).compactMap({ [weak self] _ in self?.createDailyTimeView() })
+        let days = RealmProvider.shared.realm.objects(DailySceneModel.self).first?.day_number ?? 0
+        for index in 0..<days {
+            let view = listView[index]
+            view.backgroundColor = .systemBackground
+        }
         
         // start circle days
         add(baseView, layoutBlock: { $0.centerX().centerY().size(Constants.sW / 1.9) })
@@ -64,10 +69,10 @@ class DaysOfCircleView: UIView {
             $0.centerX(Constants.sW * 0.19).centerY(Constants.sW * -0.14).size(16)
         })
         baseView.add(listView[3], layoutBlock: {
-            $0.trailing(1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
+            $0.leading(-1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
         })
         baseView.add(listView[4], layoutBlock: {
-            $0.trailing(1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
+            $0.leading(-1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
         })
         baseView.add(listView[5], layoutBlock: {
             $0.centerX(Constants.sW * 0.19).centerY(Constants.sW * 0.14).size(16)
@@ -85,10 +90,10 @@ class DaysOfCircleView: UIView {
             $0.centerX(Constants.sW * -0.19).centerY(Constants.sW * 0.14).size(16)
         })
         baseView.add(listView[10], layoutBlock: {
-            $0.leading(-1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
+            $0.trailing(1).topCenterY(Constants.sW * 0.03, to: baseView).size(16)
         })
         baseView.add(listView[11], layoutBlock: {
-            $0.leading(-1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
+            $0.trailing(1).bottomCenterY(Constants.sW * -0.03, to: baseView).size(16)
         })
         baseView.add(listView[12], layoutBlock: {
             $0.centerX(Constants.sW * -0.19).centerY(Constants.sW * -0.14).size(16)
