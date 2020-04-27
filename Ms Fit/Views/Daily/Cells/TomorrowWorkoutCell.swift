@@ -57,7 +57,8 @@ class TomorrowWorkoutCell: UICollectionViewCell, CellIdentifierable {
     }
     
     public func setup(exercise: ExerciseItem) {
-        exercisesImageView.sd_setImage(with: URL(string: exercise.pictures.first ?? ""))
+        exercisesImageView.sd_setImage(with: URL(string: exercise.pictures.first ?? ""),
+                                       placeholderImage: UIImage(named: "splash_icon"))
         exerciseText.text = "\(exercise.title.count). \(exercise.title)"
         descriptionText.text =
             "\(exercise.sets)" + " \(exercise.sets.applyToCount()) | " + "\(exercise.set_time ?? "") دقيقة"

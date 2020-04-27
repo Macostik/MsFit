@@ -28,7 +28,7 @@ class GeneralProgramSceneViewController: BaseViewController<GeneralProgramSceneV
     
     private let beginner1Button = specify(UIButton(type: .roundedRect), {
         $0.circled = true
-        $0.setTitle("Beginner 1", for: .normal)
+        $0.setTitle("مبتدئ 1", for: .normal)
         $0.tintColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.backgroundColor = .systemBackground
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
@@ -37,7 +37,7 @@ class GeneralProgramSceneViewController: BaseViewController<GeneralProgramSceneV
     private let beginner2Button = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         $0.backgroundColor = .systemBackground
-        $0.setTitle("Beginner 2", for: .normal)
+        $0.setTitle("مبتدئ 2", for: .normal)
         $0.circled = true
         $0.tintColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
@@ -45,7 +45,7 @@ class GeneralProgramSceneViewController: BaseViewController<GeneralProgramSceneV
     private let intermediate1Button = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         $0.backgroundColor = .systemBackground
-        $0.setTitle("Intermediate 1", for: .normal)
+        $0.setTitle("متوسط ​​1", for: .normal)
         $0.circled = true
         $0.tintColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
@@ -53,7 +53,7 @@ class GeneralProgramSceneViewController: BaseViewController<GeneralProgramSceneV
     private let intermediate2Button = specify(UIButton(type: .roundedRect), {
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         $0.backgroundColor = .systemBackground
-        $0.setTitle("Intermediate 2", for: .normal)
+        $0.setTitle("متوسط ​​2", for: .normal)
         $0.circled = true
         $0.tintColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
     })
@@ -71,27 +71,27 @@ class GeneralProgramSceneViewController: BaseViewController<GeneralProgramSceneV
         
         beginner1Button.animateWhenPressed(disposeBag: disposeBag)
         beginner1Button.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                print("beginner1Button")
-            }).disposed(by: disposeBag)
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
         
         beginner2Button.animateWhenPressed(disposeBag: disposeBag)
         beginner2Button.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                print("beginner2Button")
-            }).disposed(by: disposeBag)
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
         
         intermediate1Button.animateWhenPressed(disposeBag: disposeBag)
         intermediate1Button.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                print("intermediate1Button")
-            }).disposed(by: disposeBag)
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
         
         intermediate2Button.animateWhenPressed(disposeBag: disposeBag)
         intermediate2Button.rx.tap
-            .subscribe(onNext: { [unowned self] _ in
-                print("intermediate2Button")
-            }).disposed(by: disposeBag)
+            .map({ _ in })
+            .bind(to: viewModel!.dismissObserver)
+            .disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

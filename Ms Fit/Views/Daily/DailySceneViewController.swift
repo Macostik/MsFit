@@ -86,6 +86,9 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         $0.textColor = .systemBackground
         $0.textAlignment = .center
     })
+    
+    private var vFreeDaysVStackView: UIStackView!
+    private var vWorkoutAndDietStackView: UIStackView!
 
     private let verificationEmailButton = specify(UIButton(type: .roundedRect), {
         $0.contentEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
@@ -116,6 +119,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     private let homeButton = specify(UIButton(type: .roundedRect), {
         $0.contentEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
         $0.titleLabel?.font = .systemFont(ofSize: Constants.sH_667 ? 16 : 14, weight: .bold)
+        $0.isHidden = true
         $0.setTitleColor(#colorLiteral(red: 0.3799999952, green: 0.2860000134, blue: 0.7960000038, alpha: 1), for: .normal)
         $0.setTitle("الاشتراك", for: .normal)
         $0.backgroundColor = .systemBackground
@@ -145,7 +149,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let generalProgramButton = specify(UIButton(type: .roundedRect), {
-        $0.setTitle("Start 3 days trial", for: .normal)
+        $0.setTitle("ابدأ التجربة لمدة 3 أيام", for: .normal)
         $0.layer.cornerRadius = (Constants.sW * 0.15) / 2
         $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
         $0.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -157,7 +161,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     })
     
     private let testMeButton = specify(UIButton(type: .roundedRect), {
-        $0.customButton(text: "Test me", font: 20, weight: .bold,
+        $0.customButton(text: "اختبار", font: 20, weight: .bold,
                         shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), isCircled: true)
     })
     
@@ -166,7 +170,7 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
     private let daysLabel = specify(UILabel(), {
         $0.font = UIFont.systemFont(ofSize: Constants.sH_667 ? 80 : 60, weight: .bold)
         $0.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        $0.text = "6"
+        $0.text = "\(RealmProvider.shared.realm.objects(DailySceneModel.self).first?.day_number ?? 0)"
     })
     
     private let dayLabel = specify(UILabel(), {
@@ -307,6 +311,11 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
         generalProgramButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
                 self.viewModel?.presentGeneralProgramObserver.onNext(())
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.vWorkoutAndDietStackView.isHidden = false
+                    self.vFreeDaysVStackView.isHidden = true
+                    self.homeButton.isHidden = false
+                })
             }).disposed(by: disposeBag)
     }
     
@@ -329,15 +338,16 @@ class DailySceneViewController: BaseViewController<DailySceneViewModel> {
             ], spacing: 25)
         hWorkoutAndDietStackView.distribution = .fillEqually
         
-        let vWorkoutAndDietStackView = VStackView(arrangedSubviews: [
+        vWorkoutAndDietStackView = VStackView(arrangedSubviews: [
             middletextLabel, hWorkoutAndDietStackView
         ], spacing: Constants.sH_812 ? 60 : Constants.sH_667 ? 50 : 20)
-        vWorkoutAndDietStackView.isHidden = false
         
-        let vFreeDaysVStackView = VStackView(arrangedSubviews: [
+        vFreeDaysVStackView = VStackView(arrangedSubviews: [
             getTextLabel, VStackView(arrangedSubviews: [testMeButton, generalProgramButton], spacing: 25)
         ], spacing: Constants.sH_812 ? 60 : Constants.sH_667 ? 50 : 20)
-        vFreeDaysVStackView.isHidden = true
+        
+        vWorkoutAndDietStackView.isHidden = true
+        vFreeDaysVStackView.isHidden = false
         
         let vMealsStackView = VStackView(arrangedSubviews: [dayliMealsLabel, countMealsLabel])
         let vExerciseStackView = VStackView(arrangedSubviews: [dayliExerciseLabel, countExerciseLabel])

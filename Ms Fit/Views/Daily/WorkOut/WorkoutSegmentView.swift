@@ -54,6 +54,7 @@ class WorkoutSegmentView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
+        collectionView.bounces = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.register(SlideCell.self, forCellWithReuseIdentifier: SlideCell.identifier)
@@ -84,8 +85,8 @@ class WorkoutSegmentView: UIView {
         menuCollection.rx.itemSelected
             .subscribe(onNext: { [weak self] index in
                 guard let self = self else { return }
-                let offset = self.slideCollection.contentSize.width/CGFloat(self.menuItems.count) *
-                    CGFloat(index.row)
+                let offset =
+                    self.slideCollection.contentSize.width/CGFloat(self.menuItems.count) * CGFloat(index.row)
                 self.slideCollection.setContentOffset(offset^0, animated: true)
             }).disposed(by: disposeBag)
         

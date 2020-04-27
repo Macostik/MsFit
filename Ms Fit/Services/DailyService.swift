@@ -22,6 +22,8 @@ class DailyService: RealmService<DailySceneModel> {
                     try realm.write {
                         let data = json["data"]
                         if !data.isEmpty {
+                            let dailyList = realm.objects(T.self)
+                            realm.delete(dailyList)
                             realm.create(T.self, value: data.object, update: .modified)
                             Logger.info("DailyScreen was create successfully")
                             completion?()
