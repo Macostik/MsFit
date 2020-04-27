@@ -21,7 +21,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
         layout.scrollDirection = .vertical
         
         let size = Constants.sW
-        layout.itemSize = CGSize(width: size, height: Constants.sW * 0.9)
+        layout.itemSize = CGSize(width: size, height: Constants.sW * 0.75)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TipsCell.self, forCellWithReuseIdentifier: TipsCell.identifier)
@@ -55,16 +55,17 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
     }
     
     override func setupBindings() {
-        Observable.just(TipsModel.allCases)
+        let tipsList = RealmProvider.shared.realm.objects(TipsPost.self)
+        Observable.just(tipsList)
             .bind(to: tipsCollectionView.rx.items(cellIdentifier: TipsCell.identifier, cellType:
                 TipsCell.self)) { _, model, cell in
                     cell.setup(model)
         }.disposed(by: disposeBag)
         
         Observable
-            .zip(tipsCollectionView.rx.itemSelected, tipsCollectionView.rx.modelSelected(TipsModel.self))
+            .zip(tipsCollectionView.rx.itemSelected, tipsCollectionView.rx.modelSelected(TipsPost.self))
             .bind { indexPath, model in
-                self.viewModel?.presentDetailsObserver.onNext((indexPath.row, model.rawValue))
+                self.viewModel?.presentDetailsObserver.onNext((indexPath.row, model.id))
         }.disposed(by: disposeBag)
         
         allCatigoriesButton.rx.tap

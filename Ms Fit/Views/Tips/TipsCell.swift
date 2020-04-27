@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TipsCell: UICollectionViewCell, CellIdentifierable {
     
@@ -49,9 +50,9 @@ class TipsCell: UICollectionViewCell, CellIdentifierable {
         add(vContainerStackView, layoutBlock: { $0.top(15).bottom().trailing(15).leading(15) })
     }
     
-    public func setup(_ tip: TipsModel) {
-        tipImageView.image =  UIImage(named: tip.rawValue)
-        tipText.text = tip.description()
+    public func setup(_ tip: TipsPost) {
+        tipImageView.sd_setImage(with: URL(string: tip.picture))
+        tipText.text = tip.title
     }
     
     required init?(coder: NSCoder) { fatalError() }
