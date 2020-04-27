@@ -23,3 +23,15 @@ final class DailySceneModel: Object {
     }
 }
 
+final class TipsPost: Object {
+    @objc dynamic public var id = ""
+    @objc dynamic public var title = ""
+    @objc dynamic public var picture = ""
+    @objc dynamic public var category = ""
+    @objc dynamic public var content = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
