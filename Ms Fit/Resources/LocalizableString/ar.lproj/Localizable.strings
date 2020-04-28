@@ -1,0 +1,329 @@
+/* 
+  Localizable.strings
+  Ms Fit
+
+  Created by Yura Granchenko on 28.04.2020.
+  Copyright © 2020 Selecto. All rights reserved.
+*/
+
+//Onboard
+"onboard" = "";
+"coach_for_you" = "";
+"activity_program" = "";
+"personal_diet" = "";
+"progress_monitoring" = "";
+"Start" = "";
+"Login" = "";
+
+//Sign In
+"Nice_to_see_you_again" = "";
+"Sign_in_with_Instagram" = "";
+"Sign_in_with_Twitter" = "";
+"Sign_in_with_Email" = "";
+"Email" = "";
+"Password" = "";
+"Start_Workout" = "";
+"Forgot_your_password?" = "";
+"Send_Recover_Info" = "";
+
+//First Experience
+"What is your goal?" = "";
+"Next Step" = "";
+"Finish" = "";
+"Lose Weight" = "";
+"Maintain Weight" = "";
+"Gain Weight" = "";
+"What is your height?" = "";
+"Your birthday date?" = "";
+"Your Activity" = "";
+"Hard Work" = "";
+"nurse, teacher" = "";
+"Desk job" = "";
+"call center, banker" = "";
+"I have no Job" = "";
+"I am a student" = "";
+"CONGRATULATIONS!" = "";
+"Sign up and get free General Membership for 3 days" = "";
+"Username" = "";
+"Your name" = "";
+"Sign Up" = "";
+"Or use social media" = "";
+"No data" = "";
+
+//Daily
+"Home" = "";
+"DAY" = "";
+"It's not a great day until you workout!" = "";
+"Workout" = "";
+"Diet" = "";
+"excercises" = "";
+"meals" = "";
+"left" = "";
+"days" = "";
+"Home" = "";
+"Verification Email" = "";
+
+//Tabbar
+"Daily" = "";
+"Exercises" = "";
+"Tips" = "";
+"Profile" = "";
+
+//Questions
+"Questions" = "";
+"Meals" = "";
+"Exercises" = "";
+"Subscriptions" = "";
+
+//WorkOut
+"Yesterday" = "";
+"Today" = "";
+"Tomorrow" = "";
+"EXERCISES" = "";
+"NEXT EXERCISES" = "";
+"MINUTES" = "";
+"Rest Day" = "";
+"Be the girl who decided decided decided to go for it!" = "";
+"Start Workout" = "";
+"Previous" = "";
+"Next" = "";
+"Pause" = "";
+"Instruction" = "";
+"Next" = "";
+"Next Set" = "";
+"Rest" = "";
+"Continue" = "";
+"Restar Exercise" = "";
+"End workout" = "";
+"Skip Execise" = "";
+"Well Done!" = "";
+"Did you enjoy it?" = "";
+"Hell no" = "";
+"Normal" = "";
+"Awesome" = "";
+"How can we improve the exercise?" = "";
+"Type message…" = "";
+"Send and Continue" = "";
+"Please Rate last month of training" = "";
+"I did ` program" = "";
+"Are you satisfied with your results?" = "";
+
+//Popups
+"Warning !" = "";
+"Please check out your internet connection" = "";
+"Settings" = "";
+"Sorry" = "";
+"Temporary maintance on server side, try later" = "";
+"Back" = "";
+"There's new app version on iTunes." = "";
+"We highly recommend you to update!" = "";
+"Ok" = "";
+
+"You have changed General Program to Special for ABS" = "";
+"Change General Program to Special for ABS" = "";
+"Do you want to continue your progress on Special for ABS program or you want to start from the beggining?" = "";
+"Start first" = "";
+"Continue progress" = "";
+"Are you sure you want to clear all measurements?" = "";
+"Are you sure you want to clear all weight history?" = "";
+"Cancel" = "";
+"Clear" = "";
+
+
+//Tips
+"Tips" = "";
+"All Categories" = "";
+"Favorites" = "";
+"Health" = "";
+"Food" = "";
+"Trainings" = "";
+"Excercises" = "";
+"Recipes" = "";
+"Other" = "";
+
+//Exercises
+"Exercises" = "";
+"Cardio" = "";
+"Legs" = "";
+"Abs" = "";
+"Shoulder" = "";
+"Arm" = "";
+"Complex" = "";
+"Chest" = "";
+"Back" = "";
+"Only General" = "";
+"min" = "";
+"20 repeats/5 sets" = "";
+"30 sec/4 sets" = "";
+"1/1 Set" = "";
+"Notes" = "";
+"Category:" = "";
+"This is how to perform one reoetition:" = "";
+
+//Profile/Settings
+"Profile" = "";
+"My programs" = "";
+"Settings" = "";
+"General Account" = "";
+"Started" = "";
+"Now" = "";
+"Lost" = "";
+"Update Weight" = "";
+"History" = "";
+"Chest" = "";
+"Waist" = "";
+"Thigh" = "";
+"Arms" = "";
+"Update Measurements" = "";
+"Update" = "";
+"Result" = "";
+"Enter result" = "";
+"Enter" = "";
+"History Weight" = "";
+
+//Settings
+"Settings" = "";
+"PROFILE SETTINGS" = "";
+"Goal" = "";
+"Height" = "";
+"Start weight" = "";
+"Date of birth" = "";
+"Activity" = "";
+"Workout Type" = "";
+"Gain Weight" = "";
+"Desk job" = "";
+"Gym" = "";
+
+//Account
+"Account" = "";
+"Account Settings" = "";
+"Account Type" = "";
+"General Membership" = "";
+
+//Ms Fit
+"Contact Us" = "";
+"About app" = "";
+"Privacy policy" = "";
+"Terms of use" = "";
+"Version" = "";
+
+//Log out
+"Log Out" = "";
+
+//Contact Us
+"Contact Us" = "";
+"Select a Subject" = "";
+"Your Email" = "";
+"Check if mail is valid, as we’ll send the answer back on it " = "";
+"Your Question" = "";
+"Send Mail" = "";
+"Sign In / Sign Up" = "";
+"Payments" = "";
+"Workout" = "";
+"Other" = "";
+
+"Thank you" = "";
+"Your request sent, We well send you an answer on" = "";
+"Done" = "";
+
+//Account Settings
+"Account Settings" = "";
+"User Name" = "";
+"Location" = "";
+"Edit Password" = "";
+"Email" = "";
+"Old Password" = "";
+"New Password" = "";
+"Enter" = "";
+
+//Account Type
+"Account Type" = "";
+"Active" = "";
+"General Membership" = "";
+
+//Select Account Type
+"Select Account Type" = "";
+"Holy Month" = "";
+"Surfer" = "";
+
+//About app
+"About app" = "";
+
+//Update
+"Update chest" = "";
+"Update waist" = "";
+"Update thigh   " = "";
+"Update arms" = "";
+
+//Subscription/Payment
+"Subscription/Payment" = "";
+"1 month" = "";
+"3 month" = "";
+
+//Home
+"Get Premium Membership" = "";
+"Everyday Exercises" = "";
+"Committing to a longer subscription increases your success rate" = "";
+"Measurements" = "";
+"Meals" = "";
+"Motivation" = "";
+
+//Daily
+"Today meals" = "";
+"Recommended calories" = "";
+"Breakfast" = "";
+"Snacks1" = "";
+"Lunch" = "";
+"Snacks2" = "";
+"Dinner" = "";
+"CALORIES" = "";
+"CARBS" = "";
+"FAT" = "";
+"PROTS" = "";
+"Add" = "";
+
+//My meals
+"My meals" = "";
+"+ Add meals" = "";
+"Clear all" = "";
+
+"Eaten" = "";
+"Left" = "";
+"Delete" = "";
+"All" = "";
+"Search" = "";
+"5 Results Found" = "";
+
+"For subscribers only" = "";
+"You will need to
+subscribe to continue" = "";
+"Subscribe" = "";
+"Cancel" = "";
+"Calculate your calories" = "";
+"All meals" = "";
+"Favorires" = "";
+"High protein" = "";
+"Healthy" = "";
+
+"You have no favorite meals" = "";
+"Ingredients" = "";
+"Directions" = "";
+"Meals supplements" = "";
+
+"Add supplements" = "";
+
+"Sorry! No result found." = "";
+"We're sorry what you were looking for. Please try another way" = "";
+
+//Search meals
+"Search meals" = "";
+"Drinks" = "";
+"Fruits" = "";
+"Snacks" = "";
+"Sauces" = "";
+"Suggest your meal" = "";
+"Here you can offer your meal or choose a ready-to-eat product" = "";
+"Meal" = "";
+"Ready product" = "";
+
+

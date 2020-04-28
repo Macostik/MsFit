@@ -214,6 +214,7 @@
 		AC86C2272407CBFE0029D33E /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2262407CBFE0029D33E /* MealsView.swift */; };
 		AC86C2292407CC110029D33E /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C2282407CC110029D33E /* ExerciseView.swift */; };
 		AC86C22B2407CC220029D33E /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86C22A2407CC220029D33E /* SubscriptionView.swift */; };
+		AC9560BA2458663A006311DB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC9560BC2458663A006311DB /* Localizable.strings */; };
 		AC99A7542428B347004C75BC /* TipDetailsSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A7502428B347004C75BC /* TipDetailsSceneCoordinator.swift */; };
 		AC99A7552428B347004C75BC /* TipDetailsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A7512428B347004C75BC /* TipDetailsSceneViewController.swift */; };
 		AC99A7562428B347004C75BC /* TipDetailsSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC99A7522428B347004C75BC /* TipDetailsSceneModel.swift */; };
@@ -506,6 +507,8 @@
 		AC86C2262407CBFE0029D33E /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
 		AC86C2282407CC110029D33E /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		AC86C22A2407CC220029D33E /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		AC9560BB2458663A006311DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC9560BD2458663C006311DB /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC99A7502428B347004C75BC /* TipDetailsSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsSceneCoordinator.swift; sourceTree = "<group>"; };
 		AC99A7512428B347004C75BC /* TipDetailsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsSceneViewController.swift; sourceTree = "<group>"; };
 		AC99A7522428B347004C75BC /* TipDetailsSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsSceneModel.swift; sourceTree = "<group>"; };
@@ -635,6 +638,7 @@
 		564A673723FC48CE00D4901A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC9560B72458660C006311DB /* LocalizableString */,
 				569FB0E323FC09530052B796 /* Info.plist */,
 				569FB0DE23FC09530052B796 /* Assets.xcassets */,
 			);
@@ -1159,6 +1163,14 @@
 			path = QuestionViews;
 			sourceTree = "<group>";
 		};
+		AC9560B72458660C006311DB /* LocalizableString */ = {
+			isa = PBXGroup;
+			children = (
+				AC9560BC2458663A006311DB /* Localizable.strings */,
+			);
+			path = LocalizableString;
+			sourceTree = "<group>";
+		};
 		AC9E1DEE2410F2E800417E9A /* WorkoutViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1464,6 +1476,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 569FB0C923FC09500052B796;
 			productRefGroup = 569FB0D323FC09500052B796 /* Products */;
@@ -1481,6 +1494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				564A673823FC4F0700D4901A /* Assets.xcassets in Resources */,
+				AC9560BA2458663A006311DB /* Localizable.strings in Resources */,
 				569089B7243BB33200C4DB30 /* PNChartSwift.podspec in Resources */,
 				ACFBCF11243CAAA300E0B892 /* YTPlayer.html in Resources */,
 			);
@@ -1838,6 +1852,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AC9560BC2458663A006311DB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC9560BB2458663A006311DB /* en */,
+				AC9560BD2458663C006311DB /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		564A674F23FC6FD300D4901A /* PROD */ = {
