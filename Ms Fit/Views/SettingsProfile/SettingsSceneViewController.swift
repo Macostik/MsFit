@@ -91,9 +91,11 @@ extension SettingsSceneViewController: UIImagePickerControllerDelegate, UINaviga
         if let editImage = info[.editedImage] as? UIImage {
             userView.profileImageView.image = editImage
             userView.profileImageView.contentMode = .scaleAspectFill
+            userView.userProfileImageView.isHidden = true
         } else if let originImage = info[.originalImage] as? UIImage {
             userView.profileImageView.image = originImage
             userView.profileImageView.contentMode = .scaleAspectFit
+            userView.userProfileImageView.isHidden = true
         }
         picker.dismiss(animated: true, completion: nil)
     }

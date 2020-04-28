@@ -51,7 +51,8 @@ class TipsCell: UICollectionViewCell, CellIdentifierable {
     
     public func setup(_ tip: TipsPost) {
         tipImageView.sd_setImage(with: URL(string: tip.picture),
-                                 placeholderImage: UIImage(named: "splash_icon"))
+                                 placeholderImage: UIImage(named: "splash_icon"),
+                                 options: [.continueInBackground, .highPriority, .retryFailed])
         tipText.text = tip.title
     }
     

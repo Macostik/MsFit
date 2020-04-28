@@ -14,8 +14,8 @@ class UserView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
-    private let separatorView = specify(UIView(), { $0.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1) })
     public let editProfileImageView = UIImageView(image: #imageLiteral(resourceName: "profileEdit_icon"))
+    public let userProfileImageView = UIImageView(image: #imageLiteral(resourceName: "user_group.png"))
 
     private let hideView = specify(UIView(), { $0.backgroundColor = .clear })
     
@@ -29,7 +29,7 @@ class UserView: UIView {
     })
     
     public let profileImageView = specify(UIImageView(), {
-        $0.image = #imageLiteral(resourceName: "food8")
+        $0.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
         $0.layer.cornerRadius = 140 / 2
         $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         $0.layer.borderWidth = 5
@@ -61,7 +61,7 @@ class UserView: UIView {
     }
     
     fileprivate func handleUI() {
-        backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         editProfileImageView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
     
@@ -76,9 +76,9 @@ class UserView: UIView {
         add(hButtonsStackView, layoutBlock: { $0.top(Constants.sH_812 ? 60 : 40).leading(16).trailing(16) })
         add(hideView, layoutBlock: { $0.top(Constants.sH_812 ? 60 : 40).centerX().size(140) })
         hideView.add(profileImageView, layoutBlock: { $0.edges() })
+        profileImageView.add(userProfileImageView, layoutBlock: { $0.size(50).center() })
         hideView.add(editProfileImageView, layoutBlock: { $0.bottom(6).trailing(6).size(35) })
         add(vTextsStackView, layoutBlock: { $0.topBottom(20, to: profileImageView).centerX().bottom(25) })
-        add(separatorView, layoutBlock: { $0.bottom().leading().trailing().height(1) })
     }
     
     required init?(coder: NSCoder) { fatalError() }
