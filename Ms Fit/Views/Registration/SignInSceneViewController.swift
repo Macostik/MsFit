@@ -134,38 +134,40 @@ extension SignInSceneViewController {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
+   
 }
 
+
+
 extension SignInSceneViewController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController,
-                                 didCompleteWithAuthorization authorization: ASAuthorization) {
-        func authorizationController(controller: ASAuthorizationController,
-                                     didCompleteWithAuthorization authorization: ASAuthorization) {
-            switch authorization.credential {
-            case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                
-                let userIdentifier = appleIDCredential.user
-                let fullName = appleIDCredential.fullName
-                let email = appleIDCredential.email
-                
-//                self.saveUserInKeychain(userIdentifier)
-//                self.showResultViewController(userIdentifier: userIdentifier,
-//                                              fullName: fullName, email: email)
-                
-                viewModel?.presentMainSceneObserver.onNext(())
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
             
-            case let passwordCredential as ASPasswordCredential:
+            // Create an account in your system.
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
             
-                let username = passwordCredential.user
-                let password = passwordCredential.password
-                
-                DispatchQueue.main.async {
-                    self.showPasswordCredentialAlert(username: username, password: password)
-                }
-                
-            default:
-                break
+            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
+            self.saveUserInKeychain(userIdentifier)
+            
+            // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
+//            self.showResultViewController(userIdentifier: userIdentifier, fullName: fullName, email: email)
+        
+        case let passwordCredential as ASPasswordCredential:
+        
+            // Sign in using an existing iCloud Keychain credential.
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            
+            // For the purpose of this demo app, show the password credential as an alert.
+            DispatchQueue.main.async {
+                self.showPasswordCredentialAlert(username: username, password: password)
             }
+            
+        default:
+            break
         }
     }
     
@@ -173,14 +175,14 @@ extension SignInSceneViewController: ASAuthorizationControllerDelegate {
         print(error.localizedDescription)
     }
     
-//    private func saveUserInKeychain(_ userIdentifier: String) {
-//        do {
-//            try KeychainItem(service: "com.example.apple-samplecode.juice",
-//                             account: "userIdentifier").saveItem(userIdentifier)
-//        } catch {
-//            print("Unable to save userIdentifier to keychain.")
-//        }
-//    }
+    private func saveUserInKeychain(_ userIdentifier: String) {
+        do {
+            try KeychainItem(service: "com.example.apple-samplecode.juice",
+                             account: "userIdentifier").saveItem(userIdentifier)
+        } catch {
+            print("Unable to save userIdentifier to keychain.")
+        }
+    }
     
 //    private func showResultViewController(userIdentifier: String,
 //                                          fullName: PersonNameComponents?,
