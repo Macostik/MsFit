@@ -146,7 +146,8 @@ extension SignInSceneViewController: ASAuthorizationControllerDelegate {
             
             // Create an account in your system.
             let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
+            let firstName = appleIDCredential.fullName?.givenName
+            let fullName = appleIDCredential.fullName?.familyName
             let email = appleIDCredential.email
             
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.
