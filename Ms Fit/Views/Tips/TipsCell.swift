@@ -42,16 +42,16 @@ class TipsCell: UICollectionViewCell, CellIdentifierable {
     }
     
     func addConstraints() {
-        let vContainerStackView = VStackView(arrangedSubviews: [tipImageView, containerForTextView])
-        
-        containerForTextView.add(tipText, layoutBlock: {
-            $0.leading(10).trailing(10).top(25).bottom(25)
+        containerForTextView.add(tipText, layoutBlock: { $0.leading(10).trailing(10).top(25).bottom(25) })
+        add(tipImageView, layoutBlock: { $0.top(15).height(Constants.sW * 0.5).trailing(16).leading(16) })
+        add(containerForTextView, layoutBlock: {
+            $0.leading(16).bottom().trailing(16).topBottom(to: tipImageView)
         })
-        add(vContainerStackView, layoutBlock: { $0.top(15).bottom().trailing(15).leading(15) })
     }
     
     public func setup(_ tip: TipsPost) {
-        tipImageView.sd_setImage(with: URL(string: tip.picture))
+        tipImageView.sd_setImage(with: URL(string: tip.picture),
+                                 placeholderImage: UIImage(named: "splash_icon"))
         tipText.text = tip.title
     }
     
