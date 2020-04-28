@@ -20,7 +20,6 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
         $0.tintColor = #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1)
         $0.textAlignment = .left
         $0.isEditable = false
-        $0.text = "🥮 So if a friend swears that munching on grapefruit gets her into skinny jeans, or 😕"
     })
         
     private let imageView = UIImageView(image: #imageLiteral(resourceName: "food2"))
@@ -75,6 +74,7 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
         imageView.sd_setImage(with: imageURL)
         titleLabel.text = tip.title
         healthLabel.text = tip.category
+        bodyTextView.attributedText = tip.content.htmlAttributed()
     }
     
     func addConstraints() {
@@ -97,95 +97,3 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
     
     required init?(coder: NSCoder) { fatalError() }
 }
-
-//extension TipDetailsView {
-//    private func addTextView(attributedString: NSMutableAttributedString, indent: CGFloat = 0.0 ) {
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.maximumLineHeight = 20.0
-//        paragraphStyle.alignment = .left
-//        paragraphStyle.lineSpacing = 2.7
-//        paragraphStyle.firstLineHeadIndent = indent
-//        paragraphStyle.headIndent = indent > 0 ? indent + 16 : indent
-//        attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle],
-//                                       range: NSRange(location: 0, length: attributedString.length))
-//        bodyTextView.delegate = self
-//        bodyTextView.linkTextAttributes = convertToOptionalNSAttributedStringKeyDictionary(
-//            [NSAttributedString.Key.foregroundColor.rawValue: #colorLiteral(red: 0.1490000039, green: 0.1490000039, blue: 0.1689999998, alpha: 1),
-//             NSAttributedString.Key.font.rawValue: UIFont.boldSystemFont(ofSize: 16)
-//        ])
-//        attributedString
-//            .enumerateAttributes(in: NSRange(0..<attributedString.length),
-//                                 options: .reverse) { attributes, range, _ in
-//                                       if let attString = attributes[NSAttributedString.Key.link] as? URL
-//                                           attString.absoluteString.contains(Constants.toolTip) {
-//                                           attributedString.addAttributes(
-//                                               [NSAttributedString.Key.underlineColor : UIColor.clear,
-//                                                NSAttributedString.Key.baselineOffset : -3],
-//                                               range: range)}
-//                                    bodyTextView.attributedText = attributedString
-//        }
-           
-//           let lastView = bodyView.arrangedSubviews.last
-//           bodyView.addArrangedSubview(contentTextView)
-//           guard let previousView = lastView else { return }
-//           if indent > 0 {
-//               previousIndent = indent
-//               bodyView.setCustomSpacing(10, after: previousView)
-//           } else if previousIndent > 0 {
-//               previousIndent = 0
-//               bodyView.setCustomSpacing(10, after: previousView)
-//           } else  {
-//               bodyView.setCustomSpacing(25, after: previousView)
-//           }
-//       }
-//
-//    private func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) ->
-//        [NSAttributedString.Key: Any]? {
-//            guard let input = input else { return nil }
-//            return Dictionary(uniqueKeysWithValues: input.map { key, value in
-//                (NSAttributedString.Key(rawValue: key), value)})
-//    }
-//}
-
-//extension TipDetailsView: UITextViewDelegate {
-//    func textView(_ textView: UITextView,
-//                  shouldInteractWith URL: URL,
-//                  in characterRange: NSRange,
-//                  interaction: UITextItemInteraction) -> Bool {
-//        switch interaction {
-//        case .invokeDefaultAction:
-//            if textView.gestureRecognizers?
-//                .contains(where: {$0.isKind(of: UITapGestureRecognizer.self) && $0.state == .ended}) == true {
-//                if !URL.absoluteString.contains(Constants.toolTip) { return true }
-//                let popupView = PopupView<ContainerView>()
-//                let textRange = characterRange.toTextRange(textInput: textView)
-//                let rect = textView.firstRect(for: textRange!)
-//                let sourceView = UIView(frame: rect)
-//                let originRect = convert(rect, from: textView)
-//                sourceView.frame = originRect
-//                add(sourceView)
-//                do {
-//                    let realm = try Realm()
-//                    guard let id = URL["id"],
-//                        let text = realm.objects(ToolTip.self).filter({$0.id == id}).first?.body
-//                        else { return false }
-//                    popupView.showInView(view,
-//                                         sourceView: sourceView,
-//                                         text: text,
-//                                         cancel: { [weak sourceView] in
-//                                            sourceView?.removeFromSuperview()
-//                    })
-//                } catch {}
-//
-//                return false
-//            }
-//            return true
-//        case .presentActions:
-//            return false
-//        case .preview:
-//            return true
-//        @unknown default:
-//            fatalError()
-//        }
-//    }
-//}
