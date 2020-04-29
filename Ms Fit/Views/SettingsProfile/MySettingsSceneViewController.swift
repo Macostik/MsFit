@@ -93,7 +93,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                 case .contactUs:
                     self?.viewModel?.presentContactUsObserver.onNext(())
                 case .aboutApp:
-                    print("tap aboutApp")
+                    break
                 case .privacyPolicy:
                     self?.viewModel?.presentPrivacyPolicyObserver.onNext(())
                 case .termOfUse:
@@ -103,7 +103,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                 case .version:
                     break
                 case .logOut:
-                print("tap logOut")
+                    self?.viewModel?.dismissToLoginObserver.onNext(())
                 }
             }).disposed(by: disposeBag)
     }

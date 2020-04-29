@@ -50,6 +50,10 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
             self?.presentTermOfUseScene()
         }).disposed(by: disposeBag)
         
+        viewModel.dismissToLoginObserver.subscribe(onNext: { [weak self] _ in
+            self?.dismissToLoginScene()
+        }).disposed(by: disposeBag)
+        
         return Observable.just(())
     }
     
@@ -98,5 +102,10 @@ class MySettingsSceneCoordinator: BaseSceneCoordinator<Void> {
     @discardableResult private func presentTermOfUseScene() -> Observable<Void> {
         let termOfUseCoordinator = TermOfUseSceneCoordinator(window: window, dependencies: dependencies)
         return coordinate(to: termOfUseCoordinator)
+    }
+    
+    @discardableResult private func dismissToLoginScene() -> Observable<Void> {
+        let dismissToLoginCoordinator = OnboardSceneCoordinator(window: window, dependencies: dependencies)
+        return coordinate(to: dismissToLoginCoordinator)
     }
 }
