@@ -72,6 +72,7 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
         .subscribe(onNext: { [unowned self] _ in
             if self.isShowMenu {
                 UIView.animate(withDuration: 0.3, animations: {
+                    self.allCatigoriesButton.setImage(#imageLiteral(resourceName: "navigation_ArrowDown"), for: .normal)
                     self.tipsMenuView.heightConstraints.constant = 0
                     self.tipsMenuView.layoutIfNeeded()
                 }, completion: { _ in
@@ -80,7 +81,8 @@ class TipsSceneViewController: BaseViewController<TipsSceneViewModel> {
             } else {
                 self.tipsMenuView.isHidden = false
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.tipsMenuView.heightConstraints.constant = Constants.sW * 0.9
+                    self.allCatigoriesButton.setImage(#imageLiteral(resourceName: "navigation_ArrowUp"), for: .normal)
+                    self.tipsMenuView.heightConstraints.constant = Constants.sH_812 ? 350 : 300
                     self.tipsMenuView.layoutIfNeeded()
                 })
             }

@@ -12,6 +12,8 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
     
     static var identifier: String = "TipDetailsView"
     
+    private let imageView = UIImageView(image: #imageLiteral(resourceName: "food2"))
+    
     private let bodyTextView = specify(UITextView(), {
         $0.textContainerInset = UIEdgeInsets(top: 0, left: 12, bottom: -16, right: 12)
         $0.textContainer.lineFragmentPadding = 0
@@ -21,8 +23,6 @@ class TipDetailsView: UICollectionReusableView, CellIdentifierable {
         $0.textAlignment = .left
         $0.isEditable = false
     })
-        
-    private let imageView = UIImageView(image: #imageLiteral(resourceName: "food2"))
     
     private let titleLabel = specify(UILabel(), {
         $0.text = "الالتزام باشتراك أطول"
