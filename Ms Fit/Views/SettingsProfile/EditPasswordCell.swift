@@ -28,6 +28,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
         $0.returnKeyType = .done
         $0.borderStyle = .none
         $0.isSecureTextEntry = true
+        $0.minimumFontSize = 12
     })
     
     private let eyeButton = specify(Button(type: .roundedRect), {
@@ -46,7 +47,7 @@ class EditPasswordCell: UITableViewCell, CellIdentifierable {
         add(titleLabel, layoutBlock: { $0.leading(16).centerY() })
         add(eyeButton, layoutBlock: { $0.trailing(16).centerY().height(16).width(24) })
         add(textField, layoutBlock: {
-            $0.trailingLeading(-10, to: eyeButton).centerY().width(200)
+            $0.trailingLeading(-10, to: eyeButton).centerY().leading(120)
         })
         add(separatorView, layoutBlock: { $0.leading().bottom().trailing().height(1) })
         

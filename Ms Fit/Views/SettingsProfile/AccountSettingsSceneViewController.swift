@@ -31,7 +31,7 @@ class AccountSettingsSceneViewController: BaseViewController<AccountSettingsScen
     private let tableView = specify(UITableView(), {
         $0.separatorStyle = .none
         $0.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
-        $0.rowHeight = 60
+        $0.rowHeight = Constants.sH_812 ? 70 : 60
         $0.contentInset = .init(top: 25, left: 0, bottom: 0, right: 0)
         $0.isScrollEnabled = false
         $0.register(AccountSettingsCell.self, forCellReuseIdentifier: AccountSettingsCell.identifier)

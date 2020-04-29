@@ -27,6 +27,12 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     private let emailView = specify(UIView(), { $0.backgroundColor = .clear })
     private let passwordView = specify(UIView(), { $0.backgroundColor = .clear })
     
+    private let spinnerView = specify(UIActivityIndicatorView(), {
+        $0.color = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+        $0.startAnimating()
+        $0.isHidden = true
+    })
+    
     private let userLabel = specify(UILabel(), {
         $0.text = "الاسم"
         $0.font = .systemFont(ofSize: 13, weight: .regular)
@@ -179,6 +185,9 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
                 self.userParams["password"] = self.passwordTF.text
                 return self.userParams
             })
+            .do(onNext: { [unowned self] _ in
+                self.spinnerView.isHidden = false
+            })
             .bind(to: viewModel!.signUpObservable)
             .disposed(by: disposeBag)
         
@@ -205,6 +214,10 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         safariVC?.delegate = self
+        
+        let dismissTapGestureRecognized = UITapGestureRecognizer(target: self.view,
+                                                                 action: #selector(view.endEditing(_:)))
+        view.addGestureRecognizer(dismissTapGestureRecognized)
     }
     
     fileprivate func addConstraints() {
@@ -258,6 +271,7 @@ class SignUpSceneViewController: BaseViewController<SignUpSceneViewModel> {
         TFContainerView.add(textFieldVStackView, layoutBlock: {
             $0.leading(24).trailing(24).bottom(16).top(30)
         })
+        signUpButton.add(spinnerView, layoutBlock: { $0.center() })
     }
 }
 

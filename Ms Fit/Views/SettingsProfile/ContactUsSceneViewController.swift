@@ -82,13 +82,7 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
         addConstraints()
     }
     
-    override func setupBindings() {
-        view.rx.tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { [unowned self] _ in
-                self.view.endEditing(true)
-            }).disposed(by: disposeBag)
-        
+    override func setupBindings() {        
         closeButton.rx.tap
             .map({ _ in })
             .bind(to: viewModel!.dismissObserver)
@@ -144,6 +138,10 @@ class ContactUsSceneViewController: BaseViewController<ContactUsSceneViewModel> 
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         warningImageView.isHidden = true
+        
+        let dismissTapGestureRecognized = UITapGestureRecognizer(target: self.view,
+                                                                 action: #selector(view.endEditing(_:)))
+        view.addGestureRecognizer(dismissTapGestureRecognized)
     }
     
     fileprivate func addConstraints() {

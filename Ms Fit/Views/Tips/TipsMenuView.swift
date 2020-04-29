@@ -18,7 +18,7 @@ class TipsMenuView: UIView {
     
     public let menuTableView = specify(UITableView(), {
         $0.backgroundColor = .systemBackground
-        $0.rowHeight = Constants.sW * 0.9 / 5
+        $0.rowHeight = Constants.sH_812 ? 70 : 60
         $0.isScrollEnabled = false
         $0.separatorStyle = .none
         $0.register(TipsMenuCell.self, forCellReuseIdentifier: TipsMenuCell.identifier)

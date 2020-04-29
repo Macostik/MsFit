@@ -31,7 +31,7 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
     private let tableView = specify(UITableView(), {
         $0.separatorStyle = .none
         $0.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
-        $0.rowHeight = 60
+        $0.rowHeight = Constants.sH_812 ? 70 : 60
         $0.contentInset = .init(top: 25, left: 0, bottom: 0, right: 0)
         $0.isScrollEnabled = false
         $0.register(EditPasswordCell.self, forCellReuseIdentifier: EditPasswordCell.identifier)
@@ -53,12 +53,6 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
             .bind(to: viewModel!.dismissObserver)
             .disposed(by: disposeBag)
         
-        view.rx.tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { [unowned self] _ in
-                self.view.endEditing(true)
-            }).disposed(by: disposeBag)
-        
         Observable.just(EditPasswordModel.allCases)
             .bind(to: tableView.rx.items(cellIdentifier: EditPasswordCell.identifier,
                                          cellType: EditPasswordCell.self)) { _, model, cell in
@@ -74,6 +68,10 @@ class EditPasswordSceneViewController: BaseViewController<EditPasswordSceneViewM
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+        
+        let dismissTapGestureRecognized = UITapGestureRecognizer(target: self.view,
+                                                                 action: #selector(view.endEditing(_:)))
+        view.addGestureRecognizer(dismissTapGestureRecognized)
     }
     
     fileprivate func addConstraints() {

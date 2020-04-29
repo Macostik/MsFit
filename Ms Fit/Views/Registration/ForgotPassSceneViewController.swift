@@ -82,7 +82,6 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     }
     
     fileprivate func addConstraints() {
-//        contLoginView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         let verStackView = VStackView(arrangedSubviews: [contLoginView, sendRecoverInfoButton],
                                       spacing: Constants.sW * 0.2)
         verStackView.distribution = .fillEqually
@@ -107,6 +106,10 @@ class ForgotPassSceneViewController: BaseViewController<ForgotPassSceneViewModel
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        
+        let dismissTapGestureRecognized = UITapGestureRecognizer(target: self.view,
+                                                                 action: #selector(view.endEditing(_:)))
+        view.addGestureRecognizer(dismissTapGestureRecognized)
     }
     
     fileprivate func isAnimationPlaceholder(isAnimation: Bool, nameLabel: UILabel,

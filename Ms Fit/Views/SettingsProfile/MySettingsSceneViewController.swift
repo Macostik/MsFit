@@ -35,7 +35,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
-        tableView.rowHeight = 60
+        tableView.rowHeight = Constants.sH_812 ? 70 : 60
         tableView.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
         return tableView
@@ -132,6 +132,6 @@ extension MySettingsSceneViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 3 ? 10 : 30
+        return Constants.sH_812 ? 50 : 40
     }
 }

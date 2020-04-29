@@ -16,7 +16,6 @@ class LevelSelectionCell: UITableViewCell, CellIdentifierable {
         $0.setImage(#imageLiteral(resourceName: "chackmark_icon"), for: .normal)
         $0.tintColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
         $0.isUserInteractionEnabled = false
-        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     })
     
     public func setup(with model: ListLevelModel) {
