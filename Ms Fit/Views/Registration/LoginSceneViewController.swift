@@ -22,6 +22,12 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
     private var loginCenterYConstr: NSLayoutConstraint!
     private var passCenterYConstr: NSLayoutConstraint!
     
+    private let spinnerView = specify(UIActivityIndicatorView(), {
+        $0.color = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+        $0.startAnimating()
+        $0.isHidden = true
+    })
+    
     private let contLoginView = specify(UIView(), {
         $0.backgroundColor = .clear
     })
@@ -92,7 +98,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
         startWorkoutButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-//                guard let self = self else { return }
+                self.spinnerView.isHidden = false
                 if self.loginTextField.text?.isEmpty ?? false ||
                     self.passwordTextField.text?.isEmpty ?? false {
                     self.createAlertController()
@@ -176,6 +182,7 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             $0.leading(16).trailing(16).topBottom(50, to: verTFStackView).height(Constants.sW / 5.5)
         })
         view.add(forgotPasswordButton, layoutBlock: { $0.topBottom(10, to: startWorkoutButton).centerX() })
+        view.add(spinnerView, layoutBlock: { $0.centerX().centerY(-20) })
         
         loginCenterYConstr = loginLabel.centerYAnchor.constraint(equalTo: contLoginView.centerYAnchor)
         loginCenterYConstr.isActive = true
