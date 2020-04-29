@@ -40,7 +40,8 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.semanticContentAttribute = .forceRightToLeft
         $0.contentHorizontalAlignment = .right
         $0.setImage(UIImage(named: "instagram"), for: .normal)
-        $0.customButton(text: "تسجيل الدخول بـ الانستقرام", font: 20, weight: .regular,
+        $0.customButton(text: "تسجيل الدخول بـ الانستقرام",
+                        font: Constants.sH_812 ? 20 : Constants.sH_667 ? 18 : 15, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1), bgColor: #colorLiteral(red: 0.7250000238, green: 0.2119999975, blue: 0.7799999714, alpha: 1))
     })
     
@@ -50,7 +51,8 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.semanticContentAttribute = .forceRightToLeft
         $0.contentHorizontalAlignment = .right
         $0.setImage(UIImage(named: "twitter"), for: .normal)
-        $0.customButton(text: "تسجيل الدخول بـ تويتر",font: 20, weight: .regular,
+        $0.customButton(text: "تسجيل الدخول بـ تويتر",
+                        font: Constants.sH_812 ? 20 : Constants.sH_667 ? 18 : 15, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.1568627451, green: 0.6823529412, blue: 0.9568627451, alpha: 1), bgColor: #colorLiteral(red: 0.1568627451, green: 0.6823529412, blue: 0.9568627451, alpha: 1))
     })
     
@@ -60,7 +62,8 @@ class SignInSceneViewController: BaseViewController<SignInSceneViewModel> {
         $0.semanticContentAttribute = .forceRightToLeft
         $0.contentHorizontalAlignment = .right
         $0.setImage(UIImage(named: "email"), for: .normal)
-        $0.customButton(text: "تسجيل الدخول بـ البريد الإلكتروني", font: 20, weight: .regular,
+        $0.customButton(text: "تسجيل الدخول بـ البريد الإلكتروني",
+                        font: Constants.sH_812 ? 20 : Constants.sH_667 ? 18 : 15, weight: .regular,
                         shadowColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1),  bgColor: #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1))
     })
     
