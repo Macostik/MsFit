@@ -59,6 +59,10 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
                 self.viewModel?.presentUpdateWeightObserver.onNext(())
             }).disposed(by: disposeBag)
         
+        scrollView.rx.contentOffset
+            .subscribe(onNext: { [unowned self] offset in
+                self.scrollView.contentOffset.y = offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
+            }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {

@@ -118,8 +118,7 @@ class ExerciseDetailSceneViewController: BaseViewController<ExerciseDetailSceneV
         
         scrollView.rx.contentOffset
             .subscribe(onNext: { offset in
-                self.scrollView.contentOffset.y =
-                    offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
+                self.scrollView.contentOffset.y = offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
             }).disposed(by: disposeBag)
     }
     

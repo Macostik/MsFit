@@ -205,8 +205,7 @@ class MealDetailSceneViewController: BaseViewController<MealDetailSceneViewModel
         
         scrollView.rx.contentOffset
             .subscribe(onNext: { [unowned self] offset in
-                self.scrollView.contentOffset.y =
-                    offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
+                self.scrollView.contentOffset.y = offset.y < 0.0 ? 0.0 : self.scrollView.contentOffset.y
             }).disposed(by: disposeBag)
         
         addMealButton.rx.tap

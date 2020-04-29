@@ -29,6 +29,7 @@ class UserView: UIView {
     })
     
     public let profileImageView = specify(UIImageView(), {
+        $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
         $0.layer.cornerRadius = 140 / 2
         $0.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
