@@ -32,6 +32,7 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
     
     private let tableView = specify(UITableView(), {
         $0.separatorStyle = .none
+        $0.rowHeight = Constants.sH_812 ? 70 : 60
         $0.register(HistoryCell.self, forCellReuseIdentifier: HistoryCell.identifier)
     })
     
@@ -70,7 +71,7 @@ class HistoryResultSceneViewController: BaseViewController<HistoryResultSceneVie
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44)})
         view.add(historyGraphView, layoutBlock: { $0.topBottom(to: navigationView).leading().trailing() })
         view.add(tableView, layoutBlock: {
-            $0.topBottom(25, to: historyGraphView).leading().trailing().height(240)
+            $0.topBottom(25, to: historyGraphView).leading().trailing().bottom()
         })
     }
     

@@ -39,7 +39,7 @@ class HistoryCell: UITableViewCell, CellIdentifierable {
         
         let hStackView = HStackView(arrangedSubviews: [containerView, resultLabel], spacing: 10)
         
-        add(hStackView, layoutBlock: { $0.trailing(16).top(20).bottom(20) })
+        add(hStackView, layoutBlock: { $0.trailing(16).centerY() })
         add(dateLabel, layoutBlock: { $0.leading(16).centerY() })
         containerView.add(changeImageView, layoutBlock: {
             $0.size(12).top(4).leading(4).trailing(4).bottom(4)

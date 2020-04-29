@@ -75,7 +75,7 @@ class SettingsSceneViewController: BaseViewController<SettingsSceneViewModel> {
         let vBaseStackView = VStackView(arrangedSubviews: [userView, graphView, measurementsView])
         
         view.add(scrollView, layoutBlock: { $0.top().width(Constants.sW).bottom(tabBarHeight) })
-        scrollView.add(vBaseStackView, layoutBlock: { $0.top().bottom().width(Constants.sW) })
+        scrollView.add(vBaseStackView, layoutBlock: { $0.top().bottom(30).width(Constants.sW) })
     }
     
     fileprivate func openGalery() {

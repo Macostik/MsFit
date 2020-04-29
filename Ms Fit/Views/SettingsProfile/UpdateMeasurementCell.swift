@@ -41,7 +41,7 @@ class UpdateMeasurementCell: UITableViewCell, CellIdentifierable {
         let hStackView = HStackView(arrangedSubviews: [exercisesImageView, exercisesLabel], spacing: 10)
         
         add(hStackView, layoutBlock: { $0.leading(16).centerY() })
-        add(resultLabel, layoutBlock: { $0.trailing(16).top(20).bottom(20) })
+        add(resultLabel, layoutBlock: { $0.trailing(16).centerY() })
         add(separatorView, layoutBlock: { $0.leading().trailing().bottom().height(1) })
     }
     

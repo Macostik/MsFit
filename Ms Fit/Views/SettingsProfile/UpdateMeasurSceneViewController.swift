@@ -35,6 +35,7 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
     
     private let tableView = specify(UITableView(), {
         $0.isScrollEnabled = false
+        $0.rowHeight = Constants.sH_812 ? 70 : 60
         $0.separatorStyle = .none
         $0.backgroundColor = .clear
         $0.register(UpdateMeasurementCell.self, forCellReuseIdentifier: UpdateMeasurementCell.identifier)
@@ -103,7 +104,7 @@ class UpdateMeasurSceneViewController: BaseViewController<UpdateMeasurSceneViewM
             $0.bottom(Constants.sH_812 ? 25 : 15).leading(16).trailing(16).height(Constants.sW / 6.5)
         })
         view.add(tableView, layoutBlock: {
-            $0.topBottom(60, to: navigationView).leading().trailing().height(240)
+            $0.topBottom(60, to: navigationView).leading().trailing().height(Constants.sH_812 ? 280 : 240)
         })
     }
     

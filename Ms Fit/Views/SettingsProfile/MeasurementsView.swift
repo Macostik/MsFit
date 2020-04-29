@@ -29,6 +29,7 @@ class MeasurementsView: UIView {
     private let tableView = specify(UITableView(), {
         $0.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         $0.isScrollEnabled = false
+        $0.rowHeight = Constants.sH_812 ? 70 : 60
         $0.separatorStyle = .none
         $0.backgroundColor = .clear
         $0.register(SettingUpdateCell.self, forCellReuseIdentifier: SettingUpdateCell.identifier)
@@ -75,7 +76,7 @@ class MeasurementsView: UIView {
     
     fileprivate func addConstraints() {
         add(measurementLabel, layoutBlock: { $0.trailing(16).top(30) })
-        add(tableView, layoutBlock: { $0.top(60).leading().trailing().height(237.33) })
+        add(tableView, layoutBlock: { $0.top(60).leading().trailing().height(Constants.sH_812 ? 280 : 240) })
         add(topSeparatorView, layoutBlock: {$0.bottomTop(to: tableView).leading().trailing().height(1) })
         add(containerView, layoutBlock: { $0.topBottom(to: tableView).leading().trailing() })
         containerView.add(bottomSeparatorView, layoutBlock: {$0.bottom().trailing().leading().height(1) })

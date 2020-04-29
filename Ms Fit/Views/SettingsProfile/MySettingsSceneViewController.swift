@@ -19,6 +19,12 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         $0.backgroundColor = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
     })
     
+    private let spinnerView = specify(UIActivityIndicatorView(), {
+        $0.color = #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1)
+        $0.startAnimating()
+        $0.isHidden = true
+    })
+    
     private let navTextLabel = specify(UILabel(), {
         $0.text = "الإعدادات"
         $0.font = .systemFont(ofSize: 20, weight: .medium)
@@ -103,7 +109,10 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
                 case .version:
                     break
                 case .logOut:
-                    self?.viewModel?.dismissToLoginObserver.onNext(())
+                    self?.spinnerView.isHidden = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        self?.viewModel?.dismissToLoginObserver.onNext(())
+                    }
                 }
             }).disposed(by: disposeBag)
     }
@@ -115,6 +124,7 @@ class MySettingsSceneViewController: BaseViewController<MySettingsSceneViewModel
         navigationView.add(navTextLabel, layoutBlock: { $0.centerX().bottom(Constants.sH_667 ? 15 : 8) })
         navigationView.add(closeButton, layoutBlock: { $0.centerY(to: navTextLabel).leading(4).size(44) })
         view.add(tableView, layoutBlock: { $0.leading().trailing().topBottom(to: navigationView).bottom() })
+        view.add(spinnerView, layoutBlock: { $0.center() })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
