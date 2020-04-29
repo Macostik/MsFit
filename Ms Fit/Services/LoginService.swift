@@ -43,7 +43,7 @@ class LoginService: RealmService<User> {
        }
     
     public func login(email: String, password: String, completion: (() -> Void)? = nil) {
-        APIManager.login(["email": email, "password": password]).json()
+        APIManager.login(["email": email, "password": password, "ios_device_token": deviceToken]).json()
             .subscribe(onNext: { json in
                 do {
                     let realm = RealmProvider.shared.realm

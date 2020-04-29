@@ -59,7 +59,7 @@ enum APIManager: URLRequestConvertible {
             let query: String?
             switch self {
             case .login:
-                query = "login"
+                query = "/login"
             case .register:
                 query = "register/email"
             case .daily_screen:

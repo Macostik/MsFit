@@ -137,36 +137,27 @@ extension SignInSceneViewController {
    
 }
 
-
-
 extension SignInSceneViewController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            
-            // Create an account in your system.
             let userIdentifier = appleIDCredential.user
             let firstName = appleIDCredential.fullName?.givenName
             let fullName = appleIDCredential.fullName?.familyName
             let email = appleIDCredential.email
             
-            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
             self.saveUserInKeychain(userIdentifier)
             
-            // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
-//            self.showResultViewController(userIdentifier: userIdentifier, fullName: fullName, email: email)
+//            self.viewModel?.presentMainSceneObserver.onNext(())
         
         case let passwordCredential as ASPasswordCredential:
-        
-            // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
             
-            // For the purpose of this demo app, show the password credential as an alert.
             DispatchQueue.main.async {
                 self.showPasswordCredentialAlert(username: username, password: password)
             }
-            
         default:
             break
         }

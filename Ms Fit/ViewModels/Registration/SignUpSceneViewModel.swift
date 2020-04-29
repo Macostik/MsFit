@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-let deviceToken = "740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf61bb78ad"
+let deviceToken = "740f4707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf61bbrt34"
 
 final class SignUpSceneViewModel: BaseViewModel<SignUpSceneModel> {
     

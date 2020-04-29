@@ -92,11 +92,17 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         startWorkoutButton.animateWhenPressed(disposeBag: disposeBag)
         startWorkoutButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-//                Observable.zip(self.loginTextField.rx.text.asObservable(),
-//                               self.passwordTextField.rx.text.asObservable())
-//                    .subscribe(onNext: { (email, password) in
-//                        self.viewModel?.tryLoginObserver = .just((email, password))
-//                    }).disposed(by: self.disposeBag)
+//                guard let self = self else { return }
+                if self.loginTextField.text?.isEmpty ?? false ||
+                    self.passwordTextField.text?.isEmpty ?? false {
+                    self.createAlertController()
+                } else {
+                    Observable.zip(self.loginTextField.rx.text.asObservable(),
+                                   self.passwordTextField.rx.text.asObservable())
+                        .subscribe(onNext: { (email, password) in
+                            self.viewModel?.tryLoginObserver = .just((email, password))
+                        }).disposed(by: self.disposeBag)
+                }
             }).disposed(by: disposeBag)
         
         forgotPasswordButton.rx.tap
@@ -107,13 +113,15 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         loginTextField.rx.controlEvent(.editingDidBegin)
             .subscribe(onNext: { [unowned self] _ in
                 self.isAnimationPlaceholder(isAnimation: true, nameLabel: self.loginLabel,
-                                            constr: self.loginCenterYConstr, view: self.contLoginView)
+                                            constr: self.loginCenterYConstr, view: self.contLoginView,
+                                            orEmpty: !(self.loginTextField.text?.isEmpty ?? false))
             }).disposed(by: disposeBag)
         
         loginTextField.rx.controlEvent(.editingDidEnd)
             .subscribe(onNext: { [unowned self] _ in
                 self.isAnimationPlaceholder(isAnimation: false, nameLabel: self.loginLabel,
-                                            constr: self.loginCenterYConstr, view: self.contLoginView)
+                                            constr: self.loginCenterYConstr, view: self.contLoginView,
+                                            orEmpty: !(self.loginTextField.text?.isEmpty ?? false))
             }).disposed(by: disposeBag)
         
         loginTextField.rx.controlEvent(.editingDidEndOnExit)
@@ -124,18 +132,24 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         passwordTextField.rx.controlEvent(.editingDidBegin)
             .subscribe(onNext: { [unowned self] _ in
                 self.isAnimationPlaceholder(isAnimation: true, nameLabel: self.passwordLabel,
-                                            constr: self.passCenterYConstr, view: self.contPasswordView)
+                                            constr: self.passCenterYConstr, view: self.contPasswordView,
+                                            orEmpty: !(self.passwordTextField.text?.isEmpty ?? false))
             }).disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidEnd)
             .subscribe(onNext: { [unowned self] _ in
                 self.isAnimationPlaceholder(isAnimation: false, nameLabel: self.passwordLabel,
-                                            constr: self.passCenterYConstr, view: self.contPasswordView)
+                                            constr: self.passCenterYConstr, view: self.contPasswordView,
+                                            orEmpty: !(self.passwordTextField.text?.isEmpty ?? false))
             }).disposed(by: disposeBag)
     }
     
     fileprivate func handleUI() {
         view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        
+        let dismissTapGestureRecognized = UITapGestureRecognizer(target: self.view,
+                                                                 action: #selector(view.endEditing(_:)))
+        view.addGestureRecognizer(dismissTapGestureRecognized)
     }
     
     fileprivate func addConstraints() {
@@ -143,10 +157,6 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
         let verTFStackView = VStackView(arrangedSubviews: [contLoginView, contPasswordView],
                                         spacing: 25)
         verTFStackView.distribution = .fillEqually
-        
-        let verForButtonStackView = VStackView(arrangedSubviews: [startWorkoutButton, forgotPasswordButton],
-                                        spacing: 10)
-        verForButtonStackView.distribution = .fillEqually
         
         view.add(closeButton, layoutBlock: {
             $0.top(Constants.sH_812 ? 50 : Constants.sH_667 ? 30 : 20).leading(6).size(44)
@@ -162,27 +172,34 @@ class LoginSceneViewController: BaseViewController<LoginSceneViewModel> {
             $0.topBottom(Constants.sH_812 ? 25 : Constants.sH_667 ? 20 : 0, to: emailImageView)
                 .leading(16).trailing(20)
         })
+        view.add(startWorkoutButton, layoutBlock: {
+            $0.leading(16).trailing(16).topBottom(50, to: verTFStackView).height(Constants.sW / 5.5)
+        })
+        view.add(forgotPasswordButton, layoutBlock: { $0.topBottom(10, to: startWorkoutButton).centerX() })
         
         loginCenterYConstr = loginLabel.centerYAnchor.constraint(equalTo: contLoginView.centerYAnchor)
         loginCenterYConstr.isActive = true
         passCenterYConstr = passwordLabel.centerYAnchor.constraint(equalTo: contPasswordView.centerYAnchor)
         passCenterYConstr.isActive = true
-        
-        startWorkoutButton.heightAnchor.constraint(equalToConstant: Constants.sW / 5.5).isActive = true
-        view.add(verForButtonStackView, layoutBlock: {
-            $0.leading(16).trailing(16).bottom(Constants.sH_812 ? 280 : 200)
-        })
+    }
+    
+    fileprivate func createAlertController() {
+        let alertController = UIAlertController(title: "تحذير!",
+                                                message: "أدخل تسجيل الدخول وكلمة المرور الصحيحة!",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "حسنا", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
     fileprivate func isAnimationPlaceholder(isAnimation: Bool, nameLabel: UILabel,
-                                            constr: NSLayoutConstraint, view: UIView) {
-            UIView.animate(withDuration: 0.3) {
-                nameLabel.textColor = isAnimation ? #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1) : #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
-                constr.constant = isAnimation ? -20 : 0
-                constr.isActive = !isAnimation
-                nameLabel.font = isAnimation ? .systemFont(ofSize: 16, weight: .regular) :
-                    .systemFont(ofSize: 18, weight: .regular)
-                view.layoutIfNeeded()
-            }
+                                            constr: NSLayoutConstraint, view: UIView, orEmpty: Bool) {
+        UIView.animate(withDuration: 0.3) {
+            constr.constant = orEmpty ? -20 : 0
+            nameLabel.textColor = isAnimation ? #colorLiteral(red: 0.5329999924, green: 0.3490000069, blue: 0.8899999857, alpha: 1) : #colorLiteral(red: 0.6159999967, green: 0.6159999967, blue: 0.6669999957, alpha: 1)
+            constr.isActive = !isAnimation
+            nameLabel.font = isAnimation ? .systemFont(ofSize: 16, weight: .regular) :
+                .systemFont(ofSize: 16, weight: .regular)
+            view.layoutIfNeeded()
+        }
     }
 }

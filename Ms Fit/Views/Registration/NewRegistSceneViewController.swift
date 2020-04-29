@@ -131,6 +131,7 @@ class NewRegistSceneViewController: BaseViewController<NewRegistSceneViewModel> 
         nextButton.rx.tap
             .map({ _ in false })
             .subscribe(onNext: { [unowned self] flag in
+                self.pickerView.selectRow(0, inComponent: 0, animated: false)
                 let isEnd = self.pickerElement == .age
                 self.verForButtonStackView.isHidden = !isEnd
                 self.buttonList.last?.isHidden = !isEnd
